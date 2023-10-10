@@ -1,9 +1,10 @@
 import React from 'react'
 import styled from 'styled-components/native'
-import { ScrollView } from 'react-native'
 
 import FirstFace from '../components/FirstFace';
 import ProfileInfo from '../components/ProfileInfo';
+import Stats from '../components/Stats';
+
 
 
 const View = styled.View`
@@ -34,6 +35,8 @@ const Profile = () => {
                 <FirstFace />
                 <Divider /> 
                 <ProfileInfo />
+                <Divider /> 
+                <Stats />
                 <Divider /> 
         </View>
     )

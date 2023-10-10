@@ -15,15 +15,6 @@ const NameColumn = styled.View`
   align-items: center;
 `;
 
-const UserCardFooter = styled.View`
-  position: absolute;
-  width: 100%;
-  height: 35%;
-  top: 0;
-  left: 0px;
-  background: ${(props) => (props.profile ? '#FFFFFF' : 'rgba(255, 255, 255, 0)')};
-`;
-
 const Text = styled.Text`
   font-size: 16px;
   font-weight: bold;
