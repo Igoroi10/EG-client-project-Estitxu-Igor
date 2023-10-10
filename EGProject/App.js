@@ -5,12 +5,13 @@ import { NavigationContainer } from '@react-navigation/native';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 import Home from './screens/Home';
 import  Header  from './components/Header';
+import SplashScreen from './components/SplashScreen';
 
 
 const App = () => {
   return (
     <View style={styles.container}>
-      <Home/>
+      <SplashScreen/>
     </View>
   );
 }
