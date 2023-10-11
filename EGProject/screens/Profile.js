@@ -4,6 +4,7 @@ import styled from 'styled-components/native'
 import FirstFace from '../components/FirstFace';
 import ProfileInfo from '../components/ProfileInfo';
 import Stats from '../components/Stats';
+import Diseases from '../components/Diseases';
 
 
 
@@ -12,15 +13,6 @@ const View = styled.View`
     align-items: center;
 `
 
-
-const Text = styled.Text`
-    font-size: 24px;
-    font-weight: bold;
-    margin: 0 10px;
-    padding-top: 75px;
-    text-align: center;
-    color: red;
-`
 
 const Divider = styled.View`
   width: 100%;
@@ -38,6 +30,7 @@ const Profile = () => {
                 <Divider /> 
                 <Stats />
                 <Divider /> 
+                <Diseases />
         </View>
     )
 }
