@@ -1,15 +1,18 @@
 import React from "react";
-import { ProgressBarAndroidComponent, ScrollView } from "react-native";
 import styled from "styled-components/native";
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
+import { TouchableOpacity } from "react-native";
+
+
 const Container = styled.View`
     width: 100%;
     height: 100%;
     flex-direction: column;
     align-items: center;
 `
+const Room = styled(TouchableOpacity)``;
 
-const Room = styled.TouchableOpacity`
+const RoomContent = styled.View`
     width: 300px;
     height: 100px;
     flex-direction: column;
@@ -20,10 +23,6 @@ const Room = styled.TouchableOpacity`
     background-color: grey;
 `
 
-const Separator = styled.View`
-    width: 100%;
-    height: 150px;
-`
 
 const Text = styled.Text`
     color: black;
@@ -34,10 +33,12 @@ const Text = styled.Text`
 const MainButtons = (props) => {
     return(
         <Container>
-        <Room>
-                <Icon name={props.iconName} size={50} color="black"/>
-                <Text>{props.label}</Text>
-        </Room>
+            <Room onPress={props.onPress}>
+                    <RoomContent>
+                        <Icon name={props.iconName} size={50} color="black" />
+                        <Text>{props.label}</Text>
+                    </RoomContent>
+                </Room>
         </Container>
     )
 }

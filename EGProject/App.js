@@ -6,13 +6,15 @@ import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 import Home from './screens/Home';
 import  Header  from './components/Header';
 import SplashScreen from './components/SplashScreen';
+import MyStack from './components/MyStack.js';
 
 
 const App = () => {
   return (
-    <View style={styles.container}>
-      <SplashScreen/>
-    </View>
+    <NavigationContainer>
+      <MyStack />
+    </NavigationContainer>
+    
   );
 }
 export default App
