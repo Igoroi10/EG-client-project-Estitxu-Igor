@@ -26,11 +26,13 @@ const App = () => {
     });
   }, []);
 
+
   return (
     <NavigationContainer>
       <MyStack />
     </NavigationContainer>
   );
+
 }
 export default App
 
