@@ -8,8 +8,8 @@ const Stack = createStackNavigator();
 export default function MyStack() {
   return (
     <Stack.Navigator initialRouteName="Home">
-      <Stack.Screen name="Home" component={Home} options={{ headerShown: false }} />
-      <Stack.Screen name="Profile" component={Profile} options={{ headerShown: false }} />
+      <Stack.Screen name="Home" component={Home}  />
+      <Stack.Screen name="Profile" component={Profile}  />
     </Stack.Navigator>
   );
 }

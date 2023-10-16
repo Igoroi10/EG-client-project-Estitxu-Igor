@@ -7,11 +7,16 @@ import Home from './screens/Home';
 import  Header  from './components/Header';
 import SplashScreen from './components/SplashScreen';
 import MyStack from './components/MyStack.js';
-
+import Profile from './screens/Profile';
+import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs';
+import { MaterialCommunityIcons } from '@expo/vector-icons';
 
 
 import { useEffect } from "react";
 import BootSplash from "react-native-bootsplash";
+
+const Tab = createMaterialTopTabNavigator();
+
 
 
 const App = () => {
@@ -29,7 +34,10 @@ const App = () => {
 
   return (
     <NavigationContainer>
+      
+
       <MyStack />
+
     </NavigationContainer>
   );
 
