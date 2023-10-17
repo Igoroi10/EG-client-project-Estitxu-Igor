@@ -1,5 +1,5 @@
 {
-  "name": "EGProject",
+  "name": "client",
   "version": "0.0.1",
   "private": true,
   "scripts": {
@@ -16,6 +16,7 @@
     "@react-navigation/material-top-tabs": "^6.6.4",
     "@react-navigation/native": "^6.1.8",
     "@react-navigation/stack": "^6.3.18",
+    "node-localstorage": "^3.0.5",
     "react": "18.2.0",
     "react-native": "0.72.5",
     "react-native-bootsplash": "^5.0.4",
