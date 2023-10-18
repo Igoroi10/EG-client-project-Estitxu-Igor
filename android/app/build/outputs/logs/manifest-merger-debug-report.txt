@@ -1,23 +1,23 @@
 -- Merging decision tree log ---
 manifest
-ADDED from /home/esetedos/Documents/AEG/equipo ganador/client-project-Estitxu-Unai-Igor/EGProject/android/app/src/main/AndroidManifest.xml:1:1-25:12
-INJECTED from /home/esetedos/Documents/AEG/equipo ganador/client-project-Estitxu-Unai-Igor/EGProject/android/app/src/main/AndroidManifest.xml:1:1-25:12
-INJECTED from /home/esetedos/Documents/AEG/equipo ganador/client-project-Estitxu-Unai-Igor/EGProject/android/app/src/main/AndroidManifest.xml:1:1-25:12
-INJECTED from /home/esetedos/Documents/AEG/equipo ganador/client-project-Estitxu-Unai-Igor/EGProject/android/app/src/main/AndroidManifest.xml:1:1-25:12
-MERGED from /home/esetedos/Documents/AEG/equipo ganador/client-project-Estitxu-Unai-Igor/EGProject/android/app/src/main/AndroidManifest.xml:1:1-25:12
+ADDED from /home/esetedos/Documents/AEG/equipo ganador/client-project-Estitxu-Unai-Igor/android/app/src/main/AndroidManifest.xml:1:1-25:12
+INJECTED from /home/esetedos/Documents/AEG/equipo ganador/client-project-Estitxu-Unai-Igor/android/app/src/main/AndroidManifest.xml:1:1-25:12
+INJECTED from /home/esetedos/Documents/AEG/equipo ganador/client-project-Estitxu-Unai-Igor/android/app/src/main/AndroidManifest.xml:1:1-25:12
+INJECTED from /home/esetedos/Documents/AEG/equipo ganador/client-project-Estitxu-Unai-Igor/android/app/src/main/AndroidManifest.xml:1:1-25:12
+MERGED from /home/esetedos/Documents/AEG/equipo ganador/client-project-Estitxu-Unai-Igor/android/app/src/main/AndroidManifest.xml:1:1-25:12
 MERGED from [com.facebook.flipper:flipper-network-plugin:0.182.0] /home/esetedos/.gradle/caches/transforms-3/f50e6a56b60647daeea44226d19f4461/transformed/jetified-flipper-network-plugin-0.182.0/AndroidManifest.xml:8:1-15:12
 MERGED from [com.facebook.flipper:flipper-fresco-plugin:0.182.0] /home/esetedos/.gradle/caches/transforms-3/36fbeb38e94dcd4fe88a07261f759a99/transformed/jetified-flipper-fresco-plugin-0.182.0/AndroidManifest.xml:8:1-15:12
 MERGED from [com.facebook.flipper:flipper:0.182.0] /home/esetedos/.gradle/caches/transforms-3/2c4aa7449f1f2904e68bb900cc469463/transformed/jetified-flipper-0.182.0/AndroidManifest.xml:8:1-18:12
-MERGED from [:react-native-firebase_auth] /home/esetedos/Documents/AEG/equipo ganador/client-project-Estitxu-Unai-Igor/EGProject/node_modules/@react-native-firebase/auth/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:2:1-11:12
-MERGED from [:react-native-firebase_app] /home/esetedos/Documents/AEG/equipo ganador/client-project-Estitxu-Unai-Igor/EGProject/node_modules/@react-native-firebase/app/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:2:1-30:12
-MERGED from [:react-native-google-signin_google-signin] /home/esetedos/Documents/AEG/equipo ganador/client-project-Estitxu-Unai-Igor/EGProject/node_modules/@react-native-google-signin/google-signin/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:2:1-7:12
-MERGED from [:react-native-masked-view_masked-view] /home/esetedos/Documents/AEG/equipo ganador/client-project-Estitxu-Unai-Igor/EGProject/node_modules/@react-native-masked-view/masked-view/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:2:1-7:12
-MERGED from [:react-native-bootsplash] /home/esetedos/Documents/AEG/equipo ganador/client-project-Estitxu-Unai-Igor/EGProject/node_modules/react-native-bootsplash/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:2:1-7:12
-MERGED from [:react-native-gesture-handler] /home/esetedos/Documents/AEG/equipo ganador/client-project-Estitxu-Unai-Igor/EGProject/node_modules/react-native-gesture-handler/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:2:1-7:12
-MERGED from [:react-native-pager-view] /home/esetedos/Documents/AEG/equipo ganador/client-project-Estitxu-Unai-Igor/EGProject/node_modules/react-native-pager-view/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:2:1-7:12
-MERGED from [:react-native-safe-area-context] /home/esetedos/Documents/AEG/equipo ganador/client-project-Estitxu-Unai-Igor/EGProject/node_modules/react-native-safe-area-context/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:2:1-7:12
-MERGED from [:react-native-screens] /home/esetedos/Documents/AEG/equipo ganador/client-project-Estitxu-Unai-Igor/EGProject/node_modules/react-native-screens/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:2:1-7:12
-MERGED from [:react-native-vector-icons] /home/esetedos/Documents/AEG/equipo ganador/client-project-Estitxu-Unai-Igor/EGProject/node_modules/react-native-vector-icons/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:2:1-7:12
+MERGED from [:react-native-firebase_auth] /home/esetedos/Documents/AEG/equipo ganador/client-project-Estitxu-Unai-Igor/node_modules/@react-native-firebase/auth/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:2:1-11:12
+MERGED from [:react-native-firebase_app] /home/esetedos/Documents/AEG/equipo ganador/client-project-Estitxu-Unai-Igor/node_modules/@react-native-firebase/app/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:2:1-30:12
+MERGED from [:react-native-google-signin_google-signin] /home/esetedos/Documents/AEG/equipo ganador/client-project-Estitxu-Unai-Igor/node_modules/@react-native-google-signin/google-signin/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:2:1-7:12
+MERGED from [:react-native-masked-view_masked-view] /home/esetedos/Documents/AEG/equipo ganador/client-project-Estitxu-Unai-Igor/node_modules/@react-native-masked-view/masked-view/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:2:1-7:12
+MERGED from [:react-native-bootsplash] /home/esetedos/Documents/AEG/equipo ganador/client-project-Estitxu-Unai-Igor/node_modules/react-native-bootsplash/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:2:1-7:12
+MERGED from [:react-native-gesture-handler] /home/esetedos/Documents/AEG/equipo ganador/client-project-Estitxu-Unai-Igor/node_modules/react-native-gesture-handler/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:2:1-7:12
+MERGED from [:react-native-pager-view] /home/esetedos/Documents/AEG/equipo ganador/client-project-Estitxu-Unai-Igor/node_modules/react-native-pager-view/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:2:1-7:12
+MERGED from [:react-native-safe-area-context] /home/esetedos/Documents/AEG/equipo ganador/client-project-Estitxu-Unai-Igor/node_modules/react-native-safe-area-context/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:2:1-7:12
+MERGED from [:react-native-screens] /home/esetedos/Documents/AEG/equipo ganador/client-project-Estitxu-Unai-Igor/node_modules/react-native-screens/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:2:1-7:12
+MERGED from [:react-native-vector-icons] /home/esetedos/Documents/AEG/equipo ganador/client-project-Estitxu-Unai-Igor/node_modules/react-native-vector-icons/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:2:1-7:12
 MERGED from [com.facebook.react:react-android:0.72.5] /home/esetedos/.gradle/caches/transforms-3/f4300a43ddbbdc38cdb0ba711c73d645/transformed/jetified-react-android-0.72.5-debug/AndroidManifest.xml:2:1-7:12
 MERGED from [androidx.swiperefreshlayout:swiperefreshlayout:1.0.0] /home/esetedos/.gradle/caches/transforms-3/ac72e566de342fe130be9db9d56bc5d6/transformed/swiperefreshlayout-1.0.0/AndroidManifest.xml:17:1-22:12
 MERGED from [com.facebook.react:hermes-android:0.72.5] /home/esetedos/.gradle/caches/transforms-3/dafc8c8836c38548257930a9d1f6d316/transformed/jetified-hermes-android-0.72.5-debug/AndroidManifest.xml:2:1-7:12
@@ -94,43 +94,43 @@ MERGED from [com.facebook.fresco:middleware:2.6.0] /home/esetedos/.gradle/caches
 MERGED from [com.facebook.fresco:ui-common:2.6.0] /home/esetedos/.gradle/caches/transforms-3/14f32fbb8be7d8611cd0cb58dbf568ff/transformed/jetified-ui-common-2.6.0/AndroidManifest.xml:2:1-9:12
 MERGED from [com.facebook.fresco:fbcore:2.6.0] /home/esetedos/.gradle/caches/transforms-3/621ae986691b9329d91b71fa835c8189/transformed/jetified-fbcore-2.6.0/AndroidManifest.xml:2:1-9:12
 MERGED from [androidx.annotation:annotation-experimental:1.1.0] /home/esetedos/.gradle/caches/transforms-3/83227a20576ab9694b30090c6f9ede98/transformed/jetified-annotation-experimental-1.1.0/AndroidManifest.xml:17:1-24:12
-INJECTED from /home/esetedos/Documents/AEG/equipo ganador/client-project-Estitxu-Unai-Igor/EGProject/android/app/src/debug/AndroidManifest.xml:2:1-13:12
-INJECTED from /home/esetedos/Documents/AEG/equipo ganador/client-project-Estitxu-Unai-Igor/EGProject/android/app/src/debug/AndroidManifest.xml:2:1-13:12
-INJECTED from /home/esetedos/Documents/AEG/equipo ganador/client-project-Estitxu-Unai-Igor/EGProject/android/app/src/debug/AndroidManifest.xml:2:1-13:12
+INJECTED from /home/esetedos/Documents/AEG/equipo ganador/client-project-Estitxu-Unai-Igor/android/app/src/debug/AndroidManifest.xml:2:1-13:12
+INJECTED from /home/esetedos/Documents/AEG/equipo ganador/client-project-Estitxu-Unai-Igor/android/app/src/debug/AndroidManifest.xml:2:1-13:12
+INJECTED from /home/esetedos/Documents/AEG/equipo ganador/client-project-Estitxu-Unai-Igor/android/app/src/debug/AndroidManifest.xml:2:1-13:12
 	package
-		INJECTED from /home/esetedos/Documents/AEG/equipo ganador/client-project-Estitxu-Unai-Igor/EGProject/android/app/src/main/AndroidManifest.xml
-		ADDED from /home/esetedos/Documents/AEG/equipo ganador/client-project-Estitxu-Unai-Igor/EGProject/android/app/src/main/AndroidManifest.xml:1:1-25:12
-		INJECTED from /home/esetedos/Documents/AEG/equipo ganador/client-project-Estitxu-Unai-Igor/EGProject/android/app/src/debug/AndroidManifest.xml
+		INJECTED from /home/esetedos/Documents/AEG/equipo ganador/client-project-Estitxu-Unai-Igor/android/app/src/main/AndroidManifest.xml
+		ADDED from /home/esetedos/Documents/AEG/equipo ganador/client-project-Estitxu-Unai-Igor/android/app/src/main/AndroidManifest.xml:1:1-25:12
+		INJECTED from /home/esetedos/Documents/AEG/equipo ganador/client-project-Estitxu-Unai-Igor/android/app/src/debug/AndroidManifest.xml
 	android:versionName
-		INJECTED from /home/esetedos/Documents/AEG/equipo ganador/client-project-Estitxu-Unai-Igor/EGProject/android/app/src/main/AndroidManifest.xml
-		ADDED from /home/esetedos/Documents/AEG/equipo ganador/client-project-Estitxu-Unai-Igor/EGProject/android/app/src/main/AndroidManifest.xml:1:1-25:12
-		INJECTED from /home/esetedos/Documents/AEG/equipo ganador/client-project-Estitxu-Unai-Igor/EGProject/android/app/src/debug/AndroidManifest.xml
+		INJECTED from /home/esetedos/Documents/AEG/equipo ganador/client-project-Estitxu-Unai-Igor/android/app/src/main/AndroidManifest.xml
+		ADDED from /home/esetedos/Documents/AEG/equipo ganador/client-project-Estitxu-Unai-Igor/android/app/src/main/AndroidManifest.xml:1:1-25:12
+		INJECTED from /home/esetedos/Documents/AEG/equipo ganador/client-project-Estitxu-Unai-Igor/android/app/src/debug/AndroidManifest.xml
 	xmlns:tools
-		ADDED from /home/esetedos/Documents/AEG/equipo ganador/client-project-Estitxu-Unai-Igor/EGProject/android/app/src/debug/AndroidManifest.xml:3:5-51
+		ADDED from /home/esetedos/Documents/AEG/equipo ganador/client-project-Estitxu-Unai-Igor/android/app/src/debug/AndroidManifest.xml:3:5-51
 	android:versionCode
-		INJECTED from /home/esetedos/Documents/AEG/equipo ganador/client-project-Estitxu-Unai-Igor/EGProject/android/app/src/main/AndroidManifest.xml
-		ADDED from /home/esetedos/Documents/AEG/equipo ganador/client-project-Estitxu-Unai-Igor/EGProject/android/app/src/main/AndroidManifest.xml:1:1-25:12
-		INJECTED from /home/esetedos/Documents/AEG/equipo ganador/client-project-Estitxu-Unai-Igor/EGProject/android/app/src/debug/AndroidManifest.xml
+		INJECTED from /home/esetedos/Documents/AEG/equipo ganador/client-project-Estitxu-Unai-Igor/android/app/src/main/AndroidManifest.xml
+		ADDED from /home/esetedos/Documents/AEG/equipo ganador/client-project-Estitxu-Unai-Igor/android/app/src/main/AndroidManifest.xml:1:1-25:12
+		INJECTED from /home/esetedos/Documents/AEG/equipo ganador/client-project-Estitxu-Unai-Igor/android/app/src/debug/AndroidManifest.xml
 	xmlns:android
-		ADDED from /home/esetedos/Documents/AEG/equipo ganador/client-project-Estitxu-Unai-Igor/EGProject/android/app/src/main/AndroidManifest.xml:1:11-69
+		ADDED from /home/esetedos/Documents/AEG/equipo ganador/client-project-Estitxu-Unai-Igor/android/app/src/main/AndroidManifest.xml:1:11-69
 uses-permission#android.permission.INTERNET
-ADDED from /home/esetedos/Documents/AEG/equipo ganador/client-project-Estitxu-Unai-Igor/EGProject/android/app/src/main/AndroidManifest.xml:3:5-67
+ADDED from /home/esetedos/Documents/AEG/equipo ganador/client-project-Estitxu-Unai-Igor/android/app/src/main/AndroidManifest.xml:3:5-67
 MERGED from [com.facebook.flipper:flipper:0.182.0] /home/esetedos/.gradle/caches/transforms-3/2c4aa7449f1f2904e68bb900cc469463/transformed/jetified-flipper-0.182.0/AndroidManifest.xml:15:5-67
 MERGED from [com.facebook.flipper:flipper:0.182.0] /home/esetedos/.gradle/caches/transforms-3/2c4aa7449f1f2904e68bb900cc469463/transformed/jetified-flipper-0.182.0/AndroidManifest.xml:15:5-67
-MERGED from [:react-native-firebase_auth] /home/esetedos/Documents/AEG/equipo ganador/client-project-Estitxu-Unai-Igor/EGProject/node_modules/@react-native-firebase/auth/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:7:5-67
-MERGED from [:react-native-firebase_auth] /home/esetedos/Documents/AEG/equipo ganador/client-project-Estitxu-Unai-Igor/EGProject/node_modules/@react-native-firebase/auth/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:7:5-67
+MERGED from [:react-native-firebase_auth] /home/esetedos/Documents/AEG/equipo ganador/client-project-Estitxu-Unai-Igor/node_modules/@react-native-firebase/auth/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:7:5-67
+MERGED from [:react-native-firebase_auth] /home/esetedos/Documents/AEG/equipo ganador/client-project-Estitxu-Unai-Igor/node_modules/@react-native-firebase/auth/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:7:5-67
 MERGED from [com.google.firebase:firebase-auth:22.1.2] /home/esetedos/.gradle/caches/transforms-3/33a7793f447160e86f04d94ab905ddb9/transformed/jetified-firebase-auth-22.1.2/AndroidManifest.xml:25:5-67
 MERGED from [com.google.firebase:firebase-auth:22.1.2] /home/esetedos/.gradle/caches/transforms-3/33a7793f447160e86f04d94ab905ddb9/transformed/jetified-firebase-auth-22.1.2/AndroidManifest.xml:25:5-67
 MERGED from [com.google.android.recaptcha:recaptcha:18.1.2] /home/esetedos/.gradle/caches/transforms-3/200ab4827659660bb80ccdd0741bc521/transformed/jetified-recaptcha-18.1.2/AndroidManifest.xml:7:5-67
 MERGED from [com.google.android.recaptcha:recaptcha:18.1.2] /home/esetedos/.gradle/caches/transforms-3/200ab4827659660bb80ccdd0741bc521/transformed/jetified-recaptcha-18.1.2/AndroidManifest.xml:7:5-67
 	android:name
-		ADDED from /home/esetedos/Documents/AEG/equipo ganador/client-project-Estitxu-Unai-Igor/EGProject/android/app/src/main/AndroidManifest.xml:3:22-64
+		ADDED from /home/esetedos/Documents/AEG/equipo ganador/client-project-Estitxu-Unai-Igor/android/app/src/main/AndroidManifest.xml:3:22-64
 application
-ADDED from /home/esetedos/Documents/AEG/equipo ganador/client-project-Estitxu-Unai-Igor/EGProject/android/app/src/main/AndroidManifest.xml:5:5-24:19
-MERGED from /home/esetedos/Documents/AEG/equipo ganador/client-project-Estitxu-Unai-Igor/EGProject/android/app/src/main/AndroidManifest.xml:5:5-24:19
-MERGED from /home/esetedos/Documents/AEG/equipo ganador/client-project-Estitxu-Unai-Igor/EGProject/android/app/src/main/AndroidManifest.xml:5:5-24:19
-MERGED from [:react-native-firebase_app] /home/esetedos/Documents/AEG/equipo ganador/client-project-Estitxu-Unai-Igor/EGProject/node_modules/@react-native-firebase/app/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:8:5-28:19
-MERGED from [:react-native-firebase_app] /home/esetedos/Documents/AEG/equipo ganador/client-project-Estitxu-Unai-Igor/EGProject/node_modules/@react-native-firebase/app/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:8:5-28:19
+ADDED from /home/esetedos/Documents/AEG/equipo ganador/client-project-Estitxu-Unai-Igor/android/app/src/main/AndroidManifest.xml:5:5-24:19
+MERGED from /home/esetedos/Documents/AEG/equipo ganador/client-project-Estitxu-Unai-Igor/android/app/src/main/AndroidManifest.xml:5:5-24:19
+MERGED from /home/esetedos/Documents/AEG/equipo ganador/client-project-Estitxu-Unai-Igor/android/app/src/main/AndroidManifest.xml:5:5-24:19
+MERGED from [:react-native-firebase_app] /home/esetedos/Documents/AEG/equipo ganador/client-project-Estitxu-Unai-Igor/node_modules/@react-native-firebase/app/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:8:5-28:19
+MERGED from [:react-native-firebase_app] /home/esetedos/Documents/AEG/equipo ganador/client-project-Estitxu-Unai-Igor/node_modules/@react-native-firebase/app/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:8:5-28:19
 MERGED from [com.google.firebase:firebase-auth:22.1.2] /home/esetedos/.gradle/caches/transforms-3/33a7793f447160e86f04d94ab905ddb9/transformed/jetified-firebase-auth-22.1.2/AndroidManifest.xml:28:5-73:19
 MERGED from [com.google.firebase:firebase-auth:22.1.2] /home/esetedos/.gradle/caches/transforms-3/33a7793f447160e86f04d94ab905ddb9/transformed/jetified-firebase-auth-22.1.2/AndroidManifest.xml:28:5-73:19
 MERGED from [com.google.firebase:firebase-auth-interop:20.0.0] /home/esetedos/.gradle/caches/transforms-3/3f91b900064fecea3ecbedd5cd1e9b83/transformed/jetified-firebase-auth-interop-20.0.0/AndroidManifest.xml:7:5-8:19
@@ -168,83 +168,83 @@ MERGED from [com.facebook.soloader:soloader:0.10.5] /home/esetedos/.gradle/cache
 	android:appComponentFactory
 		ADDED from [androidx.core:core:1.7.0] /home/esetedos/.gradle/caches/transforms-3/845c42ea617b425eb1fb868d75dc0e08/transformed/core-1.7.0/AndroidManifest.xml:24:18-86
 	android:label
-		ADDED from /home/esetedos/Documents/AEG/equipo ganador/client-project-Estitxu-Unai-Igor/EGProject/android/app/src/main/AndroidManifest.xml:7:7-39
-		ADDED from /home/esetedos/Documents/AEG/equipo ganador/client-project-Estitxu-Unai-Igor/EGProject/android/app/src/main/AndroidManifest.xml:7:7-39
+		ADDED from /home/esetedos/Documents/AEG/equipo ganador/client-project-Estitxu-Unai-Igor/android/app/src/main/AndroidManifest.xml:7:7-39
+		ADDED from /home/esetedos/Documents/AEG/equipo ganador/client-project-Estitxu-Unai-Igor/android/app/src/main/AndroidManifest.xml:7:7-39
 	tools:ignore
-		ADDED from /home/esetedos/Documents/AEG/equipo ganador/client-project-Estitxu-Unai-Igor/EGProject/android/app/src/debug/AndroidManifest.xml:10:9-48
+		ADDED from /home/esetedos/Documents/AEG/equipo ganador/client-project-Estitxu-Unai-Igor/android/app/src/debug/AndroidManifest.xml:10:9-48
 	android:roundIcon
-		ADDED from /home/esetedos/Documents/AEG/equipo ganador/client-project-Estitxu-Unai-Igor/EGProject/android/app/src/main/AndroidManifest.xml:9:7-52
-		ADDED from /home/esetedos/Documents/AEG/equipo ganador/client-project-Estitxu-Unai-Igor/EGProject/android/app/src/main/AndroidManifest.xml:9:7-52
+		ADDED from /home/esetedos/Documents/AEG/equipo ganador/client-project-Estitxu-Unai-Igor/android/app/src/main/AndroidManifest.xml:9:7-52
+		ADDED from /home/esetedos/Documents/AEG/equipo ganador/client-project-Estitxu-Unai-Igor/android/app/src/main/AndroidManifest.xml:9:7-52
 	tools:targetApi
-		ADDED from /home/esetedos/Documents/AEG/equipo ganador/client-project-Estitxu-Unai-Igor/EGProject/android/app/src/debug/AndroidManifest.xml:9:9-29
+		ADDED from /home/esetedos/Documents/AEG/equipo ganador/client-project-Estitxu-Unai-Igor/android/app/src/debug/AndroidManifest.xml:9:9-29
 	android:icon
-		ADDED from /home/esetedos/Documents/AEG/equipo ganador/client-project-Estitxu-Unai-Igor/EGProject/android/app/src/main/AndroidManifest.xml:8:7-41
-		ADDED from /home/esetedos/Documents/AEG/equipo ganador/client-project-Estitxu-Unai-Igor/EGProject/android/app/src/main/AndroidManifest.xml:8:7-41
+		ADDED from /home/esetedos/Documents/AEG/equipo ganador/client-project-Estitxu-Unai-Igor/android/app/src/main/AndroidManifest.xml:8:7-41
+		ADDED from /home/esetedos/Documents/AEG/equipo ganador/client-project-Estitxu-Unai-Igor/android/app/src/main/AndroidManifest.xml:8:7-41
 	android:allowBackup
-		ADDED from /home/esetedos/Documents/AEG/equipo ganador/client-project-Estitxu-Unai-Igor/EGProject/android/app/src/main/AndroidManifest.xml:10:7-34
-		ADDED from /home/esetedos/Documents/AEG/equipo ganador/client-project-Estitxu-Unai-Igor/EGProject/android/app/src/main/AndroidManifest.xml:10:7-34
+		ADDED from /home/esetedos/Documents/AEG/equipo ganador/client-project-Estitxu-Unai-Igor/android/app/src/main/AndroidManifest.xml:10:7-34
+		ADDED from /home/esetedos/Documents/AEG/equipo ganador/client-project-Estitxu-Unai-Igor/android/app/src/main/AndroidManifest.xml:10:7-34
 	android:theme
-		ADDED from /home/esetedos/Documents/AEG/equipo ganador/client-project-Estitxu-Unai-Igor/EGProject/android/app/src/main/AndroidManifest.xml:11:7-39
-		ADDED from /home/esetedos/Documents/AEG/equipo ganador/client-project-Estitxu-Unai-Igor/EGProject/android/app/src/main/AndroidManifest.xml:11:7-39
+		ADDED from /home/esetedos/Documents/AEG/equipo ganador/client-project-Estitxu-Unai-Igor/android/app/src/main/AndroidManifest.xml:11:7-39
+		ADDED from /home/esetedos/Documents/AEG/equipo ganador/client-project-Estitxu-Unai-Igor/android/app/src/main/AndroidManifest.xml:11:7-39
 	android:usesCleartextTraffic
-		ADDED from /home/esetedos/Documents/AEG/equipo ganador/client-project-Estitxu-Unai-Igor/EGProject/android/app/src/debug/AndroidManifest.xml:8:9-44
+		ADDED from /home/esetedos/Documents/AEG/equipo ganador/client-project-Estitxu-Unai-Igor/android/app/src/debug/AndroidManifest.xml:8:9-44
 	android:name
-		ADDED from /home/esetedos/Documents/AEG/equipo ganador/client-project-Estitxu-Unai-Igor/EGProject/android/app/src/main/AndroidManifest.xml:6:7-38
-		ADDED from /home/esetedos/Documents/AEG/equipo ganador/client-project-Estitxu-Unai-Igor/EGProject/android/app/src/main/AndroidManifest.xml:6:7-38
+		ADDED from /home/esetedos/Documents/AEG/equipo ganador/client-project-Estitxu-Unai-Igor/android/app/src/main/AndroidManifest.xml:6:7-38
+		ADDED from /home/esetedos/Documents/AEG/equipo ganador/client-project-Estitxu-Unai-Igor/android/app/src/main/AndroidManifest.xml:6:7-38
 activity#com.egproject.MainActivity
-ADDED from /home/esetedos/Documents/AEG/equipo ganador/client-project-Estitxu-Unai-Igor/EGProject/android/app/src/main/AndroidManifest.xml:12:7-23:18
+ADDED from /home/esetedos/Documents/AEG/equipo ganador/client-project-Estitxu-Unai-Igor/android/app/src/main/AndroidManifest.xml:12:7-23:18
 	android:label
-		ADDED from /home/esetedos/Documents/AEG/equipo ganador/client-project-Estitxu-Unai-Igor/EGProject/android/app/src/main/AndroidManifest.xml:14:9-41
+		ADDED from /home/esetedos/Documents/AEG/equipo ganador/client-project-Estitxu-Unai-Igor/android/app/src/main/AndroidManifest.xml:14:9-41
 	android:launchMode
-		ADDED from /home/esetedos/Documents/AEG/equipo ganador/client-project-Estitxu-Unai-Igor/EGProject/android/app/src/main/AndroidManifest.xml:16:9-40
+		ADDED from /home/esetedos/Documents/AEG/equipo ganador/client-project-Estitxu-Unai-Igor/android/app/src/main/AndroidManifest.xml:16:9-40
 	android:windowSoftInputMode
-		ADDED from /home/esetedos/Documents/AEG/equipo ganador/client-project-Estitxu-Unai-Igor/EGProject/android/app/src/main/AndroidManifest.xml:17:9-51
+		ADDED from /home/esetedos/Documents/AEG/equipo ganador/client-project-Estitxu-Unai-Igor/android/app/src/main/AndroidManifest.xml:17:9-51
 	android:exported
-		ADDED from /home/esetedos/Documents/AEG/equipo ganador/client-project-Estitxu-Unai-Igor/EGProject/android/app/src/main/AndroidManifest.xml:18:9-32
+		ADDED from /home/esetedos/Documents/AEG/equipo ganador/client-project-Estitxu-Unai-Igor/android/app/src/main/AndroidManifest.xml:18:9-32
 	android:configChanges
-		ADDED from /home/esetedos/Documents/AEG/equipo ganador/client-project-Estitxu-Unai-Igor/EGProject/android/app/src/main/AndroidManifest.xml:15:9-118
+		ADDED from /home/esetedos/Documents/AEG/equipo ganador/client-project-Estitxu-Unai-Igor/android/app/src/main/AndroidManifest.xml:15:9-118
 	android:name
-		ADDED from /home/esetedos/Documents/AEG/equipo ganador/client-project-Estitxu-Unai-Igor/EGProject/android/app/src/main/AndroidManifest.xml:13:9-37
+		ADDED from /home/esetedos/Documents/AEG/equipo ganador/client-project-Estitxu-Unai-Igor/android/app/src/main/AndroidManifest.xml:13:9-37
 intent-filter#action:name:android.intent.action.MAIN+category:name:android.intent.category.LAUNCHER
-ADDED from /home/esetedos/Documents/AEG/equipo ganador/client-project-Estitxu-Unai-Igor/EGProject/android/app/src/main/AndroidManifest.xml:19:9-22:25
+ADDED from /home/esetedos/Documents/AEG/equipo ganador/client-project-Estitxu-Unai-Igor/android/app/src/main/AndroidManifest.xml:19:9-22:25
 action#android.intent.action.MAIN
-ADDED from /home/esetedos/Documents/AEG/equipo ganador/client-project-Estitxu-Unai-Igor/EGProject/android/app/src/main/AndroidManifest.xml:20:13-65
+ADDED from /home/esetedos/Documents/AEG/equipo ganador/client-project-Estitxu-Unai-Igor/android/app/src/main/AndroidManifest.xml:20:13-65
 	android:name
-		ADDED from /home/esetedos/Documents/AEG/equipo ganador/client-project-Estitxu-Unai-Igor/EGProject/android/app/src/main/AndroidManifest.xml:20:21-62
+		ADDED from /home/esetedos/Documents/AEG/equipo ganador/client-project-Estitxu-Unai-Igor/android/app/src/main/AndroidManifest.xml:20:21-62
 category#android.intent.category.LAUNCHER
-ADDED from /home/esetedos/Documents/AEG/equipo ganador/client-project-Estitxu-Unai-Igor/EGProject/android/app/src/main/AndroidManifest.xml:21:13-73
+ADDED from /home/esetedos/Documents/AEG/equipo ganador/client-project-Estitxu-Unai-Igor/android/app/src/main/AndroidManifest.xml:21:13-73
 	android:name
-		ADDED from /home/esetedos/Documents/AEG/equipo ganador/client-project-Estitxu-Unai-Igor/EGProject/android/app/src/main/AndroidManifest.xml:21:23-70
+		ADDED from /home/esetedos/Documents/AEG/equipo ganador/client-project-Estitxu-Unai-Igor/android/app/src/main/AndroidManifest.xml:21:23-70
 uses-sdk
-INJECTED from /home/esetedos/Documents/AEG/equipo ganador/client-project-Estitxu-Unai-Igor/EGProject/android/app/src/main/AndroidManifest.xml reason: use-sdk injection requested
-INJECTED from /home/esetedos/Documents/AEG/equipo ganador/client-project-Estitxu-Unai-Igor/EGProject/android/app/src/main/AndroidManifest.xml
-INJECTED from /home/esetedos/Documents/AEG/equipo ganador/client-project-Estitxu-Unai-Igor/EGProject/android/app/src/main/AndroidManifest.xml
+INJECTED from /home/esetedos/Documents/AEG/equipo ganador/client-project-Estitxu-Unai-Igor/android/app/src/main/AndroidManifest.xml reason: use-sdk injection requested
+INJECTED from /home/esetedos/Documents/AEG/equipo ganador/client-project-Estitxu-Unai-Igor/android/app/src/main/AndroidManifest.xml
+INJECTED from /home/esetedos/Documents/AEG/equipo ganador/client-project-Estitxu-Unai-Igor/android/app/src/main/AndroidManifest.xml
 MERGED from [com.facebook.flipper:flipper-network-plugin:0.182.0] /home/esetedos/.gradle/caches/transforms-3/f50e6a56b60647daeea44226d19f4461/transformed/jetified-flipper-network-plugin-0.182.0/AndroidManifest.xml:11:5-13:41
 MERGED from [com.facebook.flipper:flipper-network-plugin:0.182.0] /home/esetedos/.gradle/caches/transforms-3/f50e6a56b60647daeea44226d19f4461/transformed/jetified-flipper-network-plugin-0.182.0/AndroidManifest.xml:11:5-13:41
 MERGED from [com.facebook.flipper:flipper-fresco-plugin:0.182.0] /home/esetedos/.gradle/caches/transforms-3/36fbeb38e94dcd4fe88a07261f759a99/transformed/jetified-flipper-fresco-plugin-0.182.0/AndroidManifest.xml:11:5-13:41
 MERGED from [com.facebook.flipper:flipper-fresco-plugin:0.182.0] /home/esetedos/.gradle/caches/transforms-3/36fbeb38e94dcd4fe88a07261f759a99/transformed/jetified-flipper-fresco-plugin-0.182.0/AndroidManifest.xml:11:5-13:41
 MERGED from [com.facebook.flipper:flipper:0.182.0] /home/esetedos/.gradle/caches/transforms-3/2c4aa7449f1f2904e68bb900cc469463/transformed/jetified-flipper-0.182.0/AndroidManifest.xml:11:5-13:41
 MERGED from [com.facebook.flipper:flipper:0.182.0] /home/esetedos/.gradle/caches/transforms-3/2c4aa7449f1f2904e68bb900cc469463/transformed/jetified-flipper-0.182.0/AndroidManifest.xml:11:5-13:41
-MERGED from [:react-native-firebase_auth] /home/esetedos/Documents/AEG/equipo ganador/client-project-Estitxu-Unai-Igor/EGProject/node_modules/@react-native-firebase/auth/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:5:5-44
-MERGED from [:react-native-firebase_auth] /home/esetedos/Documents/AEG/equipo ganador/client-project-Estitxu-Unai-Igor/EGProject/node_modules/@react-native-firebase/auth/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:5:5-44
-MERGED from [:react-native-firebase_app] /home/esetedos/Documents/AEG/equipo ganador/client-project-Estitxu-Unai-Igor/EGProject/node_modules/@react-native-firebase/app/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:6:5-44
-MERGED from [:react-native-firebase_app] /home/esetedos/Documents/AEG/equipo ganador/client-project-Estitxu-Unai-Igor/EGProject/node_modules/@react-native-firebase/app/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:6:5-44
-MERGED from [:react-native-google-signin_google-signin] /home/esetedos/Documents/AEG/equipo ganador/client-project-Estitxu-Unai-Igor/EGProject/node_modules/@react-native-google-signin/google-signin/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:5:5-44
-MERGED from [:react-native-google-signin_google-signin] /home/esetedos/Documents/AEG/equipo ganador/client-project-Estitxu-Unai-Igor/EGProject/node_modules/@react-native-google-signin/google-signin/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:5:5-44
-MERGED from [:react-native-masked-view_masked-view] /home/esetedos/Documents/AEG/equipo ganador/client-project-Estitxu-Unai-Igor/EGProject/node_modules/@react-native-masked-view/masked-view/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:5:5-44
-MERGED from [:react-native-masked-view_masked-view] /home/esetedos/Documents/AEG/equipo ganador/client-project-Estitxu-Unai-Igor/EGProject/node_modules/@react-native-masked-view/masked-view/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:5:5-44
-MERGED from [:react-native-bootsplash] /home/esetedos/Documents/AEG/equipo ganador/client-project-Estitxu-Unai-Igor/EGProject/node_modules/react-native-bootsplash/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:5:5-44
-MERGED from [:react-native-bootsplash] /home/esetedos/Documents/AEG/equipo ganador/client-project-Estitxu-Unai-Igor/EGProject/node_modules/react-native-bootsplash/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:5:5-44
-MERGED from [:react-native-gesture-handler] /home/esetedos/Documents/AEG/equipo ganador/client-project-Estitxu-Unai-Igor/EGProject/node_modules/react-native-gesture-handler/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:5:5-44
-MERGED from [:react-native-gesture-handler] /home/esetedos/Documents/AEG/equipo ganador/client-project-Estitxu-Unai-Igor/EGProject/node_modules/react-native-gesture-handler/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:5:5-44
-MERGED from [:react-native-pager-view] /home/esetedos/Documents/AEG/equipo ganador/client-project-Estitxu-Unai-Igor/EGProject/node_modules/react-native-pager-view/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:5:5-44
-MERGED from [:react-native-pager-view] /home/esetedos/Documents/AEG/equipo ganador/client-project-Estitxu-Unai-Igor/EGProject/node_modules/react-native-pager-view/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:5:5-44
-MERGED from [:react-native-safe-area-context] /home/esetedos/Documents/AEG/equipo ganador/client-project-Estitxu-Unai-Igor/EGProject/node_modules/react-native-safe-area-context/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:5:5-44
-MERGED from [:react-native-safe-area-context] /home/esetedos/Documents/AEG/equipo ganador/client-project-Estitxu-Unai-Igor/EGProject/node_modules/react-native-safe-area-context/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:5:5-44
-MERGED from [:react-native-screens] /home/esetedos/Documents/AEG/equipo ganador/client-project-Estitxu-Unai-Igor/EGProject/node_modules/react-native-screens/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:5:5-44
-MERGED from [:react-native-screens] /home/esetedos/Documents/AEG/equipo ganador/client-project-Estitxu-Unai-Igor/EGProject/node_modules/react-native-screens/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:5:5-44
-MERGED from [:react-native-vector-icons] /home/esetedos/Documents/AEG/equipo ganador/client-project-Estitxu-Unai-Igor/EGProject/node_modules/react-native-vector-icons/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:5:5-44
-MERGED from [:react-native-vector-icons] /home/esetedos/Documents/AEG/equipo ganador/client-project-Estitxu-Unai-Igor/EGProject/node_modules/react-native-vector-icons/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:5:5-44
+MERGED from [:react-native-firebase_auth] /home/esetedos/Documents/AEG/equipo ganador/client-project-Estitxu-Unai-Igor/node_modules/@react-native-firebase/auth/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:5:5-44
+MERGED from [:react-native-firebase_auth] /home/esetedos/Documents/AEG/equipo ganador/client-project-Estitxu-Unai-Igor/node_modules/@react-native-firebase/auth/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:5:5-44
+MERGED from [:react-native-firebase_app] /home/esetedos/Documents/AEG/equipo ganador/client-project-Estitxu-Unai-Igor/node_modules/@react-native-firebase/app/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:6:5-44
+MERGED from [:react-native-firebase_app] /home/esetedos/Documents/AEG/equipo ganador/client-project-Estitxu-Unai-Igor/node_modules/@react-native-firebase/app/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:6:5-44
+MERGED from [:react-native-google-signin_google-signin] /home/esetedos/Documents/AEG/equipo ganador/client-project-Estitxu-Unai-Igor/node_modules/@react-native-google-signin/google-signin/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:5:5-44
+MERGED from [:react-native-google-signin_google-signin] /home/esetedos/Documents/AEG/equipo ganador/client-project-Estitxu-Unai-Igor/node_modules/@react-native-google-signin/google-signin/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:5:5-44
+MERGED from [:react-native-masked-view_masked-view] /home/esetedos/Documents/AEG/equipo ganador/client-project-Estitxu-Unai-Igor/node_modules/@react-native-masked-view/masked-view/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:5:5-44
+MERGED from [:react-native-masked-view_masked-view] /home/esetedos/Documents/AEG/equipo ganador/client-project-Estitxu-Unai-Igor/node_modules/@react-native-masked-view/masked-view/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:5:5-44
+MERGED from [:react-native-bootsplash] /home/esetedos/Documents/AEG/equipo ganador/client-project-Estitxu-Unai-Igor/node_modules/react-native-bootsplash/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:5:5-44
+MERGED from [:react-native-bootsplash] /home/esetedos/Documents/AEG/equipo ganador/client-project-Estitxu-Unai-Igor/node_modules/react-native-bootsplash/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:5:5-44
+MERGED from [:react-native-gesture-handler] /home/esetedos/Documents/AEG/equipo ganador/client-project-Estitxu-Unai-Igor/node_modules/react-native-gesture-handler/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:5:5-44
+MERGED from [:react-native-gesture-handler] /home/esetedos/Documents/AEG/equipo ganador/client-project-Estitxu-Unai-Igor/node_modules/react-native-gesture-handler/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:5:5-44
+MERGED from [:react-native-pager-view] /home/esetedos/Documents/AEG/equipo ganador/client-project-Estitxu-Unai-Igor/node_modules/react-native-pager-view/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:5:5-44
+MERGED from [:react-native-pager-view] /home/esetedos/Documents/AEG/equipo ganador/client-project-Estitxu-Unai-Igor/node_modules/react-native-pager-view/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:5:5-44
+MERGED from [:react-native-safe-area-context] /home/esetedos/Documents/AEG/equipo ganador/client-project-Estitxu-Unai-Igor/node_modules/react-native-safe-area-context/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:5:5-44
+MERGED from [:react-native-safe-area-context] /home/esetedos/Documents/AEG/equipo ganador/client-project-Estitxu-Unai-Igor/node_modules/react-native-safe-area-context/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:5:5-44
+MERGED from [:react-native-screens] /home/esetedos/Documents/AEG/equipo ganador/client-project-Estitxu-Unai-Igor/node_modules/react-native-screens/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:5:5-44
+MERGED from [:react-native-screens] /home/esetedos/Documents/AEG/equipo ganador/client-project-Estitxu-Unai-Igor/node_modules/react-native-screens/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:5:5-44
+MERGED from [:react-native-vector-icons] /home/esetedos/Documents/AEG/equipo ganador/client-project-Estitxu-Unai-Igor/node_modules/react-native-vector-icons/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:5:5-44
+MERGED from [:react-native-vector-icons] /home/esetedos/Documents/AEG/equipo ganador/client-project-Estitxu-Unai-Igor/node_modules/react-native-vector-icons/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:5:5-44
 MERGED from [com.facebook.react:react-android:0.72.5] /home/esetedos/.gradle/caches/transforms-3/f4300a43ddbbdc38cdb0ba711c73d645/transformed/jetified-react-android-0.72.5-debug/AndroidManifest.xml:5:5-44
 MERGED from [com.facebook.react:react-android:0.72.5] /home/esetedos/.gradle/caches/transforms-3/f4300a43ddbbdc38cdb0ba711c73d645/transformed/jetified-react-android-0.72.5-debug/AndroidManifest.xml:5:5-44
 MERGED from [androidx.swiperefreshlayout:swiperefreshlayout:1.0.0] /home/esetedos/.gradle/caches/transforms-3/ac72e566de342fe130be9db9d56bc5d6/transformed/swiperefreshlayout-1.0.0/AndroidManifest.xml:20:5-44
@@ -397,78 +397,78 @@ MERGED from [com.facebook.fresco:fbcore:2.6.0] /home/esetedos/.gradle/caches/tra
 MERGED from [com.facebook.fresco:fbcore:2.6.0] /home/esetedos/.gradle/caches/transforms-3/621ae986691b9329d91b71fa835c8189/transformed/jetified-fbcore-2.6.0/AndroidManifest.xml:5:5-7:41
 MERGED from [androidx.annotation:annotation-experimental:1.1.0] /home/esetedos/.gradle/caches/transforms-3/83227a20576ab9694b30090c6f9ede98/transformed/jetified-annotation-experimental-1.1.0/AndroidManifest.xml:20:5-22:41
 MERGED from [androidx.annotation:annotation-experimental:1.1.0] /home/esetedos/.gradle/caches/transforms-3/83227a20576ab9694b30090c6f9ede98/transformed/jetified-annotation-experimental-1.1.0/AndroidManifest.xml:20:5-22:41
-INJECTED from /home/esetedos/Documents/AEG/equipo ganador/client-project-Estitxu-Unai-Igor/EGProject/android/app/src/debug/AndroidManifest.xml
-INJECTED from /home/esetedos/Documents/AEG/equipo ganador/client-project-Estitxu-Unai-Igor/EGProject/android/app/src/debug/AndroidManifest.xml
+INJECTED from /home/esetedos/Documents/AEG/equipo ganador/client-project-Estitxu-Unai-Igor/android/app/src/debug/AndroidManifest.xml
+INJECTED from /home/esetedos/Documents/AEG/equipo ganador/client-project-Estitxu-Unai-Igor/android/app/src/debug/AndroidManifest.xml
 	tools:overrideLibrary
 		ADDED from [com.google.firebase:firebase-auth:22.1.2] /home/esetedos/.gradle/caches/transforms-3/33a7793f447160e86f04d94ab905ddb9/transformed/jetified-firebase-auth-22.1.2/AndroidManifest.xml:23:9-61
 	android:targetSdkVersion
-		INJECTED from /home/esetedos/Documents/AEG/equipo ganador/client-project-Estitxu-Unai-Igor/EGProject/android/app/src/main/AndroidManifest.xml
-		INJECTED from /home/esetedos/Documents/AEG/equipo ganador/client-project-Estitxu-Unai-Igor/EGProject/android/app/src/debug/AndroidManifest.xml
+		INJECTED from /home/esetedos/Documents/AEG/equipo ganador/client-project-Estitxu-Unai-Igor/android/app/src/main/AndroidManifest.xml
+		INJECTED from /home/esetedos/Documents/AEG/equipo ganador/client-project-Estitxu-Unai-Igor/android/app/src/debug/AndroidManifest.xml
 	android:minSdkVersion
-		INJECTED from /home/esetedos/Documents/AEG/equipo ganador/client-project-Estitxu-Unai-Igor/EGProject/android/app/src/main/AndroidManifest.xml
-		INJECTED from /home/esetedos/Documents/AEG/equipo ganador/client-project-Estitxu-Unai-Igor/EGProject/android/app/src/debug/AndroidManifest.xml
+		INJECTED from /home/esetedos/Documents/AEG/equipo ganador/client-project-Estitxu-Unai-Igor/android/app/src/main/AndroidManifest.xml
+		INJECTED from /home/esetedos/Documents/AEG/equipo ganador/client-project-Estitxu-Unai-Igor/android/app/src/debug/AndroidManifest.xml
 uses-permission#android.permission.SYSTEM_ALERT_WINDOW
-ADDED from /home/esetedos/Documents/AEG/equipo ganador/client-project-Estitxu-Unai-Igor/EGProject/android/app/src/debug/AndroidManifest.xml:5:5-77
+ADDED from /home/esetedos/Documents/AEG/equipo ganador/client-project-Estitxu-Unai-Igor/android/app/src/debug/AndroidManifest.xml:5:5-77
 	android:name
-		ADDED from /home/esetedos/Documents/AEG/equipo ganador/client-project-Estitxu-Unai-Igor/EGProject/android/app/src/debug/AndroidManifest.xml:5:22-75
+		ADDED from /home/esetedos/Documents/AEG/equipo ganador/client-project-Estitxu-Unai-Igor/android/app/src/debug/AndroidManifest.xml:5:22-75
 activity#com.facebook.react.devsupport.DevSettingsActivity
-ADDED from /home/esetedos/Documents/AEG/equipo ganador/client-project-Estitxu-Unai-Igor/EGProject/android/app/src/debug/AndroidManifest.xml:11:9-111
+ADDED from /home/esetedos/Documents/AEG/equipo ganador/client-project-Estitxu-Unai-Igor/android/app/src/debug/AndroidManifest.xml:11:9-111
 	android:exported
-		ADDED from /home/esetedos/Documents/AEG/equipo ganador/client-project-Estitxu-Unai-Igor/EGProject/android/app/src/debug/AndroidManifest.xml:11:84-108
+		ADDED from /home/esetedos/Documents/AEG/equipo ganador/client-project-Estitxu-Unai-Igor/android/app/src/debug/AndroidManifest.xml:11:84-108
 	android:name
-		ADDED from /home/esetedos/Documents/AEG/equipo ganador/client-project-Estitxu-Unai-Igor/EGProject/android/app/src/debug/AndroidManifest.xml:11:19-83
+		ADDED from /home/esetedos/Documents/AEG/equipo ganador/client-project-Estitxu-Unai-Igor/android/app/src/debug/AndroidManifest.xml:11:19-83
 uses-permission#android.permission.ACCESS_WIFI_STATE
 ADDED from [com.facebook.flipper:flipper:0.182.0] /home/esetedos/.gradle/caches/transforms-3/2c4aa7449f1f2904e68bb900cc469463/transformed/jetified-flipper-0.182.0/AndroidManifest.xml:16:5-76
 	android:name
 		ADDED from [com.facebook.flipper:flipper:0.182.0] /home/esetedos/.gradle/caches/transforms-3/2c4aa7449f1f2904e68bb900cc469463/transformed/jetified-flipper-0.182.0/AndroidManifest.xml:16:22-73
 uses-permission#android.permission.WAKE_LOCK
-ADDED from [:react-native-firebase_auth] /home/esetedos/Documents/AEG/equipo ganador/client-project-Estitxu-Unai-Igor/EGProject/node_modules/@react-native-firebase/auth/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:8:5-68
+ADDED from [:react-native-firebase_auth] /home/esetedos/Documents/AEG/equipo ganador/client-project-Estitxu-Unai-Igor/node_modules/@react-native-firebase/auth/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:8:5-68
 	android:name
-		ADDED from [:react-native-firebase_auth] /home/esetedos/Documents/AEG/equipo ganador/client-project-Estitxu-Unai-Igor/EGProject/node_modules/@react-native-firebase/auth/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:8:22-65
+		ADDED from [:react-native-firebase_auth] /home/esetedos/Documents/AEG/equipo ganador/client-project-Estitxu-Unai-Igor/node_modules/@react-native-firebase/auth/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:8:22-65
 uses-permission#android.permission.ACCESS_NETWORK_STATE
-ADDED from [:react-native-firebase_auth] /home/esetedos/Documents/AEG/equipo ganador/client-project-Estitxu-Unai-Igor/EGProject/node_modules/@react-native-firebase/auth/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:9:5-79
+ADDED from [:react-native-firebase_auth] /home/esetedos/Documents/AEG/equipo ganador/client-project-Estitxu-Unai-Igor/node_modules/@react-native-firebase/auth/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:9:5-79
 MERGED from [com.google.firebase:firebase-auth:22.1.2] /home/esetedos/.gradle/caches/transforms-3/33a7793f447160e86f04d94ab905ddb9/transformed/jetified-firebase-auth-22.1.2/AndroidManifest.xml:26:5-79
 MERGED from [com.google.firebase:firebase-auth:22.1.2] /home/esetedos/.gradle/caches/transforms-3/33a7793f447160e86f04d94ab905ddb9/transformed/jetified-firebase-auth-22.1.2/AndroidManifest.xml:26:5-79
 MERGED from [com.google.android.recaptcha:recaptcha:18.1.2] /home/esetedos/.gradle/caches/transforms-3/200ab4827659660bb80ccdd0741bc521/transformed/jetified-recaptcha-18.1.2/AndroidManifest.xml:8:5-79
 MERGED from [com.google.android.recaptcha:recaptcha:18.1.2] /home/esetedos/.gradle/caches/transforms-3/200ab4827659660bb80ccdd0741bc521/transformed/jetified-recaptcha-18.1.2/AndroidManifest.xml:8:5-79
 	android:name
-		ADDED from [:react-native-firebase_auth] /home/esetedos/Documents/AEG/equipo ganador/client-project-Estitxu-Unai-Igor/EGProject/node_modules/@react-native-firebase/auth/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:9:22-76
+		ADDED from [:react-native-firebase_auth] /home/esetedos/Documents/AEG/equipo ganador/client-project-Estitxu-Unai-Igor/node_modules/@react-native-firebase/auth/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:9:22-76
 meta-data#app_data_collection_default_enabled
-ADDED from [:react-native-firebase_app] /home/esetedos/Documents/AEG/equipo ganador/client-project-Estitxu-Unai-Igor/EGProject/node_modules/@react-native-firebase/app/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:9:9-11:36
+ADDED from [:react-native-firebase_app] /home/esetedos/Documents/AEG/equipo ganador/client-project-Estitxu-Unai-Igor/node_modules/@react-native-firebase/app/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:9:9-11:36
 	android:value
-		ADDED from [:react-native-firebase_app] /home/esetedos/Documents/AEG/equipo ganador/client-project-Estitxu-Unai-Igor/EGProject/node_modules/@react-native-firebase/app/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:11:13-33
+		ADDED from [:react-native-firebase_app] /home/esetedos/Documents/AEG/equipo ganador/client-project-Estitxu-Unai-Igor/node_modules/@react-native-firebase/app/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:11:13-33
 	android:name
-		ADDED from [:react-native-firebase_app] /home/esetedos/Documents/AEG/equipo ganador/client-project-Estitxu-Unai-Igor/EGProject/node_modules/@react-native-firebase/app/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:10:13-63
+		ADDED from [:react-native-firebase_app] /home/esetedos/Documents/AEG/equipo ganador/client-project-Estitxu-Unai-Igor/node_modules/@react-native-firebase/app/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:10:13-63
 service#com.google.firebase.components.ComponentDiscoveryService
-ADDED from [:react-native-firebase_app] /home/esetedos/Documents/AEG/equipo ganador/client-project-Estitxu-Unai-Igor/EGProject/node_modules/@react-native-firebase/app/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:13:9-21:19
+ADDED from [:react-native-firebase_app] /home/esetedos/Documents/AEG/equipo ganador/client-project-Estitxu-Unai-Igor/node_modules/@react-native-firebase/app/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:13:9-21:19
 MERGED from [com.google.firebase:firebase-auth:22.1.2] /home/esetedos/.gradle/caches/transforms-3/33a7793f447160e86f04d94ab905ddb9/transformed/jetified-firebase-auth-22.1.2/AndroidManifest.xml:66:9-72:19
 MERGED from [com.google.firebase:firebase-auth:22.1.2] /home/esetedos/.gradle/caches/transforms-3/33a7793f447160e86f04d94ab905ddb9/transformed/jetified-firebase-auth-22.1.2/AndroidManifest.xml:66:9-72:19
 MERGED from [com.google.firebase:firebase-common:20.3.3] /home/esetedos/.gradle/caches/transforms-3/04618219489c9d9e3066293e05e86ee0/transformed/jetified-firebase-common-20.3.3/AndroidManifest.xml:32:9-36:35
 MERGED from [com.google.firebase:firebase-common:20.3.3] /home/esetedos/.gradle/caches/transforms-3/04618219489c9d9e3066293e05e86ee0/transformed/jetified-firebase-common-20.3.3/AndroidManifest.xml:32:9-36:35
 	android:exported
-		ADDED from [:react-native-firebase_app] /home/esetedos/Documents/AEG/equipo ganador/client-project-Estitxu-Unai-Igor/EGProject/node_modules/@react-native-firebase/app/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:16:13-37
+		ADDED from [:react-native-firebase_app] /home/esetedos/Documents/AEG/equipo ganador/client-project-Estitxu-Unai-Igor/node_modules/@react-native-firebase/app/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:16:13-37
 	tools:targetApi
-		ADDED from [:react-native-firebase_app] /home/esetedos/Documents/AEG/equipo ganador/client-project-Estitxu-Unai-Igor/EGProject/node_modules/@react-native-firebase/app/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:17:13-32
+		ADDED from [:react-native-firebase_app] /home/esetedos/Documents/AEG/equipo ganador/client-project-Estitxu-Unai-Igor/node_modules/@react-native-firebase/app/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:17:13-32
 	android:directBootAware
-		ADDED from [:react-native-firebase_app] /home/esetedos/Documents/AEG/equipo ganador/client-project-Estitxu-Unai-Igor/EGProject/node_modules/@react-native-firebase/app/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:15:13-43
+		ADDED from [:react-native-firebase_app] /home/esetedos/Documents/AEG/equipo ganador/client-project-Estitxu-Unai-Igor/node_modules/@react-native-firebase/app/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:15:13-43
 	android:name
-		ADDED from [:react-native-firebase_app] /home/esetedos/Documents/AEG/equipo ganador/client-project-Estitxu-Unai-Igor/EGProject/node_modules/@react-native-firebase/app/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:14:13-84
+		ADDED from [:react-native-firebase_app] /home/esetedos/Documents/AEG/equipo ganador/client-project-Estitxu-Unai-Igor/node_modules/@react-native-firebase/app/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:14:13-84
 meta-data#com.google.firebase.components:io.invertase.firebase.app.ReactNativeFirebaseAppRegistrar
-ADDED from [:react-native-firebase_app] /home/esetedos/Documents/AEG/equipo ganador/client-project-Estitxu-Unai-Igor/EGProject/node_modules/@react-native-firebase/app/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:18:13-20:85
+ADDED from [:react-native-firebase_app] /home/esetedos/Documents/AEG/equipo ganador/client-project-Estitxu-Unai-Igor/node_modules/@react-native-firebase/app/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:18:13-20:85
 	android:value
-		ADDED from [:react-native-firebase_app] /home/esetedos/Documents/AEG/equipo ganador/client-project-Estitxu-Unai-Igor/EGProject/node_modules/@react-native-firebase/app/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:20:17-82
+		ADDED from [:react-native-firebase_app] /home/esetedos/Documents/AEG/equipo ganador/client-project-Estitxu-Unai-Igor/node_modules/@react-native-firebase/app/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:20:17-82
 	android:name
-		ADDED from [:react-native-firebase_app] /home/esetedos/Documents/AEG/equipo ganador/client-project-Estitxu-Unai-Igor/EGProject/node_modules/@react-native-firebase/app/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:19:17-120
+		ADDED from [:react-native-firebase_app] /home/esetedos/Documents/AEG/equipo ganador/client-project-Estitxu-Unai-Igor/node_modules/@react-native-firebase/app/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:19:17-120
 provider#io.invertase.firebase.app.ReactNativeFirebaseAppInitProvider
-ADDED from [:react-native-firebase_app] /home/esetedos/Documents/AEG/equipo ganador/client-project-Estitxu-Unai-Igor/EGProject/node_modules/@react-native-firebase/app/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:23:9-27:38
+ADDED from [:react-native-firebase_app] /home/esetedos/Documents/AEG/equipo ganador/client-project-Estitxu-Unai-Igor/node_modules/@react-native-firebase/app/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:23:9-27:38
 	android:authorities
-		ADDED from [:react-native-firebase_app] /home/esetedos/Documents/AEG/equipo ganador/client-project-Estitxu-Unai-Igor/EGProject/node_modules/@react-native-firebase/app/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:25:13-86
+		ADDED from [:react-native-firebase_app] /home/esetedos/Documents/AEG/equipo ganador/client-project-Estitxu-Unai-Igor/node_modules/@react-native-firebase/app/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:25:13-86
 	android:exported
-		ADDED from [:react-native-firebase_app] /home/esetedos/Documents/AEG/equipo ganador/client-project-Estitxu-Unai-Igor/EGProject/node_modules/@react-native-firebase/app/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:26:13-37
+		ADDED from [:react-native-firebase_app] /home/esetedos/Documents/AEG/equipo ganador/client-project-Estitxu-Unai-Igor/node_modules/@react-native-firebase/app/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:26:13-37
 	android:initOrder
-		ADDED from [:react-native-firebase_app] /home/esetedos/Documents/AEG/equipo ganador/client-project-Estitxu-Unai-Igor/EGProject/node_modules/@react-native-firebase/app/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:27:13-35
+		ADDED from [:react-native-firebase_app] /home/esetedos/Documents/AEG/equipo ganador/client-project-Estitxu-Unai-Igor/node_modules/@react-native-firebase/app/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:27:13-35
 	android:name
-		ADDED from [:react-native-firebase_app] /home/esetedos/Documents/AEG/equipo ganador/client-project-Estitxu-Unai-Igor/EGProject/node_modules/@react-native-firebase/app/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:24:13-88
+		ADDED from [:react-native-firebase_app] /home/esetedos/Documents/AEG/equipo ganador/client-project-Estitxu-Unai-Igor/node_modules/@react-native-firebase/app/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:24:13-88
 activity#com.google.firebase.auth.internal.GenericIdpActivity
 ADDED from [com.google.firebase:firebase-auth:22.1.2] /home/esetedos/.gradle/caches/transforms-3/33a7793f447160e86f04d94ab905ddb9/transformed/jetified-firebase-auth-22.1.2/AndroidManifest.xml:29:9-46:20
 	android:excludeFromRecents

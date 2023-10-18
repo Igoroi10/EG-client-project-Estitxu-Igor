@@ -4,7 +4,7 @@
             "outputFile": "com.egproject.app-mergeDebugResources-35:/values-v31/values-v31.xml",
             "map": [
                 {
-                    "source": "/home/esetedos/Documents/AEG/equipo ganador/client-project-Estitxu-Unai-Igor/EGProject/node_modules/react-native-bootsplash/android/build/intermediates/packaged_res/debug/values-v31/values-v31.xml",
+                    "source": "/home/esetedos/Documents/AEG/equipo ganador/client-project-Estitxu-Unai-Igor/node_modules/react-native-bootsplash/android/build/intermediates/packaged_res/debug/values-v31/values-v31.xml",
                     "from": {
                         "startLines": "2",
                         "startColumns": "4",

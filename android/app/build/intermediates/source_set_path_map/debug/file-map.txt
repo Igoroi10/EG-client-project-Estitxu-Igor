@@ -29,22 +29,22 @@ com.egproject.app-jetified-react-android-0.72.5-debug-27 /home/esetedos/.gradle/
 com.egproject.app-jetified-lifecycle-process-2.4.0-28 /home/esetedos/.gradle/caches/transforms-3/f479eb7a3dc97eecd3d998321b7cd73d/transformed/jetified-lifecycle-process-2.4.0/res
 com.egproject.app-jetified-appcompat-resources-1.4.1-29 /home/esetedos/.gradle/caches/transforms-3/f52f5947a10c752f9ed467e4c63e27c1/transformed/jetified-appcompat-resources-1.4.1/res
 com.egproject.app-jetified-drawee-2.6.0-30 /home/esetedos/.gradle/caches/transforms-3/fc02383a5a1112b8c61a99af2ab4d8a1/transformed/jetified-drawee-2.6.0/res
-com.egproject.app-google-services-31 /home/esetedos/Documents/AEG/equipo ganador/client-project-Estitxu-Unai-Igor/EGProject/android/app/build/generated/res/google-services/debug
-com.egproject.app-pngs-32 /home/esetedos/Documents/AEG/equipo ganador/client-project-Estitxu-Unai-Igor/EGProject/android/app/build/generated/res/pngs/debug
-com.egproject.app-resValues-33 /home/esetedos/Documents/AEG/equipo ganador/client-project-Estitxu-Unai-Igor/EGProject/android/app/build/generated/res/resValues/debug
-com.egproject.app-rs-34 /home/esetedos/Documents/AEG/equipo ganador/client-project-Estitxu-Unai-Igor/EGProject/android/app/build/generated/res/rs/debug
-com.egproject.app-mergeDebugResources-35 /home/esetedos/Documents/AEG/equipo ganador/client-project-Estitxu-Unai-Igor/EGProject/android/app/build/intermediates/incremental/debug/mergeDebugResources/merged.dir
-com.egproject.app-mergeDebugResources-36 /home/esetedos/Documents/AEG/equipo ganador/client-project-Estitxu-Unai-Igor/EGProject/android/app/build/intermediates/incremental/debug/mergeDebugResources/stripped.dir
-com.egproject.app-merged_res-37 /home/esetedos/Documents/AEG/equipo ganador/client-project-Estitxu-Unai-Igor/EGProject/android/app/build/intermediates/merged_res/debug
-com.egproject.app-debug-38 /home/esetedos/Documents/AEG/equipo ganador/client-project-Estitxu-Unai-Igor/EGProject/android/app/src/debug/res
-com.egproject.app-main-39 /home/esetedos/Documents/AEG/equipo ganador/client-project-Estitxu-Unai-Igor/EGProject/android/app/src/main/res
-com.egproject.app-packaged_res-40 /home/esetedos/Documents/AEG/equipo ganador/client-project-Estitxu-Unai-Igor/EGProject/node_modules/@react-native-firebase/app/android/build/intermediates/packaged_res/debug
-com.egproject.app-packaged_res-41 /home/esetedos/Documents/AEG/equipo ganador/client-project-Estitxu-Unai-Igor/EGProject/node_modules/@react-native-firebase/auth/android/build/intermediates/packaged_res/debug
-com.egproject.app-packaged_res-42 /home/esetedos/Documents/AEG/equipo ganador/client-project-Estitxu-Unai-Igor/EGProject/node_modules/@react-native-google-signin/google-signin/android/build/intermediates/packaged_res/debug
-com.egproject.app-packaged_res-43 /home/esetedos/Documents/AEG/equipo ganador/client-project-Estitxu-Unai-Igor/EGProject/node_modules/@react-native-masked-view/masked-view/android/build/intermediates/packaged_res/debug
-com.egproject.app-packaged_res-44 /home/esetedos/Documents/AEG/equipo ganador/client-project-Estitxu-Unai-Igor/EGProject/node_modules/react-native-bootsplash/android/build/intermediates/packaged_res/debug
-com.egproject.app-packaged_res-45 /home/esetedos/Documents/AEG/equipo ganador/client-project-Estitxu-Unai-Igor/EGProject/node_modules/react-native-gesture-handler/android/build/intermediates/packaged_res/debug
-com.egproject.app-packaged_res-46 /home/esetedos/Documents/AEG/equipo ganador/client-project-Estitxu-Unai-Igor/EGProject/node_modules/react-native-pager-view/android/build/intermediates/packaged_res/debug
-com.egproject.app-packaged_res-47 /home/esetedos/Documents/AEG/equipo ganador/client-project-Estitxu-Unai-Igor/EGProject/node_modules/react-native-safe-area-context/android/build/intermediates/packaged_res/debug
-com.egproject.app-packaged_res-48 /home/esetedos/Documents/AEG/equipo ganador/client-project-Estitxu-Unai-Igor/EGProject/node_modules/react-native-screens/android/build/intermediates/packaged_res/debug
-com.egproject.app-packaged_res-49 /home/esetedos/Documents/AEG/equipo ganador/client-project-Estitxu-Unai-Igor/EGProject/node_modules/react-native-vector-icons/android/build/intermediates/packaged_res/debug
+com.egproject.app-google-services-31 /home/esetedos/Documents/AEG/equipo ganador/client-project-Estitxu-Unai-Igor/android/app/build/generated/res/google-services/debug
+com.egproject.app-pngs-32 /home/esetedos/Documents/AEG/equipo ganador/client-project-Estitxu-Unai-Igor/android/app/build/generated/res/pngs/debug
+com.egproject.app-resValues-33 /home/esetedos/Documents/AEG/equipo ganador/client-project-Estitxu-Unai-Igor/android/app/build/generated/res/resValues/debug
+com.egproject.app-rs-34 /home/esetedos/Documents/AEG/equipo ganador/client-project-Estitxu-Unai-Igor/android/app/build/generated/res/rs/debug
+com.egproject.app-mergeDebugResources-35 /home/esetedos/Documents/AEG/equipo ganador/client-project-Estitxu-Unai-Igor/android/app/build/intermediates/incremental/debug/mergeDebugResources/merged.dir
+com.egproject.app-mergeDebugResources-36 /home/esetedos/Documents/AEG/equipo ganador/client-project-Estitxu-Unai-Igor/android/app/build/intermediates/incremental/debug/mergeDebugResources/stripped.dir
+com.egproject.app-merged_res-37 /home/esetedos/Documents/AEG/equipo ganador/client-project-Estitxu-Unai-Igor/android/app/build/intermediates/merged_res/debug
+com.egproject.app-debug-38 /home/esetedos/Documents/AEG/equipo ganador/client-project-Estitxu-Unai-Igor/android/app/src/debug/res
+com.egproject.app-main-39 /home/esetedos/Documents/AEG/equipo ganador/client-project-Estitxu-Unai-Igor/android/app/src/main/res
+com.egproject.app-packaged_res-40 /home/esetedos/Documents/AEG/equipo ganador/client-project-Estitxu-Unai-Igor/node_modules/@react-native-firebase/app/android/build/intermediates/packaged_res/debug
+com.egproject.app-packaged_res-41 /home/esetedos/Documents/AEG/equipo ganador/client-project-Estitxu-Unai-Igor/node_modules/@react-native-firebase/auth/android/build/intermediates/packaged_res/debug
+com.egproject.app-packaged_res-42 /home/esetedos/Documents/AEG/equipo ganador/client-project-Estitxu-Unai-Igor/node_modules/@react-native-google-signin/google-signin/android/build/intermediates/packaged_res/debug
+com.egproject.app-packaged_res-43 /home/esetedos/Documents/AEG/equipo ganador/client-project-Estitxu-Unai-Igor/node_modules/@react-native-masked-view/masked-view/android/build/intermediates/packaged_res/debug
+com.egproject.app-packaged_res-44 /home/esetedos/Documents/AEG/equipo ganador/client-project-Estitxu-Unai-Igor/node_modules/react-native-bootsplash/android/build/intermediates/packaged_res/debug
+com.egproject.app-packaged_res-45 /home/esetedos/Documents/AEG/equipo ganador/client-project-Estitxu-Unai-Igor/node_modules/react-native-gesture-handler/android/build/intermediates/packaged_res/debug
+com.egproject.app-packaged_res-46 /home/esetedos/Documents/AEG/equipo ganador/client-project-Estitxu-Unai-Igor/node_modules/react-native-pager-view/android/build/intermediates/packaged_res/debug
+com.egproject.app-packaged_res-47 /home/esetedos/Documents/AEG/equipo ganador/client-project-Estitxu-Unai-Igor/node_modules/react-native-safe-area-context/android/build/intermediates/packaged_res/debug
+com.egproject.app-packaged_res-48 /home/esetedos/Documents/AEG/equipo ganador/client-project-Estitxu-Unai-Igor/node_modules/react-native-screens/android/build/intermediates/packaged_res/debug
+com.egproject.app-packaged_res-49 /home/esetedos/Documents/AEG/equipo ganador/client-project-Estitxu-Unai-Igor/node_modules/react-native-vector-icons/android/build/intermediates/packaged_res/debug

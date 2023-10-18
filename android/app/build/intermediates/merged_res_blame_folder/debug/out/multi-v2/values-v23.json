@@ -23,7 +23,7 @@
                     }
                 },
                 {
-                    "source": "/home/esetedos/Documents/AEG/equipo ganador/client-project-Estitxu-Unai-Igor/EGProject/node_modules/react-native-bootsplash/android/build/intermediates/packaged_res/debug/values-v23/values-v23.xml",
+                    "source": "/home/esetedos/Documents/AEG/equipo ganador/client-project-Estitxu-Unai-Igor/node_modules/react-native-bootsplash/android/build/intermediates/packaged_res/debug/values-v23/values-v23.xml",
                     "from": {
                         "startLines": "2,5",
                         "startColumns": "4,4",
