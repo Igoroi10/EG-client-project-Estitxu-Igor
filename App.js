@@ -107,3 +107,7 @@ const modalHandler = (state) =>{
     //Rest of cases to be implemented in the future
   }
 }
+
+export {
+  pageState
+}
