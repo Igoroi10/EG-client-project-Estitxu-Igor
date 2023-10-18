@@ -11,7 +11,7 @@ import Profile from './screens/Profile';
 import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 
-import { AsyncStorage } from '@react-native-async-storage/async-storage';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 import { useEffect } from "react";
 import BootSplash from "react-native-bootsplash";
 
@@ -24,18 +24,21 @@ const App = () => {
   useEffect(() => {
     const init = async () => {
       // …do multiple sync or async tasks
-      console.log("Enters init function")
-    const value = "User data";
+    const value = { name: "name",
+                    email: "mail",
+                    atributes: {strength: "strength",
+                                stamina: "0",
+                                poisoned: true }}
 
     storeData(value);
     const user = getData()
+    console.log("USER:")
     console.log(user);
     
   };
 
     init().finally(async () => {
       await BootSplash.hide({ fade: true });
-      console.log("BootSplash has been hidden successfully");
     });
   }, []);
 
@@ -67,17 +70,15 @@ const storeData = async (value) => {
     const jsonValue = JSON.stringify(value);
     await AsyncStorage.setItem('my-key', jsonValue);
   } catch (e) {
-    // saving error
+    console.log("error set")
   }
 };
-
-  console.log("set passed")
   
 const getData = async () => {
   try {
     const jsonValue = await AsyncStorage.getItem('my-key');
     return jsonValue != null ? JSON.parse(jsonValue) : null;
   } catch (e) {
-    // error reading value
+    console.log("error get")
   }
 };
