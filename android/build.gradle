@@ -1,7 +1,10 @@
 // Top-level build file where you can add configuration options common to all sub-projects/modules.
+<<<<<<< HEAD
 apply plugin:  'com.google.gms.google-services' 
 
 
+=======
+>>>>>>> develop
 
 buildscript {
     ext {
@@ -10,17 +13,23 @@ buildscript {
         compileSdkVersion = 33
         targetSdkVersion = 33
 
+<<<<<<< HEAD
         supportLibVersion = "27.1.1"
 
 
         // We use NDK 23 which has both M1 support and is the side-by-side NDK version from AGP.
         ndkVersion = "23.1.7779620"
         googlePlayServicesAuthVersion = "19.2.0" 
+=======
+        // We use NDK 23 which has both M1 support and is the side-by-side NDK version from AGP.
+        ndkVersion = "23.1.7779620"
+>>>>>>> develop
     }
     repositories {
         google()
         mavenCentral()
     }
+<<<<<<< HEAD
 
     
     dependencies {
@@ -44,3 +53,10 @@ buildscript {
     // plugins {
     //     id 'com.google.gms.google-services' version '4.4.0' apply false
     // }
+=======
+    dependencies {
+        classpath("com.android.tools.build:gradle")
+        classpath("com.facebook.react:react-native-gradle-plugin")
+    }
+}
+>>>>>>> develop
