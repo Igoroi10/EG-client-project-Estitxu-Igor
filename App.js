@@ -21,19 +21,23 @@ const Tab = createMaterialTopTabNavigator();
 
 
 const App = () => {
+
+  const [pageState, setPage] = useState(['mainPage'])
+
   useEffect(() => {
     const init = async () => {
       // …do multiple sync or async tasks
-    const value = { name: "name",
-                    email: "mail",
-                    atributes: {strength: "strength",
-                                stamina: "0",
-                                poisoned: true }}
+    const value = null;
+                    // { name: "name",
+                    // email: "mail",
+                    // atributes: {strength: "strength",
+                    //             stamina: "0",
+                    //             poisoned: true }}
 
-    storeData(value);
+    await storeData(value);
     const user = await getData()
-    console.log("USER:")
-    console.log(user);
+
+    userCheck(user);
     
   };
 
@@ -42,13 +46,11 @@ const App = () => {
     });
   }, []);
 
+  useEffect(modalHandler(pageState), pageState);
 
   return (
     <NavigationContainer>
-      
-
       <MyStack />
-
     </NavigationContainer>
   );
 
@@ -82,3 +84,26 @@ const getData = async () => {
     console.log("error get")
   }
 };
+
+const userCheck= (value) => {
+  
+    if(value === null){
+      setPage(['googlePage'])
+    }
+    else{
+      setPage(['mainPage'])
+    }
+}
+
+const modalHandler = (state) =>{
+  
+  switch(state){
+    case 'mainPage':
+      //Hide all modals
+      break;
+    case 'googlePage':
+      //Hide all modals + showGoogle
+      break;
+    //Rest of cases to be implemented in the future
+  }
+}
