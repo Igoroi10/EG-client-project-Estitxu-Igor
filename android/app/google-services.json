@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "191142773304",
+    "project_id": "equipo-ganador",
+    "storage_bucket": "equipo-ganador.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:191142773304:android:bd4580a8edcbbcb061dccd",
+        "android_client_info": {
+          "package_name": "com.egproject"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "191142773304-e8to1uhcobvtt6non6dijersuiudjid3.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.egproject",
+            "certificate_hash": "5e8f16062ea3cd2c4a0d547876baa6f38cabf625"
+          }
+        },
+        {
+          "client_id": "191142773304-svg8ajvir2075qjot6q18b7bhq45e4ps.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAGikqqfi2rBz4PcBePGFyp9MKwsptYMdo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "191142773304-svg8ajvir2075qjot6q18b7bhq45e4ps.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
