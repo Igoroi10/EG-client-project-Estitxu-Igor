@@ -31,7 +31,7 @@ const App = () => {
                                 poisoned: true }}
 
     storeData(value);
-    const user = getData()
+    const user = await getData()
     console.log("USER:")
     console.log(user);
     
@@ -68,7 +68,7 @@ const styles = StyleSheet.create({
 const storeData = async (value) => {
   try {
     const jsonValue = JSON.stringify(value);
-    await AsyncStorage.setItem('my-key', jsonValue);
+    await AsyncStorage.setItem('my-key', jsonValue); 
   } catch (e) {
     console.log("error set")
   }
