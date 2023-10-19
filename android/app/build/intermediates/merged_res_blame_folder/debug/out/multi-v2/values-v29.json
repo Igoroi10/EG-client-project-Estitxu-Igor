@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "com.egproject.app-mergeDebugResources-35:/values-v29/values-v29.xml",
+            "outputFile": "com.egproject.app-mergeDebugResources-50:/values-v29/values-v29.xml",
             "map": [
                 {
                     "source": "/home/esetedos/Documents/AEG/equipo ganador/client-project-Estitxu-Unai-Igor/node_modules/react-native-bootsplash/android/build/intermediates/packaged_res/debug/values-v29/values-v29.xml",

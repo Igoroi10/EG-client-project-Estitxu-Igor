@@ -1,10 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "com.egproject.app-mergeDebugResources-35:/values-v17/values-v17.xml",
+            "outputFile": "com.egproject.app-mergeDebugResources-50:/values-v17/values-v17.xml",
             "map": [
                 {
-                    "source": "/home/esetedos/.gradle/caches/transforms-3/e21a48fc07e68aa916f2f9287a02e87d/transformed/appcompat-1.4.1/res/values-v17/values-v17.xml",
+                    "source": "/home/esetedos/.gradle/caches/transforms-3/ac8d0903fd886064e4440a5355d1dcc4/transformed/appcompat-1.6.1/res/values-v17/values-v17.xml",
                     "from": {
                         "startLines": "2,5,9,12,15,18,22,25,29,33,37,40,43,46,50,53,57",
                         "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",

@@ -24,250 +24,305 @@
 15-->[:react-native-firebase_auth] /home/esetedos/Documents/AEG/equipo ganador/client-project-Estitxu-Unai-Igor/node_modules/@react-native-firebase/auth/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:9:5-79
 15-->[:react-native-firebase_auth] /home/esetedos/Documents/AEG/equipo ganador/client-project-Estitxu-Unai-Igor/node_modules/@react-native-firebase/auth/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:9:22-76
 16
-17    <application
-17-->/home/esetedos/Documents/AEG/equipo ganador/client-project-Estitxu-Unai-Igor/android/app/src/main/AndroidManifest.xml:5:5-24:19
-18        android:name="com.egproject.MainApplication"
-18-->/home/esetedos/Documents/AEG/equipo ganador/client-project-Estitxu-Unai-Igor/android/app/src/main/AndroidManifest.xml:6:7-38
-19        android:allowBackup="false"
-19-->/home/esetedos/Documents/AEG/equipo ganador/client-project-Estitxu-Unai-Igor/android/app/src/main/AndroidManifest.xml:10:7-34
-20        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
-20-->[androidx.core:core:1.7.0] /home/esetedos/.gradle/caches/transforms-3/845c42ea617b425eb1fb868d75dc0e08/transformed/core-1.7.0/AndroidManifest.xml:24:18-86
-21        android:debuggable="true"
-22        android:icon="@mipmap/ic_launcher"
-22-->/home/esetedos/Documents/AEG/equipo ganador/client-project-Estitxu-Unai-Igor/android/app/src/main/AndroidManifest.xml:8:7-41
-23        android:label="@string/app_name"
-23-->/home/esetedos/Documents/AEG/equipo ganador/client-project-Estitxu-Unai-Igor/android/app/src/main/AndroidManifest.xml:7:7-39
-24        android:roundIcon="@mipmap/ic_launcher_round"
-24-->/home/esetedos/Documents/AEG/equipo ganador/client-project-Estitxu-Unai-Igor/android/app/src/main/AndroidManifest.xml:9:7-52
-25        android:theme="@style/BootTheme"
-25-->/home/esetedos/Documents/AEG/equipo ganador/client-project-Estitxu-Unai-Igor/android/app/src/main/AndroidManifest.xml:11:7-39
-26        android:usesCleartextTraffic="true" >
-26-->/home/esetedos/Documents/AEG/equipo ganador/client-project-Estitxu-Unai-Igor/android/app/src/debug/AndroidManifest.xml:8:9-44
-27        <activity
-27-->/home/esetedos/Documents/AEG/equipo ganador/client-project-Estitxu-Unai-Igor/android/app/src/debug/AndroidManifest.xml:11:9-111
-28            android:name="com.facebook.react.devsupport.DevSettingsActivity"
-28-->/home/esetedos/Documents/AEG/equipo ganador/client-project-Estitxu-Unai-Igor/android/app/src/debug/AndroidManifest.xml:11:19-83
-29            android:exported="false" />
-29-->/home/esetedos/Documents/AEG/equipo ganador/client-project-Estitxu-Unai-Igor/android/app/src/debug/AndroidManifest.xml:11:84-108
-30        <activity
-30-->/home/esetedos/Documents/AEG/equipo ganador/client-project-Estitxu-Unai-Igor/android/app/src/main/AndroidManifest.xml:12:7-23:18
-31            android:name="com.egproject.MainActivity"
-31-->/home/esetedos/Documents/AEG/equipo ganador/client-project-Estitxu-Unai-Igor/android/app/src/main/AndroidManifest.xml:13:9-37
-32            android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|screenSize|smallestScreenSize|uiMode"
-32-->/home/esetedos/Documents/AEG/equipo ganador/client-project-Estitxu-Unai-Igor/android/app/src/main/AndroidManifest.xml:15:9-118
-33            android:exported="true"
-33-->/home/esetedos/Documents/AEG/equipo ganador/client-project-Estitxu-Unai-Igor/android/app/src/main/AndroidManifest.xml:18:9-32
-34            android:label="@string/app_name"
-34-->/home/esetedos/Documents/AEG/equipo ganador/client-project-Estitxu-Unai-Igor/android/app/src/main/AndroidManifest.xml:14:9-41
-35            android:launchMode="singleTask"
-35-->/home/esetedos/Documents/AEG/equipo ganador/client-project-Estitxu-Unai-Igor/android/app/src/main/AndroidManifest.xml:16:9-40
-36            android:windowSoftInputMode="adjustResize" >
-36-->/home/esetedos/Documents/AEG/equipo ganador/client-project-Estitxu-Unai-Igor/android/app/src/main/AndroidManifest.xml:17:9-51
-37            <intent-filter>
-37-->/home/esetedos/Documents/AEG/equipo ganador/client-project-Estitxu-Unai-Igor/android/app/src/main/AndroidManifest.xml:19:9-22:25
-38                <action android:name="android.intent.action.MAIN" />
-38-->/home/esetedos/Documents/AEG/equipo ganador/client-project-Estitxu-Unai-Igor/android/app/src/main/AndroidManifest.xml:20:13-65
-38-->/home/esetedos/Documents/AEG/equipo ganador/client-project-Estitxu-Unai-Igor/android/app/src/main/AndroidManifest.xml:20:21-62
-39
-40                <category android:name="android.intent.category.LAUNCHER" />
-40-->/home/esetedos/Documents/AEG/equipo ganador/client-project-Estitxu-Unai-Igor/android/app/src/main/AndroidManifest.xml:21:13-73
-40-->/home/esetedos/Documents/AEG/equipo ganador/client-project-Estitxu-Unai-Igor/android/app/src/main/AndroidManifest.xml:21:23-70
-41            </intent-filter>
-42        </activity>
-43
-44        <meta-data
-44-->[:react-native-firebase_app] /home/esetedos/Documents/AEG/equipo ganador/client-project-Estitxu-Unai-Igor/node_modules/@react-native-firebase/app/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:9:9-11:36
-45            android:name="app_data_collection_default_enabled"
-45-->[:react-native-firebase_app] /home/esetedos/Documents/AEG/equipo ganador/client-project-Estitxu-Unai-Igor/node_modules/@react-native-firebase/app/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:10:13-63
-46            android:value="true" />
-46-->[:react-native-firebase_app] /home/esetedos/Documents/AEG/equipo ganador/client-project-Estitxu-Unai-Igor/node_modules/@react-native-firebase/app/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:11:13-33
-47
-48        <service
-48-->[:react-native-firebase_app] /home/esetedos/Documents/AEG/equipo ganador/client-project-Estitxu-Unai-Igor/node_modules/@react-native-firebase/app/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:13:9-21:19
-49            android:name="com.google.firebase.components.ComponentDiscoveryService"
-49-->[:react-native-firebase_app] /home/esetedos/Documents/AEG/equipo ganador/client-project-Estitxu-Unai-Igor/node_modules/@react-native-firebase/app/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:14:13-84
-50            android:directBootAware="true"
-50-->[:react-native-firebase_app] /home/esetedos/Documents/AEG/equipo ganador/client-project-Estitxu-Unai-Igor/node_modules/@react-native-firebase/app/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:15:13-43
-51            android:exported="false" >
-51-->[:react-native-firebase_app] /home/esetedos/Documents/AEG/equipo ganador/client-project-Estitxu-Unai-Igor/node_modules/@react-native-firebase/app/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:16:13-37
-52            <meta-data
-52-->[:react-native-firebase_app] /home/esetedos/Documents/AEG/equipo ganador/client-project-Estitxu-Unai-Igor/node_modules/@react-native-firebase/app/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:18:13-20:85
-53                android:name="com.google.firebase.components:io.invertase.firebase.app.ReactNativeFirebaseAppRegistrar"
-53-->[:react-native-firebase_app] /home/esetedos/Documents/AEG/equipo ganador/client-project-Estitxu-Unai-Igor/node_modules/@react-native-firebase/app/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:19:17-120
-54                android:value="com.google.firebase.components.ComponentRegistrar" />
-54-->[:react-native-firebase_app] /home/esetedos/Documents/AEG/equipo ganador/client-project-Estitxu-Unai-Igor/node_modules/@react-native-firebase/app/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:20:17-82
-55            <meta-data
-55-->[com.google.firebase:firebase-auth:22.1.2] /home/esetedos/.gradle/caches/transforms-3/33a7793f447160e86f04d94ab905ddb9/transformed/jetified-firebase-auth-22.1.2/AndroidManifest.xml:69:13-71:85
-56                android:name="com.google.firebase.components:com.google.firebase.auth.FirebaseAuthRegistrar"
-56-->[com.google.firebase:firebase-auth:22.1.2] /home/esetedos/.gradle/caches/transforms-3/33a7793f447160e86f04d94ab905ddb9/transformed/jetified-firebase-auth-22.1.2/AndroidManifest.xml:70:17-109
-57                android:value="com.google.firebase.components.ComponentRegistrar" />
-57-->[com.google.firebase:firebase-auth:22.1.2] /home/esetedos/.gradle/caches/transforms-3/33a7793f447160e86f04d94ab905ddb9/transformed/jetified-firebase-auth-22.1.2/AndroidManifest.xml:71:17-82
-58        </service>
-59
-60        <provider
-60-->[:react-native-firebase_app] /home/esetedos/Documents/AEG/equipo ganador/client-project-Estitxu-Unai-Igor/node_modules/@react-native-firebase/app/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:23:9-27:38
-61            android:name="io.invertase.firebase.app.ReactNativeFirebaseAppInitProvider"
-61-->[:react-native-firebase_app] /home/esetedos/Documents/AEG/equipo ganador/client-project-Estitxu-Unai-Igor/node_modules/@react-native-firebase/app/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:24:13-88
-62            android:authorities="com.egproject.reactnativefirebaseappinitprovider"
-62-->[:react-native-firebase_app] /home/esetedos/Documents/AEG/equipo ganador/client-project-Estitxu-Unai-Igor/node_modules/@react-native-firebase/app/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:25:13-86
-63            android:exported="false"
-63-->[:react-native-firebase_app] /home/esetedos/Documents/AEG/equipo ganador/client-project-Estitxu-Unai-Igor/node_modules/@react-native-firebase/app/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:26:13-37
-64            android:initOrder="99" />
-64-->[:react-native-firebase_app] /home/esetedos/Documents/AEG/equipo ganador/client-project-Estitxu-Unai-Igor/node_modules/@react-native-firebase/app/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:27:13-35
+17    <permission
+17-->[androidx.core:core:1.10.1] /home/esetedos/.gradle/caches/transforms-3/28d2bb35d590988e110241837adc2620/transformed/core-1.10.1/AndroidManifest.xml:22:5-24:47
+18        android:name="com.egproject.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION"
+18-->[androidx.core:core:1.10.1] /home/esetedos/.gradle/caches/transforms-3/28d2bb35d590988e110241837adc2620/transformed/core-1.10.1/AndroidManifest.xml:23:9-81
+19        android:protectionLevel="signature" />
+19-->[androidx.core:core:1.10.1] /home/esetedos/.gradle/caches/transforms-3/28d2bb35d590988e110241837adc2620/transformed/core-1.10.1/AndroidManifest.xml:24:9-44
+20
+21    <uses-permission android:name="com.egproject.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION" />
+21-->[androidx.core:core:1.10.1] /home/esetedos/.gradle/caches/transforms-3/28d2bb35d590988e110241837adc2620/transformed/core-1.10.1/AndroidManifest.xml:26:5-97
+21-->[androidx.core:core:1.10.1] /home/esetedos/.gradle/caches/transforms-3/28d2bb35d590988e110241837adc2620/transformed/core-1.10.1/AndroidManifest.xml:26:22-94
+22
+23    <application
+23-->/home/esetedos/Documents/AEG/equipo ganador/client-project-Estitxu-Unai-Igor/android/app/src/main/AndroidManifest.xml:5:5-24:19
+24        android:name="com.egproject.MainApplication"
+24-->/home/esetedos/Documents/AEG/equipo ganador/client-project-Estitxu-Unai-Igor/android/app/src/main/AndroidManifest.xml:6:7-38
+25        android:allowBackup="false"
+25-->/home/esetedos/Documents/AEG/equipo ganador/client-project-Estitxu-Unai-Igor/android/app/src/main/AndroidManifest.xml:10:7-34
+26        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
+26-->[androidx.core:core:1.10.1] /home/esetedos/.gradle/caches/transforms-3/28d2bb35d590988e110241837adc2620/transformed/core-1.10.1/AndroidManifest.xml:28:18-86
+27        android:debuggable="true"
+28        android:icon="@mipmap/ic_launcher"
+28-->/home/esetedos/Documents/AEG/equipo ganador/client-project-Estitxu-Unai-Igor/android/app/src/main/AndroidManifest.xml:8:7-41
+29        android:label="@string/app_name"
+29-->/home/esetedos/Documents/AEG/equipo ganador/client-project-Estitxu-Unai-Igor/android/app/src/main/AndroidManifest.xml:7:7-39
+30        android:roundIcon="@mipmap/ic_launcher_round"
+30-->/home/esetedos/Documents/AEG/equipo ganador/client-project-Estitxu-Unai-Igor/android/app/src/main/AndroidManifest.xml:9:7-52
+31        android:theme="@style/BootTheme"
+31-->/home/esetedos/Documents/AEG/equipo ganador/client-project-Estitxu-Unai-Igor/android/app/src/main/AndroidManifest.xml:11:7-39
+32        android:usesCleartextTraffic="true" >
+32-->/home/esetedos/Documents/AEG/equipo ganador/client-project-Estitxu-Unai-Igor/android/app/src/debug/AndroidManifest.xml:8:9-44
+33        <activity
+33-->/home/esetedos/Documents/AEG/equipo ganador/client-project-Estitxu-Unai-Igor/android/app/src/debug/AndroidManifest.xml:11:9-111
+34            android:name="com.facebook.react.devsupport.DevSettingsActivity"
+34-->/home/esetedos/Documents/AEG/equipo ganador/client-project-Estitxu-Unai-Igor/android/app/src/debug/AndroidManifest.xml:11:19-83
+35            android:exported="false" />
+35-->/home/esetedos/Documents/AEG/equipo ganador/client-project-Estitxu-Unai-Igor/android/app/src/debug/AndroidManifest.xml:11:84-108
+36        <activity
+36-->/home/esetedos/Documents/AEG/equipo ganador/client-project-Estitxu-Unai-Igor/android/app/src/main/AndroidManifest.xml:12:7-23:18
+37            android:name="com.egproject.MainActivity"
+37-->/home/esetedos/Documents/AEG/equipo ganador/client-project-Estitxu-Unai-Igor/android/app/src/main/AndroidManifest.xml:13:9-37
+38            android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|screenSize|smallestScreenSize|uiMode"
+38-->/home/esetedos/Documents/AEG/equipo ganador/client-project-Estitxu-Unai-Igor/android/app/src/main/AndroidManifest.xml:15:9-118
+39            android:exported="true"
+39-->/home/esetedos/Documents/AEG/equipo ganador/client-project-Estitxu-Unai-Igor/android/app/src/main/AndroidManifest.xml:18:9-32
+40            android:label="@string/app_name"
+40-->/home/esetedos/Documents/AEG/equipo ganador/client-project-Estitxu-Unai-Igor/android/app/src/main/AndroidManifest.xml:14:9-41
+41            android:launchMode="singleTask"
+41-->/home/esetedos/Documents/AEG/equipo ganador/client-project-Estitxu-Unai-Igor/android/app/src/main/AndroidManifest.xml:16:9-40
+42            android:windowSoftInputMode="adjustResize" >
+42-->/home/esetedos/Documents/AEG/equipo ganador/client-project-Estitxu-Unai-Igor/android/app/src/main/AndroidManifest.xml:17:9-51
+43            <intent-filter>
+43-->/home/esetedos/Documents/AEG/equipo ganador/client-project-Estitxu-Unai-Igor/android/app/src/main/AndroidManifest.xml:19:9-22:25
+44                <action android:name="android.intent.action.MAIN" />
+44-->/home/esetedos/Documents/AEG/equipo ganador/client-project-Estitxu-Unai-Igor/android/app/src/main/AndroidManifest.xml:20:13-65
+44-->/home/esetedos/Documents/AEG/equipo ganador/client-project-Estitxu-Unai-Igor/android/app/src/main/AndroidManifest.xml:20:21-62
+45
+46                <category android:name="android.intent.category.LAUNCHER" />
+46-->/home/esetedos/Documents/AEG/equipo ganador/client-project-Estitxu-Unai-Igor/android/app/src/main/AndroidManifest.xml:21:13-73
+46-->/home/esetedos/Documents/AEG/equipo ganador/client-project-Estitxu-Unai-Igor/android/app/src/main/AndroidManifest.xml:21:23-70
+47            </intent-filter>
+48        </activity>
+49
+50        <meta-data
+50-->[:react-native-firebase_app] /home/esetedos/Documents/AEG/equipo ganador/client-project-Estitxu-Unai-Igor/node_modules/@react-native-firebase/app/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:9:9-11:36
+51            android:name="app_data_collection_default_enabled"
+51-->[:react-native-firebase_app] /home/esetedos/Documents/AEG/equipo ganador/client-project-Estitxu-Unai-Igor/node_modules/@react-native-firebase/app/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:10:13-63
+52            android:value="true" />
+52-->[:react-native-firebase_app] /home/esetedos/Documents/AEG/equipo ganador/client-project-Estitxu-Unai-Igor/node_modules/@react-native-firebase/app/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:11:13-33
+53
+54        <service
+54-->[:react-native-firebase_app] /home/esetedos/Documents/AEG/equipo ganador/client-project-Estitxu-Unai-Igor/node_modules/@react-native-firebase/app/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:13:9-21:19
+55            android:name="com.google.firebase.components.ComponentDiscoveryService"
+55-->[:react-native-firebase_app] /home/esetedos/Documents/AEG/equipo ganador/client-project-Estitxu-Unai-Igor/node_modules/@react-native-firebase/app/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:14:13-84
+56            android:directBootAware="true"
+56-->[:react-native-firebase_app] /home/esetedos/Documents/AEG/equipo ganador/client-project-Estitxu-Unai-Igor/node_modules/@react-native-firebase/app/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:15:13-43
+57            android:exported="false" >
+57-->[:react-native-firebase_app] /home/esetedos/Documents/AEG/equipo ganador/client-project-Estitxu-Unai-Igor/node_modules/@react-native-firebase/app/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:16:13-37
+58            <meta-data
+58-->[:react-native-firebase_app] /home/esetedos/Documents/AEG/equipo ganador/client-project-Estitxu-Unai-Igor/node_modules/@react-native-firebase/app/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:18:13-20:85
+59                android:name="com.google.firebase.components:io.invertase.firebase.app.ReactNativeFirebaseAppRegistrar"
+59-->[:react-native-firebase_app] /home/esetedos/Documents/AEG/equipo ganador/client-project-Estitxu-Unai-Igor/node_modules/@react-native-firebase/app/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:19:17-120
+60                android:value="com.google.firebase.components.ComponentRegistrar" />
+60-->[:react-native-firebase_app] /home/esetedos/Documents/AEG/equipo ganador/client-project-Estitxu-Unai-Igor/node_modules/@react-native-firebase/app/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:20:17-82
+61            <meta-data
+61-->[com.google.firebase:firebase-auth:22.1.2] /home/esetedos/.gradle/caches/transforms-3/33a7793f447160e86f04d94ab905ddb9/transformed/jetified-firebase-auth-22.1.2/AndroidManifest.xml:69:13-71:85
+62                android:name="com.google.firebase.components:com.google.firebase.auth.FirebaseAuthRegistrar"
+62-->[com.google.firebase:firebase-auth:22.1.2] /home/esetedos/.gradle/caches/transforms-3/33a7793f447160e86f04d94ab905ddb9/transformed/jetified-firebase-auth-22.1.2/AndroidManifest.xml:70:17-109
+63                android:value="com.google.firebase.components.ComponentRegistrar" />
+63-->[com.google.firebase:firebase-auth:22.1.2] /home/esetedos/.gradle/caches/transforms-3/33a7793f447160e86f04d94ab905ddb9/transformed/jetified-firebase-auth-22.1.2/AndroidManifest.xml:71:17-82
+64        </service>
 65
-66        <activity
-66-->[com.google.firebase:firebase-auth:22.1.2] /home/esetedos/.gradle/caches/transforms-3/33a7793f447160e86f04d94ab905ddb9/transformed/jetified-firebase-auth-22.1.2/AndroidManifest.xml:29:9-46:20
-67            android:name="com.google.firebase.auth.internal.GenericIdpActivity"
-67-->[com.google.firebase:firebase-auth:22.1.2] /home/esetedos/.gradle/caches/transforms-3/33a7793f447160e86f04d94ab905ddb9/transformed/jetified-firebase-auth-22.1.2/AndroidManifest.xml:30:13-80
-68            android:excludeFromRecents="true"
-68-->[com.google.firebase:firebase-auth:22.1.2] /home/esetedos/.gradle/caches/transforms-3/33a7793f447160e86f04d94ab905ddb9/transformed/jetified-firebase-auth-22.1.2/AndroidManifest.xml:31:13-46
-69            android:exported="true"
-69-->[com.google.firebase:firebase-auth:22.1.2] /home/esetedos/.gradle/caches/transforms-3/33a7793f447160e86f04d94ab905ddb9/transformed/jetified-firebase-auth-22.1.2/AndroidManifest.xml:32:13-36
-70            android:launchMode="singleTask"
-70-->[com.google.firebase:firebase-auth:22.1.2] /home/esetedos/.gradle/caches/transforms-3/33a7793f447160e86f04d94ab905ddb9/transformed/jetified-firebase-auth-22.1.2/AndroidManifest.xml:33:13-44
-71            android:theme="@android:style/Theme.Translucent.NoTitleBar" >
-71-->[com.google.firebase:firebase-auth:22.1.2] /home/esetedos/.gradle/caches/transforms-3/33a7793f447160e86f04d94ab905ddb9/transformed/jetified-firebase-auth-22.1.2/AndroidManifest.xml:34:13-72
-72            <intent-filter>
-72-->[com.google.firebase:firebase-auth:22.1.2] /home/esetedos/.gradle/caches/transforms-3/33a7793f447160e86f04d94ab905ddb9/transformed/jetified-firebase-auth-22.1.2/AndroidManifest.xml:35:13-45:29
-73                <action android:name="android.intent.action.VIEW" />
-73-->[com.google.firebase:firebase-auth:22.1.2] /home/esetedos/.gradle/caches/transforms-3/33a7793f447160e86f04d94ab905ddb9/transformed/jetified-firebase-auth-22.1.2/AndroidManifest.xml:36:17-69
-73-->[com.google.firebase:firebase-auth:22.1.2] /home/esetedos/.gradle/caches/transforms-3/33a7793f447160e86f04d94ab905ddb9/transformed/jetified-firebase-auth-22.1.2/AndroidManifest.xml:36:25-66
-74
-75                <category android:name="android.intent.category.DEFAULT" />
-75-->[com.google.firebase:firebase-auth:22.1.2] /home/esetedos/.gradle/caches/transforms-3/33a7793f447160e86f04d94ab905ddb9/transformed/jetified-firebase-auth-22.1.2/AndroidManifest.xml:38:17-76
-75-->[com.google.firebase:firebase-auth:22.1.2] /home/esetedos/.gradle/caches/transforms-3/33a7793f447160e86f04d94ab905ddb9/transformed/jetified-firebase-auth-22.1.2/AndroidManifest.xml:38:27-73
-76                <category android:name="android.intent.category.BROWSABLE" />
-76-->[com.google.firebase:firebase-auth:22.1.2] /home/esetedos/.gradle/caches/transforms-3/33a7793f447160e86f04d94ab905ddb9/transformed/jetified-firebase-auth-22.1.2/AndroidManifest.xml:39:17-78
-76-->[com.google.firebase:firebase-auth:22.1.2] /home/esetedos/.gradle/caches/transforms-3/33a7793f447160e86f04d94ab905ddb9/transformed/jetified-firebase-auth-22.1.2/AndroidManifest.xml:39:27-75
-77
-78                <data
-78-->[com.google.firebase:firebase-auth:22.1.2] /home/esetedos/.gradle/caches/transforms-3/33a7793f447160e86f04d94ab905ddb9/transformed/jetified-firebase-auth-22.1.2/AndroidManifest.xml:41:17-44:51
-79                    android:host="firebase.auth"
-79-->[com.google.firebase:firebase-auth:22.1.2] /home/esetedos/.gradle/caches/transforms-3/33a7793f447160e86f04d94ab905ddb9/transformed/jetified-firebase-auth-22.1.2/AndroidManifest.xml:42:21-49
-80                    android:path="/"
-80-->[com.google.firebase:firebase-auth:22.1.2] /home/esetedos/.gradle/caches/transforms-3/33a7793f447160e86f04d94ab905ddb9/transformed/jetified-firebase-auth-22.1.2/AndroidManifest.xml:43:21-37
-81                    android:scheme="genericidp" />
-81-->[com.google.firebase:firebase-auth:22.1.2] /home/esetedos/.gradle/caches/transforms-3/33a7793f447160e86f04d94ab905ddb9/transformed/jetified-firebase-auth-22.1.2/AndroidManifest.xml:44:21-48
-82            </intent-filter>
-83        </activity>
-84        <activity
-84-->[com.google.firebase:firebase-auth:22.1.2] /home/esetedos/.gradle/caches/transforms-3/33a7793f447160e86f04d94ab905ddb9/transformed/jetified-firebase-auth-22.1.2/AndroidManifest.xml:47:9-64:20
-85            android:name="com.google.firebase.auth.internal.RecaptchaActivity"
-85-->[com.google.firebase:firebase-auth:22.1.2] /home/esetedos/.gradle/caches/transforms-3/33a7793f447160e86f04d94ab905ddb9/transformed/jetified-firebase-auth-22.1.2/AndroidManifest.xml:48:13-79
-86            android:excludeFromRecents="true"
-86-->[com.google.firebase:firebase-auth:22.1.2] /home/esetedos/.gradle/caches/transforms-3/33a7793f447160e86f04d94ab905ddb9/transformed/jetified-firebase-auth-22.1.2/AndroidManifest.xml:49:13-46
-87            android:exported="true"
-87-->[com.google.firebase:firebase-auth:22.1.2] /home/esetedos/.gradle/caches/transforms-3/33a7793f447160e86f04d94ab905ddb9/transformed/jetified-firebase-auth-22.1.2/AndroidManifest.xml:50:13-36
-88            android:launchMode="singleTask"
-88-->[com.google.firebase:firebase-auth:22.1.2] /home/esetedos/.gradle/caches/transforms-3/33a7793f447160e86f04d94ab905ddb9/transformed/jetified-firebase-auth-22.1.2/AndroidManifest.xml:51:13-44
-89            android:theme="@android:style/Theme.Translucent.NoTitleBar" >
-89-->[com.google.firebase:firebase-auth:22.1.2] /home/esetedos/.gradle/caches/transforms-3/33a7793f447160e86f04d94ab905ddb9/transformed/jetified-firebase-auth-22.1.2/AndroidManifest.xml:52:13-72
-90            <intent-filter>
-90-->[com.google.firebase:firebase-auth:22.1.2] /home/esetedos/.gradle/caches/transforms-3/33a7793f447160e86f04d94ab905ddb9/transformed/jetified-firebase-auth-22.1.2/AndroidManifest.xml:53:13-63:29
-91                <action android:name="android.intent.action.VIEW" />
-91-->[com.google.firebase:firebase-auth:22.1.2] /home/esetedos/.gradle/caches/transforms-3/33a7793f447160e86f04d94ab905ddb9/transformed/jetified-firebase-auth-22.1.2/AndroidManifest.xml:36:17-69
-91-->[com.google.firebase:firebase-auth:22.1.2] /home/esetedos/.gradle/caches/transforms-3/33a7793f447160e86f04d94ab905ddb9/transformed/jetified-firebase-auth-22.1.2/AndroidManifest.xml:36:25-66
-92
-93                <category android:name="android.intent.category.DEFAULT" />
-93-->[com.google.firebase:firebase-auth:22.1.2] /home/esetedos/.gradle/caches/transforms-3/33a7793f447160e86f04d94ab905ddb9/transformed/jetified-firebase-auth-22.1.2/AndroidManifest.xml:38:17-76
-93-->[com.google.firebase:firebase-auth:22.1.2] /home/esetedos/.gradle/caches/transforms-3/33a7793f447160e86f04d94ab905ddb9/transformed/jetified-firebase-auth-22.1.2/AndroidManifest.xml:38:27-73
-94                <category android:name="android.intent.category.BROWSABLE" />
-94-->[com.google.firebase:firebase-auth:22.1.2] /home/esetedos/.gradle/caches/transforms-3/33a7793f447160e86f04d94ab905ddb9/transformed/jetified-firebase-auth-22.1.2/AndroidManifest.xml:39:17-78
-94-->[com.google.firebase:firebase-auth:22.1.2] /home/esetedos/.gradle/caches/transforms-3/33a7793f447160e86f04d94ab905ddb9/transformed/jetified-firebase-auth-22.1.2/AndroidManifest.xml:39:27-75
-95
-96                <data
-96-->[com.google.firebase:firebase-auth:22.1.2] /home/esetedos/.gradle/caches/transforms-3/33a7793f447160e86f04d94ab905ddb9/transformed/jetified-firebase-auth-22.1.2/AndroidManifest.xml:41:17-44:51
-97                    android:host="firebase.auth"
-97-->[com.google.firebase:firebase-auth:22.1.2] /home/esetedos/.gradle/caches/transforms-3/33a7793f447160e86f04d94ab905ddb9/transformed/jetified-firebase-auth-22.1.2/AndroidManifest.xml:42:21-49
-98                    android:path="/"
-98-->[com.google.firebase:firebase-auth:22.1.2] /home/esetedos/.gradle/caches/transforms-3/33a7793f447160e86f04d94ab905ddb9/transformed/jetified-firebase-auth-22.1.2/AndroidManifest.xml:43:21-37
-99                    android:scheme="recaptcha" />
-99-->[com.google.firebase:firebase-auth:22.1.2] /home/esetedos/.gradle/caches/transforms-3/33a7793f447160e86f04d94ab905ddb9/transformed/jetified-firebase-auth-22.1.2/AndroidManifest.xml:44:21-48
-100            </intent-filter>
-101        </activity>
-102
-103        <provider
-103-->[com.google.firebase:firebase-common:20.3.3] /home/esetedos/.gradle/caches/transforms-3/04618219489c9d9e3066293e05e86ee0/transformed/jetified-firebase-common-20.3.3/AndroidManifest.xml:25:9-30:39
-104            android:name="com.google.firebase.provider.FirebaseInitProvider"
-104-->[com.google.firebase:firebase-common:20.3.3] /home/esetedos/.gradle/caches/transforms-3/04618219489c9d9e3066293e05e86ee0/transformed/jetified-firebase-common-20.3.3/AndroidManifest.xml:26:13-77
-105            android:authorities="com.egproject.firebaseinitprovider"
-105-->[com.google.firebase:firebase-common:20.3.3] /home/esetedos/.gradle/caches/transforms-3/04618219489c9d9e3066293e05e86ee0/transformed/jetified-firebase-common-20.3.3/AndroidManifest.xml:27:13-72
-106            android:directBootAware="true"
-106-->[com.google.firebase:firebase-common:20.3.3] /home/esetedos/.gradle/caches/transforms-3/04618219489c9d9e3066293e05e86ee0/transformed/jetified-firebase-common-20.3.3/AndroidManifest.xml:28:13-43
-107            android:exported="false"
-107-->[com.google.firebase:firebase-common:20.3.3] /home/esetedos/.gradle/caches/transforms-3/04618219489c9d9e3066293e05e86ee0/transformed/jetified-firebase-common-20.3.3/AndroidManifest.xml:29:13-37
-108            android:initOrder="100" />
-108-->[com.google.firebase:firebase-common:20.3.3] /home/esetedos/.gradle/caches/transforms-3/04618219489c9d9e3066293e05e86ee0/transformed/jetified-firebase-common-20.3.3/AndroidManifest.xml:30:13-36
-109
-110        <activity
-110-->[com.google.android.gms:play-services-auth:20.7.0] /home/esetedos/.gradle/caches/transforms-3/3f5e581b6c5a7c27d0d6ce7336c036bc/transformed/jetified-play-services-auth-20.7.0/AndroidManifest.xml:23:9-27:75
-111            android:name="com.google.android.gms.auth.api.signin.internal.SignInHubActivity"
-111-->[com.google.android.gms:play-services-auth:20.7.0] /home/esetedos/.gradle/caches/transforms-3/3f5e581b6c5a7c27d0d6ce7336c036bc/transformed/jetified-play-services-auth-20.7.0/AndroidManifest.xml:24:13-93
-112            android:excludeFromRecents="true"
-112-->[com.google.android.gms:play-services-auth:20.7.0] /home/esetedos/.gradle/caches/transforms-3/3f5e581b6c5a7c27d0d6ce7336c036bc/transformed/jetified-play-services-auth-20.7.0/AndroidManifest.xml:25:13-46
+66        <provider
+66-->[:react-native-firebase_app] /home/esetedos/Documents/AEG/equipo ganador/client-project-Estitxu-Unai-Igor/node_modules/@react-native-firebase/app/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:23:9-27:38
+67            android:name="io.invertase.firebase.app.ReactNativeFirebaseAppInitProvider"
+67-->[:react-native-firebase_app] /home/esetedos/Documents/AEG/equipo ganador/client-project-Estitxu-Unai-Igor/node_modules/@react-native-firebase/app/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:24:13-88
+68            android:authorities="com.egproject.reactnativefirebaseappinitprovider"
+68-->[:react-native-firebase_app] /home/esetedos/Documents/AEG/equipo ganador/client-project-Estitxu-Unai-Igor/node_modules/@react-native-firebase/app/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:25:13-86
+69            android:exported="false"
+69-->[:react-native-firebase_app] /home/esetedos/Documents/AEG/equipo ganador/client-project-Estitxu-Unai-Igor/node_modules/@react-native-firebase/app/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:26:13-37
+70            android:initOrder="99" />
+70-->[:react-native-firebase_app] /home/esetedos/Documents/AEG/equipo ganador/client-project-Estitxu-Unai-Igor/node_modules/@react-native-firebase/app/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:27:13-35
+71
+72        <activity
+72-->[com.google.firebase:firebase-auth:22.1.2] /home/esetedos/.gradle/caches/transforms-3/33a7793f447160e86f04d94ab905ddb9/transformed/jetified-firebase-auth-22.1.2/AndroidManifest.xml:29:9-46:20
+73            android:name="com.google.firebase.auth.internal.GenericIdpActivity"
+73-->[com.google.firebase:firebase-auth:22.1.2] /home/esetedos/.gradle/caches/transforms-3/33a7793f447160e86f04d94ab905ddb9/transformed/jetified-firebase-auth-22.1.2/AndroidManifest.xml:30:13-80
+74            android:excludeFromRecents="true"
+74-->[com.google.firebase:firebase-auth:22.1.2] /home/esetedos/.gradle/caches/transforms-3/33a7793f447160e86f04d94ab905ddb9/transformed/jetified-firebase-auth-22.1.2/AndroidManifest.xml:31:13-46
+75            android:exported="true"
+75-->[com.google.firebase:firebase-auth:22.1.2] /home/esetedos/.gradle/caches/transforms-3/33a7793f447160e86f04d94ab905ddb9/transformed/jetified-firebase-auth-22.1.2/AndroidManifest.xml:32:13-36
+76            android:launchMode="singleTask"
+76-->[com.google.firebase:firebase-auth:22.1.2] /home/esetedos/.gradle/caches/transforms-3/33a7793f447160e86f04d94ab905ddb9/transformed/jetified-firebase-auth-22.1.2/AndroidManifest.xml:33:13-44
+77            android:theme="@android:style/Theme.Translucent.NoTitleBar" >
+77-->[com.google.firebase:firebase-auth:22.1.2] /home/esetedos/.gradle/caches/transforms-3/33a7793f447160e86f04d94ab905ddb9/transformed/jetified-firebase-auth-22.1.2/AndroidManifest.xml:34:13-72
+78            <intent-filter>
+78-->[com.google.firebase:firebase-auth:22.1.2] /home/esetedos/.gradle/caches/transforms-3/33a7793f447160e86f04d94ab905ddb9/transformed/jetified-firebase-auth-22.1.2/AndroidManifest.xml:35:13-45:29
+79                <action android:name="android.intent.action.VIEW" />
+79-->[com.google.firebase:firebase-auth:22.1.2] /home/esetedos/.gradle/caches/transforms-3/33a7793f447160e86f04d94ab905ddb9/transformed/jetified-firebase-auth-22.1.2/AndroidManifest.xml:36:17-69
+79-->[com.google.firebase:firebase-auth:22.1.2] /home/esetedos/.gradle/caches/transforms-3/33a7793f447160e86f04d94ab905ddb9/transformed/jetified-firebase-auth-22.1.2/AndroidManifest.xml:36:25-66
+80
+81                <category android:name="android.intent.category.DEFAULT" />
+81-->[com.google.firebase:firebase-auth:22.1.2] /home/esetedos/.gradle/caches/transforms-3/33a7793f447160e86f04d94ab905ddb9/transformed/jetified-firebase-auth-22.1.2/AndroidManifest.xml:38:17-76
+81-->[com.google.firebase:firebase-auth:22.1.2] /home/esetedos/.gradle/caches/transforms-3/33a7793f447160e86f04d94ab905ddb9/transformed/jetified-firebase-auth-22.1.2/AndroidManifest.xml:38:27-73
+82                <category android:name="android.intent.category.BROWSABLE" />
+82-->[com.google.firebase:firebase-auth:22.1.2] /home/esetedos/.gradle/caches/transforms-3/33a7793f447160e86f04d94ab905ddb9/transformed/jetified-firebase-auth-22.1.2/AndroidManifest.xml:39:17-78
+82-->[com.google.firebase:firebase-auth:22.1.2] /home/esetedos/.gradle/caches/transforms-3/33a7793f447160e86f04d94ab905ddb9/transformed/jetified-firebase-auth-22.1.2/AndroidManifest.xml:39:27-75
+83
+84                <data
+84-->[com.google.firebase:firebase-auth:22.1.2] /home/esetedos/.gradle/caches/transforms-3/33a7793f447160e86f04d94ab905ddb9/transformed/jetified-firebase-auth-22.1.2/AndroidManifest.xml:41:17-44:51
+85                    android:host="firebase.auth"
+85-->[com.google.firebase:firebase-auth:22.1.2] /home/esetedos/.gradle/caches/transforms-3/33a7793f447160e86f04d94ab905ddb9/transformed/jetified-firebase-auth-22.1.2/AndroidManifest.xml:42:21-49
+86                    android:path="/"
+86-->[com.google.firebase:firebase-auth:22.1.2] /home/esetedos/.gradle/caches/transforms-3/33a7793f447160e86f04d94ab905ddb9/transformed/jetified-firebase-auth-22.1.2/AndroidManifest.xml:43:21-37
+87                    android:scheme="genericidp" />
+87-->[com.google.firebase:firebase-auth:22.1.2] /home/esetedos/.gradle/caches/transforms-3/33a7793f447160e86f04d94ab905ddb9/transformed/jetified-firebase-auth-22.1.2/AndroidManifest.xml:44:21-48
+88            </intent-filter>
+89        </activity>
+90        <activity
+90-->[com.google.firebase:firebase-auth:22.1.2] /home/esetedos/.gradle/caches/transforms-3/33a7793f447160e86f04d94ab905ddb9/transformed/jetified-firebase-auth-22.1.2/AndroidManifest.xml:47:9-64:20
+91            android:name="com.google.firebase.auth.internal.RecaptchaActivity"
+91-->[com.google.firebase:firebase-auth:22.1.2] /home/esetedos/.gradle/caches/transforms-3/33a7793f447160e86f04d94ab905ddb9/transformed/jetified-firebase-auth-22.1.2/AndroidManifest.xml:48:13-79
+92            android:excludeFromRecents="true"
+92-->[com.google.firebase:firebase-auth:22.1.2] /home/esetedos/.gradle/caches/transforms-3/33a7793f447160e86f04d94ab905ddb9/transformed/jetified-firebase-auth-22.1.2/AndroidManifest.xml:49:13-46
+93            android:exported="true"
+93-->[com.google.firebase:firebase-auth:22.1.2] /home/esetedos/.gradle/caches/transforms-3/33a7793f447160e86f04d94ab905ddb9/transformed/jetified-firebase-auth-22.1.2/AndroidManifest.xml:50:13-36
+94            android:launchMode="singleTask"
+94-->[com.google.firebase:firebase-auth:22.1.2] /home/esetedos/.gradle/caches/transforms-3/33a7793f447160e86f04d94ab905ddb9/transformed/jetified-firebase-auth-22.1.2/AndroidManifest.xml:51:13-44
+95            android:theme="@android:style/Theme.Translucent.NoTitleBar" >
+95-->[com.google.firebase:firebase-auth:22.1.2] /home/esetedos/.gradle/caches/transforms-3/33a7793f447160e86f04d94ab905ddb9/transformed/jetified-firebase-auth-22.1.2/AndroidManifest.xml:52:13-72
+96            <intent-filter>
+96-->[com.google.firebase:firebase-auth:22.1.2] /home/esetedos/.gradle/caches/transforms-3/33a7793f447160e86f04d94ab905ddb9/transformed/jetified-firebase-auth-22.1.2/AndroidManifest.xml:53:13-63:29
+97                <action android:name="android.intent.action.VIEW" />
+97-->[com.google.firebase:firebase-auth:22.1.2] /home/esetedos/.gradle/caches/transforms-3/33a7793f447160e86f04d94ab905ddb9/transformed/jetified-firebase-auth-22.1.2/AndroidManifest.xml:36:17-69
+97-->[com.google.firebase:firebase-auth:22.1.2] /home/esetedos/.gradle/caches/transforms-3/33a7793f447160e86f04d94ab905ddb9/transformed/jetified-firebase-auth-22.1.2/AndroidManifest.xml:36:25-66
+98
+99                <category android:name="android.intent.category.DEFAULT" />
+99-->[com.google.firebase:firebase-auth:22.1.2] /home/esetedos/.gradle/caches/transforms-3/33a7793f447160e86f04d94ab905ddb9/transformed/jetified-firebase-auth-22.1.2/AndroidManifest.xml:38:17-76
+99-->[com.google.firebase:firebase-auth:22.1.2] /home/esetedos/.gradle/caches/transforms-3/33a7793f447160e86f04d94ab905ddb9/transformed/jetified-firebase-auth-22.1.2/AndroidManifest.xml:38:27-73
+100                <category android:name="android.intent.category.BROWSABLE" />
+100-->[com.google.firebase:firebase-auth:22.1.2] /home/esetedos/.gradle/caches/transforms-3/33a7793f447160e86f04d94ab905ddb9/transformed/jetified-firebase-auth-22.1.2/AndroidManifest.xml:39:17-78
+100-->[com.google.firebase:firebase-auth:22.1.2] /home/esetedos/.gradle/caches/transforms-3/33a7793f447160e86f04d94ab905ddb9/transformed/jetified-firebase-auth-22.1.2/AndroidManifest.xml:39:27-75
+101
+102                <data
+102-->[com.google.firebase:firebase-auth:22.1.2] /home/esetedos/.gradle/caches/transforms-3/33a7793f447160e86f04d94ab905ddb9/transformed/jetified-firebase-auth-22.1.2/AndroidManifest.xml:41:17-44:51
+103                    android:host="firebase.auth"
+103-->[com.google.firebase:firebase-auth:22.1.2] /home/esetedos/.gradle/caches/transforms-3/33a7793f447160e86f04d94ab905ddb9/transformed/jetified-firebase-auth-22.1.2/AndroidManifest.xml:42:21-49
+104                    android:path="/"
+104-->[com.google.firebase:firebase-auth:22.1.2] /home/esetedos/.gradle/caches/transforms-3/33a7793f447160e86f04d94ab905ddb9/transformed/jetified-firebase-auth-22.1.2/AndroidManifest.xml:43:21-37
+105                    android:scheme="recaptcha" />
+105-->[com.google.firebase:firebase-auth:22.1.2] /home/esetedos/.gradle/caches/transforms-3/33a7793f447160e86f04d94ab905ddb9/transformed/jetified-firebase-auth-22.1.2/AndroidManifest.xml:44:21-48
+106            </intent-filter>
+107        </activity>
+108
+109        <provider
+109-->[com.google.firebase:firebase-common:20.3.3] /home/esetedos/.gradle/caches/transforms-3/04618219489c9d9e3066293e05e86ee0/transformed/jetified-firebase-common-20.3.3/AndroidManifest.xml:25:9-30:39
+110            android:name="com.google.firebase.provider.FirebaseInitProvider"
+110-->[com.google.firebase:firebase-common:20.3.3] /home/esetedos/.gradle/caches/transforms-3/04618219489c9d9e3066293e05e86ee0/transformed/jetified-firebase-common-20.3.3/AndroidManifest.xml:26:13-77
+111            android:authorities="com.egproject.firebaseinitprovider"
+111-->[com.google.firebase:firebase-common:20.3.3] /home/esetedos/.gradle/caches/transforms-3/04618219489c9d9e3066293e05e86ee0/transformed/jetified-firebase-common-20.3.3/AndroidManifest.xml:27:13-72
+112            android:directBootAware="true"
+112-->[com.google.firebase:firebase-common:20.3.3] /home/esetedos/.gradle/caches/transforms-3/04618219489c9d9e3066293e05e86ee0/transformed/jetified-firebase-common-20.3.3/AndroidManifest.xml:28:13-43
 113            android:exported="false"
-113-->[com.google.android.gms:play-services-auth:20.7.0] /home/esetedos/.gradle/caches/transforms-3/3f5e581b6c5a7c27d0d6ce7336c036bc/transformed/jetified-play-services-auth-20.7.0/AndroidManifest.xml:26:13-37
-114            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
-114-->[com.google.android.gms:play-services-auth:20.7.0] /home/esetedos/.gradle/caches/transforms-3/3f5e581b6c5a7c27d0d6ce7336c036bc/transformed/jetified-play-services-auth-20.7.0/AndroidManifest.xml:27:13-72
-115        <!--
-116            Service handling Google Sign-In user revocation. For apps that do not integrate with
-117            Google Sign-In, this service will never be started.
-118        -->
-119        <service
-119-->[com.google.android.gms:play-services-auth:20.7.0] /home/esetedos/.gradle/caches/transforms-3/3f5e581b6c5a7c27d0d6ce7336c036bc/transformed/jetified-play-services-auth-20.7.0/AndroidManifest.xml:33:9-37:51
-120            android:name="com.google.android.gms.auth.api.signin.RevocationBoundService"
-120-->[com.google.android.gms:play-services-auth:20.7.0] /home/esetedos/.gradle/caches/transforms-3/3f5e581b6c5a7c27d0d6ce7336c036bc/transformed/jetified-play-services-auth-20.7.0/AndroidManifest.xml:34:13-89
-121            android:exported="true"
-121-->[com.google.android.gms:play-services-auth:20.7.0] /home/esetedos/.gradle/caches/transforms-3/3f5e581b6c5a7c27d0d6ce7336c036bc/transformed/jetified-play-services-auth-20.7.0/AndroidManifest.xml:35:13-36
-122            android:permission="com.google.android.gms.auth.api.signin.permission.REVOCATION_NOTIFICATION"
-122-->[com.google.android.gms:play-services-auth:20.7.0] /home/esetedos/.gradle/caches/transforms-3/3f5e581b6c5a7c27d0d6ce7336c036bc/transformed/jetified-play-services-auth-20.7.0/AndroidManifest.xml:36:13-107
-123            android:visibleToInstantApps="true" />
-123-->[com.google.android.gms:play-services-auth:20.7.0] /home/esetedos/.gradle/caches/transforms-3/3f5e581b6c5a7c27d0d6ce7336c036bc/transformed/jetified-play-services-auth-20.7.0/AndroidManifest.xml:37:13-48
-124
-125        <activity
-125-->[com.google.android.gms:play-services-base:18.0.1] /home/esetedos/.gradle/caches/transforms-3/b71ef279c1683b5749acb2f0aa91f82a/transformed/jetified-play-services-base-18.0.1/AndroidManifest.xml:20:9-22:45
-126            android:name="com.google.android.gms.common.api.GoogleApiActivity"
-126-->[com.google.android.gms:play-services-base:18.0.1] /home/esetedos/.gradle/caches/transforms-3/b71ef279c1683b5749acb2f0aa91f82a/transformed/jetified-play-services-base-18.0.1/AndroidManifest.xml:20:19-85
-127            android:exported="false"
-127-->[com.google.android.gms:play-services-base:18.0.1] /home/esetedos/.gradle/caches/transforms-3/b71ef279c1683b5749acb2f0aa91f82a/transformed/jetified-play-services-base-18.0.1/AndroidManifest.xml:22:19-43
-128            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
-128-->[com.google.android.gms:play-services-base:18.0.1] /home/esetedos/.gradle/caches/transforms-3/b71ef279c1683b5749acb2f0aa91f82a/transformed/jetified-play-services-base-18.0.1/AndroidManifest.xml:21:19-78
-129
-130        <meta-data
-130-->[com.google.android.gms:play-services-basement:18.2.0] /home/esetedos/.gradle/caches/transforms-3/4c98ac1678e91268ed33f9d3ff7f04ab/transformed/jetified-play-services-basement-18.2.0/AndroidManifest.xml:21:9-23:69
-131            android:name="com.google.android.gms.version"
-131-->[com.google.android.gms:play-services-basement:18.2.0] /home/esetedos/.gradle/caches/transforms-3/4c98ac1678e91268ed33f9d3ff7f04ab/transformed/jetified-play-services-basement-18.2.0/AndroidManifest.xml:22:13-58
-132            android:value="@integer/google_play_services_version" />
-132-->[com.google.android.gms:play-services-basement:18.2.0] /home/esetedos/.gradle/caches/transforms-3/4c98ac1678e91268ed33f9d3ff7f04ab/transformed/jetified-play-services-basement-18.2.0/AndroidManifest.xml:23:13-66
-133
-134        <provider
-134-->[androidx.emoji2:emoji2:1.0.0] /home/esetedos/.gradle/caches/transforms-3/917183cb484c5d05637f617d5972f589/transformed/jetified-emoji2-1.0.0/AndroidManifest.xml:26:9-34:20
-135            android:name="androidx.startup.InitializationProvider"
-135-->[androidx.emoji2:emoji2:1.0.0] /home/esetedos/.gradle/caches/transforms-3/917183cb484c5d05637f617d5972f589/transformed/jetified-emoji2-1.0.0/AndroidManifest.xml:27:13-67
-136            android:authorities="com.egproject.androidx-startup"
-136-->[androidx.emoji2:emoji2:1.0.0] /home/esetedos/.gradle/caches/transforms-3/917183cb484c5d05637f617d5972f589/transformed/jetified-emoji2-1.0.0/AndroidManifest.xml:28:13-68
-137            android:exported="false" >
-137-->[androidx.emoji2:emoji2:1.0.0] /home/esetedos/.gradle/caches/transforms-3/917183cb484c5d05637f617d5972f589/transformed/jetified-emoji2-1.0.0/AndroidManifest.xml:29:13-37
-138            <meta-data
-138-->[androidx.emoji2:emoji2:1.0.0] /home/esetedos/.gradle/caches/transforms-3/917183cb484c5d05637f617d5972f589/transformed/jetified-emoji2-1.0.0/AndroidManifest.xml:31:13-33:52
-139                android:name="androidx.emoji2.text.EmojiCompatInitializer"
-139-->[androidx.emoji2:emoji2:1.0.0] /home/esetedos/.gradle/caches/transforms-3/917183cb484c5d05637f617d5972f589/transformed/jetified-emoji2-1.0.0/AndroidManifest.xml:32:17-75
-140                android:value="androidx.startup" />
-140-->[androidx.emoji2:emoji2:1.0.0] /home/esetedos/.gradle/caches/transforms-3/917183cb484c5d05637f617d5972f589/transformed/jetified-emoji2-1.0.0/AndroidManifest.xml:33:17-49
-141            <meta-data
-141-->[androidx.lifecycle:lifecycle-process:2.4.0] /home/esetedos/.gradle/caches/transforms-3/f479eb7a3dc97eecd3d998321b7cd73d/transformed/jetified-lifecycle-process-2.4.0/AndroidManifest.xml:31:13-33:52
-142                android:name="androidx.lifecycle.ProcessLifecycleInitializer"
-142-->[androidx.lifecycle:lifecycle-process:2.4.0] /home/esetedos/.gradle/caches/transforms-3/f479eb7a3dc97eecd3d998321b7cd73d/transformed/jetified-lifecycle-process-2.4.0/AndroidManifest.xml:32:17-78
-143                android:value="androidx.startup" />
-143-->[androidx.lifecycle:lifecycle-process:2.4.0] /home/esetedos/.gradle/caches/transforms-3/f479eb7a3dc97eecd3d998321b7cd73d/transformed/jetified-lifecycle-process-2.4.0/AndroidManifest.xml:33:17-49
-144        </provider>
-145
-146        <meta-data
-146-->[com.facebook.soloader:soloader:0.10.5] /home/esetedos/.gradle/caches/transforms-3/3019da999cc2320dc750092c570bfcb2/transformed/jetified-soloader-0.10.5/AndroidManifest.xml:12:9-14:37
-147            android:name="com.facebook.soloader.enabled"
-147-->[com.facebook.soloader:soloader:0.10.5] /home/esetedos/.gradle/caches/transforms-3/3019da999cc2320dc750092c570bfcb2/transformed/jetified-soloader-0.10.5/AndroidManifest.xml:13:13-57
-148            android:value="false" />
-148-->[com.facebook.soloader:soloader:0.10.5] /home/esetedos/.gradle/caches/transforms-3/3019da999cc2320dc750092c570bfcb2/transformed/jetified-soloader-0.10.5/AndroidManifest.xml:14:13-34
-149    </application>
-150
-151</manifest>
+113-->[com.google.firebase:firebase-common:20.3.3] /home/esetedos/.gradle/caches/transforms-3/04618219489c9d9e3066293e05e86ee0/transformed/jetified-firebase-common-20.3.3/AndroidManifest.xml:29:13-37
+114            android:initOrder="100" />
+114-->[com.google.firebase:firebase-common:20.3.3] /home/esetedos/.gradle/caches/transforms-3/04618219489c9d9e3066293e05e86ee0/transformed/jetified-firebase-common-20.3.3/AndroidManifest.xml:30:13-36
+115
+116        <activity
+116-->[com.google.android.gms:play-services-auth:20.7.0] /home/esetedos/.gradle/caches/transforms-3/3f5e581b6c5a7c27d0d6ce7336c036bc/transformed/jetified-play-services-auth-20.7.0/AndroidManifest.xml:23:9-27:75
+117            android:name="com.google.android.gms.auth.api.signin.internal.SignInHubActivity"
+117-->[com.google.android.gms:play-services-auth:20.7.0] /home/esetedos/.gradle/caches/transforms-3/3f5e581b6c5a7c27d0d6ce7336c036bc/transformed/jetified-play-services-auth-20.7.0/AndroidManifest.xml:24:13-93
+118            android:excludeFromRecents="true"
+118-->[com.google.android.gms:play-services-auth:20.7.0] /home/esetedos/.gradle/caches/transforms-3/3f5e581b6c5a7c27d0d6ce7336c036bc/transformed/jetified-play-services-auth-20.7.0/AndroidManifest.xml:25:13-46
+119            android:exported="false"
+119-->[com.google.android.gms:play-services-auth:20.7.0] /home/esetedos/.gradle/caches/transforms-3/3f5e581b6c5a7c27d0d6ce7336c036bc/transformed/jetified-play-services-auth-20.7.0/AndroidManifest.xml:26:13-37
+120            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+120-->[com.google.android.gms:play-services-auth:20.7.0] /home/esetedos/.gradle/caches/transforms-3/3f5e581b6c5a7c27d0d6ce7336c036bc/transformed/jetified-play-services-auth-20.7.0/AndroidManifest.xml:27:13-72
+121        <!--
+122            Service handling Google Sign-In user revocation. For apps that do not integrate with
+123            Google Sign-In, this service will never be started.
+124        -->
+125        <service
+125-->[com.google.android.gms:play-services-auth:20.7.0] /home/esetedos/.gradle/caches/transforms-3/3f5e581b6c5a7c27d0d6ce7336c036bc/transformed/jetified-play-services-auth-20.7.0/AndroidManifest.xml:33:9-37:51
+126            android:name="com.google.android.gms.auth.api.signin.RevocationBoundService"
+126-->[com.google.android.gms:play-services-auth:20.7.0] /home/esetedos/.gradle/caches/transforms-3/3f5e581b6c5a7c27d0d6ce7336c036bc/transformed/jetified-play-services-auth-20.7.0/AndroidManifest.xml:34:13-89
+127            android:exported="true"
+127-->[com.google.android.gms:play-services-auth:20.7.0] /home/esetedos/.gradle/caches/transforms-3/3f5e581b6c5a7c27d0d6ce7336c036bc/transformed/jetified-play-services-auth-20.7.0/AndroidManifest.xml:35:13-36
+128            android:permission="com.google.android.gms.auth.api.signin.permission.REVOCATION_NOTIFICATION"
+128-->[com.google.android.gms:play-services-auth:20.7.0] /home/esetedos/.gradle/caches/transforms-3/3f5e581b6c5a7c27d0d6ce7336c036bc/transformed/jetified-play-services-auth-20.7.0/AndroidManifest.xml:36:13-107
+129            android:visibleToInstantApps="true" />
+129-->[com.google.android.gms:play-services-auth:20.7.0] /home/esetedos/.gradle/caches/transforms-3/3f5e581b6c5a7c27d0d6ce7336c036bc/transformed/jetified-play-services-auth-20.7.0/AndroidManifest.xml:37:13-48
+130
+131        <activity
+131-->[com.google.android.gms:play-services-base:18.0.1] /home/esetedos/.gradle/caches/transforms-3/b71ef279c1683b5749acb2f0aa91f82a/transformed/jetified-play-services-base-18.0.1/AndroidManifest.xml:20:9-22:45
+132            android:name="com.google.android.gms.common.api.GoogleApiActivity"
+132-->[com.google.android.gms:play-services-base:18.0.1] /home/esetedos/.gradle/caches/transforms-3/b71ef279c1683b5749acb2f0aa91f82a/transformed/jetified-play-services-base-18.0.1/AndroidManifest.xml:20:19-85
+133            android:exported="false"
+133-->[com.google.android.gms:play-services-base:18.0.1] /home/esetedos/.gradle/caches/transforms-3/b71ef279c1683b5749acb2f0aa91f82a/transformed/jetified-play-services-base-18.0.1/AndroidManifest.xml:22:19-43
+134            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+134-->[com.google.android.gms:play-services-base:18.0.1] /home/esetedos/.gradle/caches/transforms-3/b71ef279c1683b5749acb2f0aa91f82a/transformed/jetified-play-services-base-18.0.1/AndroidManifest.xml:21:19-78
+135
+136        <meta-data
+136-->[com.google.android.gms:play-services-basement:18.2.0] /home/esetedos/.gradle/caches/transforms-3/4c98ac1678e91268ed33f9d3ff7f04ab/transformed/jetified-play-services-basement-18.2.0/AndroidManifest.xml:21:9-23:69
+137            android:name="com.google.android.gms.version"
+137-->[com.google.android.gms:play-services-basement:18.2.0] /home/esetedos/.gradle/caches/transforms-3/4c98ac1678e91268ed33f9d3ff7f04ab/transformed/jetified-play-services-basement-18.2.0/AndroidManifest.xml:22:13-58
+138            android:value="@integer/google_play_services_version" />
+138-->[com.google.android.gms:play-services-basement:18.2.0] /home/esetedos/.gradle/caches/transforms-3/4c98ac1678e91268ed33f9d3ff7f04ab/transformed/jetified-play-services-basement-18.2.0/AndroidManifest.xml:23:13-66
+139
+140        <provider
+140-->[androidx.emoji2:emoji2:1.2.0] /home/esetedos/.gradle/caches/transforms-3/1443cf50b96023bc0beb7745f2e839a4/transformed/jetified-emoji2-1.2.0/AndroidManifest.xml:24:9-32:20
+141            android:name="androidx.startup.InitializationProvider"
+141-->[androidx.emoji2:emoji2:1.2.0] /home/esetedos/.gradle/caches/transforms-3/1443cf50b96023bc0beb7745f2e839a4/transformed/jetified-emoji2-1.2.0/AndroidManifest.xml:25:13-67
+142            android:authorities="com.egproject.androidx-startup"
+142-->[androidx.emoji2:emoji2:1.2.0] /home/esetedos/.gradle/caches/transforms-3/1443cf50b96023bc0beb7745f2e839a4/transformed/jetified-emoji2-1.2.0/AndroidManifest.xml:26:13-68
+143            android:exported="false" >
+143-->[androidx.emoji2:emoji2:1.2.0] /home/esetedos/.gradle/caches/transforms-3/1443cf50b96023bc0beb7745f2e839a4/transformed/jetified-emoji2-1.2.0/AndroidManifest.xml:27:13-37
+144            <meta-data
+144-->[androidx.emoji2:emoji2:1.2.0] /home/esetedos/.gradle/caches/transforms-3/1443cf50b96023bc0beb7745f2e839a4/transformed/jetified-emoji2-1.2.0/AndroidManifest.xml:29:13-31:52
+145                android:name="androidx.emoji2.text.EmojiCompatInitializer"
+145-->[androidx.emoji2:emoji2:1.2.0] /home/esetedos/.gradle/caches/transforms-3/1443cf50b96023bc0beb7745f2e839a4/transformed/jetified-emoji2-1.2.0/AndroidManifest.xml:30:17-75
+146                android:value="androidx.startup" />
+146-->[androidx.emoji2:emoji2:1.2.0] /home/esetedos/.gradle/caches/transforms-3/1443cf50b96023bc0beb7745f2e839a4/transformed/jetified-emoji2-1.2.0/AndroidManifest.xml:31:17-49
+147            <meta-data
+147-->[androidx.lifecycle:lifecycle-process:2.6.1] /home/esetedos/.gradle/caches/transforms-3/f4faff7c987e2993f551f89d5b982038/transformed/jetified-lifecycle-process-2.6.1/AndroidManifest.xml:29:13-31:52
+148                android:name="androidx.lifecycle.ProcessLifecycleInitializer"
+148-->[androidx.lifecycle:lifecycle-process:2.6.1] /home/esetedos/.gradle/caches/transforms-3/f4faff7c987e2993f551f89d5b982038/transformed/jetified-lifecycle-process-2.6.1/AndroidManifest.xml:30:17-78
+149                android:value="androidx.startup" />
+149-->[androidx.lifecycle:lifecycle-process:2.6.1] /home/esetedos/.gradle/caches/transforms-3/f4faff7c987e2993f551f89d5b982038/transformed/jetified-lifecycle-process-2.6.1/AndroidManifest.xml:31:17-49
+150            <meta-data
+150-->[androidx.profileinstaller:profileinstaller:1.3.0] /home/esetedos/.gradle/caches/transforms-3/68a4974e169c7191354edea1d87d8e71/transformed/jetified-profileinstaller-1.3.0/AndroidManifest.xml:29:13-31:52
+151                android:name="androidx.profileinstaller.ProfileInstallerInitializer"
+151-->[androidx.profileinstaller:profileinstaller:1.3.0] /home/esetedos/.gradle/caches/transforms-3/68a4974e169c7191354edea1d87d8e71/transformed/jetified-profileinstaller-1.3.0/AndroidManifest.xml:30:17-85
+152                android:value="androidx.startup" />
+152-->[androidx.profileinstaller:profileinstaller:1.3.0] /home/esetedos/.gradle/caches/transforms-3/68a4974e169c7191354edea1d87d8e71/transformed/jetified-profileinstaller-1.3.0/AndroidManifest.xml:31:17-49
+153        </provider>
+154
+155        <receiver
+155-->[androidx.profileinstaller:profileinstaller:1.3.0] /home/esetedos/.gradle/caches/transforms-3/68a4974e169c7191354edea1d87d8e71/transformed/jetified-profileinstaller-1.3.0/AndroidManifest.xml:34:9-52:20
+156            android:name="androidx.profileinstaller.ProfileInstallReceiver"
+156-->[androidx.profileinstaller:profileinstaller:1.3.0] /home/esetedos/.gradle/caches/transforms-3/68a4974e169c7191354edea1d87d8e71/transformed/jetified-profileinstaller-1.3.0/AndroidManifest.xml:35:13-76
+157            android:directBootAware="false"
+157-->[androidx.profileinstaller:profileinstaller:1.3.0] /home/esetedos/.gradle/caches/transforms-3/68a4974e169c7191354edea1d87d8e71/transformed/jetified-profileinstaller-1.3.0/AndroidManifest.xml:36:13-44
+158            android:enabled="true"
+158-->[androidx.profileinstaller:profileinstaller:1.3.0] /home/esetedos/.gradle/caches/transforms-3/68a4974e169c7191354edea1d87d8e71/transformed/jetified-profileinstaller-1.3.0/AndroidManifest.xml:37:13-35
+159            android:exported="true"
+159-->[androidx.profileinstaller:profileinstaller:1.3.0] /home/esetedos/.gradle/caches/transforms-3/68a4974e169c7191354edea1d87d8e71/transformed/jetified-profileinstaller-1.3.0/AndroidManifest.xml:38:13-36
+160            android:permission="android.permission.DUMP" >
+160-->[androidx.profileinstaller:profileinstaller:1.3.0] /home/esetedos/.gradle/caches/transforms-3/68a4974e169c7191354edea1d87d8e71/transformed/jetified-profileinstaller-1.3.0/AndroidManifest.xml:39:13-57
+161            <intent-filter>
+161-->[androidx.profileinstaller:profileinstaller:1.3.0] /home/esetedos/.gradle/caches/transforms-3/68a4974e169c7191354edea1d87d8e71/transformed/jetified-profileinstaller-1.3.0/AndroidManifest.xml:40:13-42:29
+162                <action android:name="androidx.profileinstaller.action.INSTALL_PROFILE" />
+162-->[androidx.profileinstaller:profileinstaller:1.3.0] /home/esetedos/.gradle/caches/transforms-3/68a4974e169c7191354edea1d87d8e71/transformed/jetified-profileinstaller-1.3.0/AndroidManifest.xml:41:17-91
+162-->[androidx.profileinstaller:profileinstaller:1.3.0] /home/esetedos/.gradle/caches/transforms-3/68a4974e169c7191354edea1d87d8e71/transformed/jetified-profileinstaller-1.3.0/AndroidManifest.xml:41:25-88
+163            </intent-filter>
+164            <intent-filter>
+164-->[androidx.profileinstaller:profileinstaller:1.3.0] /home/esetedos/.gradle/caches/transforms-3/68a4974e169c7191354edea1d87d8e71/transformed/jetified-profileinstaller-1.3.0/AndroidManifest.xml:43:13-45:29
+165                <action android:name="androidx.profileinstaller.action.SKIP_FILE" />
+165-->[androidx.profileinstaller:profileinstaller:1.3.0] /home/esetedos/.gradle/caches/transforms-3/68a4974e169c7191354edea1d87d8e71/transformed/jetified-profileinstaller-1.3.0/AndroidManifest.xml:44:17-85
+165-->[androidx.profileinstaller:profileinstaller:1.3.0] /home/esetedos/.gradle/caches/transforms-3/68a4974e169c7191354edea1d87d8e71/transformed/jetified-profileinstaller-1.3.0/AndroidManifest.xml:44:25-82
+166            </intent-filter>
+167            <intent-filter>
+167-->[androidx.profileinstaller:profileinstaller:1.3.0] /home/esetedos/.gradle/caches/transforms-3/68a4974e169c7191354edea1d87d8e71/transformed/jetified-profileinstaller-1.3.0/AndroidManifest.xml:46:13-48:29
+168                <action android:name="androidx.profileinstaller.action.SAVE_PROFILE" />
+168-->[androidx.profileinstaller:profileinstaller:1.3.0] /home/esetedos/.gradle/caches/transforms-3/68a4974e169c7191354edea1d87d8e71/transformed/jetified-profileinstaller-1.3.0/AndroidManifest.xml:47:17-88
+168-->[androidx.profileinstaller:profileinstaller:1.3.0] /home/esetedos/.gradle/caches/transforms-3/68a4974e169c7191354edea1d87d8e71/transformed/jetified-profileinstaller-1.3.0/AndroidManifest.xml:47:25-85
+169            </intent-filter>
+170            <intent-filter>
+170-->[androidx.profileinstaller:profileinstaller:1.3.0] /home/esetedos/.gradle/caches/transforms-3/68a4974e169c7191354edea1d87d8e71/transformed/jetified-profileinstaller-1.3.0/AndroidManifest.xml:49:13-51:29
+171                <action android:name="androidx.profileinstaller.action.BENCHMARK_OPERATION" />
+171-->[androidx.profileinstaller:profileinstaller:1.3.0] /home/esetedos/.gradle/caches/transforms-3/68a4974e169c7191354edea1d87d8e71/transformed/jetified-profileinstaller-1.3.0/AndroidManifest.xml:50:17-95
+171-->[androidx.profileinstaller:profileinstaller:1.3.0] /home/esetedos/.gradle/caches/transforms-3/68a4974e169c7191354edea1d87d8e71/transformed/jetified-profileinstaller-1.3.0/AndroidManifest.xml:50:25-92
+172            </intent-filter>
+173        </receiver>
+174
+175        <meta-data
+175-->[com.facebook.soloader:soloader:0.10.5] /home/esetedos/.gradle/caches/transforms-3/3019da999cc2320dc750092c570bfcb2/transformed/jetified-soloader-0.10.5/AndroidManifest.xml:12:9-14:37
+176            android:name="com.facebook.soloader.enabled"
+176-->[com.facebook.soloader:soloader:0.10.5] /home/esetedos/.gradle/caches/transforms-3/3019da999cc2320dc750092c570bfcb2/transformed/jetified-soloader-0.10.5/AndroidManifest.xml:13:13-57
+177            android:value="false" />
+177-->[com.facebook.soloader:soloader:0.10.5] /home/esetedos/.gradle/caches/transforms-3/3019da999cc2320dc750092c570bfcb2/transformed/jetified-soloader-0.10.5/AndroidManifest.xml:14:13-34
+178    </application>
+179
+180</manifest>
