@@ -1,15 +1,12 @@
 import 'react-native-gesture-handler';
-import React from 'react';
-import { StatusBar, ScrollView, StyleSheet, Text, View} from 'react-native';
+import React, {useState} from 'react';
 import { NavigationContainer } from '@react-navigation/native';
-import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
-import Home from './screens/Home';
-import  Header  from './components/Header';
-import SplashScreen from './components/SplashScreen';
+
 import MyStack from './components/MyStack.js';
-import Profile from './screens/Profile';
+import GoogleModal from './components/GoogleModal.js'
+import StandardModal from './components/Modal.js'
 import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs';
-import { MaterialCommunityIcons } from '@expo/vector-icons';
+
 
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { useEffect } from "react";
@@ -33,11 +30,15 @@ const App = () => {
                     // atributes: {strength: "strength",
                     //             stamina: "0",
                     //             poisoned: true }}
-
     await storeData(value);
     const user = await getData()
 
-    userCheck(user);
+    if(user === null){
+      setPage(['googlePage'])
+    }
+    else{
+      setPage(['mainPage'])
+    }
     
   };
 
@@ -46,10 +47,10 @@ const App = () => {
     });
   }, []);
 
-  useEffect(modalHandler(pageState), pageState);
-
   return (
     <NavigationContainer>
+      <GoogleModal state = {pageState}/>
+      <StandardModal/>
       <MyStack />
     </NavigationContainer>
   );
@@ -57,15 +58,6 @@ const App = () => {
 }
 export default App
 
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
 
 const storeData = async (value) => {
   try {
@@ -85,29 +77,3 @@ const getData = async () => {
   }
 };
 
-const userCheck= (value) => {
-  
-    if(value === null){
-      setPage(['googlePage'])
-    }
-    else{
-      setPage(['mainPage'])
-    }
-}
-
-const modalHandler = (state) =>{
-  
-  switch(state){
-    case 'mainPage':
-      //Hide all modals
-      break;
-    case 'googlePage':
-      //Hide all modals + showGoogle
-      break;
-    //Rest of cases to be implemented in the future
-  }
-}
-
-export {
-  pageState
-}

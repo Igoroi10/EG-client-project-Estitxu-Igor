@@ -1,23 +1,23 @@
 import React from "react";
 import Modal from 'react-modal';
+import { View, Text, Image } from 'react-native';
 import styled from "styled-components/native";
-import pageState from '../App'
 
 Modal.setAppElement('#yourAppElement');
 
 
 
-const googlePage = () =>{
-    return(
-        <Modal 
-            isOpen={pageState = 'googlePage'? true : false}
-        >
-            <Button>Google button</Button>
-        </Modal>
-    )
+const StandardModal = () =>{
+            return(
+                <ModalTemplate>
+                    <Text>Modal</Text>
+                </ModalTemplate>
+            )
 }
 
-const modalTemplate = styled.Modal`
+
+
+const ModalTemplate = styled.Modal`
     position: absolute;
     width: 100%;
     height: 100%;
@@ -33,6 +33,4 @@ const Button = styled.Button`
  justify-content: center;
 `
 
-export {
-    googlePage
-}
+export default StandardModal
