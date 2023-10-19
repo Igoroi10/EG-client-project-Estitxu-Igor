@@ -1,16 +1,14 @@
 import 'react-native-gesture-handler';
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import { NavigationContainer } from '@react-navigation/native';
+import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs';
+import AsyncStorage from '@react-native-async-storage/async-storage';
+import BootSplash from "react-native-bootsplash";
+
 
 import MyStack from './components/MyStack.js';
 import GoogleModal from './components/GoogleModal.js'
 import StandardModal from './components/Modal.js'
-import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs';
-
-
-import AsyncStorage from '@react-native-async-storage/async-storage';
-import { useEffect } from "react";
-import BootSplash from "react-native-bootsplash";
 
 
 const Tab = createMaterialTopTabNavigator();
@@ -19,25 +17,24 @@ const Tab = createMaterialTopTabNavigator();
 
 const App = () => {
 
-  const [pageState, setPage] = useState(['mainPage'])
+  let logged = false;
 
   useEffect(() => {
     const init = async () => {
       // …do multiple sync or async tasks
-    const value = null;
-                    // { name: "name",
-                    // email: "mail",
-                    // atributes: {strength: "strength",
-                    //             stamina: "0",
-                    //             poisoned: true }}
+    const value = 
+                    {name: "name",
+                    email: "mail",
+                    atributes: {strength: "strength",
+                                stamina: "0",
+                                poisoned: true }}
+
     await storeData(value);
     const user = await getData()
+    console.log(user)
 
-    if(user === null){
-      setPage(['googlePage'])
-    }
-    else{
-      setPage(['mainPage'])
+    if(user !== null){
+      logged = true
     }
     
   };
@@ -49,7 +46,7 @@ const App = () => {
 
   return (
     <NavigationContainer>
-      <GoogleModal state = {pageState}/>
+      <GoogleModal visible = {false}/>
       <StandardModal/>
       <MyStack />
     </NavigationContainer>

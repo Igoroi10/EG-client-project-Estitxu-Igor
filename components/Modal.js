@@ -9,7 +9,8 @@ Modal.setAppElement('#yourAppElement');
 
 const StandardModal = () =>{
             return(
-                <ModalTemplate>
+                <ModalTemplate
+                visible = {false}>
                     <Text>Modal</Text>
                 </ModalTemplate>
             )

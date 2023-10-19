@@ -5,13 +5,18 @@ import styled from "styled-components/native";
 
 Modal.setAppElement('#yourAppElement');
 
-const GoogleModal = ({state}) =>{
-    if(state === 'googlePage'){
-    <ModalTemplate>
-        <Text>Google text</Text>
-    </ModalTemplate>
-    }
+
+
+const GoogleModal = (logStatus) =>{
+            return(
+                <ModalTemplate
+                visible = {logStatus?true:false}>
+                    <Text>Google</Text>
+                </ModalTemplate>
+            )
 }
+
+
 
 const ModalTemplate = styled.Modal`
     position: absolute;
@@ -20,13 +25,13 @@ const ModalTemplate = styled.Modal`
 `
 
 const Button = styled.Button`
-    width: 42px;
-    height: 42px;
-    border-radius: 10px;
-    margin-left: 16px;
-    background: #EEEEEE;
-    align-items: center;
-    justify-content: center;
+ width: 42px;
+ height: 42px;
+ border-radius: 10px;
+ margin-left: 16px;
+ background: #EEEEEE;
+ align-items: center;
+ justify-content: center;
 `
 
 export default GoogleModal
