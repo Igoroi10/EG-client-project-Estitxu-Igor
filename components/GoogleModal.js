@@ -7,10 +7,11 @@ Modal.setAppElement('#yourAppElement');
 
 
 
-const GoogleModal = (logStatus) =>{
+const GoogleModal = ({logStatus}) =>{
+    console.log(logStatus)
             return(
                 <ModalTemplate
-                visible = {logStatus?true:false}>
+                visible = {logStatus?false:true}>
                     <Text>Google</Text>
                 </ModalTemplate>
             )

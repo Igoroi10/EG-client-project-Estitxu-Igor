@@ -19,10 +19,12 @@ const App = () => {
 
   let logged = false;
 
+  const [logState, setLogged] = useState([]);
+
   useEffect(() => {
     const init = async () => {
       // …do multiple sync or async tasks
-    const value = 
+    const value =
                     {name: "name",
                     email: "mail",
                     atributes: {strength: "strength",
@@ -31,11 +33,12 @@ const App = () => {
 
     await storeData(value);
     const user = await getData()
-    console.log(user)
 
     if(user !== null){
-      logged = true
+      setLogged(true)
     }
+    else
+      setLogged(false)
     
   };
 
@@ -46,7 +49,7 @@ const App = () => {
 
   return (
     <NavigationContainer>
-      <GoogleModal visible = {false}/>
+      <GoogleModal logStatus={logState} />
       <StandardModal/>
       <MyStack />
     </NavigationContainer>
