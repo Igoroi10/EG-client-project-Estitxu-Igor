@@ -1,7 +1,12 @@
 import 'react-native-gesture-handler';
 import React, {useState, useEffect} from 'react';
+import { StatusBar, ScrollView, StyleSheet, Text, View } from 'react-native';
+
 import { NavigationContainer } from '@react-navigation/native';
 import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs';
+
+import { GoogleSignin } from '@react-native-google-signin/google-signin';
+
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import BootSplash from "react-native-bootsplash";
 
@@ -13,18 +18,21 @@ import StandardModal from './components/Modal.js'
 
 const Tab = createMaterialTopTabNavigator();
 
+GoogleSignin.configure({
+  webClientId: '191142773304-svg8ajvir2075qjot6q18b7bhq45e4ps.apps.googleusercontent.com',
+});
+
+
 
 
 const App = () => {
-
-  let logged = false;
 
   const [logState, setLogged] = useState([]);
 
   useEffect(() => {
     const init = async () => {
       // …do multiple sync or async tasks
-    const value =
+    const value = 
                     {name: "name",
                     email: "mail",
                     atributes: {strength: "strength",

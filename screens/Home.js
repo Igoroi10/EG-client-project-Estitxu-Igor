@@ -4,6 +4,12 @@ import MainButtons from "../components/MainButtons";
 import Header from "../components/Header";
 import { useNavigation } from '@react-navigation/native';
 
+
+
+
+
+
+
 const View = styled.View`
     flex: 1;
     justify-content: center;
@@ -24,6 +30,7 @@ const Home = () => {
             <Header/>
             <View>
                 <ButtonsContainer>
+
                 <MainButtons  label="Profile" iconName="account" onPress={() => navigation.navigate('Profile')}/>
 
                 <MainButtons label="Create Potions" iconName="glass-mug-variant"/>
