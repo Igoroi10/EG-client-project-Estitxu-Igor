@@ -9,54 +9,54 @@ import { GoogleSignin } from '@react-native-google-signin/google-signin';
 Modal.setAppElement('#yourAppElement');
 
 function GoogleSignIn() {
-  const [loadingGoogle, setGoogleLoad] = useState(false)
-
-  const googlePressButton = () => {
-    setGoogleLoad(true)
-    onGoogleButtonPress().then(() => console.log('Signed in with Google!'))
-
-  }    
+  const [loadingGoogle, setGoogleLoad] = useState(true)
   
-  return (
+  console.log("loading init: " + loadingGoogle)
+  useEffect(() => {
+    onGoogleButtonPress().then(() => console.log('Signed in with Google!'))
+    //server route with Token here 
+    console.log("loading state")
+    console.log(loadingGoogle)
+  }, [loadingGoogle]);
 
+  return (
     <>
-      {!loadingGoogle &&
-        <GoogleButton title="Google Sign-In" onPress={googlePressButton()}/>
+      {loadingGoogle &&
+        <GoogleButton title="Google Sign-In" onPress={setGoogleLoad(false)}/>
       }
-      {loadingGoogle && 
+      {!loadingGoogle && 
         <GoogleButton title="Google Sign-In" disabled/>
       }
     </>
-    );
-  }
+  );
+}
   
-  async function onGoogleButtonPress() {
-      // Check if your device supports Google Play
-      await GoogleSignin.hasPlayServices({ showPlayServicesUpdateDialog: true });
-      // Get the users ID token
-      const { idToken } = await GoogleSignin.signIn();
-      console.log("Token HERE: " + idToken)
-  
-      // Create a Google credential with the token
-      const googleCredential = auth.GoogleAuthProvider.credential(idToken);
-    
-      // Sign-in the user with the credential
-      return auth().signInWithCredential(googleCredential);
-    }
-  
+async function onGoogleButtonPress() {
+  // Check if your device supports Google Play
+  await GoogleSignin.hasPlayServices({ showPlayServicesUpdateDialog: true });
+  // Get the users ID token
+  const { idToken } = await GoogleSignin.signIn();
+  console.log("Token HERE: " + idToken)
+
+  // Create a Google credential with the token
+  const googleCredential = auth.GoogleAuthProvider.credential(idToken);
+
+  // Sign-in the user with the credential
+  return auth().signInWithCredential(googleCredential);
+}
 
 const GoogleModal = ({logStatus}) =>{
-            return(
-                <ModalTemplate visible = {logStatus?false:true}>
-                    <GoogleSignIn />
-                </ModalTemplate>
-            )
+  return(
+    <ModalTemplate visible = {logStatus?false:true}>
+      <GoogleSignIn />
+    </ModalTemplate>
+  )
 }
 
 const ModalTemplate = styled.Modal`
-    position: absolute;
-    width: 100%;
-    height: 100%;
+  position: absolute;
+  width: 100%;
+  height: 100%;
 `
 
 const  GoogleButton= styled.Button`
