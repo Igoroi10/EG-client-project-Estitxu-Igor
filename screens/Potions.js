@@ -1,5 +1,5 @@
 import React from 'react'
-import { FlatList, Text } from 'react-native'
+import { FlatList, Text, Button } from 'react-native'
 import styled from 'styled-components/native'
 import fakeIngredients from '../fakeData/fakeIngredients.json'
 import potionHandler from '../helpers/potionHandler'
@@ -11,13 +11,19 @@ const Potions = () =>{
                 <Text>Potion creation</Text>
             </HeadContainer>
             <ContentContainer>
-                <FlatList>
 
-                </FlatList>
+                 <FlatList 
+                        data={fakeIngredients}
+                        renderItem={({item}) => (
+                            <Button title = {item.name}
+                                name={item.name}
+                            />
+                        )}
+                        keyExtractor={item => item.id}
+                />
             </ContentContainer>
         </>
     )
-
 } 
 
 const HeadContainer = styled.View`
