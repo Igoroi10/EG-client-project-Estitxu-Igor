@@ -15,11 +15,9 @@ const Potions = () =>{
                  <FlatList 
                         data={fakeIngredients}
                         renderItem={({item}) => (
-                            <Button title = {item.name}
-                                name={item.name}
-                            />
+                            <Button title = {item.name}/>
                         )}
-                        keyExtractor={item => item.id}
+                        keyExtractor={item => item.key}
                 />
             </ContentContainer>
         </>
