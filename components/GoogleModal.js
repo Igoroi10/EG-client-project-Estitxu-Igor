@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState, useEffect} from "react";
 import Modal from 'react-modal';
 import { View, Text, Image } from 'react-native';
 import styled from "styled-components/native";
@@ -9,11 +9,24 @@ import { GoogleSignin } from '@react-native-google-signin/google-signin';
 Modal.setAppElement('#yourAppElement');
 
 function GoogleSignIn() {
-    return (
-      <GoogleButton
-        title="Google Sign-In"
-        onPress={() => onGoogleButtonPress().then(() => console.log('Signed in with Google!'))}
-      />
+  const [loadingGoogle, setGoogleLoad] = useState(false)
+
+  const googlePressButton = () => {
+    setGoogleLoad(true)
+    onGoogleButtonPress().then(() => console.log('Signed in with Google!'))
+
+  }    
+  
+  return (
+
+    <>
+      {!loadingGoogle &&
+        <GoogleButton title="Google Sign-In" onPress={googlePressButton()}/>
+      }
+      {loadingGoogle && 
+        <GoogleButton title="Google Sign-In" disabled/>
+      }
+    </>
     );
   }
   
@@ -34,14 +47,11 @@ function GoogleSignIn() {
 
 const GoogleModal = ({logStatus}) =>{
             return(
-                <ModalTemplate
-                visible = {logStatus?false:true}>
+                <ModalTemplate visible = {logStatus?false:true}>
                     <GoogleSignIn />
                 </ModalTemplate>
             )
 }
-
-
 
 const ModalTemplate = styled.Modal`
     position: absolute;
@@ -55,6 +65,7 @@ const  GoogleButton= styled.Button`
  border-radius: 10px;
  margin-left: 16px;
  background: #EEEEEE;
+ margin-top: 40%; 
  align-items: center;
  justify-content: center;
 `
