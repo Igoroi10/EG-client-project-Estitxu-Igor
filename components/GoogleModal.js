@@ -5,6 +5,7 @@ import styled from "styled-components/native";
 import { Button } from 'react-native';
 import auth from '@react-native-firebase/auth';
 import { GoogleSignin } from '@react-native-google-signin/google-signin';
+import axios from "axios";
 
 Modal.setAppElement('#yourAppElement');
 
@@ -14,9 +15,7 @@ function GoogleSignIn() {
   console.log("loading init: " + loadingGoogle)
   useEffect(() => {
     onGoogleButtonPress().then(() => console.log('Signed in with Google!'))
-    //server route with Token here 
-    console.log("loading state")
-    console.log(loadingGoogle)
+
   }, [loadingGoogle]);
 
   return (
@@ -37,6 +36,7 @@ async function onGoogleButtonPress() {
   // Get the users ID token
   const { idToken } = await GoogleSignin.signIn();
   console.log("Token HERE: " + idToken)
+  const res = await axios.post("http://localhost:3000/api/user/token", {idToken});
 
   // Create a Google credential with the token
   const googleCredential = auth.GoogleAuthProvider.credential(idToken);

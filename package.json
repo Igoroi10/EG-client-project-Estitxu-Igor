@@ -21,6 +21,7 @@
     "@react-navigation/material-top-tabs": "^6.6.4",
     "@react-navigation/native": "^6.1.8",
     "@react-navigation/stack": "^6.3.18",
+    "axios": "^1.5.1",
     "node-localstorage": "^3.0.5",
     "react": "18.2.0",
     "react-modal": "^3.16.1",
