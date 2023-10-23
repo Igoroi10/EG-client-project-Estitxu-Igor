@@ -1,37 +1,4 @@
 
-const ingredients = [{
-    "name": "Mushrooms",
-    "effects": ["vitality restoration", "poison healing", "heat enduring", "vision improval"]
- },
- {
-     "name": "Clear Water",
-     "effects": ["blindness healing", "poison healing"]
-  },
-  {
-     "name": "Mountain's herbs",
-     "effects": ["poison healing", "vitality restoration", "energy restoration"]
-  },
-  {
-     "name": "Calcium",
-     "effects": ["vitality restoration", "energy restoration", "resistance improval"]
-  },
-  {
-     "name": "Flowes",
-     "effects": ["energy restoration", "heat enduring", "vitality restoration", "vision improval"]
-  },
-  {
-     "name": "Fire Sparks",
-     "effects": ["energy restoration", "cold enduring", "resistance improval"]
-  },
-  {
-     "name": "Divine Essence",
-     "effects": ["max restoration", "poison healing", "heat enduring"]
-  },
-  {
-     "name": "Demonic Infusion",
-     "effects": ["max restoration", "cold enduring", "vision improval"]
-  }
- ]
 
 export default function potionHandler(ingredient1, ingredient2){
 
@@ -62,4 +29,3 @@ export default function potionHandler(ingredient1, ingredient2){
     return ingredientName;
 }
 
-console.log(potionHandler(ingredients[7], ingredients[6]))
