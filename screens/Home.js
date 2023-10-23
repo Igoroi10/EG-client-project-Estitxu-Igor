@@ -33,7 +33,7 @@ const Home = () => {
 
                 <MainButtons  label="Profile" iconName="account" onPress={() => navigation.navigate('Profile')}/>
 
-                <MainButtons label="Create Potions" iconName="glass-mug-variant"/>
+                <MainButtons label="Create Potions" iconName="glass-mug-variant" onPress={() => navigation.navigate('Potions')}/>
                 </ButtonsContainer>
             </View>
             </>

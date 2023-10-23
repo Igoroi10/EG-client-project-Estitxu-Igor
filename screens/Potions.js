@@ -1,21 +1,19 @@
 import React from 'react'
+import { FlatList, Text } from 'react-native'
 import styled from 'styled-components/native'
 import fakeIngredients from '../fakeData/fakeIngredients.json'
 import potionHandler from '../helpers/potionHandler'
 
 const Potions = () =>{
-
-    console.log(potionHandler(fakeIngredients.Mushrooms, fakeIngredients.Calcium));
     return(
         <>
             <HeadContainer>
                 <Text>Potion creation</Text>
             </HeadContainer>
             <ContentContainer>
-                
-            </ContentContainer>
-            <ContentContainer>
+                <FlatList>
 
+                </FlatList>
             </ContentContainer>
         </>
     )
