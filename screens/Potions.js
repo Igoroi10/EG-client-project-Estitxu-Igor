@@ -1,8 +1,11 @@
 import React from 'react'
 import styled from 'styled-components/native'
+import fakeIngredients from '../fakeData/fakeIngredients.json'
+import potionHandler from '../helpers/potionHandler'
 
 const Potions = () =>{
 
+    console.log(potionHandler(fakeIngredients.Mushrooms, fakeIngredients.Calcium));
     return(
         <>
             <HeadContainer>
@@ -29,3 +32,4 @@ const ContentContainer = styled.View`
     justify-content: space-between;
     height: 40%;
 `
+export default Potions
