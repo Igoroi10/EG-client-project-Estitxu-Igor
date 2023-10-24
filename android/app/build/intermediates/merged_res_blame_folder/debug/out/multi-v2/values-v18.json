@@ -4,7 +4,7 @@
             "outputFile": "com.egproject.app-mergeDebugResources-50:/values-v18/values-v18.xml",
             "map": [
                 {
-                    "source": "/home/igorocon/.gradle/caches/transforms-3/ac8d0903fd886064e4440a5355d1dcc4/transformed/appcompat-1.6.1/res/values-v18/values-v18.xml",
+                    "source": "/home/unai/.gradle/caches/transforms-3/ac8d0903fd886064e4440a5355d1dcc4/transformed/appcompat-1.6.1/res/values-v18/values-v18.xml",
                     "from": {
                         "startLines": "2",
                         "startColumns": "4",
