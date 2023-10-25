@@ -1,22 +1,20 @@
 import React from 'react';
-import { FlatList, Text, Button, PushNotificationIOS } from 'react-native';
+import { FlatList, Text, Button, View } from 'react-native';
 import styled from 'styled-components/native';
 import fakeIngredients from '../fakeData/fakeIngredients.json';
 import potionHandler from '../helpers/potionHandler';
 
 const Potions = () => {
 
-let ingredientArray= [];
+  let ingredientArray = [];
 
   const handleIngredientPress = (item) => {
-    const selectedIngredient = item;
-    ingredientArray.push(selectedIngredient)
-    //alert(`Ingredient: ${ingredientArray}.`);
-    
-    //alert(ingredientArray.length)
 
-    if(ingredientArray.length == 2){
-        potionHandler(ingredientArray[0], ingredientArray[1])
+    ingredientArray.push(item);
+    
+    if(ingredientArray[0] == ingredientArray[1]){
+        alert("Cannot be used the same ingredient twice, please select another one")
+        ingredientArray.splice[1]
     }
   };
 
@@ -36,6 +34,21 @@ let ingredientArray= [];
           )}
           keyExtractor={(item) => item.key}
         />
+          <View>
+            <Button
+              title="Create Potion"
+              onPress={() => {
+                if(ingredientArray.length!=2){
+                    alert("Select 2 ingredients to create potion")
+                }
+                else{
+                    potionHandler(ingredientArray[0], ingredientArray[1]);
+                }
+                
+              }}
+            />
+          </View>
+        
       </ContentContainer>
     </>
   );
