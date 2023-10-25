@@ -32,12 +32,12 @@ const App = () => {
   useEffect(() => {
     const init = async () => {
       // …do multiple sync or async tasks
-    const value = //null
-                  {name: "name",
-                  email: "mail",
-                  atributes: {strength: "strength",
-                              stamina: "0",
-                              poisoned: true }}
+    const value = null;
+                  // {name: "name",
+                  // email: "mail",
+                  // atributes: {strength: "strength",
+                  //             stamina: "0",
+                  //             poisoned: true }}
 
     await storeData(value);
     const user = await getData()

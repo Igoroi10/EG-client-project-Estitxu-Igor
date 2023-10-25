@@ -34,16 +34,52 @@ async function onGoogleButtonPress() {
   // Check if your device supports Google Play
   await GoogleSignin.hasPlayServices({ showPlayServicesUpdateDialog: true });
   // Get the users ID token
+  console.log("******************PLAY SERVICE CHECKED******************")
   const { idToken } = await GoogleSignin.signIn();
   console.log("Token HERE: " + idToken)
-  const res = await axios.post("http://localhost:3000/api/user/token", {idToken});
+  // const res = await axios.post("http://localhost:3000/api/user", {idToken});
 
   // Create a Google credential with the token
   const googleCredential = auth.GoogleAuthProvider.credential(idToken);
+  console.log("*****************GOOGLE CREDENTIAL*************************");
+  console.log(googleCredential)
 
   // Sign-in the user with the credential
-  return auth().signInWithCredential(googleCredential);
+  const signInWithCredential = auth().signInWithCredential(googleCredential,);
+  console.log("**********************SIGN IN W CREDENTIAL******************")
+  console.log(signInWithCredential)
+
+  //Get the token from current user
+  const idTokenResult = await auth().currentUser.getIdTokenResult();
+  console.log('********************************filtered token**************************')
+  console.log(idTokenResult);
+
+
+  //validate user token
+  axios.post('http://localhost:3000/api/user'), {
+    data: idTokenResult
+  }
+  .thenResponse
+
+  console.log("***************************Token sent*********************")
+
 }
+
+// /validate token
+// app.post
+
+
+
+// admin.auth.verifyToken
+
+
+
+
+
+
+
+
+
 
 const GoogleModal = ({logStatus}) =>{
   return(
