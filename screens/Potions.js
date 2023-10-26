@@ -5,30 +5,25 @@ import fakeIngredients from '../fakeData/fakeIngredients.json';
 import potionHandler from '../helpers/potionHandler';
 
 const Potions = () => {
-  const [ingredientArray, setIngredientArray] = useState([]);
   const [selectedIngredients, setSelectedIngredients] = useState([]);
 
   const handleIngredientPress = (item) => {
-    if (ingredientArray.length < 2) {
-      if (!ingredientArray.includes(item)) {
-        setIngredientArray([...ingredientArray, item]);
-        setSelectedIngredients([...selectedIngredients, item.name]);
-      } else {
-        alert("Cannot use the same ingredient twice, please select another one");
-      }
+    if (selectedIngredients.length < 2 && !selectedIngredients.includes(item)) {
+      setSelectedIngredients([...selectedIngredients, item]);
+    } else {
+      alert("Cannot use the same ingredient twice or select more than 2 ingredients");
     }
   };
 
   const createPotion = () => {
-    if (ingredientArray.length === 2) {
-      potionHandler(ingredientArray[0], ingredientArray[1]);
+    if (selectedIngredients.length === 2) {
+      potionHandler(selectedIngredients[0], selectedIngredients[1]);
     } else {
       alert("Select 2 ingredients to create a potion");
     }
   };
 
   const deleteIngredients = () => {
-    setIngredientArray([]);
     setSelectedIngredients([]);
   };
 
@@ -37,16 +32,20 @@ const Potions = () => {
       <HeadContainer>
         <Text>Potion creation</Text>
       </HeadContainer>
-      
       <ContentContainer>
-        {ingredientArray.length < 2 && (
+        {selectedIngredients.length < 2 && (
           <FlatList
             data={fakeIngredients}
             renderItem={({ item }) => (
-              <IngredientButton onPress={() => handleIngredientPress(item)}>
-
+              <IngredientButton
+                onPress={() => handleIngredientPress(item)}
+                style={
+                  selectedIngredients.includes(item)
+                    ? { backgroundColor: 'gray' }
+                    : {}
+                }
+              >
                 <ButtonText>{item.name}</ButtonText>
-
               </IngredientButton>
             )}
             keyExtractor={(item) => item.key}
@@ -54,26 +53,23 @@ const Potions = () => {
         )}
         {selectedIngredients.length === 2 && (
           <SelectedIngredientsContainer>
-            
             <SelectedIngredientsText>
-              Selected Ingredients: {selectedIngredients[0]} and {selectedIngredients[1]}
+              Selected Ingredients: {selectedIngredients[0].name} and {selectedIngredients[1].name}
             </SelectedIngredientsText>
-
           </SelectedIngredientsContainer>
         )}
         {selectedIngredients.length === 2 && (
           <ButtonContainer>
-
             <CreateButton onPress={createPotion}>
               <ButtonText>Create Potion</ButtonText>
             </CreateButton>
-
-            <DeleteIngredientsButton onPress={deleteIngredients}>
-              <ButtonText>Delete Ingredients</ButtonText>
-            </DeleteIngredientsButton>
-
           </ButtonContainer>
         )}
+        <ButtonContainer>
+        <DeleteIngredientsButton onPress={deleteIngredients}>
+          <ButtonText>Delete Ingredients</ButtonText>
+        </DeleteIngredientsButton>
+          </ButtonContainer>
       </ContentContainer>
     </>
   );
@@ -130,12 +126,13 @@ const ButtonText = styled.Text`
 
 const SelectedIngredientsText = styled.Text`
   color: #000;
-  font-size: 15px;
+  font-size: 20px;
   text-align: center;
 `;
 
 const SelectedIngredientsContainer = styled.View`
   align-items: center;
+  text-align: center;
   width: 100%;
 `;
 
