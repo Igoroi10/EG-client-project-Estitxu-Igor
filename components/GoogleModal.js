@@ -5,6 +5,8 @@ import styled from "styled-components/native";
 import { Button } from 'react-native';
 import auth from '@react-native-firebase/auth';
 import { GoogleSignin } from '@react-native-google-signin/google-signin';
+import axios from 'axios'
+
 
 Modal.setAppElement('#yourAppElement');
 
@@ -38,7 +40,6 @@ async function onGoogleButtonPress() {
   console.log("******************PLAY SERVICE CHECKED******************")
   const { idToken } = await GoogleSignin.signIn();
   console.log("Token HERE: " + idToken)
-  const res = await axios.post("http://localhost:3000/api/user/token", {idToken});
 
   // Create a Google credential with the token
   const googleCredential = auth.GoogleAuthProvider.credential(idToken);
@@ -55,14 +56,15 @@ async function onGoogleButtonPress() {
   console.log('********************************filtered token**************************')
   console.log(idTokenResult);
 
-
+  console.log()
   //validate user token
-  axios.post('http://localhost:3000/api/user'), {
-    data: idTokenResult
-  }
-  .thenResponse
+  const decodedUser = await axios.post('http://192.168.0.26:3000/api/users/', { //cambiar ip
+    token: idTokenResult.token
+  })
 
-  console.log("***************************Token sent*********************")
+
+  console.log("***************************DECODED USER*********************")
+  console.log(decodedUser)
 
 }
 
