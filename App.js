@@ -32,7 +32,9 @@ const App = () => {
   useEffect(() => {
     const init = async () => {
       // …do multiple sync or async tasks
+
     const value = null;
+
                   // {name: "name",
                   // email: "mail",
                   // atributes: {strength: "strength",
