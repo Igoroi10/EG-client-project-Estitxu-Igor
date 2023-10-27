@@ -7,9 +7,10 @@ import { createMaterialTopTabNavigator } from '@react-navigation/material-top-ta
 
 import { GoogleSignin } from '@react-native-google-signin/google-signin';
 
-import AsyncStorage from '@react-native-async-storage/async-storage';
+
 import BootSplash from "react-native-bootsplash";
 
+import{storeData, getData} from './helpers/localStorage'
 
 import MyStack from './components/MyStack.js';
 import GoogleModal from './components/GoogleModal.js'
@@ -69,21 +70,4 @@ const App = () => {
 export default App
 
 
-const storeData = async (value) => {
-  try {
-    const jsonValue = JSON.stringify(value);
-    await AsyncStorage.setItem('my-key', jsonValue); 
-  } catch (e) {
-    console.log("error set")
-  }
-};
-  
-const getData = async () => {
-  try {
-    const jsonValue = await AsyncStorage.getItem('my-key');
-    return jsonValue != null ? JSON.parse(jsonValue) : null;
-  } catch (e) {
-    console.log("error get")
-  }
-};
 

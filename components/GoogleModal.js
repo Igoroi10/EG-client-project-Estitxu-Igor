@@ -6,7 +6,7 @@ import { Button } from 'react-native';
 import auth from '@react-native-firebase/auth';
 import { GoogleSignin } from '@react-native-google-signin/google-signin';
 import axios from 'axios'
-
+import{storeData} from '../helpers/localStorage'
 
 Modal.setAppElement('#yourAppElement');
 
@@ -29,7 +29,7 @@ const GoogleModal = ({logStatus}) =>{
     console.log(googleCredential)
   
     // Sign-in the user with the credential
-    const signInWithCredential = auth().signInWithCredential(googleCredential,);
+    const signInWithCredential = await auth().signInWithCredential(googleCredential,);
     console.log("**********************SIGN IN W CREDENTIAL******************")
     console.log(signInWithCredential)
   
@@ -40,7 +40,7 @@ const GoogleModal = ({logStatus}) =>{
   
     console.log()
     //validate user token
-    const decodedUser = await axios.post('http://192.168.0.26:3000/api/users/', { //cambiar ip
+    const decodedUser = await axios.post('http://192.168.1.167:3000/api/users/', {
       token: idTokenResult.token
     })
     
