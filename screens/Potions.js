@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { FlatList, Text, Button } from 'react-native';
+import { FlatList, Text, Button, View, Image } from 'react-native';
 import styled from 'styled-components/native';
 import axios from 'axios';
 
@@ -20,6 +20,15 @@ const Potions = () => {
         fetchIngredients();
     }, []);
 
+    const renderIngredientItem = ({ item }) => {
+        return (
+            <View style={styles.itemContainer}>
+                <Button title={item.name} />
+                <Image source={{ uri: item.image }} style={styles.image} />
+            </View>
+        );
+    };
+
     return (
         <>
             <HeadContainer>
@@ -29,9 +38,7 @@ const Potions = () => {
                 {ingredientsData.length > 0 ? (
                     <FlatList
                         data={ingredientsData}
-                        renderItem={({ item }) => (
-                            <Button title={item.name} />
-                        )}
+                        renderItem={renderIngredientItem}
                         keyExtractor={item => item.key.toString()}
                     />
                 ) : (
@@ -40,6 +47,18 @@ const Potions = () => {
             </ContentContainer>
         </>
     );
+};
+
+const styles = {
+    itemContainer: {
+        flexDirection: 'row',
+        alignItems: 'center',
+        justifyContent: 'space-between',
+    },
+    image: {
+        width: 50,
+        height: 50,
+    },
 };
 
 const HeadContainer = styled.View`
