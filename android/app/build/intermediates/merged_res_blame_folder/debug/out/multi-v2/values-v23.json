@@ -4,7 +4,7 @@
             "outputFile": "com.egproject.app-mergeDebugResources-50:/values-v23/values-v23.xml",
             "map": [
                 {
-                    "source": "/home/igorocon/.gradle/caches/transforms-3/ac8d0903fd886064e4440a5355d1dcc4/transformed/appcompat-1.6.1/res/values-v23/values-v23.xml",
+                    "source": "/home/esetedos/.gradle/caches/transforms-3/ac8d0903fd886064e4440a5355d1dcc4/transformed/appcompat-1.6.1/res/values-v23/values-v23.xml",
                     "from": {
                         "startLines": "2,3,4,5,6,20,34,35,36,39,43,44,45,46",
                         "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4",
@@ -15,26 +15,7 @@
                     }
                 },
                 {
-                    "source": "/home/igorocon/Documentos/EG-project/client/node_modules/react-native-bootsplash/android/build/intermediates/packaged_res/debug/values-v23/values-v23.xml",
-                    "from": {
-                        "startLines": "2,5",
-                        "startColumns": "4,4",
-                        "startOffsets": "55,195",
-                        "endLines": "4,8",
-                        "endColumns": "12,12",
-                        "endOffsets": "190,441"
-                    },
-                    "to": {
-                        "startLines": "53,56",
-                        "startColumns": "4,4",
-                        "startOffsets": "3382,3522",
-                        "endLines": "55,59",
-                        "endColumns": "12,12",
-                        "endOffsets": "3517,3768"
-                    }
-                },
-                {
-                    "source": "/home/igorocon/.gradle/caches/transforms-3/ca2db8f04a27d6ec8f9d77e06a8d7ebe/transformed/material-1.9.0/res/values-v23/values-v23.xml",
+                    "source": "/home/esetedos/.gradle/caches/transforms-3/ca2db8f04a27d6ec8f9d77e06a8d7ebe/transformed/material-1.9.0/res/values-v23/values-v23.xml",
                     "from": {
                         "startLines": "2,5,8,13,17,20,23,26,31,34,38",
                         "startColumns": "4,4,4,4,4,4,4,4,4,4,4",
@@ -53,7 +34,26 @@
                     }
                 },
                 {
-                    "source": "/home/igorocon/.gradle/caches/transforms-3/b59334f691d1f8e3ef7248c9a8bb046a/transformed/cardview-1.0.0/res/values-v23/values-v23.xml",
+                    "source": "/home/esetedos/Documents/AEG/equipo ganador/client-project-Estitxu-Unai-Igor/node_modules/react-native-bootsplash/android/build/intermediates/packaged_res/debug/values-v23/values-v23.xml",
+                    "from": {
+                        "startLines": "2,5",
+                        "startColumns": "4,4",
+                        "startOffsets": "55,195",
+                        "endLines": "4,8",
+                        "endColumns": "12,12",
+                        "endOffsets": "190,441"
+                    },
+                    "to": {
+                        "startLines": "53,56",
+                        "startColumns": "4,4",
+                        "startOffsets": "3382,3522",
+                        "endLines": "55,59",
+                        "endColumns": "12,12",
+                        "endOffsets": "3517,3768"
+                    }
+                },
+                {
+                    "source": "/home/esetedos/.gradle/caches/transforms-3/b59334f691d1f8e3ef7248c9a8bb046a/transformed/cardview-1.0.0/res/values-v23/values-v23.xml",
                     "from": {
                         "startLines": "2",
                         "startColumns": "4",
