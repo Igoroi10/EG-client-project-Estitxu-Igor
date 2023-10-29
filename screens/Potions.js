@@ -1,37 +1,139 @@
-import React from 'react'
-import { FlatList, Text, Button } from 'react-native'
-import styled from 'styled-components/native'
-import fakeIngredients from '../fakeData/fakeIngredients.json'
-import potionHandler from '../helpers/potionHandler'
+import React, { useState } from 'react';
+import { FlatList, Text, View, TouchableOpacity } from 'react-native';
+import styled from 'styled-components/native';
+import fakeIngredients from '../fakeData/fakeIngredients.json';
+import potionHandler from '../helpers/potionHandler';
 
-const Potions = () =>{
-    return(
-        <>
-            <HeadContainer>
-                <Text>Potion creation</Text>
-            </HeadContainer>
-            <ContentContainer>
+const Potions = () => {
+  const [selectedIngredients, setSelectedIngredients] = useState([]);
 
-                 <FlatList 
-                        data={fakeIngredients}
-                        renderItem={({item}) => (
-                            <Button title = {item.name}/>
-                        )}
-                        keyExtractor={item => item.key}
-                />
-            </ContentContainer>
-        </>
-    )
-} 
+  const handleIngredientPress = (item) => {
+    if (selectedIngredients.length < 2 && !selectedIngredients.includes(item)) {
+      setSelectedIngredients([...selectedIngredients, item]);
+    } else {
+      alert("Cannot use the same ingredient twice or select more than 2 ingredients");
+    }
+  };
+
+  const createPotion = () => {
+    if (selectedIngredients.length === 2) {
+      potionHandler(selectedIngredients[0], selectedIngredients[1]);
+    } else {
+      alert("Select 2 ingredients to create a potion");
+    }
+  };
+
+  const deleteIngredients = () => {
+    setSelectedIngredients([]);
+  };
+
+  return (
+    <>
+      <HeadContainer>
+        <Text>Potion creation</Text>
+      </HeadContainer>
+      <ContentContainer>
+        {selectedIngredients.length < 2 && (
+          <FlatList
+            data={fakeIngredients}
+            renderItem={({ item }) => (
+              <IngredientButton
+                onPress={() => handleIngredientPress(item)}
+                style={
+                  selectedIngredients.includes(item)
+                    ? { backgroundColor: 'gray' }
+                    : {}
+                }
+              >
+                <ButtonText>{item.name}</ButtonText>
+              </IngredientButton>
+            )}
+            keyExtractor={(item) => item.key}
+          />
+        )}
+        {selectedIngredients.length === 2 && (
+          <SelectedIngredientsContainer>
+            <SelectedIngredientsText>
+              Selected Ingredients: {selectedIngredients[0].name} and {selectedIngredients[1].name}
+            </SelectedIngredientsText>
+          </SelectedIngredientsContainer>
+        )}
+        {selectedIngredients.length === 2 && (
+          <ButtonContainer>
+            <CreateButton onPress={createPotion}>
+              <ButtonText>Create Potion</ButtonText>
+            </CreateButton>
+          </ButtonContainer>
+        )}
+        <ButtonContainer>
+        <DeleteIngredientsButton onPress={deleteIngredients}>
+          <ButtonText>Delete Ingredients</ButtonText>
+        </DeleteIngredientsButton>
+          </ButtonContainer>
+      </ContentContainer>
+    </>
+  );
+};
 
 const HeadContainer = styled.View`
-    margin-top: 5%;
-    height: 15%
-`
+  margin-top: 5%;
+  height: 15%;
+`;
 
 const ContentContainer = styled.View`
-    flex-direction: column;
-    justify-content: space-between;
-    height: 40%;
-`
-export default Potions
+  flex-direction: column;
+  justify-content: space-between;
+  height: 60%;
+`;
+
+const ButtonContainer = styled.View`
+  align-items: center;
+  width: 100%;
+`;
+
+const IngredientButton = styled.TouchableOpacity`
+  background-color: #007BFF;
+  padding: 10px 20px;
+  border-radius: 5px;
+  margin-top: 10px;
+`;
+
+const CreateButton = styled.TouchableOpacity`
+  background-color: green;
+  border-radius: 50px;
+  height: 50px;
+  width: 150px;
+  align-items: center;
+  justify-content: center;
+  margin-top: 10px;
+`;
+
+const DeleteIngredientsButton = styled.TouchableOpacity`
+  background-color: #ff0000;
+  border-radius: 50px;
+  height: 50px;
+  width: 150px;
+  align-items: center;
+  justify-content: center;
+  margin-top: 10px;
+`;
+
+const ButtonText = styled.Text`
+  color: #fff;
+  font-size: 16px;
+  text-align: center;
+`;
+
+const SelectedIngredientsText = styled.Text`
+  color: #000;
+  font-size: 20px;
+  text-align: center;
+`;
+
+const SelectedIngredientsContainer = styled.View`
+  align-items: center;
+  text-align: center;
+  width: 100%;
+`;
+
+export default Potions;
