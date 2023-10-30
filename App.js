@@ -34,16 +34,9 @@ const App = () => {
     const init = async () => {
       // …do multiple sync or async tasks
 
-    const value = null;
-
-                  // {name: "name",
-                  // email: "mail",
-                  // atributes: {strength: "strength",
-                  //             stamina: "0",
-                  //             poisoned: true }}
-
-    await storeData(value);
     const user = await getData()
+    console.log('****************LOG STATE WITHOUT USER*******************')
+    console.log(user)
 
     if(user !== null){
       setLogged(true)

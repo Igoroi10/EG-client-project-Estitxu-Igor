@@ -44,8 +44,11 @@ const GoogleModal = ({logStatus}) =>{
       token: idTokenResult.token
     })
     
+    console.log('******************DECODED USER AT RETURN*******************')
+    console.log(decodedUser.data.data[0])
 
-    await storeData(decodedUser)
+
+    await storeData(decodedUser.data.data[0])
     setUserLoad(true)
     
   }

@@ -4,7 +4,7 @@
             "outputFile": "com.egproject.app-mergeDebugResources-50:/values-v27/values-v27.xml",
             "map": [
                 {
-                    "source": "/home/unai/Escritorio/equipoganador/client/node_modules/react-native-bootsplash/android/build/intermediates/packaged_res/debug/values-v27/values-v27.xml",
+                    "source": "/home/igorocon/Documentos/EG-project/client/node_modules/react-native-bootsplash/android/build/intermediates/packaged_res/debug/values-v27/values-v27.xml",
                     "from": {
                         "startLines": "2",
                         "startColumns": "4",
