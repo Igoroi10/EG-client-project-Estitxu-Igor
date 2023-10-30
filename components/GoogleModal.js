@@ -40,7 +40,7 @@ const GoogleModal = ({logStatus}) =>{
   
     console.log()
     //validate user token
-    const decodedUser = await axios.post('http://192.168.0.26:3000/api/users/', {
+    const decodedUser = await axios.post('http://192.168.1.165:3000/api/users/', {
       token: idTokenResult.token
     })
 
