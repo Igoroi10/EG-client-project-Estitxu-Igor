@@ -14,6 +14,7 @@ const GoogleModal = ({logStatus}) =>{
   const [userLoaded, setUserLoad] = useState(logStatus?false:true)
   const [loading, setLoading] = useState(false)
 
+  
   async function onGoogleButtonPress() {
     setLoading(true)
     // Check if your device supports Google Play
@@ -40,15 +41,15 @@ const GoogleModal = ({logStatus}) =>{
   
     console.log()
     //validate user token
-    const decodedUser = await axios.post('http://192.168.1.167:3000/api/users/', {
+    const decodedUser = await axios.post('http://192.168.1.165:3000/api/users/', {
       token: idTokenResult.token
     })
     
     console.log('******************DECODED USER AT RETURN*******************')
-    console.log(decodedUser.data.data[0])
+    console.log(decodedUser.data.data)
 
 
-    await storeData(decodedUser.data.data[0])
+    await storeData(decodedUser.data.data)
     setUserLoad(true)
     
   }
@@ -56,7 +57,7 @@ const GoogleModal = ({logStatus}) =>{
 
 
   return(
-    <ModalTemplate visible = {userLoaded?false:true}>
+    <ModalTemplate visible = {userLoaded||logStatus?false:true }>
       <GoogleButton title="Google Sign-In"  onPress={onGoogleButtonPress} disabled={loading}>
         {loading? <ActivityIndicator/> : <Text>Sign - In</Text>}
       </GoogleButton>
