@@ -1,11 +1,29 @@
-import React, { useState } from 'react';
-import { FlatList, Text, View, TouchableOpacity } from 'react-native';
+import React, { useState, useEffect } from 'react';
+import { FlatList, Text, View, TouchableOpacity , Image} from 'react-native';
 import styled from 'styled-components/native';
 import fakeIngredients from '../fakeData/fakeIngredients.json';
 import potionHandler from '../helpers/potionHandler';
+import axios from 'axios';
+
 
 const Potions = () => {
   const [selectedIngredients, setSelectedIngredients] = useState([]);
+  const [ingredientsData, setIngredientsData] = useState([]);
+
+
+  useEffect(() => {
+    async function fetchIngredients() {
+        try {
+            const response = await axios.get('http://192.168.1.165:3000/api/ingredients/');
+            const responseData = response.data.data;
+            setIngredientsData(responseData);
+        } catch (error) {
+            console.error('Error al obtener los ingredientes:', error);
+        }
+    }
+
+    fetchIngredients();
+}, []);
 
   const handleIngredientPress = (item) => {
     if (selectedIngredients.length < 2 && !selectedIngredients.includes(item)) {
@@ -35,7 +53,7 @@ const Potions = () => {
       <ContentContainer>
         {selectedIngredients.length < 2 && (
           <FlatList
-            data={fakeIngredients}
+            data={ingredientsData}
             renderItem={({ item }) => (
               <IngredientButton
                 onPress={() => handleIngredientPress(item)}
@@ -45,6 +63,7 @@ const Potions = () => {
                     : {}
                 }
               >
+                <Image source={{ uri: item.image }} style={styles.image} />
                 <ButtonText>{item.name}</ButtonText>
               </IngredientButton>
             )}
@@ -135,5 +154,17 @@ const SelectedIngredientsContainer = styled.View`
   text-align: center;
   width: 100%;
 `;
+
+const styles = {
+    itemContainer: {
+        flexDirection: 'row',
+        alignItems: 'center',
+        justifyContent: 'space-between',
+    },
+    image: {
+        width: 50,
+        height: 50,
+    },
+};
 
 export default Potions;

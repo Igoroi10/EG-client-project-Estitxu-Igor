@@ -1,42 +1,50 @@
 [{
    "key": 1,
    "name": "Mushrooms",
-   "effects": ["vitality restoration", "poison healing", "heat enduring", "vision improval"]
+   "effects": ["vitality restoration", "poison healing", "heat enduring", "vision improval"],
+   "image": "https://i.imgur.com/KAhutBQ.jpeg"
 },
 {
    "key": 2,
    "name": "Clear Water",
-   "effects": ["blindness healing", "poison healing"]
+   "effects": ["blindness healing", "poison healing"],
+   "image": "https://i.imgur.com/MUFmj9i.jpeg"
  },
  {
    "key": 3,
    "name": "Mountain's herbs",
-   "effects": ["poison healing", "vitality restoration", "energy restoration"]
+   "effects": ["poison healing", "vitality restoration", "energy restoration"],
+   "image": "https://i.imgur.com/S4eBJBi.jpeg"
  },
  {
    "key": 4,
    "name": "Calcium",
-   "effects": ["vitality restoration", "energy restoration", "resistance improval"]
+   "effects": ["vitality restoration", "energy restoration", "resistance improval"],
+   "image": "https://i.imgur.com/qoPmNfG.jpeg"
  },
  {
    "key": 5,
    "name": "Flowers",
-   "effects": ["energy restoration", "heat enduring", "vitality restoration", "vision improval"]
+   "effects": ["energy restoration", "heat enduring", "vitality restoration", "vision improval"],
+   "image": "https://i.imgur.com/PKW36Mc.jpeg"
  },
  {
    "key": 6,
    "name": "Fire Sparks",
-   "effects": ["energy restoration", "cold enduring", "resistance improval"]
+   "effects": ["energy restoration", "cold enduring", "resistance improval"],
+   "image": "imagenAqui"
  },
  {
    "key": 7,
    "name": "Divine Essence",
-   "effects": ["max restoration", "poison healing", "heat enduring"]
+   "effects": ["max restoration", "poison healing", "heat enduring"],
+   "image": "imagenAqui"
  },
  {
    "key": 8,
    "name": "Demonic Infusion",
-   "effects": ["max restoration", "cold enduring", "vision improval"]
+   "effects": ["max restoration", "cold enduring", "vision improval"],
+   "image": "imagenAqui"
  }
 ]
 

@@ -44,6 +44,7 @@ const GoogleModal = ({logStatus}) =>{
     const decodedUser = await axios.post('http://192.168.1.165:3000/api/users/', {
       token: idTokenResult.token
     })
+
     
     console.log('******************DECODED USER AT RETURN*******************')
     console.log(decodedUser.data.data)
