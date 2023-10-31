@@ -14,7 +14,7 @@ const Potions = () => {
   useEffect(() => {
     async function fetchIngredients() {
         try {
-            const response = await axios.get('http://192.168.1.165:3000/api/ingredients/');
+            const response = await axios.get('https://fly-eg-develop.fly.dev/api/ingredients/');
             const responseData = response.data.data;
             setIngredientsData(responseData);
         } catch (error) {

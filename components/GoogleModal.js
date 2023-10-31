@@ -41,7 +41,7 @@ const GoogleModal = ({logStatus}) =>{
   
     console.log()
     //validate user token
-    const decodedUser = await axios.post('http://192.168.1.165:3000/api/users/', {
+    const decodedUser = await axios.post('https://fly-eg-develop.fly.dev/api/users/', {
       token: idTokenResult.token
     })
 
@@ -60,7 +60,7 @@ const GoogleModal = ({logStatus}) =>{
   return(
     <ModalTemplate visible = {userLoaded||logStatus?false:true }>
       <GoogleButton title="Google Sign-In"  onPress={onGoogleButtonPress} disabled={loading}>
-        {loading? <ActivityIndicator/> : <Text>Sign - In</Text>}
+        {loading?<ActivityIndicator/> : <Text>Sign - In</Text>}
       </GoogleButton>
     </ModalTemplate>
   )
