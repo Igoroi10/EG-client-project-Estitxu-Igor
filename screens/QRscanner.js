@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, useEffect, useState } from 'react';
 import {
   StyleSheet,
   Text,
@@ -9,36 +9,35 @@ import {
 import QRCodeScanner from 'react-native-qrcode-scanner';
 import { RNCamera } from 'react-native-camera';
 
+import axios from 'axios';
+
 class ScanScreen extends Component {
   onSuccess = e => {
-    if (e.data.startsWith('http://') || e.data.startsWith('https://')) {
-    // Si el contenido es una URL, abrirla en un navegador web
-    Linking.openURL(e.data).catch(err =>
-      console.error('An error occurred', err)
-    );
-  } else {
     // Si es otro tipo de contenido, muestra el texto en una alerta
-    alert('QR Code Content: ' + e.data);
-  }
+    // alert('QR Code Content: ' + e.data);
+
+    // Puedes acceder a this.props.responseData para utilizar los datos pasados
+    console.log('Response Data:', this.props.responseData);
+
+    const usersEmails = this.props.responseData;
+    const checkedEmail = e.data;
+
+    usersEmails.map(email => {
+        if(checkedEmail === email){
+            alert("SAME EMAIL")
+            //aqui tiene que hacer los cambios en la base de datos y volver a home
+        }
+    })
+    
+
+
+
   };
 
   render() {
     return (
       <QRCodeScanner
         onRead={this.onSuccess}
-        // flashMode={RNCamera.Constants.FlashMode.torch}
-        topContent={
-          <Text style={styles.centerText}>
-            Go to{' '}
-            <Text style={styles.textBold}>wikipedia.org/wiki/QR_code</Text> on
-            your computer and scan the QR code.
-          </Text>
-        }
-        bottomContent={
-          <TouchableOpacity style={styles.buttonTouchable}>
-            <Text style={styles.buttonText}>OK. Got it!</Text>
-          </TouchableOpacity>
-        }
       />
     );
   }
@@ -64,4 +63,26 @@ const styles = StyleSheet.create({
   }
 });
 
-export default ScanScreen;
+const QRScannerWithAPI = () => {
+  const [responseData, setResponseData] = useState([]);
+
+  useEffect(() => {
+    async function fetchUsers() {
+      try {
+        const response = await axios.get('https://fly-eg-staging.fly.dev/api/users/');
+        const responseData = response.data.data.map(user => user.email);
+
+        // Establece responseData en el estado
+        setResponseData(responseData);
+      } catch (error) {
+        console.error('Error al obtener los usuarios:', error);
+      }
+    }
+
+    fetchUsers();
+  }, []);
+
+  return <ScanScreen responseData={responseData} />;
+};
+
+export default QRScannerWithAPI;
