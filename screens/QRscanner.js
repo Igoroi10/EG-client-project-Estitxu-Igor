@@ -11,16 +11,22 @@ import { RNCamera } from 'react-native-camera';
 
 class ScanScreen extends Component {
   onSuccess = e => {
+    if (e.data.startsWith('http://') || e.data.startsWith('https://')) {
+    // Si el contenido es una URL, abrirla en un navegador web
     Linking.openURL(e.data).catch(err =>
       console.error('An error occurred', err)
     );
+  } else {
+    // Si es otro tipo de contenido, muestra el texto en una alerta
+    alert('QR Code Content: ' + e.data);
+  }
   };
 
   render() {
     return (
       <QRCodeScanner
         onRead={this.onSuccess}
-        flashMode={RNCamera.Constants.FlashMode.torch}
+        // flashMode={RNCamera.Constants.FlashMode.torch}
         topContent={
           <Text style={styles.centerText}>
             Go to{' '}
