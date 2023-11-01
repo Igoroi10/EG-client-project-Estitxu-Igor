@@ -9,9 +9,10 @@ import MyStack from './components/MyStack.js';
 import GoogleModal from './components/GoogleModal.js';
 import StandardModal from './components/Modal.js';
 
+
 import Profile from './screens/Profile';
 import Potions from './screens/Potions';
-
+import QRscanner from './screens/QRscanner'
 const Tab = createMaterialTopTabNavigator();
 
 GoogleSignin.configure({
@@ -43,12 +44,15 @@ const App = () => {
 
   return (
     <NavigationContainer>
-      <GoogleModal logStatus={logState} />
+      {/* <GoogleModal logStatus={logState} /> */}
       <StandardModal />
       <Tab.Navigator>
+      <Tab.Screen name="QR" component={QRscanner} />
+
         <Tab.Screen name="Home" component={MyStack} />
         <Tab.Screen name="Profile" component={Profile} />
         <Tab.Screen name="Potions" component={Potions} />
+
       </Tab.Navigator>
     </NavigationContainer>
   );

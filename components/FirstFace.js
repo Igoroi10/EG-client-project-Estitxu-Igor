@@ -25,8 +25,6 @@ const ProfilePicture = styled.Image`
     position: absolute;
     top: 5%;
     left: 110%;
-    border-width: 5px;
-    border-color: #1777f2;
 `;
 
 
