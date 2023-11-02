@@ -2,3 +2,6 @@ rootProject.name = 'EGProject'
 apply from: file("../node_modules/@react-native-community/cli-platform-android/native_modules.gradle"); applyNativeModulesSettingsGradle(settings)
 include ':app'
 includeBuild('../node_modules/@react-native/gradle-plugin')
+include ':rn-qr-generator'
+project(':rn-qr-generator').projectDir = new File(rootProject.projectDir, '../node_modules/rn-qr-generator/android')
+

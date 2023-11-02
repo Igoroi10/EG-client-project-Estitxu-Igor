@@ -11,9 +11,7 @@ import StandardModal from './components/Modal.js';
 
 import Profile from './screens/Profile';
 import Potions from './screens/Potions';
-import Villano from './screens/VillanoScreen.js';
-import Istvan from './screens/IstvanScreen.js';
-import Mortimer from './screens/MortimerScreen.js';
+import QRCodeGeneratorScreen from './components/QR.js';
 
 const Tab = createMaterialTopTabNavigator();
 
@@ -52,6 +50,8 @@ const App = () => {
         <Tab.Screen name="Home" component={MyStack} />
         <Tab.Screen name="Profile" component={Profile} />
         <Tab.Screen name="Potions" component={Potions} />
+        
+        <Tab.Screen name="QR" component={QRCodeGeneratorScreen} />
       </Tab.Navigator>
     </NavigationContainer>
   );
