@@ -106,7 +106,8 @@ android {
     }
 }
 
-dependencies {
+dependencies { 
+	implementation project(':rn-qr-generator')
 
     implementation platform('com.google.firebase:firebase-bom:32.3.1')
 
