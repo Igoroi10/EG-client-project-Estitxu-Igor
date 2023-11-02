@@ -12,8 +12,8 @@ import StandardModal from './components/Modal.js';
 
 import Profile from './screens/Profile';
 import Potions from './screens/Potions';
-import QRCodeGeneratorScreen from './components/QR.js';
-import QRscanner from './screens/QRscanner'
+import QRCodeGeneratorScreen from './screens/QR.js';
+import QRscanner from './components/QRscanner'
 const Tab = createMaterialTopTabNavigator();
 
 GoogleSignin.configure({
@@ -45,11 +45,9 @@ const App = () => {
 
   return (
     <NavigationContainer>
-      {/* <GoogleModal logStatus={logState} /> */}
+      <GoogleModal logStatus={logState} />
       <StandardModal />
       <Tab.Navigator>
-      <Tab.Screen name="QRscanner" component={QRscanner} />
-
         <Tab.Screen name="Home" component={MyStack} />
         <Tab.Screen name="Profile" component={Profile} />
         <Tab.Screen name="Potions" component={Potions} />

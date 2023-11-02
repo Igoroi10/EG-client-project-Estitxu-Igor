@@ -4,11 +4,11 @@ import styled from 'styled-components/native';
 import RNQRGenerator from 'rn-qr-generator';
 import { getData } from '../helpers/localStorage';
 
-
+import QRscanner from '../components/QRscanner';
 
 const QRCodeGeneratorScreen = () => {
-    
   const [imageUri, setImageUri] = useState(null);
+  const [showScanner, setShowScanner] = useState(false);
 
   // Función para generar el código QR
   const generateQRCode = async () => {
@@ -29,13 +29,33 @@ const QRCodeGeneratorScreen = () => {
       .catch(error => console.log('Cannot create QR code', error));
   };
 
+  // Función para mostrar el escáner QR
+  const showQRScanner = () => {
+    setShowScanner(true);
+  };
+
+  // Función para ocultar el escáner QR
+  const hideQRScanner = () => {
+    setShowScanner(false);
+  };
+
   return (
     <Container>
-      {imageUri && <QRCodeImage source={{ uri: imageUri }} />}
-      
-      <GenerateButton onPress={generateQRCode}>
-        <ButtonText>Generar QR</ButtonText>
-      </GenerateButton>
+      {showScanner ? (
+        <QRscanner onClose={hideQRScanner} />
+      ) : (
+        <View>
+          {imageUri && <QRCodeImage source={{ uri: imageUri }} />}
+
+          <GenerateButton onPress={generateQRCode}>
+            <ButtonText>Generar QR</ButtonText>
+          </GenerateButton>
+
+          <GenerateButton onPress={showQRScanner}>
+            <ButtonText>Mostrar Escáner</ButtonText>
+          </GenerateButton>
+        </View>
+      )}
     </Container>
   );
 }

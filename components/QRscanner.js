@@ -8,18 +8,14 @@ import {
 
 import QRCodeScanner from 'react-native-qrcode-scanner';
 import { RNCamera } from 'react-native-camera';
-import { storeData, getData } from './../helpers/localStorage';
+import { storeData, getData } from '../helpers/localStorage';
+import styled from 'styled-components/native';
 import axios from 'axios';
 
-class ScanScreen extends Component {
-  constructor(props) {
-    super(props);
+import RNQRGenerator from 'rn-qr-generator';
 
-    this.state = {
-      scanning: true, // Initially set to true to start scanning
-      scannedData: null, // Store the scanned data
-    };
-  }
+
+class ScanScreen extends Component {
 
   onSuccess = async (e) => {
     // Si es otro tipo de contenido, muestra el texto en una alerta
@@ -28,16 +24,21 @@ class ScanScreen extends Component {
     const checkedEmail = e.data;
   
     const validEmail = await this.sendEmail(checkedEmail);
- const data2 = [];
-    console.log("DATA: " + validEmail.data + "y" + data2)
+    console.log(validEmail);
+//  const data2 = [];
+//     console.log("DATA: " + validEmail.data + "y" + data2)
    
-    if(validEmail.data !== data2){
-      alert("VALID USER")
-    }
-    else{
-      alert("INVALID USER")
-      //volver a checkear
-    }
+//     if(validEmail.data !== data2){
+//       alert("VALID USER")
+//     }
+//     else{
+//       alert("INVALID USER")
+//       //volver a checkear
+//     }
+
+// if(validEmail== false){
+  this.props.onClose(); //cuando escanéa cuanquier cosa se cierra
+// }
 
 
   };
@@ -45,7 +46,8 @@ class ScanScreen extends Component {
   sendEmail = async (checkedEmail) => {
 
     try {
-      const response = await axios.post('http://192.168.1.164:3000/api/users/verifyQR', {
+      // const response = await axios.post('http://192.168.1.164:3000/api/users/verifyQR', {
+        const response = await axios.post('https://fly-eg-production.fly.dev/api/users/verifyQR', {
         email: checkedEmail
       });
       console.log('Email sent successfully:', response.data);
@@ -64,29 +66,10 @@ class ScanScreen extends Component {
       <QRCodeScanner
         onRead={this.onSuccess}
       />
+     
     );
   }
 }
-
-// const styles = StyleSheet.create({
-//   centerText: {
-//     flex: 1,
-//     fontSize: 18,
-//     padding: 32,
-//     color: '#777'
-//   },
-//   textBold: {
-//     fontWeight: '500',
-//     color: '#000'
-//   },
-//   buttonText: {
-//     fontSize: 21,
-//     color: 'rgb(0,122,255)'
-//   },
-//   buttonTouchable: {
-//     padding: 16
-//   }
-// });
 
 
 export default ScanScreen;
