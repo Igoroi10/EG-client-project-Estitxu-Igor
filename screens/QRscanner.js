@@ -8,31 +8,56 @@ import {
 
 import QRCodeScanner from 'react-native-qrcode-scanner';
 import { RNCamera } from 'react-native-camera';
-
+import { storeData, getData } from './../helpers/localStorage';
 import axios from 'axios';
 
 class ScanScreen extends Component {
-  onSuccess = e => {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      scanning: true, // Initially set to true to start scanning
+      scannedData: null, // Store the scanned data
+    };
+  }
+
+  onSuccess = async (e) => {
     // Si es otro tipo de contenido, muestra el texto en una alerta
     // alert('QR Code Content: ' + e.data);
 
-    // Puedes acceder a this.props.responseData para utilizar los datos pasados
-    console.log('Response Data:', this.props.responseData);
-
-    const usersEmails = this.props.responseData;
     const checkedEmail = e.data;
-
-    usersEmails.map(email => {
-        if(checkedEmail === email){
-            alert("SAME EMAIL")
-            //aqui tiene que hacer los cambios en la base de datos y volver a home
-        }
-    })
-    
-
+  
+    const validEmail = await this.sendEmail(checkedEmail);
+ const data2 = [];
+    console.log("DATA: " + validEmail.data + "y" + data2)
+   
+    if(validEmail.data !== data2){
+      alert("VALID USER")
+    }
+    else{
+      alert("INVALID USER")
+      //volver a checkear
+    }
 
 
   };
+
+  sendEmail = async (checkedEmail) => {
+
+    try {
+      const response = await axios.post('http://192.168.1.164:3000/api/users/verifyQR', {
+        email: checkedEmail
+      });
+      console.log('Email sent successfully:', response.data);
+      return response.data;
+
+    } catch (error) {
+      console.error('Error sending email:', error);
+    }
+  };
+  
+
+  
 
   render() {
     return (
@@ -43,46 +68,25 @@ class ScanScreen extends Component {
   }
 }
 
-const styles = StyleSheet.create({
-  centerText: {
-    flex: 1,
-    fontSize: 18,
-    padding: 32,
-    color: '#777'
-  },
-  textBold: {
-    fontWeight: '500',
-    color: '#000'
-  },
-  buttonText: {
-    fontSize: 21,
-    color: 'rgb(0,122,255)'
-  },
-  buttonTouchable: {
-    padding: 16
-  }
-});
+// const styles = StyleSheet.create({
+//   centerText: {
+//     flex: 1,
+//     fontSize: 18,
+//     padding: 32,
+//     color: '#777'
+//   },
+//   textBold: {
+//     fontWeight: '500',
+//     color: '#000'
+//   },
+//   buttonText: {
+//     fontSize: 21,
+//     color: 'rgb(0,122,255)'
+//   },
+//   buttonTouchable: {
+//     padding: 16
+//   }
+// });
 
-const QRScannerWithAPI = () => {
-  const [responseData, setResponseData] = useState([]);
 
-  useEffect(() => {
-    async function fetchUsers() {
-      try {
-        const response = await axios.get('https://fly-eg-staging.fly.dev/api/users/');
-        const responseData = response.data.data.map(user => user.email);
-
-        // Establece responseData en el estado
-        setResponseData(responseData);
-      } catch (error) {
-        console.error('Error al obtener los usuarios:', error);
-      }
-    }
-
-    fetchUsers();
-  }, []);
-
-  return <ScanScreen responseData={responseData} />;
-};
-
-export default QRScannerWithAPI;
+export default ScanScreen;

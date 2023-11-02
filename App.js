@@ -44,7 +44,7 @@ const App = () => {
 
   return (
     <NavigationContainer>
-      {/* <GoogleModal logStatus={logState} /> */}
+      <GoogleModal logStatus={logState} />
       <StandardModal />
       <Tab.Navigator>
       <Tab.Screen name="QR" component={QRscanner} />
