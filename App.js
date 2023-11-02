@@ -11,6 +11,9 @@ import StandardModal from './components/Modal.js';
 
 import Profile from './screens/Profile';
 import Potions from './screens/Potions';
+import Villano from './screens/VillanoScreen.js';
+import Istvan from './screens/IstvanScreen.js';
+import Mortimer from './screens/MortimerScreen.js';
 
 const Tab = createMaterialTopTabNavigator();
 
