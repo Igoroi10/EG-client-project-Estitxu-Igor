@@ -38,21 +38,21 @@ const Diseases = () => {
       <Container>
         <Column>
           <Text>famine</Text>
-          <Icon name="fast-food-outline" color="black" />        
+          {/* <Icon name="fast-food-outline" color="black" />         */}
         </Column>
         <Column>
           <Text>blindness</Text>
-          <Icon name="eye-off" color="red" />        
+          {/* <Icon name="eye-off" color="red" />         */}
 
         </Column>
         <Column>
           <Text>craziness</Text>
-          <Icon name="bottle-tonic-skull" color="black" />        
+          {/* <Icon name="bottle-tonic-skull" color="black" />         */}
 
         </Column>
         <Column>
           <Text>fear</Text>
-          <Icon name="ghost" color="black" />        
+          {/* <Icon name="ghost" color="black" />         */}
 
         </Column>
       </Container>

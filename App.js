@@ -10,9 +10,10 @@ import GoogleModal from './components/GoogleModal.js';
 import StandardModal from './components/Modal.js';
 import Profile from './screens/Profile';
 import Potions from './screens/Potions';
-import QRCodeGeneratorScreen from './components/QR.js';
+import QRCodeGeneratorScreen from './screens/QR.js';
 import Tower from './screens/Tower.js';
 import Admin from './screens/Admin.js';
+import QRscanner from './components/QRscanner'
 
 const Tab = createMaterialTopTabNavigator();
 
@@ -52,6 +53,7 @@ const App = () => {
         <Tab.Screen name="Admin" component={Admin} />
         <Tab.Screen name="Profile" component={Profile} />
         <Tab.Screen name="Potions" component={Potions} />
+
         
         <Tab.Screen name="QR" component={QRCodeGeneratorScreen} />
         <Tab.Screen name="TOWER" component={Tower} />
