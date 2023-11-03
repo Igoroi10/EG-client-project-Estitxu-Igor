@@ -23,6 +23,8 @@ GoogleSignin.configure({
 
 const App = () => {
   const [logState, setLogged] = useState([]);
+  const [userRole, setUserRole] = useState(null);
+
 
   useEffect(() => {
     const init = async () => {
@@ -34,6 +36,8 @@ const App = () => {
 
       if (user !== null) {
         setLogged(true);
+        setUserRole(user[0].rol);
+
       } else {
         setLogged(false);
       }
@@ -45,22 +49,45 @@ const App = () => {
     });
   }, []);
 
+  const tabScreens = [];
+
+  //Pantallas JACOB
+  if (userRole === "Jacob") {
+    tabScreens.push(
+      <Tab.Screen key="Home" name="Home" component={MyStack} />,
+      <Tab.Screen key="QR" name="QR" component={QRCodeGeneratorScreen} />
+    );
+  }
+
+  //Pantallas ACÖLITO
+  else if (userRole === "Acolito") {
+    tabScreens.push(
+      <Tab.Screen key="Home" name="Home" component={MyStack} />,
+      <Tab.Screen key="Admin" name="Admin" component={Admin} />,
+      <Tab.Screen key="Profile" name="Profile" component={Profile} />,
+      <Tab.Screen key="Potions" name="Potions" component={Potions} />,
+      <Tab.Screen key="QR" name="QR" component={QRCodeGeneratorScreen} />,
+      <Tab.Screen key="TOWER" name="TOWER" component={Tower} />
+
+    );
+  }
+
+  else{
+    <Tab.Screen key="Home" name="Home" component={MyStack} />
+
+  }
+
   return (
     <NavigationContainer>
       <GoogleModal logStatus={logState} />
       <StandardModal />
       <Tab.Navigator>
-        <Tab.Screen name="Home" component={MyStack} />
-        <Tab.Screen name="Admin" component={Admin} />
-        <Tab.Screen name="Profile" component={Profile} />
-        <Tab.Screen name="Potions" component={Potions} />
+        {tabScreens}
 
-        
-        <Tab.Screen name="QR" component={QRCodeGeneratorScreen} />
-        <Tab.Screen name="TOWER" component={Tower} />
       </Tab.Navigator>
     </NavigationContainer>
   );
+  
 };
 
 export default App;
