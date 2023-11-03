@@ -29,13 +29,14 @@ const App = () => {
 
       const user = await getData();
       console.log('****************LOG STATE WITHOUT USER*******************');
-      console.log(user);
+      console.log(user );
 
       if (user !== null) {
         setLogged(true);
       } else {
         setLogged(false);
       }
+      
     };
 
     init().finally(async () => {

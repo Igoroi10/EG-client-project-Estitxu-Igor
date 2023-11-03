@@ -46,8 +46,8 @@ class ScanScreen extends Component {
   sendEmail = async (checkedEmail) => {
 
     try {
-      // const response = await axios.post('http://192.168.1.164:3000/api/users/verifyQR', {
-        const response = await axios.post('https://fly-eg-production.fly.dev/api/users/verifyQR', {
+      const response = await axios.post('http://192.168.1.168:3000/api/users/verifyQR', {
+        // const response = await axios.post('https://fly-eg-staging.fly.dev/api/users/verifyQR', {
         email: checkedEmail
       });
       console.log('Email sent successfully:', response.data);
