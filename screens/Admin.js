@@ -1,9 +1,33 @@
 import React, { useState } from 'react';
 import styled from 'styled-components/native';
 import axios from 'axios';
-import { TouchableOpacity } from 'react-native-gesture-handler';
+import { TouchableOpacity, View, Text } from 'react-native';
+import Modal from 'react-native-modal';
 import { useNavigation } from '@react-navigation/native';
-import { Alert } from 'react-native'; // Importa Alert de react-native
+import UserDetail from '../components/UserDetail'; // Importa el nuevo componente
+
+const ModalContainer = styled.View`
+  flex: 1;
+  align-items: center;
+  background-color: #FFFFFF;
+  padding: 20px;
+`;
+
+const ModalText = styled.Text`
+  font-size: 16px;
+  font-weight: bold;
+  color: black;
+  margin: 10px;
+  text-align: center;
+`;
+
+const ModalTitle = styled.Text`
+  font-size: 20px;
+  font-weight: bold;
+  color: black;
+  margin: 10px;
+  text-align: center;
+`;
 
 const Container = styled.View`
   flex: 1;
@@ -78,6 +102,8 @@ const FetchButton = ({ onPress }) => (
 const Admin = () => {
   const [userList, setUserList] = useState([]);
   const [showList, setShowList] = useState(false);
+  const [selectedUser, setSelectedUser] = useState(null);
+  const [isModalVisible, setIsModalVisible] = useState(false);
   const navigation = useNavigation();
 
   const fetchUserList = async () => {
@@ -91,13 +117,18 @@ const Admin = () => {
     }
   };
 
-  const showAlertWithUsername = (username) => {
-    Alert.alert('Nombre del Acólito', username);
+  const showAlertWithUsername = (user) => {
+    setSelectedUser(user);
+    setIsModalVisible(true);
   };
 
-  if (showList) {
-    return (
-      <Container>
+  const closeModal = () => {
+    setIsModalVisible(false);
+  };
+
+  return (
+    <Container>
+      {showList && (
         <UserList>
           {userList
             .filter((user) => user.rol === 'Acolito')
@@ -106,11 +137,7 @@ const Admin = () => {
                 <UserImage source={{ uri: user.imgURL }} />
                 <UserInfo>
                   <UserEmail>{user.email}</UserEmail>
-                  <UserButton
-                    onPress={() => {
-                      showAlertWithUsername(user.name); // Muestra el alert con el nombre del acólito
-                    }}
-                  >
+                  <UserButton onPress={() => showAlertWithUsername(user)}>
                     <ButtonText>MOSTRAR PERFIL DEL ACÓLITO</ButtonText>
                   </UserButton>
                 </UserInfo>
@@ -118,13 +145,13 @@ const Admin = () => {
             ))
           }
         </UserList>
-      </Container>
-    );
-  }
-
-  return (
-    <Container>
-      <FetchButton onPress={fetchUserList} />
+      )}
+      <UserDetail
+        isVisible={isModalVisible}
+        user={selectedUser}
+        closeModal={closeModal}
+      />
+      {!showList && <FetchButton onPress={fetchUserList} />}
     </Container>
   );
 };
