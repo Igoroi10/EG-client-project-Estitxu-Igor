@@ -78,7 +78,7 @@ const Admin = () => {
 
   const fetchUserList = async () => {
     try {
-      const response = await axios.get('https://fly-eg-production.fly.dev/api/users/');
+      const response = await axios.get('http://192.168.1.168:3000/api/users');
       const responseData = response.data.data;
       setUserList(responseData);
       setShowList(true);
@@ -93,7 +93,7 @@ const Admin = () => {
         <UserList>
           {userList.map((user) => (
             <UserItem key={user._id}>
-              <UserImage source={{ uri: user.photoURL }} />
+              <UserImage source={{ uri: user.imgURL }} />
               <UserInfo>
                 <UserEmail>{user.email}</UserEmail>
                 <UserButton>

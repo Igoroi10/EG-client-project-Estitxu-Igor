@@ -41,7 +41,7 @@ const GoogleModal = ({logStatus}) =>{
   
     console.log()
     //validate user token
-    const decodedUser = await axios.post('https://fly-eg-production.fly.dev/api/users/', {
+    const decodedUser = await axios.post('http://192.168.1.168:3000/api/users', {
       token: idTokenResult.token
     })
 
