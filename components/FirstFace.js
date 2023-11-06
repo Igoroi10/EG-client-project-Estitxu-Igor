@@ -45,12 +45,6 @@ const Text = styled.Text`
     color: black;
 `
 
-
-
-
-
-
-
 const FirstFace = () => {
     return (
         <>

@@ -1,6 +1,9 @@
 import React, { useState } from 'react';
 import styled from 'styled-components/native';
 import axios from 'axios';
+import { TouchableOpacity } from 'react-native-gesture-handler';
+import { useNavigation } from '@react-navigation/native';
+import { Alert } from 'react-native'; // Importa Alert de react-native
 
 const Container = styled.View`
   flex: 1;
@@ -66,6 +69,19 @@ const UserButton = styled.TouchableOpacity`
   margin: 10px;
 `;
 
+const UserInTower = styled.View`
+  top: 80px;
+  left: 40px;
+  width: 20px;
+  height: 20px;
+  border-radius: 30px;
+  border: 1px solid black;
+  z-index: 1;
+  position: absolute;
+`;
+
+
+
 const FetchButton = ({ onPress }) => (
   <Button onPress={onPress}>
     <ButtonText>Obtener Correos Electrónicos</ButtonText>
@@ -75,10 +91,14 @@ const FetchButton = ({ onPress }) => (
 const Admin = () => {
   const [userList, setUserList] = useState([]);
   const [showList, setShowList] = useState(false);
+  const navigation = useNavigation();
+
+ 
+  
 
   const fetchUserList = async () => {
     try {
-      const response = await axios.get('http://192.168.1.168:3000/api/users/');
+      const response = await axios.get('https://fly-eg-staging.fly.dev/api/users/');
       const responseData = response.data.data;
       setUserList(responseData);
       setShowList(true);
@@ -87,24 +107,35 @@ const Admin = () => {
     }
   };
 
+  const showAlertWithUsername = (username) => {
+    Alert.alert('Nombre del Acólito', username);
+  };
+
   if (showList) {
     return (
       <Container>
         <UserList>
-            {userList
+          {userList
             .filter((user) => user.rol === 'Acolito')
             .map((user) => (
-                <UserItem key={user._id}>
+              <UserItem key={user._id}>
+                <UserInTower style={{ backgroundColor: user.towerAccess ? "#10D24B" : "red" }}/>
                 <UserImage source={{ uri: user.imgURL }} />
                 <UserInfo>
-                    <UserEmail>{user.email}</UserEmail>
-                    <UserButton>
-                        <ButtonText>MOSTRAR PERFIL</ButtonText>
-                    </UserButton>
+                  
+                  <UserEmail>{user.email}</UserEmail>
+                  <UserButton
+                    onPress={() => {
+                      showAlertWithUsername(user.name); 
+                      alert(user.towerAcces)
+                    }}
+                  >
+                    <ButtonText>MOSTRAR PERFIL DEL ACÓLITO</ButtonText>
+                  </UserButton>
                 </UserInfo>
-                </UserItem>
+              </UserItem>
             ))
-            }
+          }
         </UserList>
       </Container>
     );
