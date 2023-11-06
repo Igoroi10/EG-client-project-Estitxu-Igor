@@ -14,6 +14,8 @@ import QRCodeGeneratorScreen from './screens/QR.js';
 import Tower from './screens/Tower.js';
 import Admin from './screens/Admin.js';
 import QRscanner from './components/QRscanner'
+import IstvanScreen from './screens/IstvanScreen.js';
+import Villano from './screens/VillanoScreen.js'
 
 const Tab = createMaterialTopTabNavigator();
 
@@ -59,7 +61,7 @@ const App = () => {
     );
   }
 
-  //Pantallas ACÖLITO
+  //Pantallas ACÓLITO
   else if (userRole === "Acolito") {
     tabScreens.push(
       <Tab.Screen key="Home" name="Home" component={MyStack} />,
@@ -71,9 +73,26 @@ const App = () => {
 
     );
   }
+    else if(userRole === "Istvan") {
+    tabScreens.push(
+      <Tab.Screen key="Istvan" name="Istvan" component={IstvanScreen} />,
+
+    )
+  }
+
+  else if(userRole === "Villano") {
+    tabScreens.push(
+      <Tab.Screen key="Villano" name="Villano" component={Villano} />,
+
+    )
+  }
+  
+
 
   else{
-    <Tab.Screen key="Home" name="Home" component={MyStack} />
+    tabScreens.push(
+      <Tab.Screen key="Home" name="Home" component={MyStack} />
+    )
 
   }
 
