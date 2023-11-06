@@ -3,10 +3,12 @@ import styled from 'styled-components/native';
 
 const Container = styled.View`
   width: 100%;
-  height: 60px;
+  height: 55px;
   flex-direction: row;
   align-items: center;
   background: #FFFFFF;
+  top: 0px;
+  left: -10px;
 `;
 
 
@@ -15,6 +17,7 @@ const Column = styled.View`
   justify-content: center;
   align-items: left;
   left: 20px;
+  top: -10px
 `;
 
 
@@ -23,6 +26,7 @@ const FirstColumn = styled.View`
   justify-content: center;
   align-items: center;
   left: -20px;
+  top: -10px
 `;
 
 const Text = styled.Text`
@@ -31,7 +35,7 @@ const Text = styled.Text`
   color: black;
   left: 20px;
   top: -10px;
-
+  
 `;
 
 const Title = styled.Text`
@@ -42,7 +46,7 @@ const Title = styled.Text`
   top: 10px;
 `;
 
-const Stats = () => {
+const Stats = ({user}) => {
   return (
     <>
       <Container>
@@ -52,23 +56,23 @@ const Stats = () => {
       </Container>
       <Container>
         <FirstColumn> 
-          <Text>Fatigue  4</Text>
+          <Text>Resistance  {user.characterStats.resistance}</Text>
         </FirstColumn>
       </Container>
       <Container>
         <Column>
-          <Text>Strength  27</Text>
+          <Text>Strength  {user.characterStats.strength}</Text>
         </Column>
         <Column>
-          <Text>Endurance  99</Text>
+          <Text>Stamina  {user.characterStats.stamina}</Text>
         </Column>
       </Container>
       <Container>
         <Column>
-          <Text>Agility  0</Text>
+          <Text>Agility  {user.characterStats.agility}</Text>
         </Column>
         <Column>
-          <Text>Intelligence  98</Text>
+          <Text>Intelligence  {user.characterStats.intelligence}</Text>
         </Column>
       </Container>
     </>

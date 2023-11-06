@@ -6,7 +6,7 @@ import Icon from 'react-native-vector-icons/MaterialIcons';
 
 const Container = styled.View`
   width: 100%;
-  height: 120px;
+  height: 40px;
   flex-direction: row;
   align-items: center;
   background: #FFFFFF;
@@ -18,6 +18,7 @@ const Column = styled.View`
   justify-content: center;
   align-items: center;
   left: 0px;
+  top: 10px;
 `;
 
 
@@ -32,28 +33,29 @@ const Text = styled.Text`
 
 
 
-const Diseases = () => {
+const Diseases = ({user}) => {
   return (
     <>
       <Container>
         <Column>
-          <Text>famine</Text>
-          {/* <Icon name="fast-food-outline" color="black" />         */}
+          <Text>blindness {user.diseases.blindness}</Text>
         </Column>
         <Column>
-          <Text>blindness</Text>
-          {/* <Icon name="eye-off" color="red" />         */}
-
+        <Text>    fear {user.diseases.fear}</Text>
         </Column>
         <Column>
-          <Text>craziness</Text>
-          {/* <Icon name="bottle-tonic-skull" color="black" />         */}
-
+        <Text>hunger {user.diseases.hunger}</Text>
         </Column>
         <Column>
-          <Text>fear</Text>
-          {/* <Icon name="ghost" color="black" />         */}
-
+        <Text>madness {user.diseases.madness}</Text>
+        </Column>
+      </Container>
+      <Container>
+        <Column>
+          <Text>       paralized {user.diseases.paralized}</Text>
+        </Column>
+        <Column>
+          <Text>        psychosis {user.diseases.psychosis}</Text>
         </Column>
       </Container>
     </>

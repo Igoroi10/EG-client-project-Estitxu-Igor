@@ -51,7 +51,7 @@ const App = () => {
       <Tab.Navigator>
         <Tab.Screen name="Home" component={MyStack} />
         <Tab.Screen name="Admin" component={Admin} />
-        <Tab.Screen name="Profile" component={Profile} />
+        {/* <Tab.Screen name="Profile" component={Profile} /> */}
         <Tab.Screen name="Potions" component={Potions} />
 
         

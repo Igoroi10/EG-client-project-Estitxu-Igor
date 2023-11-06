@@ -3,10 +3,11 @@ import styled from 'styled-components/native';
 
 const Container = styled.View`
   width: 100%;
-  height: 65px;
+  height: 60px;
   flex-direction: row;
   align-items: center;
   background: #FFFFFF;
+  top: 0px;
 `;
 
 const NameColumn = styled.View`
@@ -21,19 +22,22 @@ const Text = styled.Text`
   color: black;
 `;
 
-const FirstFace = () => {
+const FirstFace = ({user}) => {
   return (
     <>
       <Container>
-        <NameColumn>
-          <Text>HP</Text>
-        </NameColumn>
-        <NameColumn>
-          <Text>LvL</Text>
-        </NameColumn>
-        <NameColumn>
-          <Text>Money</Text>
-        </NameColumn>
+      <NameColumn>
+        <Text>HP</Text>
+        <Text>{user.characterMainData.HP}</Text>
+      </NameColumn>
+      <NameColumn>
+        <Text>LvL</Text>
+        <Text>{user.characterMainData.LvL}</Text>
+      </NameColumn>
+      <NameColumn>
+        <Text>Money</Text>
+        <Text>{user.characterMainData.Money}</Text>
+      </NameColumn>
       </Container>
     </>
   );

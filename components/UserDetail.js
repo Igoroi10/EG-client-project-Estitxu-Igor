@@ -3,6 +3,10 @@ import Modal from 'react-native-modal';
 import styled from 'styled-components/native';
 import { View, TouchableOpacity } from 'react-native';
 import Profile from '../screens/Profile'
+import FirstFace from '../components/FirstFace';
+import ProfileInfo from '../components/ProfileInfo';
+import Stats from '../components/Stats';
+import Diseases from '../components/Diseases';
 
 const ModalContainer = styled.View`
   flex: 1;
@@ -10,77 +14,39 @@ const ModalContainer = styled.View`
   background-color: #FFFFFF;
   padding: 20px;
 `;
-
+ 
 const ModalText = styled.Text`
   font-size: 16px;
   font-weight: bold;
   color: black;
   margin: 10px;
   text-align: center;
-`;
-
-const ModalTitle = styled.Text`
-  font-size: 20px;
-  font-weight: bold;
-  color: black;
-  margin: 10px;
-  text-align: center;
-`;
-
-////////////////////////////////
-
-
-const UserCard = styled.View`
-    width: 110px;
-    height: 200px;
-    margin-right: 0px;
-    position: relative;
-`
-
-
-const ProfilePicture = styled.Image`
-    width: 170px;
-    height: 170px;
-    border-radius: 85px;
-    position: absolute;
-    top: 5%;
-    left: 45%;
-`;
-
-const Divider = styled.View`
-  width: 100%;
-  height: 2px;
-  background-color: #DDDDDD;
+  bottom: 10px;
 `;
 
 
 const UserDetail = ({ isVisible, user, closeModal }) => {
-  return (
-    <Modal isVisible={isVisible}>
-      {console.log("USERRRRRRRRRR" + user)}
-      {user !== null && (
+  if (user !== null) {
+    return (
+      <Modal isVisible={isVisible}>
         <ModalContainer>
           <View>
-            <ModalTitle>Perfil del Acolito</ModalTitle>
-            <UserCard>
-              <ProfilePicture source={{ uri: user.imgURL }} />
-            </UserCard>
-            <ModalText>{user?.name}</ModalText>
 
-
-
-
+          <Profile user={user} />
 
 
             <TouchableOpacity onPress={closeModal}>
               <ModalText>Cerrar</ModalText>
             </TouchableOpacity>
+
           </View>
         </ModalContainer>
-      )}
-
-    </Modal>
-  );
+      </Modal>
+    );
+  } else {
+    return null; // Otra opción es mostrar un mensaje de error si user es null.
+  }
 };
+
 
 export default UserDetail;

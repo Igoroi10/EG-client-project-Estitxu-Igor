@@ -21,16 +21,17 @@ const Divider = styled.View`
 `;
 
 
-const Profile = () => {
+const Profile = ({user}) => {
+    console.log("USER ON PROFILE " + user)
     return (
         <View>
-                <FirstFace />
+                <FirstFace user={user}/>
                 <Divider /> 
-                <ProfileInfo />
+                <ProfileInfo user={user}/>
                 <Divider /> 
-                <Stats />
+                <Stats user={user}/>
                 <Divider /> 
-                <Diseases />
+                <Diseases user={user}/>
         </View>
     )
 }

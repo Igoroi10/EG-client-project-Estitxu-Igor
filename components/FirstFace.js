@@ -4,15 +4,16 @@ import styled from 'styled-components/native'
 
 const Container = styled.View`
     width: 100%;
-    height: 300px;
+    height: 250px;
     flex-direction: row;
     align-items: center;
     background: #FFFFFF;
+    bottom: 0px;
 `
 
 const UserCard = styled.View`
-    width: 110px;
-    height: 200px;
+    width: 100%;
+    height: 100%;
     margin-right: 10px;
     position: relative;
 `
@@ -24,7 +25,7 @@ const ProfilePicture = styled.Image`
     border-radius: 85px;
     position: absolute;
     top: 5%;
-    left: 110%;
+    left: 25%;
 `;
 
 
@@ -33,9 +34,10 @@ const UserCardFooter = styled.View`
     position: absolute;
     width: 100%;
     height: 25%;
-    top: 230px;
+    top: 170px;
     left: 0px;
-`
+`;
+
 const Text = styled.Text`
     font-size: 20px;
     font-weight: bold;
@@ -45,16 +47,16 @@ const Text = styled.Text`
     color: black;
 `
 
-const FirstFace = () => {
+const FirstFace = ({user}) => {
     return (
         <>
             <Container>
                 
                 <UserCard>
-                    <ProfilePicture source={require('../assets/ancientTree.png')} />
+                    <ProfilePicture source={{ uri: user.imgURL }} />
                 </UserCard>
-                <UserCardFooter profile={true}>
-                    <Text>Ancient Tree</Text>
+                <UserCardFooter>
+                    <Text>{user?.name}</Text>
                 </UserCardFooter>
             </Container>
         </>
