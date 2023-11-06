@@ -1,4 +1,3 @@
-import 'react-native-gesture-handler';
 import React, { useState, useEffect } from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs';
@@ -23,17 +22,17 @@ GoogleSignin.configure({
 
 const App = () => {
   const [logState, setLogged] = useState([]);
+  const [user, setUser] = useState(null);
 
   useEffect(() => {
     const init = async () => {
-      // …do multiple sync or async tasks
-
-      const user = await getData();
+      const userData = await getData();
       console.log('****************LOG STATE WITHOUT USER*******************');
-      console.log(user);
+      console.log(userData);
 
-      if (user !== null) {
+      if (userData !== null) {
         setLogged(true);
+        setUser(userData);
       } else {
         setLogged(false);
       }
@@ -51,10 +50,13 @@ const App = () => {
       <Tab.Navigator>
         <Tab.Screen name="Home" component={MyStack} />
         <Tab.Screen name="Admin" component={Admin} />
-        {/* <Tab.Screen name="Profile" component={Profile} /> */}
+        {user !== null && user.rol === "Acolito" &&( // Comprueba si user no es nulo
+          <Tab.Screen
+            name="Profile"
+            component={() => <Profile user={user} />}
+          />
+        )}
         <Tab.Screen name="Potions" component={Potions} />
-
-        
         <Tab.Screen name="QR" component={QRCodeGeneratorScreen} />
         <Tab.Screen name="TOWER" component={Tower} />
       </Tab.Navigator>
