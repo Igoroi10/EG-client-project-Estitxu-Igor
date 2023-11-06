@@ -4,6 +4,7 @@ import { useNavigation } from '@react-navigation/native';
 import { TouchableOpacity } from 'react-native'; // Importa TouchableOpacity
 import { getData } from "../helpers/localStorage";
 
+
 const View = styled.View`
     flex: 1;
     justify-content: center;
@@ -22,16 +23,29 @@ const ImageBackground = styled.ImageBackground`
     height: 100%;
     justify-content: center;
     align-items: center;
-`
+    `
+
+
+const ButtonText = styled.Text`
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+`;
+const Button = styled.TouchableOpacity`
+  background-color: grey;
+  padding: 10px 20px;
+  border-radius: 10px;
+`;
+
 
 const Tower = () => {
     const checkTowerAccess = async () => {
-        const user = await getData();
-        const towerAccess = true;
-        let accesText = "";
-
-        if(towerAccess){
-            accesText = "ACCESO GARANTIZADO, BIENVENIDO ACÓLITO"
+        const data = await getData();
+        const user = data[0]
+        
+        if(user.towerAccess){
+            accesText = "ACCESO GARANTIZADO, BIENVENIDO "+ user.rol+" "+user.name
+            //ACCEDER A PANTALLA PERGAMINO
         }
         else{
             accesText = "ACCESO DENEGADO, FUERA DE AQUÍ!"
@@ -44,11 +58,9 @@ const Tower = () => {
             source={require('../assets/tower.png')}
         >
             <View>
-                <TouchableOpacity onPress={checkTowerAccess}>
-                    <Text>
-                    ********test********
-                    </Text>
-                </TouchableOpacity>
+                <Button onPress={checkTowerAccess}>
+                    <ButtonText>ACCEDER AL TORREÓN</ButtonText>
+                </Button>
             </View>
         </ImageBackground>
     )
