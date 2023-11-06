@@ -36,6 +36,7 @@ const App = () => {
       } else {
         setLogged(false);
       }
+      
     };
 
     init().finally(async () => {

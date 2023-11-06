@@ -44,7 +44,7 @@ const UserDetail = ({ isVisible, user, closeModal }) => {
       </Modal>
     );
   } else {
-    return null; // Otra opción es mostrar un mensaje de error si user es null.
+    return null;
   }
 };
 

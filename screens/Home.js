@@ -3,6 +3,7 @@ import styled from 'styled-components/native'
 import MainButtons from "../components/MainButtons";
 import Header from "../components/Header";
 import { useNavigation } from '@react-navigation/native';
+import { storeData, getData } from '../helpers/localStorage';
 
 
 
@@ -25,6 +26,10 @@ const ButtonsContainer = styled.View`
 
 const Home = () => {
     const navigation = useNavigation();
+    const reestoreData = async () => {
+        await storeData(null)
+      };
+
     return (
             <>
             <Header/>
@@ -34,6 +39,9 @@ const Home = () => {
                 <MainButtons  label="Profile" iconName="account" onPress={() => navigation.navigate('Profile')}/>
 
                 <MainButtons label="Create Potions" iconName="glass-mug-variant" onPress={() => navigation.navigate('Potions')}/>
+
+                <MainButtons label="Delete storage"  onPress={() => reestoreData()}/>
+
                 </ButtonsContainer>
             </View>
             </>

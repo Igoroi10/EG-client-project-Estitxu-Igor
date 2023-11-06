@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { View, Image, TouchableOpacity } from 'react-native';
 import styled from 'styled-components/native';
 import RNQRGenerator from 'rn-qr-generator';
@@ -9,6 +9,7 @@ import QRscanner from '../components/QRscanner';
 const QRCodeGeneratorScreen = () => {
   const [imageUri, setImageUri] = useState(null);
   const [showScanner, setShowScanner] = useState(false);
+  const [userRole, setUserRole] = useState(null);
 
   // Función para generar el código QR
   const generateQRCode = async () => {
@@ -25,12 +26,14 @@ const QRCodeGeneratorScreen = () => {
       .then(response => {
         const { uri, width, height, base64 } = response;
         setImageUri(uri);
+        
       })
       .catch(error => console.log('Cannot create QR code', error));
   };
 
   // Función para mostrar el escáner QR
   const showQRScanner = () => {
+    // setGenerateQRButtonVisible(false);
     setShowScanner(true);
   };
 
@@ -39,21 +42,39 @@ const QRCodeGeneratorScreen = () => {
     setShowScanner(false);
   };
 
+  useEffect(() => {
+    async function fetchData() {
+      const user = await getData();
+      console.log('****************ROLE******************');
+      console.log(user[0].rol);
+      setUserRole(user[0].rol);
+    }
+
+    fetchData();
+  }, []);
+
+  
+
   return (
-    <Container>
+    <Container visible= {false}>
       {showScanner ? (
         <QRscanner onClose={hideQRScanner} />
       ) : (
-        <View>
+        <View >
           {imageUri && <QRCodeImage source={{ uri: imageUri }} />}
 
-          <GenerateButton onPress={generateQRCode}>
-            <ButtonText>Generar QR</ButtonText>
-          </GenerateButton>
+          {userRole==="Acolito" && (
+            <GenerateButton onPress={generateQRCode}>
+              <ButtonText>Generar QR</ButtonText>
+            </GenerateButton>
+          )}
 
-          <GenerateButton onPress={showQRScanner}>
-            <ButtonText>Mostrar Escáner</ButtonText>
-          </GenerateButton>
+          {userRole==="Jacob" && (
+            <GenerateButton onPress={showQRScanner }>
+              <ButtonText>Mostrar Escáner</ButtonText>
+            </GenerateButton>
+          )}
+          
         </View>
       )}
     </Container>

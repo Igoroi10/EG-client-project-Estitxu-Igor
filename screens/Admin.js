@@ -93,6 +93,19 @@ const UserButton = styled.TouchableOpacity`
   margin: 10px;
 `;
 
+const UserInTower = styled.View`
+  top: 80px;
+  left: 40px;
+  width: 20px;
+  height: 20px;
+  border-radius: 30px;
+  border: 1px solid black;
+  z-index: 1;
+  position: absolute;
+`;
+
+
+
 const FetchButton = ({ onPress }) => (
   <Button onPress={onPress}>
     <ButtonText>Obtener Correos Electrónicos</ButtonText>
@@ -105,6 +118,9 @@ const Admin = () => {
   const [selectedUser, setSelectedUser] = useState(null);
   const [isModalVisible, setIsModalVisible] = useState(false);
   const navigation = useNavigation();
+
+ 
+  
 
   const fetchUserList = async () => {
     try {
@@ -134,8 +150,10 @@ const Admin = () => {
             .filter((user) => user.rol === 'Acolito')
             .map((user) => (
               <UserItem key={user._id}>
+                <UserInTower style={{ backgroundColor: user.towerAccess ? "#10D24B" : "red" }}/>
                 <UserImage source={{ uri: user.imgURL }} />
                 <UserInfo>
+                  
                   <UserEmail>{user.email}</UserEmail>
                   <UserButton onPress={() => showAlertWithUsername(user)}>
                     <ButtonText>MOSTRAR PERFIL DEL ACÓLITO</ButtonText>
