@@ -130,7 +130,7 @@ const Admin = () => {
       setUserList(responseData);
       setShowList(true);
       Toast.show({
-        type: 'succes', // Toast type
+        type: 'success', // Toast type
         position: 'bottom', // Toast position
         text1: 'SHOW USERS', // Title
         text2: "Lista de usuarios mostrada correctamente", // Message
