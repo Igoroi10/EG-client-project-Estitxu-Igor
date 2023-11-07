@@ -6,7 +6,7 @@ import potionHandler from '../helpers/potionHandler';
 import axios from 'axios';
 
 
-const PotionsModal = () => {
+const PotionsModal = ({towerStatus, setTowerStatus, setPotionCreated}) => {
   const [selectedIngredients, setSelectedIngredients] = useState([]);
   const [ingredientsData, setIngredientsData] = useState([]);
 
@@ -47,10 +47,7 @@ const PotionsModal = () => {
 
   return (
     <>
-      <HeadContainer>
-        <Text>Potion creation</Text>
-      </HeadContainer>
-      <ContentContainer>
+      <ContentContainer visible={towerStatus === 'PotionCreation'?true:false}>
         {selectedIngredients.length < 2 && (
           <FlatList
             data={ingredientsData}
