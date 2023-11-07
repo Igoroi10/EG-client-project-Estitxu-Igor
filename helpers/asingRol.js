@@ -14,8 +14,15 @@ const Tab = createMaterialTopTabNavigator();
 
 
 
-const asignRol = async (userRole, tabScreens) => {
+const asignRol = async (userRole, tabScreens, user) => {
+    // let userRole;
+    // if(user !== null){
+    //     // userRole= user[0].rol;
+    // }
+    // else
+    //     userRole = null;
 
+console.log(user[0])
     tabScreens.splice(0)
 
     //Pantallas JACOB
@@ -30,7 +37,11 @@ const asignRol = async (userRole, tabScreens) => {
     else if (userRole === "Acolito") {
         tabScreens.push(
             <Tab.Screen key="Home" name="Home" component={MyStack} />,
-            <Tab.Screen key="Profile" name="Profile" component={Profile} />,
+            <Tab.Screen
+                key="Profile"
+                name="Profile"
+                component={() => <Profile user={user} />}
+            />,
             <Tab.Screen key="Potions" name="Potions" component={Potions} />,
             <Tab.Screen key="QR" name="QR" component={QRCodeGeneratorScreen} />,
             <Tab.Screen key="TOWER" name="TOWER" component={Tower} />

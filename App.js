@@ -22,6 +22,7 @@ GoogleSignin.configure({
 const App = () => {
   const [logState, setLogged] = useState([]);
   const [userRole, setUserRole] = useState(null);
+  const [user, setUser] = useState([]);
 
 
   useEffect(() => {
@@ -34,6 +35,7 @@ const App = () => {
       if (user !== null) {
         setLogged(true);
         setUserRole(user[0].rol);
+        setUser(user[0]);
 
       } else {
         setLogged(false);
@@ -50,13 +52,13 @@ const App = () => {
   
   useEffect(() => {
     const screenCharge = async() => {
-      asignRol(userRole, tabScreens)
+      asignRol(userRole, tabScreens, user)
     }
 
     screenCharge();
-  },[userRole])
+  },[userRole, user])
 
-  asignRol(userRole, tabScreens)
+  asignRol(userRole, tabScreens, user)
 
 
   return (

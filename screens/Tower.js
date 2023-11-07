@@ -38,6 +38,10 @@ const Button = styled.TouchableOpacity`
 `;
 
 const Tower = () => {
+
+    const [towerState, setTowerState] = useState(null);
+    const [potionState, setPotion] = useState(null);
+
     const checkTowerAccess = async () => {
         const data = await getData();
         const user = data[0];
@@ -49,7 +53,7 @@ const Tower = () => {
 
         if (currentUser.towerAccess) {
             const accesText = "ACCESO GARANTIZADO, BIENVENIDO " + currentUser.rol + " " + currentUser.name;
-
+            setTowerState('corruptScroll')
             Toast.show({
                 type: 'success', // Toast type
                 position: 'bottom', // Toast position
