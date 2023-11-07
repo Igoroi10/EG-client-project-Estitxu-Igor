@@ -36,6 +36,8 @@ const PotionsModal = ({towerStatus, setTowerStatus, potionStatus, setPotionCreat
   const createPotion = () => {
     if (selectedIngredients.length === 2) {
       const createdPotion = potionHandler(selectedIngredients[0], selectedIngredients[1]);
+      setPotionCreated(createdPotion)
+      setTowerStatus('corruptScroll')
     } else {
       alert("Select 2 ingredients to create a potion");
     }

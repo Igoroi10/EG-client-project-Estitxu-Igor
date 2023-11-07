@@ -6,7 +6,8 @@ import axios from 'axios';
 import Toast from 'react-native-toast-message';
 
 import PotionsModal from "../components/PotionsModal";
-import cleanScrollModal from "../components/cleanScrollModal";
+import CleanScrollModal from "../components/CleanScrollModal";
+import PergaminoModal from '../components/PergaminoModal';
 
 const View = styled.View`
   flex: 1;
@@ -87,8 +88,8 @@ const Tower = () => {
                     </Button>
                 )}
                 <PotionsModal towerStatus={towerState} setTowerStatus={setTowerState} potionStatus={potionState} setPotionCreated={setPotion}/>
-                
-                <cleanScrollModal potionStatus={potionState}/>
+                <PergaminoModal towerStatus={towerState} setTowerStatus={setTowerState} />
+                <CleanScrollModal potionStatus={potionState}/>
             </View>
         </ImageBackground>
     )

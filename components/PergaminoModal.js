@@ -1,6 +1,7 @@
 import React from 'react';
 import { Modal, Text, View, Button, Image } from 'react-native';
 import styled from 'styled-components/native';
+import { Z_ASCII } from 'zlib';
 
 const ModalContainer = styled.View`
   flex: 1;
@@ -9,6 +10,8 @@ const ModalContainer = styled.View`
 `;
 
 const ContentContainer = styled.View`
+  position: absolute;
+  margin-top: 20%;
   flex-direction: column;
   justify-content: space-between;
   height: 60%;
@@ -22,21 +25,21 @@ const ModalImage = styled.Image`
 `;
 
 const PergaminoModal = (towerState, setTowerStatus) => {
-
-    setTowerStatus(PotionCreation);
+    const cleanse = () =>{
+      setTowerStatus('potionCreation')
+    }
     return (
       <Modal
         animationType="slide"
         transparent={true}
+        visible={towerState === 'corruptScroll'?true:false}
       >
         <ModalContainer>
         <ContentContainer>
           <ModalImage source={require('../assets/pergaminoSucio.png')} />
           <Button
             title="Limpiar"
-            onPress={() => {
-              
-            }}
+            onPress={cleanse}
           />
         </ContentContainer>
         </ModalContainer>

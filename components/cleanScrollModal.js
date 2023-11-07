@@ -24,7 +24,7 @@ const ModalImage = styled(Image)`
   width: 300px;
   height: 400px;
 `;
-const cleanScrollModal = ({potionStatus}) => {
+const CleanScrollModal = ({potionStatus}) => {
   return (
     <Modal visible={potionStatus === 'Potion of cleanse_parchment'?true:false}>
       <ModalContainer>
@@ -36,7 +36,7 @@ const cleanScrollModal = ({potionStatus}) => {
     </Modal>
   );
 }
-export default cleanScrollModal;
+export default CleanScrollModal;
 
 
 
