@@ -22,7 +22,6 @@ const Divider = styled.View`
 
 
 const Profile = ({user}) => {
-    console.log("USER ON PROFILE " + user)
     return (
         <View>
                 <FirstFace user={user}/>
