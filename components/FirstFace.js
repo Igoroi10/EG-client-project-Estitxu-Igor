@@ -50,8 +50,8 @@ const Text = styled.Text`
 const FirstFace = ({user}) => {
     return (
         <>
+        {user &&(
             <Container>
-                
                 <UserCard>
                     <ProfilePicture source={{ uri: user.imgURL }} />
                 </UserCard>
@@ -59,6 +59,8 @@ const FirstFace = ({user}) => {
                     <Text>{user?.name}</Text>
                 </UserCardFooter>
             </Container>
+        )}
+            
         </>
     );
 };
