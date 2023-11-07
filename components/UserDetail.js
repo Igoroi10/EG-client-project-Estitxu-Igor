@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect }  from 'react';
 import Modal from 'react-native-modal';
 import styled from 'styled-components/native';
 import { Text, View, TouchableOpacity , ScrollView} from 'react-native';
@@ -8,7 +8,9 @@ import ProfileInfo from '../components/ProfileInfo';
 import Stats from '../components/Stats';
 import Diseases from '../components/Diseases';
 import Slider from '@react-native-community/slider';
-import { useState } from 'react';
+import { storeData, getData } from '../helpers/localStorage';
+
+
 
 
 const ModalContainer = styled.View`
@@ -86,12 +88,28 @@ const SliderText = styled.Text`
 const UserDetail = ({ isVisible, user, closeModal }) => {
   const [sliderValue, setSliderValue] = useState(0); 
   const [sliderValueMoney, setSliderValueMoney] = useState(0); 
+  const [actualUserRole, setActualUserRole] = useState(null);
+
+  useEffect(() => {
+    if (user !== null) {
+      async function fetchData() {
+        const data = await getData();
+        const actualUser = data[0];
+        console.log('****************ROLE******************');
+        console.log(actualUser.rol);
+        setActualUserRole(actualUser.rol);
+      }
+
+      fetchData();
+    }
+  }, [user]);
 
   
   if (user !== null) {
     
 console.log("****************SELECTED USER******************")
 console.log(user)
+
 
 
 
@@ -108,47 +126,66 @@ console.log(user)
           <ProfileInfo user={user}/>
           <Divider /> 
           <Stats user={user}/>
-          <ButtonRed style={{top: 500}}>
-              <ButtonText>-</ButtonText>
-          </ButtonRed>
-          <ButtonGreen style={{top: 500 , left: 280}}>
-              <ButtonText>+</ButtonText>
-          </ButtonGreen>
- 
-          <SliderText> HP: {Math.floor(sliderValue)} </SliderText>
-
-          <Slider
-            style={{width: 225, height: 40, left: 50, top: -10}}
-            minimumValue={0}
-            maximumValue={100}
-            minimumTrackTintColor="#000000"
-            maximumTrackTintColor="#000000"
-            onValueChange={(value) => setSliderValue(value)}
-          />
-           <ButtonRed style={{top: 565}}>
-              <ButtonText>-</ButtonText>
-          </ButtonRed>
-          <ButtonGreen style={{top: 565 , left: 280}}>
-              <ButtonText>+</ButtonText>
-          </ButtonGreen>
-
-          
-
-          <SliderText> Money: {Math.floor(sliderValueMoney)} </SliderText>
-          <Slider
-            style={{width: 225, height: 40, left: 50, top: -10}}
-            minimumValue={0}
-            maximumValue={100}
-            minimumTrackTintColor="#000000"
-            maximumTrackTintColor="#000000"
-            onValueChange={(value) => setSliderValueMoney(value)}
-          />
 
 
-          <CureButton >
-              <CureButtonText>Cure disease</CureButtonText>
-          </CureButton>
-        
+
+
+
+
+
+
+
+
+
+
+          {actualUserRole === "Villano" && (
+              <View >
+                <ButtonRed style={{top: 500}}>
+                    <ButtonText>-</ButtonText>
+                </ButtonRed>
+                <ButtonGreen style={{top: 500 , left: 280}}>
+                    <ButtonText>+</ButtonText>
+                </ButtonGreen>
+      
+                <SliderText> HP: {Math.floor(sliderValue)} </SliderText>
+
+                <Slider
+                  style={{width: 225, height: 40, left: 50, top: -10}}
+                  minimumValue={0}
+                  maximumValue={100}
+                  minimumTrackTintColor="#000000"
+                  maximumTrackTintColor="#000000"
+                  onValueChange={(value) => setSliderValue(value)}
+                />
+                <ButtonRed style={{top: 565}}>
+                    <ButtonText>-</ButtonText>
+                </ButtonRed>
+                <ButtonGreen style={{top: 565 , left: 280}}>
+                    <ButtonText>+</ButtonText>
+                </ButtonGreen>
+
+                
+
+                <SliderText> Money: {Math.floor(sliderValueMoney)} </SliderText>
+                <Slider
+                  style={{width: 225, height: 40, left: 50, top: -10}}
+                  minimumValue={0}
+                  maximumValue={100}
+                  minimumTrackTintColor="#000000"
+                  maximumTrackTintColor="#000000"
+                  onValueChange={(value) => setSliderValueMoney(value)}
+                />
+              </View>
+            )}
+
+
+        {actualUserRole === "Mortimer" && (
+            <View style={{ top: 0 }}>
+              <CureButton >
+                  <CureButtonText>Cure disease</CureButtonText>
+              </CureButton>
+            </View>
+          )}
 
                 
             <TouchableOpacity onPress={closeModal}>
