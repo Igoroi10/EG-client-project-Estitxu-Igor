@@ -92,6 +92,7 @@ const PotionsModal = ({towerStatus, setTowerStatus, potionStatus, setPotionCreat
 };
 
 const ContentContainer = styled.View`
+  position: absolute;
   margin-top: 20%;
   flex-direction: column;
   justify-content: space-between;

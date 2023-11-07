@@ -5,6 +5,9 @@ import { TouchableOpacity } from 'react-native'; // Importa TouchableOpacity
 import { getData } from "../helpers/localStorage";
 import axios from "axios";
 
+import PotionsModal from "../components/PotionsModal";
+import cleanScrollModal from "../components/cleanScrollModal";
+
 const View = styled.View`
     flex: 1;
     justify-content: center;
@@ -75,6 +78,9 @@ const Tower = () => {
                 <Button onPress={checkTowerAccess}>
                     <ButtonText>ACCEDER AL TORREÓN</ButtonText>
                 </Button>
+                <PotionsModal towerStatus={towerState} setTowerStatus={setTowerState} potionStatus={potionState} setPotionCreated={setPotion}/>
+                
+                <cleanScrollModal potionStatus={potionState}/>
             </View>
         </ImageBackground>
     )
