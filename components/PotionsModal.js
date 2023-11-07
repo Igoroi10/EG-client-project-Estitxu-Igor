@@ -10,7 +10,6 @@ const PotionsModal = ({towerStatus, setTowerStatus, potionStatus, setPotionCreat
   const [selectedIngredients, setSelectedIngredients] = useState([]);
   const [ingredientsData, setIngredientsData] = useState([]);
 
-
   useEffect(() => {
     async function fetchIngredients() {
         try {
@@ -48,8 +47,8 @@ const PotionsModal = ({towerStatus, setTowerStatus, potionStatus, setPotionCreat
   };
 
   return (
-    <>
-      <ContentContainer visible={towerStatus === 'potionCreation' && potionStatus !== 'Potion of cleanse_parchment'?true:false}>
+    <>                    
+      <ContentContainer visible={towerStatus === 'potionCreation' && potionStatus !== 'Potion of cleanse_parchment' ? true:false}>
         {selectedIngredients.length < 2 && (
           <FlatList
             data={ingredientsData}
@@ -85,7 +84,7 @@ const PotionsModal = ({towerStatus, setTowerStatus, potionStatus, setPotionCreat
         )}
         <ButtonContainer>
         <DeleteIngredientsButton onPress={deleteIngredients}>
-          <ButtonText>Delete Ingredients</ButtonText>
+          <ButtonText>{towerStatus}</ButtonText>
         </DeleteIngredientsButton>
           </ButtonContainer>
       </ContentContainer>
@@ -93,13 +92,11 @@ const PotionsModal = ({towerStatus, setTowerStatus, potionStatus, setPotionCreat
   );
 };
 
-const ContentContainer = styled.View`
+const ContentContainer = styled.Modal`
   position: absolute;
-  margin-top: 20%;
-  flex-direction: column;
-  justify-content: space-between;
-  height: 60%;
-`;
+  width: 100%;
+  height: 100%;
+`
 
 const ButtonContainer = styled.View`
   align-items: center;

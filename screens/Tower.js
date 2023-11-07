@@ -1,13 +1,13 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import styled from 'styled-components/native';
 import { TouchableOpacity } from 'react-native';
 import { getData } from '../helpers/localStorage';
 import axios from 'axios';
 import Toast from 'react-native-toast-message';
 
-import PotionsModal from "../components/PotionsModal";
-import CleanScrollModal from "../components/CleanScrollModal";
-import PergaminoModal from '../components/PergaminoModal';
+import scrollHandler from '../helpers/scrollHandler';
+
+
 
 const View = styled.View`
   flex: 1;
@@ -42,9 +42,19 @@ const Button = styled.TouchableOpacity`
 `;
 
 const Tower = () => {
-  const [towerState, setTowerState] = useState(null);
-  const [potionState, setPotion] = useState(null);
+  const [towerState, setTowerState] = useState("start");
+  const [potionState, setPotion] = useState("start");
   const [isButtonVisible, setButtonVisible] = useState(true);
+
+  const modals = [];
+
+  useEffect(() => {
+    scrollHandler(modals, towerState, setTowerState, potionState, setPotion)
+  },[towerState])
+
+  useEffect(() => {
+    scrollHandler(modals, towerState, setTowerState, potionState, setPotion)
+  },[potionState])
 
   const checkTowerAccess = async () => {
     const data = await getData();
@@ -54,6 +64,7 @@ const Tower = () => {
     const responseData = response.data.data;
     const currentUserData = responseData.filter((element) => element.email === user.email);
     const currentUser = currentUserData[0];
+
 
     if (currentUser.towerAccess) {
       const accesText = 'ACCESO GARANTIZADO, BIENVENIDO ' + currentUser.rol + ' ' + currentUser.name;
@@ -65,7 +76,6 @@ const Tower = () => {
         text2: accesText, // Message
       });
       setButtonVisible(false);
-      
     } else {
       const accesText = 'ACCESO DENEGADO, FUERA DE AQUÍ!';
       Toast.show({
@@ -87,9 +97,7 @@ const Tower = () => {
                         <ButtonText>ACCEDER AL TORREÓN</ButtonText>
                     </Button>
                 )}
-                <PotionsModal towerStatus={towerState} setTowerStatus={setTowerState} potionStatus={potionState} setPotionCreated={setPotion}/>
-                <PergaminoModal towerStatus={towerState} setTowerStatus={setTowerState} />
-                <CleanScrollModal potionStatus={potionState}/>
+                {modals}
             </View>
         </ImageBackground>
     )
