@@ -44,7 +44,6 @@ const ProfilePicture = styled.Image`
     top: 5%;
     left: 110%;
     border-width: 5px;
-    border-color: #1777f2;
 `;
 
 

@@ -14,13 +14,15 @@ const Tab = createMaterialTopTabNavigator();
 
 
 
-const asignRol = async (user, tabScreens) => {
-    var userRole= user
-    if(user){
-        userRole= user.rol;
+const asignRol = async (userRole, tabScreens, user) => {
+    // let userRole;
+    // if(user !== null){
+    //     // userRole= user[0].rol;
+    // }
+    // else
+    //     userRole = null;
 
-    }
-console.log(userRole)
+console.log(user[0])
     tabScreens.splice(0)
 
     //Pantallas JACOB

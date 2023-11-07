@@ -19,7 +19,8 @@ GoogleSignin.configure({
 
 const App = () => {
   const [logState, setLogged] = useState([]);
-  const [user, setUser] = useState(null);
+  const [userRole, setUserRole] = useState(null);
+  const [user, setUser] = useState([]);
 
 
   useEffect(() => {
@@ -31,6 +32,7 @@ const App = () => {
 
       if (user !== null) {
         setLogged(true);
+        setUserRole(user[0].rol);
         setUser(user[0]);
 
       } else {
@@ -48,17 +50,18 @@ const App = () => {
   
   useEffect(() => {
     const screenCharge = async() => {
-      asignRol(user, tabScreens);    }
+      asignRol(userRole, tabScreens, user)
+    }
 
     screenCharge();
-  },[user])
+  },[userRole, user])
 
-  asignRol(user, tabScreens)
+  asignRol(userRole, tabScreens, user)
 
 
   return (
     <NavigationContainer>
-      <GoogleModal logStatus={logState} setMethod={setUser}/>
+      <GoogleModal logStatus={logState} setMethod={setUserRole}/>
       <StandardModal />
       <Tab.Navigator>
         {tabScreens}
