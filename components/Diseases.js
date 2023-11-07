@@ -36,28 +36,33 @@ const Text = styled.Text`
 const Diseases = ({user}) => {
   return (
     <>
-      <Container>
-        <Column>
-          <Text>blindness {user.diseases.blindness}</Text>
-        </Column>
-        <Column>
-        <Text>    fear {user.diseases.fear}</Text>
-        </Column>
-        <Column>
-        <Text>hunger {user.diseases.hunger}</Text>
-        </Column>
-        <Column>
-        <Text>madness {user.diseases.madness}</Text>
-        </Column>
-      </Container>
-      <Container>
-        <Column>
-          <Text>       paralized {user.diseases.paralized}</Text>
-        </Column>
-        <Column>
-          <Text>        psychosis {user.diseases.psychosis}</Text>
-        </Column>
-      </Container>
+    {user &&(
+      <View>
+        <Container>
+          <Column>
+            <Text>blindness {user.diseases.blindness}</Text>
+          </Column>
+          <Column>
+            <Text>    fear {user.diseases.fear}</Text>
+          </Column>
+          <Column>
+            <Text>hunger {user.diseases.hunger}</Text>
+          </Column>
+          <Column>
+            <Text>madness {user.diseases.madness}</Text>
+          </Column>
+        </Container>
+        <Container>
+          <Column>
+            <Text>       paralized {user.diseases.paralized}</Text>
+          </Column>
+          <Column>
+            <Text>        psychosis {user.diseases.psychosis}</Text>
+          </Column>
+        </Container>
+      </View>
+    )}
+     
     </>
   );
 };

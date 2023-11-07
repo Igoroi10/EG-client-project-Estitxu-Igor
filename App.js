@@ -1,18 +1,15 @@
+import 'react-native-gesture-handler';
 import React, { useState, useEffect } from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs';
 import { GoogleSignin } from '@react-native-google-signin/google-signin';
 import BootSplash from "react-native-bootsplash";
 import { storeData, getData } from './helpers/localStorage';
-import MyStack from './components/MyStack.js';
+
 import GoogleModal from './components/GoogleModal.js';
 import StandardModal from './components/Modal.js';
-import Profile from './screens/Profile';
-import Potions from './screens/Potions';
-import QRCodeGeneratorScreen from './screens/QR.js';
-import Tower from './screens/Tower.js';
-import Admin from './screens/Admin.js';
-import QRscanner from './components/QRscanner'
+
+import {asignRol} from './helpers/asingRol';
 
 const Tab = createMaterialTopTabNavigator();
 
@@ -22,17 +19,20 @@ GoogleSignin.configure({
 
 const App = () => {
   const [logState, setLogged] = useState([]);
-  const [user, setUser] = useState(null);
+  const [userRole, setUserRole] = useState(null);
+
 
   useEffect(() => {
     const init = async () => {
-      const userData = await getData();
-      console.log('****************LOG STATE WITHOUT USER*******************');
-      console.log(userData);
+      // …do multiple sync or async tasks
 
-      if (userData !== null) {
+      const user = await getData();
+
+
+      if (user !== null) {
         setLogged(true);
-        setUser(userData);
+        setUserRole(user[0].rol);
+
       } else {
         setLogged(false);
       }
@@ -44,25 +44,30 @@ const App = () => {
     });
   }, []);
 
+  const tabScreens = [];
+  
+  useEffect(() => {
+    const screenCharge = async() => {
+      asignRol(userRole, tabScreens)
+    }
+
+    screenCharge();
+  },[userRole])
+
+  asignRol(userRole, tabScreens)
+
+
   return (
     <NavigationContainer>
-      <GoogleModal logStatus={logState} />
+      <GoogleModal logStatus={logState} setMethod={setUserRole}/>
       <StandardModal />
       <Tab.Navigator>
-        <Tab.Screen name="Home" component={MyStack} />
-        <Tab.Screen name="Admin" component={Admin} />
-        {user !== null && user.rol === "Acolito" &&( // Comprueba si user no es nulo
-          <Tab.Screen
-            name="Profile"
-            component={() => <Profile user={user} />}
-          />
-        )}
-        <Tab.Screen name="Potions" component={Potions} />
-        <Tab.Screen name="QR" component={QRCodeGeneratorScreen} />
-        <Tab.Screen name="TOWER" component={Tower} />
+        {tabScreens}
+
       </Tab.Navigator>
     </NavigationContainer>
   );
+  
 };
 
 export default App;

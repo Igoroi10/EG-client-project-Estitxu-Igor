@@ -49,28 +49,32 @@ const Title = styled.Text`
 const Stats = ({user}) => {
   return (
     <>
-
-      <Container>
-        <FirstColumn> 
-          <Text>Resistance  {user.characterStats.resistance}</Text>
-        </FirstColumn>
-      </Container>
-      <Container>
-        <Column>
-          <Text>Strength  {user.characterStats.strength}</Text>
-        </Column>
-        <Column>
-          <Text>Stamina  {user.characterStats.stamina}</Text>
-        </Column>
-      </Container>
-      <Container>
-        <Column>
-          <Text>Agility  {user.characterStats.agility}</Text>
-        </Column>
-        <Column>
-          <Text>Intelligence  {user.characterStats.intelligence}</Text>
-        </Column>
-      </Container>
+{user &&(
+  <View>
+    <Container>
+      <FirstColumn> 
+        <Text>Resistance  {user.characterStats.resistance}</Text>
+      </FirstColumn>
+    </Container>
+    <Container>
+      <Column>
+        <Text>Strength  {user.characterStats.strength}</Text>
+      </Column>
+      <Column>
+        <Text>Stamina  {user.characterStats.stamina}</Text>
+      </Column>
+    </Container>
+    <Container>
+      <Column>
+        <Text>Agility  {user.characterStats.agility}</Text>
+      </Column>
+      <Column>
+        <Text>Intelligence  {user.characterStats.intelligence}</Text>
+      </Column>
+    </Container>
+  </View>
+)}
+      
     </>
   );
 };

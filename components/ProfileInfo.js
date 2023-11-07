@@ -25,20 +25,23 @@ const Text = styled.Text`
 const FirstFace = ({user}) => {
   return (
     <>
+    {user &&(
       <Container>
-      <NameColumn>
-        <Text>HP</Text>
-        <Text>{user.characterMainData.HP}</Text>
-      </NameColumn>
-      <NameColumn>
-        <Text>LvL</Text>
-        <Text>{user.characterMainData.LvL}</Text>
-      </NameColumn>
-      <NameColumn>
-        <Text>Money</Text>
-        <Text>{user.characterMainData.Money}</Text>
-      </NameColumn>
+        <NameColumn>
+          <Text>HP</Text>
+          <Text>{user.characterMainData.HP}</Text>
+        </NameColumn>
+        <NameColumn>
+          <Text>LvL</Text>
+          <Text>{user.characterMainData.LvL}</Text>
+        </NameColumn>
+        <NameColumn>
+          <Text>Money</Text>
+          <Text>{user.characterMainData.Money}</Text>
+        </NameColumn>
       </Container>
+    )}
+     
     </>
   );
 };
