@@ -11,6 +11,8 @@ import StandardModal from './components/Modal.js';
 
 import {asignRol} from './helpers/asingRol';
 
+import Toast from 'react-native-toast-message'
+
 const Tab = createMaterialTopTabNavigator();
 
 GoogleSignin.configure({
@@ -60,6 +62,7 @@ const App = () => {
 
 
   return (
+    
     <NavigationContainer>
       <GoogleModal logStatus={logState} setMethod={setUserRole}/>
       <StandardModal />
@@ -67,7 +70,9 @@ const App = () => {
         {tabScreens}
 
       </Tab.Navigator>
+      <Toast/>
     </NavigationContainer>
+     
   );
   
 };

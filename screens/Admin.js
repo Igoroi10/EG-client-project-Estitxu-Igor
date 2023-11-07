@@ -5,6 +5,7 @@ import { TouchableOpacity, View, Text } from 'react-native';
 import Modal from 'react-native-modal';
 import { useNavigation } from '@react-navigation/native';
 import UserDetail from '../components/UserDetail'; // Importa el nuevo componente
+import Toast from 'react-native-toast-message';
 
 const ModalContainer = styled.View`
   flex: 1;
@@ -128,8 +129,20 @@ const Admin = () => {
       const responseData = response.data.data;
       setUserList(responseData);
       setShowList(true);
+      Toast.show({
+        type: 'success', // Toast type
+        position: 'bottom', // Toast position
+        text1: 'SHOW USERS', // Title
+        text2: "Lista de usuarios mostrada correctamente", // Message
+    });
     } catch (error) {
       console.error('Error al obtener la lista de usuarios', error);
+      Toast.show({
+        type: 'error', // Toast type
+        position: 'bottom', // Toast position
+        text1: 'SHOW USERS', // Title
+        text2: "Error al obtener la lista de usuarios", // Message
+    });
     }
   };
 
