@@ -5,6 +5,9 @@ import { getData } from '../helpers/localStorage';
 import axios from 'axios';
 import Toast from 'react-native-toast-message';
 
+import PotionsModal from "../components/PotionsModal";
+import cleanScrollModal from "../components/cleanScrollModal";
+
 const View = styled.View`
   flex: 1;
   justify-content: center;
@@ -73,17 +76,23 @@ const Tower = () => {
     }
   };
 
-  return (
-    <ImageBackground source={require('../assets/tower.png')}>
-      <View>
-        {isButtonVisible && (
-          <Button onPress={checkTowerAccess}>
-            <ButtonText>ACCEDER AL TORREÓN</ButtonText>
-          </Button>
-        )}
-      </View>
-    </ImageBackground>
-  );
-};
+    return (
+        <ImageBackground
+            source={require('../assets/tower.png')}
+        >
+            <View>
+                {isButtonVisible && (
+                    <Button onPress={checkTowerAccess}>
+                        <ButtonText>ACCEDER AL TORREÓN</ButtonText>
+                    </Button>
+                )}
+                <PotionsModal towerStatus={towerState} setTowerStatus={setTowerState} potionStatus={potionState} setPotionCreated={setPotion}/>
+                
+                <cleanScrollModal potionStatus={potionState}/>
+            </View>
+        </ImageBackground>
+    )
+}
+
 
 export default Tower;
