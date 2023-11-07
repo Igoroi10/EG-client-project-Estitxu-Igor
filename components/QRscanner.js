@@ -25,6 +25,14 @@ class ScanScreen extends Component {
   
     const validEmail = await this.sendEmail(checkedEmail);
     console.log(validEmail);
+
+    if(validEmail){
+      alert("Valid user!")
+
+    }
+    else{
+      alert("User not valid")
+    }
 //  const data2 = [];
 //     console.log("DATA: " + validEmail.data + "y" + data2)
    

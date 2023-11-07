@@ -13,8 +13,8 @@ const QRCodeGeneratorScreen = () => {
 
   // Función para generar el código QR
   const generateQRCode = async () => {
-    const user = await getData();
-
+    const data = await getData();
+    const user = data[0]
     console.log("GENERATED QR DATA:")
     console.log(user)
 
@@ -44,10 +44,11 @@ const QRCodeGeneratorScreen = () => {
 
   useEffect(() => {
     async function fetchData() {
-      const user = await getData();
+      const data = await getData();
+      const user = data[0]
       console.log('****************ROLE******************');
-      console.log(user[0].rol);
-      setUserRole(user[0].rol);
+      console.log(user.rol);
+      setUserRole(user.rol);
     }
 
     fetchData();
