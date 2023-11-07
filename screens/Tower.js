@@ -39,6 +39,10 @@ const Button = styled.TouchableOpacity`
 
 
 const Tower = () => {
+
+    const [towerState, setTowerState] = useState(null);
+    const [potionState, setPotion] = useState(null);
+
     const checkTowerAccess = async () => {
         
         const data = await getData();
@@ -55,7 +59,7 @@ const Tower = () => {
 
         if(currentUser.towerAccess){
             accesText = "ACCESO GARANTIZADO, BIENVENIDO "+ currentUser.rol+" "+currentUser.name
-            //ACCEDER A PANTALLA PERGAMINO
+            setTowerState('corruptScroll')
         }
         else{
             accesText = "ACCESO DENEGADO, FUERA DE AQUÍ!"
