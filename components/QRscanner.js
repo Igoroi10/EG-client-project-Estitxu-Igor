@@ -6,6 +6,7 @@ import {
   Linking
 } from 'react-native';
 
+import Toast from 'react-native-toast-message';
 import QRCodeScanner from 'react-native-qrcode-scanner';
 import { RNCamera } from 'react-native-camera';
 import { storeData, getData } from '../helpers/localStorage';
@@ -29,9 +30,23 @@ class ScanScreen extends Component {
     if(validEmail){
       alert("Valid user!")
 
+      Toast.show({
+        type: 'success', // Toast type
+        position: 'bottom', // Toast position
+        text1: 'QR SCANNED', // Title
+        text2: "EL USUARIO ES VALIDO", // Message
+    });
+
     }
     else{
       alert("User not valid")
+
+      Toast.show({
+        type: 'error', // Toast type
+        position: 'bottom', // Toast position
+        text1: 'QR SCANNED', // Title
+        text2: "EL USUARIO NO ES VALIDO", // Message
+    });
     }
 //  const data2 = [];
 //     console.log("DATA: " + validEmail.data + "y" + data2)
