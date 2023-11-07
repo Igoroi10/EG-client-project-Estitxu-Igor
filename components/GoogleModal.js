@@ -10,7 +10,7 @@ import{storeData} from '../helpers/localStorage'
 
 Modal.setAppElement('#yourAppElement');
 
-const GoogleModal = ({logStatus}) =>{
+const GoogleModal = ({logStatus, setMethod}) =>{
   const [userLoaded, setUserLoad] = useState(logStatus?false:true)
   const [loading, setLoading] = useState(false)
 
@@ -20,14 +20,11 @@ const GoogleModal = ({logStatus}) =>{
     // Check if your device supports Google Play
     await GoogleSignin.hasPlayServices({ showPlayServicesUpdateDialog: true });
     // Get the users ID token
-    console.log("******************PLAY SERVICE CHECKED******************")
     const { idToken } = await GoogleSignin.signIn();
-    console.log("Token HERE: " + idToken)
   
     // Create a Google credential with the token
     const googleCredential = auth.GoogleAuthProvider.credential(idToken);
-    console.log("*****************GOOGLE CREDENTIAL*************************");
-    console.log(googleCredential)
+
   
     // Sign-in the user with the credential
     const signInWithCredential = await auth().signInWithCredential(googleCredential,);
@@ -36,11 +33,10 @@ const GoogleModal = ({logStatus}) =>{
   
     //Get the token from current user
     const idTokenResult = await auth().currentUser.getIdTokenResult();
-    console.log('********************************filtered token**************************')
-    console.log(idTokenResult);
+
   
-    console.log()
     //validate user token
+
     // const decodedUser = await axios.post('http://192.168.1.168:3000/api/users/', {
     const decodedUser = await axios.post('https://fly-eg-staging.fly.dev/api/users/', {
 
@@ -48,13 +44,11 @@ const GoogleModal = ({logStatus}) =>{
     })
 
     
-    console.log('******************DECODED USER AT RETURN*******************')
-    console.log(decodedUser.data.data)
 
 
     await storeData(decodedUser.data.data)
     setUserLoad(true)
-    console.log("HEREEEEEEEEEE")
+    setMethod(decodedUser.data.data[0].rol)
     
   }
 
