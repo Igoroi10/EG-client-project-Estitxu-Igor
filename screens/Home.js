@@ -32,7 +32,6 @@ const Home = () => {
 
     return (
             <>
-            <Header/>
             <View>
                 <ButtonsContainer>
 
