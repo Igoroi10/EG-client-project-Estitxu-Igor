@@ -19,7 +19,7 @@ const QRCodeGeneratorScreen = () => {
     console.log(user)
 
     RNQRGenerator.generate({
-      value: user.email,
+      value: user[0].email,
       height: 300,
       width: 300,
     })

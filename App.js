@@ -1,4 +1,3 @@
-import 'react-native-gesture-handler';
 import React, { useState, useEffect } from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs';
@@ -9,7 +8,8 @@ import { storeData, getData } from './helpers/localStorage';
 import GoogleModal from './components/GoogleModal.js';
 import StandardModal from './components/Modal.js';
 
-import {asignRol} from './helpers/asingRol';
+import { asignRol } from './helpers/asingRol';
+
 
 const Tab = createMaterialTopTabNavigator();
 
@@ -21,22 +21,18 @@ const App = () => {
   const [logState, setLogged] = useState([]);
   const [userRole, setUserRole] = useState(null);
 
-
   useEffect(() => {
     const init = async () => {
-      // …do multiple sync or async tasks
+      const userData = await getData();
+      console.log('****************LOG STATE WITHOUT USER*******************');
+      console.log(userData);
 
-      const user = await getData();
-
-
-      if (user !== null) {
+      if (userData !== null) {
         setLogged(true);
         setUserRole(user[0].rol);
-
       } else {
         setLogged(false);
       }
-      
     };
 
     init().finally(async () => {
@@ -45,7 +41,7 @@ const App = () => {
   }, []);
 
   const tabScreens = [];
-  
+
   useEffect(() => {
     const screenCharge = async() => {
       asignRol(userRole, tabScreens)
@@ -63,7 +59,6 @@ const App = () => {
       <StandardModal />
       <Tab.Navigator>
         {tabScreens}
-
       </Tab.Navigator>
     </NavigationContainer>
   );

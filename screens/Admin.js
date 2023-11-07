@@ -1,6 +1,9 @@
 import React, { useState } from 'react';
 import styled from 'styled-components/native';
 import axios from 'axios';
+import { TouchableOpacity } from 'react-native-gesture-handler';
+import { useNavigation } from '@react-navigation/native';
+import { Alert } from 'react-native'; // Importa Alert de react-native
 
 const Container = styled.View`
   flex: 1;
@@ -75,10 +78,11 @@ const FetchButton = ({ onPress }) => (
 const Admin = () => {
   const [userList, setUserList] = useState([]);
   const [showList, setShowList] = useState(false);
+  const navigation = useNavigation();
 
   const fetchUserList = async () => {
     try {
-      const response = await axios.get('http://192.168.1.168:3000/api/users/');
+      const response = await axios.get('https://fly-eg-staging.fly.dev/api/users/');
       const responseData = response.data.data;
       setUserList(responseData);
       setShowList(true);
@@ -87,24 +91,32 @@ const Admin = () => {
     }
   };
 
+  const showAlertWithUsername = (username) => {
+    Alert.alert('Nombre del Acólito', username);
+  };
+
   if (showList) {
     return (
       <Container>
         <UserList>
-            {userList
+          {userList
             .filter((user) => user.rol === 'Acolito')
             .map((user) => (
-                <UserItem key={user._id}>
+              <UserItem key={user._id}>
                 <UserImage source={{ uri: user.imgURL }} />
                 <UserInfo>
-                    <UserEmail>{user.email}</UserEmail>
-                    <UserButton>
-                        <ButtonText>MOSTRAR PERFIL</ButtonText>
-                    </UserButton>
+                  <UserEmail>{user.email}</UserEmail>
+                  <UserButton
+                    onPress={() => {
+                      showAlertWithUsername(user.name); // Muestra el alert con el nombre del acólito
+                    }}
+                  >
+                    <ButtonText>MOSTRAR PERFIL DEL ACÓLITO</ButtonText>
+                  </UserButton>
                 </UserInfo>
-                </UserItem>
+              </UserItem>
             ))
-            }
+          }
         </UserList>
       </Container>
     );
