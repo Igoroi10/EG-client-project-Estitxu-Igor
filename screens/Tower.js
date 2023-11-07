@@ -3,7 +3,7 @@ import styled from 'styled-components/native';
 import { useNavigation } from '@react-navigation/native';
 import { TouchableOpacity } from 'react-native'; // Importa TouchableOpacity
 import { getData } from "../helpers/localStorage";
-
+import axios from "axios";
 
 const View = styled.View`
     flex: 1;
@@ -40,11 +40,21 @@ const Button = styled.TouchableOpacity`
 
 const Tower = () => {
     const checkTowerAccess = async () => {
-        const data = await getData();
-        const user = data[0]
         
-        if(user.towerAccess){
-            accesText = "ACCESO GARANTIZADO, BIENVENIDO "+ user.rol+" "+user.name
+        const data = await getData();
+        const user = data[0];
+
+        
+        const response = await axios.get('https://fly-eg-staging.fly.dev/api/users/')
+        const responseData = response.data.data;
+        const currentUserData = responseData.filter((element) => element.email == user.email)
+        const currentUser = currentUserData[0]
+
+        console.log(currentUser);
+        console.log(currentUser.email)
+
+        if(currentUser.towerAccess){
+            accesText = "ACCESO GARANTIZADO, BIENVENIDO "+ currentUser.rol+" "+currentUser.name
             //ACCEDER A PANTALLA PERGAMINO
         }
         else{
