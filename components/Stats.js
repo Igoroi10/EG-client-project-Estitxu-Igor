@@ -3,11 +3,11 @@ import styled from 'styled-components/native';
 
 const Container = styled.View`
   width: 100%;
-  height: 55px;
+  height: 60px;
   flex-direction: row;
   align-items: center;
   background: #FFFFFF;
-  top: 0px;
+  top: 10px;
   left: -10px;
 `;
 
@@ -26,7 +26,7 @@ const FirstColumn = styled.View`
   justify-content: center;
   align-items: center;
   left: -20px;
-  top: -10px
+  top: 0px
 `;
 
 const Text = styled.Text`
@@ -49,11 +49,7 @@ const Title = styled.Text`
 const Stats = ({user}) => {
   return (
     <>
-      <Container>
-        <Column>
-          <Title>Stats:</Title>
-        </Column>
-      </Container>
+
       <Container>
         <FirstColumn> 
           <Text>Resistance  {user.characterStats.resistance}</Text>
