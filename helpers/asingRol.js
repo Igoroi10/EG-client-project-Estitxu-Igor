@@ -8,30 +8,26 @@ import Tower from '../screens/Tower.js';
 import Admin from '../screens/Admin.js';
 import IstvanScreen from '../screens/IstvanScreen.js';
 import Villano from '../screens/VillanoScreen.js'
+import LogOut from '../screens/LogOut.js';
 
 const Tab = createMaterialTopTabNavigator();
 
 
 
 const asignRol = async (userRole, tabScreens) => {
-    console.log('**************** tabScreen STATE ****************')
-    console.log(tabScreens)
-    console.log(userRole)
 
     tabScreens.splice(0)
-    console.log('***** rol asign ********')
+
     //Pantallas JACOB
     if (userRole === "Jacob") {
-        console.log('JACOB SCREEN')
         tabScreens.push(
-            <Tab.Screen key="Home" name="Home" component={MyStack} />,
-            <Tab.Screen key="QR" name="QR" component={QRCodeGeneratorScreen} />
+            <Tab.Screen key="QR" name="QR" component={QRCodeGeneratorScreen} />,
+            <Tab.Screen key="logOut" name="logOut" component={LogOut} />
         );
-        }
+    }
     
         //Pantallas ACÓLITO
-        else if (userRole === "Acolito") {
-        console.log('ACOLITO SCREEN') //NOT WORKING
+    else if (userRole === "Acolito") {
         tabScreens.push(
             <Tab.Screen key="Home" name="Home" component={MyStack} />,
             <Tab.Screen key="Profile" name="Profile" component={Profile} />,
@@ -39,39 +35,32 @@ const asignRol = async (userRole, tabScreens) => {
             <Tab.Screen key="QR" name="QR" component={QRCodeGeneratorScreen} />,
             <Tab.Screen key="TOWER" name="TOWER" component={Tower} />
         );
-        }
-        else if(userRole === "Istvan") {
-        console.log('ISTVAN SCREEN') //WORKING
+    }
+    else if(userRole === "Istvan") {
         tabScreens.push(
-            <Tab.Screen key="Home" name="Home" component={MyStack} />,
-            <Tab.Screen key="Istvan" name="Istvan" component={IstvanScreen} />
+            <Tab.Screen key="Istvan" name="Istvan" component={IstvanScreen} />,
+            <Tab.Screen key="logOut" name="logOut" component={LogOut} />
         )
-        }
-        else if(userRole === "Mortimer") {
-        console.log('MORTI SCREEN') //Working
+    }
+    else if(userRole === "Mortimer") {
         tabScreens.push(
-            <Tab.Screen key="Home" name="Home" component={MyStack} />,
-            <Tab.Screen key="Mortimer" name="Mortimer" component={Admin} />
+            <Tab.Screen key="Mortimer" name="Mortimer" component={Admin} />,
+            <Tab.Screen key="logOut" name="logOut" component={LogOut} />
         )
-        }
-        else if(userRole === "Villano") {
-        console.log('VILLAIN SCREEN') //WORKING
+    }
+    else if(userRole === "Villano") {
         tabScreens.push(
-            <Tab.Screen key="Home" name="Home" component={MyStack} />,
-            <Tab.Screen key="Villano" name="Villano" component={Villano} />
+            <Tab.Screen key="Villano" name="Villano" component={Villano} />,
+            <Tab.Screen key="logOut" name="logOut" component={LogOut} />
         )
-        }
-    
-        else{
-        console.log('DEFAULT SCREEN') //WORKING
-        tabScreens.push(
-            <Tab.Screen key="Home" name="Home" component={MyStack} />
-        )
-    
-        }
+    }
 
-        console.log('****************TAB SCREEN AFTER SCREEN HANDLER****************')
-        console.log(tabScreens)
+    else{
+        tabScreens.push(
+            <Tab.Screen key="logOut" name="logOut" component={LogOut} />
+        )
+    }
+
 }
 
 export {asignRol};
