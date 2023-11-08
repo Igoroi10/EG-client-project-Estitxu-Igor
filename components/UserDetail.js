@@ -6,7 +6,6 @@ import Profile from '../screens/Profile'
 import FirstFace from '../components/FirstFace';
 import ProfileInfo from '../components/ProfileInfo';
 import Stats from '../components/Stats';
-import Diseases from '../components/Diseases';
 import Slider from '@react-native-community/slider';
 import { storeData, getData } from '../helpers/localStorage';
 

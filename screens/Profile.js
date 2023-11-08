@@ -4,7 +4,6 @@ import styled from 'styled-components/native'
 import FirstFace from '../components/FirstFace';
 import ProfileInfo from '../components/ProfileInfo';
 import Stats from '../components/Stats';
-import Diseases from '../components/Diseases';
 
 
 
@@ -200,29 +199,7 @@ const Profile = ({user}) => {
                     </Column>
                 </Container3>
 
-                    <Divider /> 
-                    <Container4>
-                    <Column4>
-                        <Text4>blindness {user.diseases.blindness}</Text4>
-                    </Column4>
-                    <Column4>
-                        <Text4>    fear {user.diseases.fear}</Text4>
-                    </Column4>
-                    <Column4>
-                        <Text4>hunger {user.diseases.hunger}</Text4>
-                    </Column4>
-                    <Column4>
-                        <Text4>madness {user.diseases.madness}</Text4>
-                    </Column4>
-                    </Container4>
-                    <Container4>
-                    <Column4>
-                        <Text4>       paralized {user.diseases.paralized}</Text4>
-                    </Column4>
-                    <Column4>
-                        <Text4>        psychosis {user.diseases.psychosis}</Text4>
-                    </Column4>
-                    </Container4>
+       
             </View>
             )}
         </>
