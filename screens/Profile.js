@@ -148,7 +148,7 @@ const Text4 = styled.Text`
 const Profile = ({user}) => {
     return (
         <>
-            {user &&(
+            {user.characterMainData &&(
             <View>
                 <Container>
                     <UserCard>
