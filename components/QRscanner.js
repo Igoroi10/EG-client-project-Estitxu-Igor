@@ -28,7 +28,7 @@ class ScanScreen extends Component {
     console.log(validEmail);
 
     if(validEmail){
-      alert("Valid user!")
+      // alert("Valid user!")
 
       Toast.show({
         type: 'success', // Toast type
@@ -39,7 +39,7 @@ class ScanScreen extends Component {
 
     }
     else{
-      alert("User not valid")
+      // alert("User not valid")
 
       Toast.show({
         type: 'error', // Toast type
