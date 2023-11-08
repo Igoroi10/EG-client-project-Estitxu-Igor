@@ -138,7 +138,7 @@ console.log(user)
 
 
 
-          {actualUserRole === "Villano" && (
+          {(actualUserRole === "Villano" || actualUserRole === "Istvan") && (
               <View >
                 <ButtonRed style={{top: 500}}>
                     <ButtonText>-</ButtonText>
