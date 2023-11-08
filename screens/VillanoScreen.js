@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import styled from 'styled-components/native';
 import axios from 'axios';
 import { TouchableOpacity, View, Text } from 'react-native';
