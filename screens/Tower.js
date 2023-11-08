@@ -51,7 +51,6 @@ const ViewModal = styled.View`
 const Tower = () => {
   const [towerState, setTowerState] = useState("start");
   const [potionState, setPotion] = useState("start");
-  const [isButtonVisible, setButtonVisible] = useState(true);
 
   const modals = [];
 
@@ -91,7 +90,6 @@ const Tower = () => {
         text1: 'Acceso al Torreón', // Title
         text2: accesText, // Message
       });
-      //setButtonVisible(false);
     } else {
       const accesText = 'ACCESO DENEGADO, FUERA DE AQUÍ!';
       Toast.show({
@@ -109,7 +107,7 @@ const Tower = () => {
             source={require('../assets/tower.png')}
         >
             <View>
-                {isButtonVisible && (
+                {towerState === "start" && (
                     <Button onPress={checkTowerAccess}>
                         <ButtonText>ACCEDER AL TORREÓN</ButtonText>
                     </Button>
@@ -119,7 +117,8 @@ const Tower = () => {
         </ImageBackground>
             <PotionsModal towerStatus={towerState} setTowerStatus={setTowerState} potionStatus={potionState} setPotionCreated={setPotion}/>
             <PergaminoModal towerStatus={towerState} setTowerStatus={setTowerState} />
-            <CleanScrollModal potionStatus={potionState}/>
+            <CleanScrollModal potionStatus={potionState} towerStatus={towerState} setTowerStatus={setTowerState} />
+
         </>
     )
 }
