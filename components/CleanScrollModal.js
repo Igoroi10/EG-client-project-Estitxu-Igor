@@ -2,17 +2,17 @@ import React from 'react';
 import { Modal, Text, View, Button, Image } from 'react-native';
 import styled from 'styled-components/native'; // Importa styled-components/native
 // Define componentes de estilo
-const ModalContainer = styled(View)`
+const ModalContainer = styled.View`
   flex: 1;
   justify-content: center;
   align-items: center;
 `;
-const ContentContainer = styled(View)`
+const ContentContainer = styled.View`
   background-color: white;
   padding: 20px;
   border-radius: 10px;
 `;
-const ContentText = styled(Text)`
+const ContentText = styled.Text`
   color: black;
   position: absolute;
   top: 80px;
@@ -20,7 +20,7 @@ const ContentText = styled(Text)`
   z-index: 1;
   width: 200px;
 `;
-const ModalImage = styled(Image)`
+const ModalImage = styled.Image`
   width: 300px;
   height: 400px;
 `;

@@ -61,6 +61,15 @@ const Tower = () => {
 
   useEffect(() => {
     scrollHandler(modals, towerState, setTowerState, potionState, setPotion)
+
+    if(potionState !== "start" && potionState !== "Potion of cleanse_parchment"){
+      Toast.show({
+        type: 'success', // Toast type
+        position: 'bottom', // Toast position
+        text1: 'Limpieza del pergamino', // Title
+        text2: "La limpieza del pergamino ha sido exitosa", // Message
+      });
+    }
   },[potionState])
 
   const checkTowerAccess = async () => {

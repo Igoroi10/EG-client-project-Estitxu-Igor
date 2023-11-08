@@ -1,6 +1,7 @@
 import React from 'react';
 import Modal from 'react-modal';
 import { Text, View, Button, Image } from 'react-native';
+import Toast from 'react-native-toast-message';
 import styled from 'styled-components/native';
 import { Z_ASCII } from 'zlib';
 
@@ -25,7 +26,7 @@ height: 400px;
 
 const PergaminoModal = ({towerStatus, setTowerStatus}) => {
   const cleanse = () =>{
-    setTowerStatus('potionCreation')
+    setTowerStatus('potionCreation');
   }
   return (
 
