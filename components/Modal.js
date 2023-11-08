@@ -18,7 +18,7 @@ const StandardModal = () =>{
 
 
 
-const ModalTemplate = styled.Modal`
+const ModalTemplate = styled.View`
     position: absolute;
     width: 100%;
     height: 100%;

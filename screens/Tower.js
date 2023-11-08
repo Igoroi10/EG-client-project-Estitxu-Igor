@@ -7,7 +7,9 @@ import Toast from 'react-native-toast-message';
 
 import scrollHandler from '../helpers/scrollHandler';
 
-
+import PergaminoModal from '../components/PergaminoModal';
+import CleanScrollModal from '../components/CleanScrollModal';
+import PotionsModal from '../components/PotionsModal';
 
 const View = styled.View`
   flex: 1;
@@ -41,6 +43,11 @@ const Button = styled.TouchableOpacity`
   border-radius: 10px;
 `;
 
+const ViewModal = styled.View`
+  position:absolute;
+  margin-top: 20%;
+  height: 60%;
+`
 const Tower = () => {
   const [towerState, setTowerState] = useState("start");
   const [potionState, setPotion] = useState("start");
@@ -75,7 +82,7 @@ const Tower = () => {
         text1: 'Acceso al Torreón', // Title
         text2: accesText, // Message
       });
-      setButtonVisible(false);
+      //setButtonVisible(false);
     } else {
       const accesText = 'ACCESO DENEGADO, FUERA DE AQUÍ!';
       Toast.show({
@@ -88,6 +95,7 @@ const Tower = () => {
   };
 
     return (
+      <>
         <ImageBackground
             source={require('../assets/tower.png')}
         >
@@ -97,9 +105,13 @@ const Tower = () => {
                         <ButtonText>ACCEDER AL TORREÓN</ButtonText>
                     </Button>
                 )}
-                {modals}
             </View>
+            
         </ImageBackground>
+            <PotionsModal towerStatus={towerState} setTowerStatus={setTowerState} potionStatus={potionState} setPotionCreated={setPotion}/>
+            <PergaminoModal towerStatus={towerState} setTowerStatus={setTowerState} />
+            <CleanScrollModal potionStatus={potionState}/>
+        </>
     )
 }
 
