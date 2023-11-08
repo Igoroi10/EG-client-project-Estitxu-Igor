@@ -22,7 +22,6 @@ const asignRol = async (userRole, tabScreens, user) => {
     // else
     //     userRole = null;
 
-console.log(user[0])
     tabScreens.splice(0)
 
     //Pantallas JACOB
