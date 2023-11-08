@@ -46,19 +46,25 @@ const asignRol = async (userRole, tabScreens, user) => {
     }
     else if(userRole === "Istvan") {
         tabScreens.push(
-            <Tab.Screen key="Istvan" name="Istvan" component={IstvanScreen} />,
+            <Tab.Screen key="Istvan" name="Istvan">
+                {() => <IstvanScreen user={user} />}
+            </Tab.Screen>,
             <Tab.Screen key="logOut" name="logOut" component={LogOut} />
         )
     }
     else if(userRole === "Mortimer") {
         tabScreens.push(
-            <Tab.Screen key="Mortimer" name="Mortimer" component={Admin} />,
+            <Tab.Screen key="Mortimer" name="Mortimer">
+                {() => <Admin user={user} />}
+            </Tab.Screen>,
             <Tab.Screen key="logOut" name="logOut" component={LogOut} />
         )
     }
     else if(userRole === "Villano") {
         tabScreens.push(
-            <Tab.Screen key="Villano" name="Villano" component={Villano} />,
+            <Tab.Screen key="Villano" name="Villano">
+                {() => <Villano user={user} />}
+            </Tab.Screen>,
             <Tab.Screen key="logOut" name="logOut" component={LogOut} />
         )
     }

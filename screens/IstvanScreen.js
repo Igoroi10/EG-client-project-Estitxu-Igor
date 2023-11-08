@@ -83,14 +83,8 @@ const UserInTower = styled.View`
   position: absolute;
 `;
 
-const FetchButton = ({ onPress }) => (
-    <Button onPress={onPress}>
-      <ButtonText>Obtener Correos Electrónicos</ButtonText>
-    </Button>
-  );
 
-
-const Istvan = () => {
+const Istvan = ({user}) => {
     const [userList, setUserList] = useState([]);
     const [showList, setShowList] = useState(false);
     const [selectedUser, setSelectedUser] = useState(null);
@@ -98,66 +92,69 @@ const Istvan = () => {
     const navigation = useNavigation();
     
     const fetchUserList = async () => {
-        try {
-          const response = await axios.get('https://fly-eg-staging.fly.dev/api/users/');
-          const responseData = response.data.data;
-          setUserList(responseData);
-          setShowList(true);
-          Toast.show({
-            type: 'success', // Toast type
-            position: 'bottom', // Toast position
-            text1: 'SHOW USERS', // Title
-            text2: "Lista de usuarios mostrada correctamente", // Message
-        });
-        } catch (error) {
-          console.error('Error al obtener la lista de usuarios', error);
-          Toast.show({
-            type: 'error', // Toast type
-            position: 'bottom', // Toast position
-            text1: 'SHOW USERS', // Title
-            text2: "Error al obtener la lista de usuarios", // Message
-        });
-        }
-      };
-
-      const showAlertWithUsername = (user) => {
-        setSelectedUser(user);
-        setIsModalVisible(true);
-      };
-    
-      const closeModal = () => {
-        setIsModalVisible(false);
-      };
-    
-      return (
-        <Container>
-          {showList && (
-            <UserList>
-              {userList
-                .filter((user) => user.rol === 'Acolito')
-                .map((user) => (
-                  <UserItem key={user._id}>
-                    <UserInTower style={{ backgroundColor: user.towerAccess ? "#10D24B" : "red" }}/>
-                    <UserImage source={{ uri: user.imgURL }} />
-                    <UserInfo>
-                      
-                      <UserEmail>{user.email}</UserEmail>
-                      <UserButton onPress={() => showAlertWithUsername(user)}>
-                        <ButtonText>MOSTRAR PERFIL DEL ACÓLITO</ButtonText>
-                      </UserButton>
-                    </UserInfo>
-                  </UserItem>
-                ))
-              }
-            </UserList>
-          )}
-          <UserDetail
-            isVisible={isModalVisible}
-            user={selectedUser}
-            closeModal={closeModal}
-          />
-          {!showList && <FetchButton onPress={fetchUserList} />}
-        </Container>
+      try {
+        const response = await axios.get('https://fly-eg-staging.fly.dev/api/users/');
+        const responseData = response.data.data;
+        setUserList(responseData);
+        setShowList(true);
+      //   Toast.show({
+      //     type: 'success', // Toast type
+      //     position: 'bottom', // Toast position
+      //     text1: 'SHOW USERS', // Title
+      //     text2: "Lista de usuarios mostrada correctamente", // Message
+      // });
+      } catch (error) {
+        console.error('Error al obtener la lista de usuarios', error);
+        Toast.show({
+          type: 'error', // Toast type
+          position: 'bottom', // Toast position
+          text1: 'SHOW USERS', // Title
+          text2: "Error al obtener la lista de usuarios", // Message
+      });
+      }
+    };
+  
+    const showAlertWithUsername = (user) => {
+      setSelectedUser(user);
+      setIsModalVisible(true);
+    };
+  
+    const closeModal = () => {
+      setIsModalVisible(false);
+    };
+  
+    useEffect(() => {
+      fetchUserList();
+    }, [user]);
+  
+    return (
+      <Container>
+   
+          <UserList>
+            {userList
+              .filter((user) => user.rol === 'Acolito')
+              .map((user) => (
+                <UserItem key={user._id}>
+                  <UserInTower style={{ backgroundColor: user.towerAccess ? "#10D24B" : "red" }}/>
+                  <UserImage source={{ uri: user.imgURL }} />
+                  <UserInfo>
+                    
+                    <UserEmail>{user.email}</UserEmail>
+                    <UserButton onPress={() => showAlertWithUsername(user)}>
+                      <ButtonText>MOSTRAR PERFIL DEL ACÓLITO</ButtonText>
+                    </UserButton>
+                  </UserInfo>
+                </UserItem>
+              ))
+            }
+          </UserList>
+        
+        <UserDetail
+          isVisible={isModalVisible}
+          user={selectedUser}
+          closeModal={closeModal}
+        />
+      </Container>
       );
     };
 

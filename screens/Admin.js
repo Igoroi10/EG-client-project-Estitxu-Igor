@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import styled from 'styled-components/native';
 import axios from 'axios';
 import { TouchableOpacity, View, Text } from 'react-native';
@@ -107,13 +107,7 @@ const UserInTower = styled.View`
 
 
 
-const FetchButton = ({ onPress }) => (
-  <Button onPress={onPress}>
-    <ButtonText>Obtener Correos Electrónicos</ButtonText>
-  </Button>
-);
-
-const Admin = () => {
+const Admin = ({user}) => {
   const [userList, setUserList] = useState([]);
   const [showList, setShowList] = useState(false);
   const [selectedUser, setSelectedUser] = useState(null);
@@ -129,12 +123,12 @@ const Admin = () => {
       const responseData = response.data.data;
       setUserList(responseData);
       setShowList(true);
-      Toast.show({
-        type: 'success', // Toast type
-        position: 'bottom', // Toast position
-        text1: 'SHOW USERS', // Title
-        text2: "Lista de usuarios mostrada correctamente", // Message
-    });
+    //   Toast.show({
+    //     type: 'success', // Toast type
+    //     position: 'bottom', // Toast position
+    //     text1: 'SHOW USERS', // Title
+    //     text2: "Lista de usuarios mostrada correctamente", // Message
+    // });
     } catch (error) {
       console.error('Error al obtener la lista de usuarios', error);
       Toast.show({
@@ -155,9 +149,13 @@ const Admin = () => {
     setIsModalVisible(false);
   };
 
+  useEffect(() => {
+    fetchUserList();
+  }, [user]);
+
   return (
     <Container>
-      {showList && (
+ 
         <UserList>
           {userList
             .filter((user) => user.rol === 'Acolito')
@@ -176,13 +174,12 @@ const Admin = () => {
             ))
           }
         </UserList>
-      )}
+      
       <UserDetail
         isVisible={isModalVisible}
         user={selectedUser}
         closeModal={closeModal}
       />
-      {!showList && <FetchButton onPress={fetchUserList} />}
     </Container>
   );
 };

@@ -83,32 +83,28 @@ const UserInTower = styled.View`
   position: absolute;
 `;
 
-const FetchButton = ({ onPress }) => (
-    <Button onPress={onPress}>
-      <ButtonText>Obtener Correos Electrónicos</ButtonText>
-    </Button>
-  );
 
 
-const Villano = () => {
+const Villano = ({user}) => {
     const [userList, setUserList] = useState([]);
     const [showList, setShowList] = useState(false);
     const [selectedUser, setSelectedUser] = useState(null);
     const [isModalVisible, setIsModalVisible] = useState(false);
     const navigation = useNavigation();
-    
+
+
     const fetchUserList = async () => {
         try {
           const response = await axios.get('https://fly-eg-staging.fly.dev/api/users/');
           const responseData = response.data.data;
           setUserList(responseData);
           setShowList(true);
-          Toast.show({
-            type: 'success', // Toast type
-            position: 'bottom', // Toast position
-            text1: 'SHOW USERS', // Title
-            text2: "Lista de usuarios mostrada correctamente", // Message
-        });
+        //   Toast.show({
+        //     type: 'success', // Toast type
+        //     position: 'bottom', // Toast position
+        //     text1: 'SHOW USERS', // Title
+        //     text2: "Lista de usuarios mostrada correctamente", // Message
+        // });
         } catch (error) {
           console.error('Error al obtener la lista de usuarios', error);
           Toast.show({
@@ -124,14 +120,18 @@ const Villano = () => {
         setSelectedUser(user);
         setIsModalVisible(true);
       };
-    
+
       const closeModal = () => {
         setIsModalVisible(false);
       };
-    
+
+      useEffect(() => {
+        fetchUserList();
+      }, [user]);
+
       return (
         <Container>
-          {showList && (
+
             <UserList>
               {userList
                 .filter((user) => user.rol === 'Acolito')
@@ -150,13 +150,12 @@ const Villano = () => {
                 ))
               }
             </UserList>
-          )}
+          
           <UserDetail
             isVisible={isModalVisible}
             user={selectedUser}
             closeModal={closeModal}
           />
-          {!showList && <FetchButton onPress={fetchUserList} />}
         </Container>
       );
     };
