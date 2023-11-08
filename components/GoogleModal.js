@@ -10,7 +10,7 @@ import{storeData} from '../helpers/localStorage'
 
 Modal.setAppElement('#yourAppElement');
 
-const GoogleModal = ({logStatus, setMethod}) =>{
+const GoogleModal = ({logStatus, setMethod, setUser}) =>{
   const [userLoaded, setUserLoad] = useState(logStatus?false:true)
   const [loading, setLoading] = useState(false)
 
@@ -49,6 +49,7 @@ const GoogleModal = ({logStatus, setMethod}) =>{
     await storeData(decodedUser.data.data)
     setUserLoad(true)
     setMethod(decodedUser.data.data[0].rol)
+    setUser(decodedUser.data.data[0])
     
   }
 

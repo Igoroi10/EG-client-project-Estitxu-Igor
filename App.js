@@ -64,7 +64,7 @@ const App = () => {
   return (
     
     <NavigationContainer>
-      <GoogleModal logStatus={logState} setMethod={setUserRole}/>
+      <GoogleModal logStatus={logState} setMethod={setUserRole} setUser={setUser}/>
       <StandardModal />
       <Tab.Navigator>
         {tabScreens}

@@ -37,11 +37,9 @@ console.log(user[0])
     else if (userRole === "Acolito") {
         tabScreens.push(
             <Tab.Screen key="Home" name="Home" component={MyStack} />,
-            // <Tab.Screen
-            //     key="Profile"
-            //     name="Profile"
-            //     component={() => <Profile user={user} />}
-            // />,
+            <Tab.Screen key="Profile" name="Profile">
+                {() => <Profile user={user} />}
+            </Tab.Screen>,
             <Tab.Screen key="Potions" name="Potions" component={Potions} />,
             <Tab.Screen key="QR" name="QR" component={QRCodeGeneratorScreen} />,
             <Tab.Screen key="TOWER" name="TOWER" component={Tower} />
