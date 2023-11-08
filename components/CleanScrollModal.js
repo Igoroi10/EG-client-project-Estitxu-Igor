@@ -6,9 +6,9 @@ const ModalContainer = styled.View`
   flex: 1;
   justify-content: center;
   align-items: center;
+  background-color: rgba(0, 0, 0, 0.5);
 `;
 const ContentContainer = styled.View`
-  background-color: white;
   padding: 20px;
   border-radius: 10px;
 `;

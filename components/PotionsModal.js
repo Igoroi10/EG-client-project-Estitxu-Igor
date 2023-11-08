@@ -96,6 +96,7 @@ const ContentContainer = styled.Modal`
   position: absolute;
   width: 100%;
   height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
 `
 
 const ButtonContainer = styled.View`
