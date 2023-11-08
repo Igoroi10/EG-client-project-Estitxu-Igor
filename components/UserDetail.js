@@ -104,15 +104,12 @@ const UserDetail = ({ isVisible, user, closeModal }) => {
   }, [user]);
 
   
-  if (user !== null) {
+  if(user !== null) {
     
-console.log("****************SELECTED USER******************")
-console.log(user)
-
-
-
-
-
+    console.log("****************SELECTED USER******************")
+    console.log(user)
+    const hasTrueDisease = Object.values(user.diseases).some(disease => disease === true);
+    
     return (
       <Modal isVisible={isVisible}>
         <ModalContainer>
@@ -125,17 +122,6 @@ console.log(user)
           <ProfileInfo user={user}/>
           <Divider /> 
           <Stats user={user}/>
-
-
-
-
-
-
-
-
-
-
-
 
           {(actualUserRole === "Villano" || actualUserRole === "Istvan") && (
               <View >
@@ -178,7 +164,7 @@ console.log(user)
             )}
 
 
-        {actualUserRole === "Mortimer" && (
+        {actualUserRole === "Mortimer" && hasTrueDisease===true && (
             <View style={{ top: 0 }}>
               <CureButton >
                   <CureButtonText>Cure disease</CureButtonText>
