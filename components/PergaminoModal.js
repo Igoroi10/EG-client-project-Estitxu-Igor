@@ -27,8 +27,6 @@ const PergaminoModal = ({towerStatus, setTowerStatus}) => {
   const cleanse = () =>{
     setTowerStatus('potionCreation')
   }
-  
-    console.log("towerstate"+towerStatus)
   return (
 
       <ModalContainer visible={towerStatus==="corruptScroll"?true:false}>

@@ -84,7 +84,7 @@ const PotionsModal = ({towerStatus, setTowerStatus, potionStatus, setPotionCreat
         )}
         <ButtonContainer>
         <DeleteIngredientsButton onPress={deleteIngredients}>
-          <ButtonText>CREATE POTION</ButtonText>
+          <ButtonText>Delete Ingredients</ButtonText>
         </DeleteIngredientsButton>
           </ButtonContainer>
       </ContentContainer>
