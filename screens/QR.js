@@ -50,12 +50,16 @@ const QRCodeGeneratorScreen = () => {
       console.log(user.rol);
       setUserRole(user.rol);
     }
-
     fetchData();
   }, []);
 
-  
+  useEffect(() => {
+    if(userRole === "Acolito"){
+      generateQRCode();
+    }
+  }, [userRole]);
 
+  
   return (
     <Container visible= {false}>
       {showScanner ? (
@@ -63,12 +67,6 @@ const QRCodeGeneratorScreen = () => {
       ) : (
         <View >
           {imageUri && <QRCodeImage source={{ uri: imageUri }} />}
-
-          {userRole==="Acolito" && (
-            <GenerateButton onPress={generateQRCode}>
-              <ButtonText>Generar QR</ButtonText>
-            </GenerateButton>
-          )}
 
           {userRole==="Jacob" && (
             <GenerateButton onPress={showQRScanner }>
