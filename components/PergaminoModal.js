@@ -31,7 +31,7 @@ const PergaminoModal = ({towerStatus, setTowerStatus}) => {
     console.log("towerstate"+towerStatus)
   return (
 
-      <ModalContainer >
+      <ModalContainer visible={towerStatus==="corruptScroll"?true:false}>
       <ContentContainer>
         <ModalImage source={require('../assets/pergaminoSucio.png')} />
         <Button
