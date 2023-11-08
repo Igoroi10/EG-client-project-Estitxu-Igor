@@ -16,35 +16,19 @@ import axios from 'axios';
 import RNQRGenerator from 'rn-qr-generator';
 
 
-class ScanScreen extends Component {
-
-  onSuccess = async (e) => {
-    // Si es otro tipo de contenido, muestra el texto en una alerta
-    // alert('QR Code Content: ' + e.data);
-
+const ScanScreen = ({ onClose }) => {
+  const onSuccess = async (e) => {
     const checkedEmail = e.data;
-  
-    const validEmail = await this.sendEmail(checkedEmail);
+
+    const validEmail = await sendEmail(checkedEmail);
     console.log(validEmail);
 
-    if(validEmail){
-      // alert("Valid user!")
-
-      const towerState= validEmail.data[0].towerAccess;
-      console.log(towerState)
-      if(validEmail){
-        // alert("Valid user!")
-        let userText;
-        if(towerState === true)
-          userText = 'El acólito tiene acceso al torreón'
-        else
-          userText = 'Se le ha revocado el acceso al torreón al acólito'
-
+    if (validEmail) {
       Toast.show({
         type: 'success', // Toast type
         position: 'bottom', // Toast position
         text1: 'QR SCANNED', // Title
-        text2: userText // Message
+        text2: "EL USUARIO ES VALIDO", // Message
     });
 
     }
@@ -52,57 +36,35 @@ class ScanScreen extends Component {
       // alert("User not valid")
 
       Toast.show({
-        type: 'error', // Toast type
-        position: 'bottom', // Toast position
-        text1: 'QR SCANNED', // Title
-        text2: "EL USUARIO NO ES VALIDO", // Message
-    });
+        type: 'error',
+        position: 'bottom',
+        text1: 'QR SCANNED',
+        text2: "EL USUARIO NO ES VALIDO",
+      });
     }
-//  const data2 = [];
-//     console.log("DATA: " + validEmail.data + "y" + data2)
-   
-//     if(validEmail.data !== data2){
-//       alert("VALID USER")
-//     }
-//     else{
-//       alert("INVALID USER")
-//       //volver a checkear
-//     }
-
-// if(validEmail== false){
-  this.props.onClose(); //cuando escanéa cuanquier cosa se cierra
-// }
-
-
+    onClose();
   };
 
-  sendEmail = async (checkedEmail) => {
-
+  const sendEmail = async (checkedEmail) => {
     try {
-      // const response = await axios.post('http://192.168.1.168:3000/api/users/verifyQR', {
-        const response = await axios.post('https://fly-eg-staging.fly.dev/api/users/verifyQR', {
-        email: checkedEmail
+      const response = await axios.post('https://fly-eg-staging.fly.dev/api/users/verifyQR', {
+        email: checkedEmail,
       });
       console.log('Email sent successfully:', response.data);
       return response.data;
-
     } catch (error) {
       console.error('Error sending email:', error);
     }
   };
-  
 
-  
-
-  render() {
     return (
       <QRCodeScanner
         onRead={this.onSuccess}
       />
      
     );
-  }
-}
+  };
+
 
 
 export default ScanScreen;
