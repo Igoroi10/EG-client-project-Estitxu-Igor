@@ -1,5 +1,7 @@
 import React from 'react'
 import styled from 'styled-components/native'
+import { storeData, getData } from '../helpers/localStorage';
+import { useNavigation } from '@react-navigation/native';
 
 import FirstFace from '../components/FirstFace';
 import ProfileInfo from '../components/ProfileInfo';
@@ -116,37 +118,30 @@ const Text3 = styled.Text`
 
 `;
 
-const Container4 = styled.View`
-  width: 100%;
-  height: 40px;
-  flex-direction: row;
-  align-items: center;
-  background: #FFFFFF;
-`;
+const Button = styled.TouchableOpacity`
+ width: 70%;
+ height: 42px;
+ border-radius: 10px;
+ margin-left: 16px;
+ background: grey;
+ align-items: center;
+ justify-content: center;
+ left: 15%;
+`
 
-
-const Column4 = styled.View`
-  flex: 1;
-  justify-content: center;
-  align-items: center;
-  left: 0px;
-  top: 10px;
-`;
-
-
-const Text4 = styled.Text`
+const ButtonText = styled.Text`
+  color: #fff;
   font-size: 16px;
-  font-weight: bold;
-  color: black;
-  left: 0px;
-  top: 0px;
-
+  text-align: center;
 `;
 
 
 const Profile = ({user}) => {
-  console.log("USER2" + user)
-  return (
+  const navigation = useNavigation();
+  const reestoreData = async () => {
+      await storeData(null)
+    };
+    return (
         <>
             {user.characterMainData &&(
             <View>
@@ -200,6 +195,11 @@ const Profile = ({user}) => {
                     </Column>
                 </Container3>
 
+                <Container>
+                <Button    label="Delete storage"  onPress={() => reestoreData()}>
+                    <ButtonText>Delete storage</ButtonText>
+                </Button>
+            </Container>
        
             </View>
             )}
