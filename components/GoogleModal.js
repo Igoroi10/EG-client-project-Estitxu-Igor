@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from "react";
 import Modal from 'react-modal';
-import { View, Text, Image, ActivityIndicator } from 'react-native';
+import { View, Text, Image, ActivityIndicator, StyleSheet } from 'react-native';
 import styled from "styled-components/native";
 import { Button } from 'react-native';
 import auth from '@react-native-firebase/auth';
@@ -56,16 +56,20 @@ const GoogleModal = ({logStatus, setMethod, setUser}) =>{
 
 
   return(
-    <ModalTemplate visible = {userLoaded||logStatus?false:true }>
-      <GoogleButton title="Google Sign-In"  onPress={onGoogleButtonPress} disabled={loading}>
-        {loading?<ActivityIndicator/> : <Text>Sign - In</Text>}
-      </GoogleButton>
-    </ModalTemplate>
+      <ModalTemplate visible = {userLoaded||logStatus?false:true }>
+        <GoogleButton title="Google Sign-In"  onPress={onGoogleButtonPress} disabled={loading} />
+        {loading?<ActivityIndicator size="10" style={[spinnerStyle]}/> : <Text>Sign - In</Text>}
+
+      </ModalTemplate>
   )
 }
 
   
-
+const spinnerStyle = StyleSheet.create({
+    flex: 1,
+    justifyContent: 'center',
+  
+});
 
 const ModalTemplate = styled.Modal`
   position: absolute;
