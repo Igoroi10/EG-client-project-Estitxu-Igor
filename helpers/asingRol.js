@@ -28,7 +28,9 @@ const asignRol = async (userRole, tabScreens, user) => {
     if (userRole === "Jacob") {
         tabScreens.push(
             <Tab.Screen key="QR" name="QR" component={QRCodeGeneratorScreen} />,
-            <Tab.Screen key="logOut" name="logOut" component={LogOut} />
+            <Tab.Screen key="logOut" name="logOut">
+                {() => <LogOut user={user} />}
+            </Tab.Screen>        
         );
     }
     
@@ -49,7 +51,9 @@ const asignRol = async (userRole, tabScreens, user) => {
             <Tab.Screen key="Istvan" name="Istvan">
                 {() => <IstvanScreen user={user} />}
             </Tab.Screen>,
-            <Tab.Screen key="logOut" name="logOut" component={LogOut} />
+            <Tab.Screen key="logOut" name="logOut">
+                {() => <LogOut user={user} />}
+            </Tab.Screen>
         )
     }
     else if(userRole === "Mortimer") {
@@ -57,16 +61,18 @@ const asignRol = async (userRole, tabScreens, user) => {
             <Tab.Screen key="Mortimer" name="Mortimer">
                 {() => <Admin user={user} />}
             </Tab.Screen>,
-            <Tab.Screen key="logOut" name="logOut" component={LogOut} />
-        )
+            <Tab.Screen key="logOut" name="logOut">
+                {() => <LogOut user={user} />}
+            </Tab.Screen>        )
     }
     else if(userRole === "Villano") {
         tabScreens.push(
             <Tab.Screen key="Villano" name="Villano">
                 {() => <Villano user={user} />}
             </Tab.Screen>,
-            <Tab.Screen key="logOut" name="logOut" component={LogOut} />
-        )
+            <Tab.Screen key="logOut" name="logOut">
+                {() => <LogOut user={user} />}
+            </Tab.Screen>        )
     }
 
     else{
