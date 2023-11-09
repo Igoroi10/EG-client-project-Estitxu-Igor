@@ -2,7 +2,7 @@ import React from 'react';
 import { Text, View, TouchableOpacity, Image, Button } from 'react-native';
 import Toast from 'react-native-toast-message';
 import styled from 'styled-components/native';
-
+import { useState } from 'react';
 const ModalContainer = styled.Modal`
   flex: 1;
   justify-content: center;
@@ -14,7 +14,8 @@ const ContentContainer = styled.View`
   padding: 20px;
   border-radius: 10px;
   margin-top: 20%;
-  left:25px;
+  left: 25px;
+
 `;
 
 const ModalImage = styled.Image`
@@ -35,13 +36,13 @@ const CleanButtonText = styled.Text`
 `;
 
 const CloseButton = styled.TouchableOpacity`
+  z-index: 1;
   position: absolute;
-  top: 10px;
-  right: 30px;
   width: 40px;
   height: 40px;
   background-color: red;
   border-radius: 50px;
+  right: 60px;
 `;
 
 const CloseButtonText = styled.Text`
@@ -50,18 +51,27 @@ const CloseButtonText = styled.Text`
   top: 10px;
 `;
 
-const PergaminoModal = ({ towerStatus, setTowerStatus }) => {
+const PergaminoModal = ({ towerStatus, setTowerStatus, potionStatus}) => {
+  const [selectedIngredients, setSelectedIngredients] = useState([]);
+
+  const deleteIngredients = () => {
+    setSelectedIngredients([]);
+  };
+
   const cleanse = () => {
     setTowerStatus('potionCreation');
+    deleteIngredients();
+    
   };
 
   const close = () => {
     setTowerStatus('start');
     console.log(towerStatus)
+    console.log(selectedIngredients)
   };
 
   return (
-    <ModalContainer transparent={true} visible={towerStatus === 'corruptScroll' ? true : false}>
+    <ModalContainer transparent={true} visible={towerStatus === 'corruptScroll' && potionStatus !=='Potion of cleanse_parchment' ? true : false}>
       <ContentContainer>
         <CloseButton onPress={close}>
           <CloseButtonText>X</CloseButtonText>

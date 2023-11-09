@@ -116,8 +116,8 @@ const Tower = () => {
             
         </ImageBackground>
             <PotionsModal towerStatus={towerState} setTowerStatus={setTowerState} potionStatus={potionState} setPotionCreated={setPotion}/>
-            <PergaminoModal towerStatus={towerState} setTowerStatus={setTowerState} />
-            <CleanScrollModal potionStatus={potionState} towerStatus={towerState} setTowerStatus={setTowerState} />
+            <PergaminoModal towerStatus={towerState} setTowerStatus={setTowerState} potionStatus={potionState} />
+            <CleanScrollModal potionStatus={potionState} setPotionCreated={setPotion} towerStatus={towerState} setTowerStatus={setTowerState} />
 
         </>
     )

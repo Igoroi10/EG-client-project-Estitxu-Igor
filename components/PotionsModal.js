@@ -37,15 +37,16 @@ const PotionsModal = ({ towerStatus, setTowerStatus, potionStatus, setPotionCrea
       const createdPotion = potionHandler(selectedIngredients[0], selectedIngredients[1]);
       setPotionCreated(createdPotion);
       setTowerStatus('corruptScroll');
-      if(potionStatus !== 'Potion of cleanse_parchment'){
+      deleteIngredients()
+
+      if (potionStatus !== 'Potion of cleanse_parchment') {
         Toast.show({
-          type: 'success', // Toast type
-          position: 'bottom', // Toast position
-          text1: 'Creación de Poción', // Title
-          text2: "La poción creada no sirve para limpiar el pergamino", // Message
+          type: 'success',
+          position: 'bottom',
+          text1: 'Creación de Poción',
+          text2: "La poción creada no sirve para limpiar el pergamino",
         });
       }
-      /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     } else {
       alert("Select 2 ingredients to create a potion");
     }
@@ -54,17 +55,20 @@ const PotionsModal = ({ towerStatus, setTowerStatus, potionStatus, setPotionCrea
   const deleteIngredients = () => {
     setSelectedIngredients([]);
   };
-
+  
   const close = () => {
     setTowerStatus('start');
-    console.log(towerStatus)
+    setPotionCreated('start')
+    deleteIngredients()
   };
+  
 
   return (
-    <ContentContainer transparent={true} visible={towerStatus === 'potionCreation' && potionStatus !== 'Potion of cleanse_parchment' ? true : false}>
+    <ModalContainer transparent={true} visible={towerStatus === 'potionCreation' && potionStatus !== 'Potion of cleanse_parchment' ? true : false}>
+      <ContentContainer>
       <CloseButton onPress={close}>
-          <CloseButtonText>X</CloseButtonText>
-        </CloseButton>
+        <CloseButtonText>X</CloseButtonText>
+      </CloseButton>
       {selectedIngredients.length < 2 && (
         <FlatList
           data={ingredientsData}
@@ -103,42 +107,44 @@ const PotionsModal = ({ towerStatus, setTowerStatus, potionStatus, setPotionCrea
           <ButtonText>Delete Ingredients</ButtonText>
         </DeleteIngredientsButton>
       </ButtonContainer>
-    </ContentContainer>
+      </ContentContainer>
+    </ModalContainer>
   );
 };
 
-const ContentContainer = styled.Modal`
-  position: absolute;
-  width: 80%;
-  height: 80%;
-  background-color: rgba(0, 0, 0, 0.5);
+const ModalContainer = styled.Modal`
+`;
+const ContentContainer = styled.View`
+  border-radius: 10px;
+  margin-top: 16%;
+  height:85%;
 `;
 
 const ButtonContainer = styled.View`
   align-items: center;
-  width: 100%;
+  height: 100px;;
 `;
 
 const IngredientButton = styled.TouchableOpacity`
-  background-color: #007BFF;
+  background-color: indigo;
   padding: 10px 20px;
   border-radius: 5px;
-  margin-top: 10px;
+  margin-top: 25px;
 `;
 
 const CreateButton = styled.TouchableOpacity`
-  top:400px;
+  top: 20px; /* Ajusta la posición según tus necesidades */
   background-color: green;
   border-radius: 50px;
   height: 50px;
   width: 150px;
   align-items: center;
   justify-content: center;
-  margin-top: 10px;
+  margin-top: 30px;
 `;
 
 const DeleteIngredientsButton = styled.TouchableOpacity`
-  top:400px;
+  top: 5px; /* Ajusta la posición según tus necesidades */
   background-color: #ff0000;
   border-radius: 50px;
   height: 50px;
@@ -158,9 +164,10 @@ const SelectedIngredientsText = styled.Text`
   color: #000;
   font-size: 20px;
   text-align: center;
-  top: 400px;
-  background-color:white;
+  top: 20px; /* Ajusta la posición según tus necesidades */
+  background-color: white;
   border-radius: 10px;
+  margin-top: 100px;
 `;
 
 const SelectedIngredientsContainer = styled.View`
@@ -168,9 +175,10 @@ const SelectedIngredientsContainer = styled.View`
   text-align: center;
   width: 100%;
 `;
+
 const CloseButton = styled.TouchableOpacity`
   position: absolute;
-  top: 10px;
+  top: 20px; /* Ajusta la posición según tus necesidades */
   right: 30px;
   width: 40px;
   height: 40px;

@@ -1,6 +1,8 @@
 import React from 'react';
 import { Modal, Text, View, Button, Image } from 'react-native';
 import styled from 'styled-components/native';
+import { useState } from 'react';
+import { useEffect } from 'react';
 
 const ModalContainer = styled.View`
   flex: 1;
@@ -9,32 +11,34 @@ const ModalContainer = styled.View`
 `;
 
 const ContentContainer = styled.View`
-  padding: 20px;
-  border-radius: 10px;
-  background-color: white;
+
+  align-items: center;
+  position: absolute;
+  top: 200px;
 `;
 
 const ContentText = styled.Text`
   color: black;
-  top: 210px;
-  left:10px;
-  z-index:1;
+  align-items: center;
+  top: 60px;
+  z-index: 1;
+  width: 200px;
 `;
 
 const ModalImage = styled.Image`
+  position: absolute;
   width: 300px;
   height: 400px;
 `;
 
 const CloseButton = styled.TouchableOpacity`
   position: absolute;
-  top: 10px;
-  right: 30px;
   width: 40px;
   height: 40px;
   background-color: red;
   border-radius: 50px;
   z-index: 1;
+  right: -40px;
 `;
 
 const CloseButtonText = styled.Text`
@@ -43,12 +47,24 @@ const CloseButtonText = styled.Text`
   top: 10px;
 `;
 
-const CleanScrollModal = ({ potionStatus, towerStatus, setTowerStatus }) => {
-  const close = () => {
-    setTowerStatus('corruptScroll');
-    console.log(towerStatus);
-  };
+const CleanScrollModal = ({ potionStatus, setPotionCreated, towerStatus, setTowerStatus }) => {
+  const [selectedIngredients, setSelectedIngredients] = useState([]);
 
+  const deleteIngredients = () => {
+    setSelectedIngredients([]);
+  };
+  
+  const close = () => {
+    setTowerStatus('start');
+    setPotionCreated('start');
+    deleteIngredients();
+  };
+  
+  useEffect(() => {
+    console.log("towerstatus: " + towerStatus);
+    console.log("ingredients: ", selectedIngredients);
+  }, [towerStatus, selectedIngredients]);
+  
   return (
     <Modal transparent={true} visible={potionStatus === 'Potion of cleanse_parchment'}>
       <ModalContainer>
