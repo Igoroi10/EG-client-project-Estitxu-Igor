@@ -26,7 +26,7 @@ export default function potionHandler(ingredient1, ingredient2){
 
     ingredientName = ingredientName.substring(0, ingredientName.length-2)
 
-    alert(ingredientName)
+   // alert(ingredientName)
     return ingredientName;
 }
 

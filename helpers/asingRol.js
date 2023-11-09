@@ -36,13 +36,13 @@ const asignRol = async (userRole, tabScreens, user) => {
         //Pantallas ACÓLITO
     else if (userRole === "Acolito") {
         tabScreens.push(
-            <Tab.Screen key="Home" name="Home" component={MyStack} />,
             <Tab.Screen key="Profile" name="Profile">
                 {() => <Profile user={user} />}
             </Tab.Screen>,
             <Tab.Screen key="Potions" name="Potions" component={Potions} />,
             <Tab.Screen key="QR" name="QR" component={QRCodeGeneratorScreen} />,
-            <Tab.Screen key="TOWER" name="TOWER" component={Tower} />
+            <Tab.Screen key="TOWER" name="TOWER" component={Tower} />,
+            <Tab.Screen key="logOut" name="logOut" component={LogOut} />
         );
     }
     else if(userRole === "Istvan") {

@@ -51,7 +51,6 @@ const ViewModal = styled.View`
 const Tower = () => {
   const [towerState, setTowerState] = useState("start");
   const [potionState, setPotion] = useState("start");
-  const [isButtonVisible, setButtonVisible] = useState(true);
 
   const modals = [];
 
@@ -61,6 +60,15 @@ const Tower = () => {
 
   useEffect(() => {
     scrollHandler(modals, towerState, setTowerState, potionState, setPotion)
+
+    if(potionState !== "start" && potionState !== "Potion of cleanse_parchment"){
+      Toast.show({
+        type: 'success', // Toast type
+        position: 'bottom', // Toast position
+        text1: 'Limpieza del pergamino', // Title
+        text2: "La limpieza del pergamino ha sido exitosa", // Message
+      });
+    }
   },[potionState])
 
   const checkTowerAccess = async () => {
@@ -82,7 +90,6 @@ const Tower = () => {
         text1: 'Acceso al Torreón', // Title
         text2: accesText, // Message
       });
-      //setButtonVisible(false);
     } else {
       const accesText = 'ACCESO DENEGADO, FUERA DE AQUÍ!';
       Toast.show({
@@ -100,7 +107,7 @@ const Tower = () => {
             source={require('../assets/tower.png')}
         >
             <View>
-                {isButtonVisible && (
+                {towerState === "start" && (
                     <Button onPress={checkTowerAccess}>
                         <ButtonText>ACCEDER AL TORREÓN</ButtonText>
                     </Button>
@@ -109,8 +116,9 @@ const Tower = () => {
             
         </ImageBackground>
             <PotionsModal towerStatus={towerState} setTowerStatus={setTowerState} potionStatus={potionState} setPotionCreated={setPotion}/>
-            <PergaminoModal towerStatus={towerState} setTowerStatus={setTowerState} />
-            <CleanScrollModal potionStatus={potionState}/>
+            <PergaminoModal towerStatus={towerState} setTowerStatus={setTowerState} potionStatus={potionState} />
+            <CleanScrollModal potionStatus={potionState} setPotionCreated={setPotion} towerStatus={towerState} setTowerStatus={setTowerState} />
+
         </>
     )
 }

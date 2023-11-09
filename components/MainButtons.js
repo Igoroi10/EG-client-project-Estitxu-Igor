@@ -10,7 +10,7 @@ const Container = styled.View`
     flex-direction: column;
     align-items: center;
 `
-const Room = styled(TouchableOpacity)``;
+const Room = styled.TouchableOpacity``;
 
 const RoomContent = styled.View`
     width: 300px;
