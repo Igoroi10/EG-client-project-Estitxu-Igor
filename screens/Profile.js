@@ -6,6 +6,7 @@ import { useNavigation } from '@react-navigation/native';
 import FirstFace from '../components/FirstFace';
 import ProfileInfo from '../components/ProfileInfo';
 import Stats from '../components/Stats';
+import Toast from 'react-native-toast-message';
 
 
 
@@ -142,6 +143,12 @@ const Profile = ({user}) => {
   const navigation = useNavigation();
   const reestoreData = async () => {
       await storeData(null)
+      Toast.show({
+        type: 'success', // Toast type
+        position: 'bottom', // Toast position
+        text1: 'CACHE BORRADO', // Title
+        text2: "Cache borrado con exito", // Message
+      });
     };
     return (
         <>
