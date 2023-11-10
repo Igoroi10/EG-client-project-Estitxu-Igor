@@ -66,19 +66,21 @@ const Tower = () => {
         type: 'success', // Toast type
         position: 'bottom', // Toast position
         text1: 'Limpieza del pergamino', // Title
-        text2: "La limpieza del pergamino ha sido exitosa", // Message
+        text2: "El pergamino no se ha podido limpiar (Pocion incorrecta)", // Message
       });
     }
   },[potionState])
 
   const checkTowerAccess = async () => {
-    const data = await getData();
-    const user = data;
-
+    const user = await getData();
+    console.log("checktoweracces")
     const response = await axios.get('https://fly-eg-staging.fly.dev/api/users/');
     const responseData = response.data.data;
+    console.log(responseData)
     const currentUserData = responseData.filter((element) => element.email === user.email);
-    const currentUser = currentUserData;
+    const currentUser = currentUserData[0];
+    console.log("CURRENT USER DATA")
+    console.log(currentUserData)
 
 
     if (currentUser.towerAccess) {

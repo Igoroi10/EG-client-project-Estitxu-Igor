@@ -44,7 +44,7 @@ const PotionsModal = ({ towerStatus, setTowerStatus, potionStatus, setPotionCrea
           type: 'success',
           position: 'bottom',
           text1: 'Creación de Poción',
-          text2: "La poción creada no sirve para limpiar el pergamino",
+          text2: "Se ha limpiado el pergamino con exito!!!!!",
         });
       }
     } else {
