@@ -42,7 +42,6 @@ const asignRol = async (userRole, tabScreens, user) => {
             <Tab.Screen key="Potions" name="Potions" component={Potions} />,
             <Tab.Screen key="QR" name="QR" component={QRCodeGeneratorScreen} />,
             <Tab.Screen key="TOWER" name="TOWER" component={Tower} />,
-            <Tab.Screen key="logOut" name="logOut" component={LogOut} />
         );
     }
     else if(userRole === "Istvan") {
