@@ -34,8 +34,8 @@ const App = () => {
 
       if (user !== null) {
         setLogged(true);
-        setUserRole(user[0].rol);
-        setUser(user[0]);
+        setUserRole(user.rol);
+        setUser(user);
 
       } else {
         setLogged(false);

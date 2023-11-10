@@ -93,7 +93,7 @@ const UserDetail = ({ isVisible, user, closeModal }) => {
     if (user !== null) {
       async function fetchData() {
         const data = await getData();
-        const actualUser = data[0];
+        const actualUser = data;
         console.log('****************ROLE******************');
         console.log(actualUser.rol);
         setActualUserRole(actualUser.rol);

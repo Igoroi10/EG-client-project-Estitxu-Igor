@@ -73,12 +73,12 @@ const Tower = () => {
 
   const checkTowerAccess = async () => {
     const data = await getData();
-    const user = data[0];
+    const user = data;
 
     const response = await axios.get('https://fly-eg-staging.fly.dev/api/users/');
     const responseData = response.data.data;
     const currentUserData = responseData.filter((element) => element.email === user.email);
-    const currentUser = currentUserData[0];
+    const currentUser = currentUserData;
 
 
     if (currentUser.towerAccess) {
