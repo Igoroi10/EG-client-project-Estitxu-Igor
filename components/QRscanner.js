@@ -59,7 +59,7 @@ const ScanScreen = ({ onClose }) => {
 
     return (
       <QRCodeScanner
-        onRead={this.onSuccess}
+        onRead={onSuccess}
       />
      
     );
