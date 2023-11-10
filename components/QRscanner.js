@@ -24,11 +24,21 @@ const ScanScreen = ({ onClose }) => {
     console.log(validEmail);
 
     if (validEmail) {
+      const towerState= validEmail.data[0].towerAccess;
+      console.log(towerState)
+        // alert("Valid user!")
+        let userText;
+        if(towerState === true)
+          userText = 'El acólito tiene acceso al torreón'
+        else
+          userText = 'Se le ha revocado el acceso al torreón al acólito'
+
       Toast.show({
         type: 'success', // Toast type
         position: 'bottom', // Toast position
         text1: 'QR SCANNED', // Title
         text2: "EL USUARIO ES VALIDO", // Message
+        text2: userText // Message
     });
 
     }
