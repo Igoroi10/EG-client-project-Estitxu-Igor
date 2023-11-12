@@ -1,8 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import { FlatList, Text, View, TouchableOpacity, Image } from 'react-native';
+import { FlatList, Image, View } from 'react-native';
 import styled from 'styled-components/native';
-import fakeIngredients from '../fakeData/fakeIngredients.json';
-import potionHandler from '../helpers/potionHandler';
 import axios from 'axios';
 import Toast from 'react-native-toast-message';
 
@@ -37,14 +35,14 @@ const PotionsModal = ({ towerStatus, setTowerStatus, potionStatus, setPotionCrea
       const createdPotion = potionHandler(selectedIngredients[0], selectedIngredients[1]);
       setPotionCreated(createdPotion);
       setTowerStatus('corruptScroll');
-      deleteIngredients()
+      deleteIngredients();
 
       if (potionStatus !== 'Potion of cleanse_parchment') {
         Toast.show({
           type: 'success',
           position: 'bottom',
           text1: 'Creación de Poción',
-          text2: "Se ha limpiado el pergamino con exito!!!!!",
+          text2: "Se ha limpiado el pergamino con éxito!!!!!",
         });
       }
     } else {
@@ -55,98 +53,96 @@ const PotionsModal = ({ towerStatus, setTowerStatus, potionStatus, setPotionCrea
   const deleteIngredients = () => {
     setSelectedIngredients([]);
   };
-  
+
   const close = () => {
     setTowerStatus('start');
-    setPotionCreated('start')
-    deleteIngredients()
+    setPotionCreated('start');
+    deleteIngredients();
   };
-  
-
   return (
-    <ModalContainer transparent={true} visible={towerStatus === 'potionCreation' && potionStatus !== 'Potion of cleanse_parchment' ? true : false}>
+    <ModalContainer transparent={true} visible={towerStatus === 'potionCreation' && potionStatus !== 'Potion of cleanse_parchment'}>
       <ContentContainer>
-      <CloseButton onPress={close}>
-        <CloseButtonText>X</CloseButtonText>
-      </CloseButton>
-      {selectedIngredients.length < 2 && (
-        <FlatList
+        <CloseButton onPress={close}>
+          <CloseButtonText>X</CloseButtonText>
+        </CloseButton>
+        <IngredientList
           data={ingredientsData}
           renderItem={({ item }) => (
-            <IngredientButton
+            <IngredientItem
               onPress={() => handleIngredientPress(item)}
-              style={
-                selectedIngredients.includes(item)
-                  ? { backgroundColor: 'gray' }
-                  : {}
-              }
+              selected={selectedIngredients.includes(item)}
             >
               <Image source={{ uri: item.image }} style={styles.image} />
-              <ButtonText>{item.name}</ButtonText>
-            </IngredientButton>
+              <IngredientName>{item.name}</IngredientName>
+            </IngredientItem>
           )}
           keyExtractor={(item) => item.key}
+          horizontal
         />
-      )}
-      {selectedIngredients.length === 2 && (
-        <SelectedIngredientsContainer>
-          <SelectedIngredientsText>
-            Selected Ingredients: {selectedIngredients[0].name} and {selectedIngredients[1].name}
-          </SelectedIngredientsText>
-        </SelectedIngredientsContainer>
-      )}
-      {selectedIngredients.length === 2 && (
+        {selectedIngredients.length === 2 && (
+          <SelectedIngredientsContainer>
+            <SelectedIngredientsText>
+              Selected Ingredients: {selectedIngredients[0].name} and {selectedIngredients[1].name}
+            </SelectedIngredientsText>
+          </SelectedIngredientsContainer>
+        )}
+        {selectedIngredients.length === 2 && (
+          <ButtonContainer>
+            <CreateButton onPress={createPotion}>
+              <ButtonText>Create Potion</ButtonText>
+            </CreateButton>
+          </ButtonContainer>
+        )}
         <ButtonContainer>
-          <CreateButton onPress={createPotion}>
-            <ButtonText>Create Potion</ButtonText>
-          </CreateButton>
+          <DeleteIngredientsButton onPress={deleteIngredients}>
+            <ButtonText>Delete Ingredients</ButtonText>
+          </DeleteIngredientsButton>
         </ButtonContainer>
-      )}
-      <ButtonContainer>
-        <DeleteIngredientsButton onPress={deleteIngredients}>
-          <ButtonText>Delete Ingredients</ButtonText>
-        </DeleteIngredientsButton>
-      </ButtonContainer>
       </ContentContainer>
     </ModalContainer>
   );
 };
 
+
 const ModalContainer = styled.Modal`
 `;
+
 const ContentContainer = styled.View`
-  border-radius: 10px;
-  margin-top: 16%;
-  height:85%;
+  border-radius: 20px;
+  margin-top: 50%;
+  background-color: #fff;
+  padding: 20px;
 `;
 
 const ButtonContainer = styled.View`
   align-items: center;
-  height: 100px;;
+  margin-top: 20px;
 `;
 
-const IngredientButton = styled.TouchableOpacity`
-  background-color: indigo;
-  padding: 10px 20px;
-  border-radius: 5px;
-  margin-top: 25px;
+const IngredientList = styled(FlatList)`
+  margin-top: 20px;
+`;
+
+const IngredientItem = styled.TouchableOpacity`
+background-color: ${(props) => (props.selected ? '#95a5a6' : '#3498db')};
+  padding: 15px;
+  border-radius: 15px;
+  margin-right: 15px;
 `;
 
 const CreateButton = styled.TouchableOpacity`
-  top: 20px; /* Ajusta la posición según tus necesidades */
-  background-color: green;
-  border-radius: 50px;
+  background-color: #2ecc71;
+  border-radius: 25px;
   height: 50px;
   width: 150px;
   align-items: center;
   justify-content: center;
-  margin-top: 30px;
+  margin-top: 20px;
 `;
 
 const DeleteIngredientsButton = styled.TouchableOpacity`
-  top: 5px; /* Ajusta la posición según tus necesidades */
-  background-color: #ff0000;
-  border-radius: 50px;
+  background-color: #e74c3c;
+  border-radius: 25px;
   height: 50px;
   width: 150px;
   align-items: center;
@@ -157,52 +153,51 @@ const DeleteIngredientsButton = styled.TouchableOpacity`
 const ButtonText = styled.Text`
   color: #fff;
   font-size: 16px;
-  text-align: center;
+  font-weight: bold;
 `;
 
 const SelectedIngredientsText = styled.Text`
   color: #000;
-  font-size: 20px;
+  font-size: 18px;
   text-align: center;
-  top: 20px; /* Ajusta la posición según tus necesidades */
-  background-color: white;
-  border-radius: 10px;
-  margin-top: 100px;
+  margin-top: 20px;
+  font-weight: bold;
 `;
 
 const SelectedIngredientsContainer = styled.View`
   align-items: center;
-  text-align: center;
-  width: 100%;
 `;
 
 const CloseButton = styled.TouchableOpacity`
-  position: absolute;
-  top: 20px; /* Ajusta la posición según tus necesidades */
-  right: 30px;
+  left: 300px;
   width: 40px;
   height: 40px;
-  background-color: red;
+  background-color: #c0392b;
   border-radius: 50px;
-  z-index: 1;
+  align-items: center;
+  justify-content: center;
 `;
 
 const CloseButtonText = styled.Text`
   color: white;
-  left: 15px;
-  top: 10px;
+  font-size: 18px;
+  font-weight: bold;
+`;
+
+const IngredientName = styled.Text`
+  color: #fff;
+  font-size: 14px;
+  text-align: center;
+  margin-top: 10px;
 `;
 
 const styles = {
-  itemContainer: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'space-between',
-  },
   image: {
-    width: 50,
-    height: 50,
+    width: 70,
+    height: 70,
+    borderRadius: 35,
   },
 };
 
 export default PotionsModal;
+
