@@ -3,11 +3,10 @@ import styled from 'styled-components/native';
 
 const Container = styled.View`
   width: 100%;
-  height: 60px;
+  height: 80px;
   flex-direction: row;
   align-items: center;
-  background: #FFFFFF;
-  top: 0px;
+  top: -10px;
 `;
 
 const NameColumn = styled.View`
@@ -19,7 +18,8 @@ const NameColumn = styled.View`
 const Text = styled.Text`
   font-size: 16px;
   font-weight: bold;
-  color: black;
+  color: white;
+  text-shadow: 2px 2px 2px black;
 `;
 
 const FirstFace = ({user}) => {

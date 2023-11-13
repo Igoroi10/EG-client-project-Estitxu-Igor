@@ -15,22 +15,24 @@ import { storeData, getData } from '../helpers/localStorage';
 const ModalContainer = styled.View`
   flex: 1;
   align-items: center;
-  background-color: #FFFFFF;
   padding: 20px;
 `;
  
 const ModalText = styled.Text`
   font-size: 16px;
   font-weight: bold;
-  color: black;
+  color: white;
   margin: 10px;
-  text-align: center;
-  bottom: 10px;
+  text-align: right;
+  text-shadow: 2px 2px 2px black;
+
 `;
+
 const Divider = styled.View`
   width: 100%;
   height: 2px;
   background-color: #DDDDDD;
+  top: -10px;
 `;
 
 const ButtonText = styled.Text`
@@ -84,6 +86,12 @@ const SliderText = styled.Text`
   top: -10px;
 `;
 
+const BackgroundImage = styled.ImageBackground`
+  flex: 1;
+  width: 100%;
+  height: 100%;
+`;
+
 const UserDetail = ({ isVisible, user, closeModal }) => {
   const [sliderValue, setSliderValue] = useState(0); 
   const [sliderValueMoney, setSliderValueMoney] = useState(0); 
@@ -110,74 +118,97 @@ const UserDetail = ({ isVisible, user, closeModal }) => {
     console.log(user)
     const hasTrueDisease = Object.values(user.diseases).some(disease => disease === true);
     
+    let linkForBackground;
+    
+      switch(actualUserRole){
+        case "Villano":
+          linkForBackground=require('../assets/villano.png');
+          break;
+
+        case "Istvan":
+          linkForBackground=require('../assets/villano.png');
+          break;
+
+        case "Mortimer":
+          linkForBackground=require('../assets/sorcerer.webp');
+          break;
+
+        default:
+          linkForBackground=require('../assets/white.jpeg'); //TODO cambiar a un fondo blanco o nulo
+
+
+      }
+      console.log("(*********************************)")
+      console.log(actualUserRole)
+
+    
+
     return (
       <Modal isVisible={isVisible}>
         <ModalContainer>
+        <BackgroundImage source={linkForBackground}>
+
         <ScrollView>
 
           <View>
 
-          <FirstFace user={user}/>
-          <Divider /> 
-          <ProfileInfo user={user}/>
-          <Divider /> 
-          <Stats user={user}/>
+            <TouchableOpacity onPress={closeModal}>
+                <ModalText>X </ModalText>
+              </TouchableOpacity>
 
-          {(actualUserRole === "Villano" || actualUserRole === "Istvan") && (
-              <View >
-                <ButtonRed style={{top: 500}}>
-                    <ButtonText>-</ButtonText>
-                </ButtonRed>
-                <ButtonGreen style={{top: 500 , left: 280}}>
-                    <ButtonText>+</ButtonText>
-                </ButtonGreen>
-      
-                <SliderText> HP: {Math.floor(sliderValue)} </SliderText>
 
-                <Slider
-                  style={{width: 225, height: 40, left: 50, top: -10}}
-                  minimumValue={0}
-                  maximumValue={100}
-                  minimumTrackTintColor="#000000"
-                  maximumTrackTintColor="#000000"
-                  onValueChange={(value) => setSliderValue(value)}
-                />
-                <ButtonRed style={{top: 565}}>
-                    <ButtonText>-</ButtonText>
-                </ButtonRed>
-                <ButtonGreen style={{top: 565 , left: 280}}>
-                    <ButtonText>+</ButtonText>
-                </ButtonGreen>
+            <FirstFace user={user}/>
+            <Divider /> 
+            <ProfileInfo user={user}/>
+            <Divider /> 
+            <Stats user={user}/>
 
-                
+            {(actualUserRole === "Villano" || actualUserRole === "Istvan") && (
+                <View >
 
-                <SliderText> Money: {Math.floor(sliderValueMoney)} </SliderText>
-                <Slider
-                  style={{width: 225, height: 40, left: 50, top: -10}}
-                  minimumValue={0}
-                  maximumValue={100}
-                  minimumTrackTintColor="#000000"
-                  maximumTrackTintColor="#000000"
-                  onValueChange={(value) => setSliderValueMoney(value)}
-                />
-              </View>
+        
+                  <SliderText style={{ color: 'white', textShadowColor: 'black', textShadowOffset: { width: 2, height: 2 }, textShadowRadius: 2  }}> HP: {Math.floor(sliderValue)} </SliderText>
+
+                  <Slider
+                    style={{width: 225, height: 40, left: 50, top: -10}}
+                    minimumValue={0}
+                    maximumValue={100}
+                    minimumTrackTintColor="white"
+                    maximumTrackTintColor="white"
+                    onValueChange={(value) => setSliderValue(value)}
+                    
+                  />
+
+
+                  
+
+                  <SliderText style={{ color: 'white', textShadowColor: 'black', textShadowOffset: { width: 2, height: 2 }, textShadowRadius: 2 }}> Money: {Math.floor(sliderValueMoney)} </SliderText>
+                  <Slider
+                    style={{width: 225, height: 40, left: 50, top: -10}}
+                    minimumValue={0}
+                    maximumValue={100}
+                    minimumTrackTintColor="white"
+                    maximumTrackTintColor="white"
+                    onValueChange={(value) => setSliderValueMoney(value)}
+                  />
+                </View>
             )}
 
 
-        {actualUserRole === "Mortimer" && hasTrueDisease===true && (
-            <View style={{ top: 0 }}>
-              <CureButton >
-                  <CureButtonText>Cure disease</CureButtonText>
-              </CureButton>
-            </View>
-          )}
+            {actualUserRole === "Mortimer" && hasTrueDisease===true && (
+                <View style={{ top: 0 }}>
+                  <CureButton >
+                      <CureButtonText>Cure disease</CureButtonText>
+                  </CureButton>
+                </View>
+              )}
 
                 
-            <TouchableOpacity onPress={closeModal}>
-              <ModalText>Cerrar </ModalText>
-            </TouchableOpacity>
+
           </View>
           </ScrollView>
+          </BackgroundImage>
+
 
         </ModalContainer>
       </Modal>

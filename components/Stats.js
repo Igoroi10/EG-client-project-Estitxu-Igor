@@ -7,7 +7,6 @@ const Container = styled.View`
   height: 60px;
   flex-direction: row;
   align-items: center;
-  background: #FFFFFF;
   top: 10px;
   left: -10px;
 `;
@@ -33,19 +32,13 @@ const FirstColumn = styled.View`
 const Text = styled.Text`
   font-size: 16px;
   font-weight: bold;
-  color: black;
+  color: white;
   left: 20px;
   top: -10px;
-  
+  text-shadow: 2px 2px 2px black;
 `;
 
-const Title = styled.Text`
-  font-size: 20px;
-  font-weight: bold;
-  color: black;
-  left: 7px;
-  top: 10px;
-`;
+
 
 const Stats = ({user}) => {
   return (

@@ -7,8 +7,7 @@ const Container = styled.View`
     height: 250px;
     flex-direction: row;
     align-items: center;
-    background: #FFFFFF;
-    bottom: 0px;
+    top: -10px;
 `
 
 const UserCard = styled.View`
@@ -44,7 +43,9 @@ const Text = styled.Text`
     margin: 0 10px;
     padding-top: 25px;
     text-align: center;
-    color: black;
+    color: white;
+    text-shadow: 2px 2px 2px black;
+
 `
 
 const FirstFace = ({user}) => {

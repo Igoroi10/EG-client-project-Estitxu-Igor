@@ -160,7 +160,6 @@ const Profile = ({user}) => {
       });
     };
 
-    let backgroundImageLink;
     let linkForBackground;
     if(user.rol){
       switch(user.rol){
@@ -191,8 +190,6 @@ const Profile = ({user}) => {
       }
 
     }
-    console.log("backgroundImage:***********************")
-    console.log(linkForBackground)
 
     return (
         <>
