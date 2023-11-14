@@ -1,9 +1,11 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import styled from 'styled-components/native'
 import { useNavigation } from '@react-navigation/native';
 import { Text, StyleSheet, View } from 'react-native';
 
 import MapView, { PROVIDER_GOOGLE } from 'react-native-maps';
+
+import Geolocation from 'react-native-geolocation-service'
 
 // import { StyleSheet } from 'style-sheet';
 
@@ -55,15 +57,63 @@ const styles = StyleSheet.create({
     },
    });
    
+
+
    const Maps = () =>{
+    const [location, setLocation] = useState([]);
+    useEffect(()=>{
+      console.log('*************CARGA INICIAL DE POSICIÓN****************')
+      // const _watchId = Geolocation.watchPosition(
+      //   position => {
+      //     const {latitude, longitude} = position.coords;
+      //     setLocation({latitude, longitude});
+      //   },
+      //   error => {
+      //     console.log(error);
+      //   },
+      //   {
+      //     enableHighAccuracy: true,
+      //     distanceFilter: 0,
+      //     interval: 5000,
+      //     fastestInterval: 2000,
+      //   },
+      // );
+  
+      // return () => {
+      //   if (_watchId) {
+      //     Geolocation.clearWatch(_watchId);
+      //   }
+      // };
+
+      Geolocation.getCurrentPosition(
+        (position) => {
+          const {latitude, longitude} = position.coords;
+          setLocation({
+            latitude,
+            longitude,
+          });
+        },
+        (error) => {
+          console.log(error.code, error.message);
+        },
+        {enableHighAccuracy: true, timeout: 15000, maximumAge: 10000},
+      );
+    },[])
+
+    useEffect(()=> {
+      console.log('************* CAMBIO EN LOCATION STATE****************')
+      console.log(location.latitude)
+      console.log(location.longitude)
+    },[location])
+
     return(
       <View style={styles.container}>
         <MapView
           provider={PROVIDER_GOOGLE} // remove if not using Google Maps
           style={styles.map}
           region={{
-            latitude: 37.78825,
-            longitude: -122.4324,
+            latitude: location.latitude,
+            longitude: location.longitude,
             latitudeDelta: 0.015,
             longitudeDelta: 0.0121,
           }}
