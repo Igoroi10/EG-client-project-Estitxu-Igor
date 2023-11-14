@@ -8,7 +8,7 @@ import QRscanner from '../components/QRscanner';
 
 const QRCodeGeneratorScreen = () => {
   const [imageUri, setImageUri] = useState(null);
-  const [showScanner, setShowScanner] = useState(true);
+  const [showScanner, setShowScanner] = useState(false);
   const [userRole, setUserRole] = useState(null);
 
 
