@@ -144,8 +144,6 @@ const BackgroundImage = styled.ImageBackground`
 
 
 const Profile = ({user}) => {
-    console.log(user)
-    console.log("img"+user.imgURL)
   const navigation = useNavigation();
   const reestoreData = async () => {
       await storeData(null)
