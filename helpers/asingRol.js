@@ -8,6 +8,7 @@ import Tower from '../screens/Tower.js';
 import Admin from '../screens/Admin.js';
 import IstvanScreen from '../screens/IstvanScreen.js';
 import Villano from '../screens/VillanoScreen.js'
+import Maps from '../screens/Map.js';
 
 const Tab = createMaterialTopTabNavigator();
 
@@ -42,6 +43,7 @@ const asignRol = async (userRole, tabScreens, user) => {
             //<Tab.Screen key="Potions" name="Potions" component={Potions} />,
             <Tab.Screen key="QR" name="QR" component={QRCodeGeneratorScreen} />,
             <Tab.Screen key="TOWER" name="TOWER" component={Tower} />,
+            <Tab.Screen key="MAPS" name="MAPS" component={Maps} />,
         );
     }
     else if(userRole === "Istvan") {
