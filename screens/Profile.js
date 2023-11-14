@@ -5,9 +5,6 @@ import { useNavigation } from '@react-navigation/native';
 import { ImageBackground } from 'react-native';
 
 
-import FirstFace from '../components/FirstFace';
-import ProfileInfo from '../components/ProfileInfo';
-import Stats from '../components/Stats';
 import Toast from 'react-native-toast-message';
 
 
@@ -184,7 +181,7 @@ const Profile = ({user}) => {
           break;
 
         default:
-          linkForBackground=require('../assets/white.jpeg'); //TODO cambiar a un fondo blanco o nulo
+          linkForBackground=require('../assets/white.jpeg'); 
 
 
       }

@@ -35,28 +35,6 @@ const Divider = styled.View`
   top: -10px;
 `;
 
-const ButtonText = styled.Text`
-    color: white;
-    font-size: 20px;
-    font-weight: bold;
-`;
-const ButtonRed = styled.TouchableOpacity`
-  background-color: red;
-  padding: 10px 20px;
-  border-radius: 10px;
-  width: 50px;
-  height: 50px;
-  position: absolute;
-`;
-
-const ButtonGreen = styled.TouchableOpacity`
-  background-color: green;
-  padding: 10px 20px;
-  border-radius: 10px;
-  width: 50px;
-  height: 50px;
-  position: absolute;
-`;
 
 const CureButton = styled.TouchableOpacity`
   background-color: purple;
@@ -134,12 +112,10 @@ const UserDetail = ({ isVisible, user, closeModal }) => {
           break;
 
         default:
-          linkForBackground=require('../assets/white.jpeg'); //TODO cambiar a un fondo blanco o nulo
+          linkForBackground=require('../assets/white.jpeg'); 
 
 
       }
-      console.log("(*********************************)")
-      console.log(actualUserRole)
 
     
 
