@@ -8,8 +8,10 @@ import QRscanner from '../components/QRscanner';
 
 const QRCodeGeneratorScreen = () => {
   const [imageUri, setImageUri] = useState(null);
-  const [showScanner, setShowScanner] = useState(true);
+  const [showScanner, setShowScanner] = useState(false);
   const [userRole, setUserRole] = useState(null);
+
+
 
   // Función para generar el código QR
   const generateQRCode = async () => {
@@ -57,8 +59,14 @@ const QRCodeGeneratorScreen = () => {
     if(userRole === "Acolito"){
       generateQRCode();
     }
+    if(userRole ==="Jacob"){
+      setShowScanner(true)
+    }
   }, [userRole]);
 
+  // if(userRole ==="Jacob"){
+  //   setShowScanner(true)
+  // }
   
   return (
     <Container visible= {false}>
