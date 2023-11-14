@@ -139,36 +139,7 @@ const UserDetail = ({ isVisible, user, closeModal }) => {
             <Divider /> 
             <Stats user={user}/>
 
-            {(actualUserRole === "Villano" || actualUserRole === "Istvan") && (
-                <View >
 
-        
-                  <SliderText style={{ color: 'white', textShadowColor: 'black', textShadowOffset: { width: 2, height: 2 }, textShadowRadius: 2  }}> HP: {Math.floor(sliderValue)} </SliderText>
-
-                  <Slider
-                    style={{width: 225, height: 40, left: 50, top: -10}}
-                    minimumValue={0}
-                    maximumValue={100}
-                    minimumTrackTintColor="white"
-                    maximumTrackTintColor="white"
-                    onValueChange={(value) => setSliderValue(value)}
-                    
-                  />
-
-
-                  
-
-                  <SliderText style={{ color: 'white', textShadowColor: 'black', textShadowOffset: { width: 2, height: 2 }, textShadowRadius: 2 }}> Money: {Math.floor(sliderValueMoney)} </SliderText>
-                  <Slider
-                    style={{width: 225, height: 40, left: 50, top: -10}}
-                    minimumValue={0}
-                    maximumValue={100}
-                    minimumTrackTintColor="white"
-                    maximumTrackTintColor="white"
-                    onValueChange={(value) => setSliderValueMoney(value)}
-                  />
-                </View>
-            )}
 
 
             {actualUserRole === "Mortimer" && hasTrueDisease===true && (
