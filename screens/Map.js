@@ -7,6 +7,8 @@ import MapView, { PROVIDER_GOOGLE } from 'react-native-maps';
 
 import Geolocation from 'react-native-geolocation-service'
 
+import GetLocation from 'react-native-get-location';
+
 // import { StyleSheet } from 'style-sheet';
 
 // const MapContainer = styled.View`
@@ -60,7 +62,7 @@ const styles = StyleSheet.create({
 
 
    const Maps = () =>{
-    const [location, setLocation] = useState([]);
+    const [userLocation, setLocation] = useState([]);
     useEffect(()=>{
       console.log('*************CARGA INICIAL DE POSICIÓN****************')
       // const _watchId = Geolocation.watchPosition(
@@ -85,26 +87,49 @@ const styles = StyleSheet.create({
       //   }
       // };
 
-      Geolocation.getCurrentPosition(
-        (position) => {
-          const {latitude, longitude} = position.coords;
-          setLocation({
-            latitude,
-            longitude,
-          });
-        },
-        (error) => {
-          console.log(error.code, error.message);
-        },
-        {enableHighAccuracy: true, timeout: 15000, maximumAge: 10000},
-      );
+      // Geolocation.getCurrentPosition(
+      //   (position) => {
+      //     const {latitude, longitude} = position.coords;
+      //     setLocation({
+      //       latitude,
+      //       longitude,
+      //     });
+      //   },
+      //   (error) => {
+      //     console.log('Error a la hora de conseguir coordenadas')
+      //     console.log(error.code, error.message);
+      //   },
+      //   {enableHighAccuracy: true, timeout: 15000, maximumAge: 10000},
+      // );
+
+
+    GetLocation.getCurrentPosition({
+      enableHighAccuracy: true,
+      timeout: 60000,
+    })
+    .then(location => {
+      console.log(location);
+      let lat = location.latitude;
+      let lon = location.longitude;
+      console.log('******COORDS*********')
+      console.log(lat)
+      console.log(lon)
+      // console.log(location.latitude)
+      setLocation({"latitude":lat, "longitude":lon})
+      console.log('LOCATION ON STATE')
+      console.log(userLocation)
+    })
+    .catch(error => {
+      const { code, message } = error;
+      console.warn(code, message);
+})
     },[])
 
     useEffect(()=> {
       console.log('************* CAMBIO EN LOCATION STATE****************')
-      console.log(location.latitude)
-      console.log(location.longitude)
-    },[location])
+      console.log(userLocation.latitude)
+      console.log(userLocation.longitude)
+    },[userLocation])
 
     return(
       <View style={styles.container}>
@@ -112,8 +137,8 @@ const styles = StyleSheet.create({
           provider={PROVIDER_GOOGLE} // remove if not using Google Maps
           style={styles.map}
           region={{
-            latitude: location.latitude,
-            longitude: location.longitude,
+            latitude: userLocation.latitude?userLocation.latitude:100,
+            longitude: userLocation.longitude?userLocation.longitude:100,
             latitudeDelta: 0.015,
             longitudeDelta: 0.0121,
           }}
