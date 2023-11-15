@@ -99,7 +99,7 @@ const imageStyle = {
 };
 
 
-const Map = () => { 
+const Map2 = () => { 
   const [isArtefactNear, setIsArtefactNear] = useState(false); 
   const [isPending, setIsPending] = useState(false); 
   const [endFindding, setEndFindding] = useState(false); 
@@ -209,4 +209,4 @@ const Map = () => {
     )
 }
 
-export default Map
+export default Map2
