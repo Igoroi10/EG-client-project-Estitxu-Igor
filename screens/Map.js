@@ -299,7 +299,16 @@ const styles = StyleSheet.create({
             {/* if (from db) search.sattus */}
           </RowContainer>
           <RowContainer >
-            <Column>
+            
+          {artefacto.map((artifact, index) => (
+    <Column key={index}>
+      {artifact.found && (
+        <Image source={{ uri: artifact.img }} style={imageStyle} />
+      )}
+    </Column>
+  ))}
+            
+            {/* <Column>
               {artefacto[0].found &&(
                 <Image source={{ uri: artefacto[0].img }} style={imageStyle} />
               )}
@@ -318,7 +327,7 @@ const styles = StyleSheet.create({
               {artefacto[3].found &&(
                 <Image source={{ uri: artefacto[3].img }} style={imageStyle} />
               )}                    
-            </Column>
+            </Column> */}
 
           </RowContainer>
           <RowContainer>
