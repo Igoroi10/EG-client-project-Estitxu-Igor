@@ -9,6 +9,7 @@ import MapView, { PROVIDER_GOOGLE } from 'react-native-maps';
 import Geolocation from 'react-native-geolocation-service'
 
 import GetLocation from 'react-native-get-location';
+import axios from 'axios';
 
 
 
@@ -149,46 +150,52 @@ const styles = StyleSheet.create({
 
    const Maps = () =>{
     const [userLocation, setLocation] = useState([]);
-    const [isArtefactNear, setIsArtefactNear] = useState(false); 
+    const [artifactNear, setArtifactNear] = useState(null); 
     const [isPending, setIsPending] = useState(false); 
     const [endFindding, setEndFindding] = useState(false); 
+    const [artifacts, setArtifacts] = useState([]);
+    const [status, setStatus] = useState();
     
     const artefacto = [
       {
-        "_id": "6553311ee4205e97236a40d3",
-        "name": "Artifact 1",
+        "name": "artifact1",
         "slot": 1,
         "description_es": "",
         "description_en": "",
         "img": "https://i.imgur.com/KAhutBQ.jpeg",
-        "found": true
+        "found": true,
+        "latitude": 43.310625,
+        "longitude": -2.003209
       },
       {
-        "_id": "2",
-        "name": "Artifact 2",
+        "name": "artifact2",
         "slot": 2,
         "description_es": "",
         "description_en": "",
         "img": "https://i.imgur.com/KAhutBQ.jpeg",
-        "found": false
+        "found": false,
+        "latitude": 43.310673,
+        "longitude": -2.002441
       },
       {
-        "_id": "3",
-        "name": "Artifact 3",
+        "name": "artifact3",
         "slot": 3,
         "description_es": "",
         "description_en": "",
         "img": "https://i.imgur.com/KAhutBQ.jpeg",
-        "found": false
+        "found": false,
+        "latitude": 43.309534,
+        "longitude": -2.002030
       },
       {
-        "_id": "4",
-        "name": "Artifact 4",
+        "name": "artifact4",
         "slot": 4,
         "description_es": "",
         "description_en": "",
         "img": "https://i.imgur.com/KAhutBQ.jpeg",
-        "found": false
+        "found": false,
+        "latitude": 43.309801,
+        "longitude": -2.003381
       },
     ];
 
@@ -242,26 +249,29 @@ const styles = StyleSheet.create({
       // );
 
 
-    GetLocation.getCurrentPosition({
-      enableHighAccuracy: true,
-      timeout: 60000,
-    })
-    .then(location => {
-      console.log(location);
-      let lat = location.latitude;
-      let lon = location.longitude;
-      console.log('******COORDS*********')
-      console.log(lat)
-      console.log(lon)
-      // console.log(location.latitude)
-      setLocation({"latitude":lat, "longitude":lon})
-      console.log('LOCATION ON STATE')
-      console.log(userLocation)
-    })
-    .catch(error => {
-      const { code, message } = error;
-      console.warn(code, message);
-})
+      GetLocation.getCurrentPosition({
+        enableHighAccuracy: true,
+        timeout: 60000,
+      })
+      .then(location => {
+        console.log(location);
+        let lat = location.latitude;
+        let lon = location.longitude;
+        console.log('******COORDS*********')
+        console.log(lat)
+        console.log(lon)
+        // console.log(location.latitude)
+        setLocation({"latitude":lat, "longitude":lon})
+        console.log('LOCATION ON STATE')
+        console.log(userLocation)
+      })
+      .catch(error => {
+        const { code, message } = error;
+        console.warn(code, message);
+      })
+      fetchArtifacts();
+      fetchStatus();
+
     },[])
 
     useEffect(()=> {
@@ -269,6 +279,54 @@ const styles = StyleSheet.create({
       console.log(userLocation.latitude)
       console.log(userLocation.longitude)
     },[userLocation])
+
+    async function fetchArtifacts() {
+      try {
+          const response = await axios.get('http://192.168.0.26:3000/api/artifacts/');
+          const responseData = response.data.data;
+          setArtifacts(responseData);
+      } catch (error) {
+          console.error('Error al obtener los artefactos:', error);
+      }
+    }
+
+    async function fetchStatus() {
+      try {
+          const response = await axios.get('http://192.168.0.26:3000/api/search/');
+          const responseData = response.data.data[0].validation;
+          setStatus(responseData);
+      } catch (error) {
+          console.error('Error al obtener el search:', error);
+      }
+    }
+
+
+    async function updateArtifact() {
+      try {
+          const response = await axios.patch('http://192.168.0.26:3000/api/artifacts/', {
+            name: artifactNear.name
+          });
+          const responseData = response.data.data;
+
+          fetchArtifacts();
+          setArtifactNear(null)
+      } catch (error) {
+          console.error('Error al obtener el search:', error);
+      }
+      // console.log(artifactNear)
+    }
+
+    //para checkear si estamos cerca de un artefacto (habrá q cambiar el contenido, pero + o - se entiende la idea)
+    useEffect(() => {
+      artifacts.forEach((artifact) => {
+        if(userLocation.latitude>artifact.latitude){
+          setArtifactNear(artifact)
+        }
+      })
+    }, [userLocation.latitude]); //este useEffect tiene que estar checkeando todo el tiempo
+
+
+
 
     return(
       <View >
@@ -288,8 +346,8 @@ const styles = StyleSheet.create({
         <ContainerInfo>
           <RowContainer>
             {/* if distancia entre artefacto y usuario es < 1m */}
-            {isArtefactNear &&(
-              <Button>
+            {artifactNear!==null &&(
+              <Button onPress={updateArtifact}>
                 <ButtonText>Recoger Artefacto</ButtonText>
               </Button>
             )}
@@ -300,34 +358,15 @@ const styles = StyleSheet.create({
           </RowContainer>
           <RowContainer >
             
-          {artefacto.map((artifact, index) => (
-    <Column key={index}>
-      {artifact.found && (
-        <Image source={{ uri: artifact.img }} style={imageStyle} />
-      )}
-    </Column>
-  ))}
+          {artifacts.map((artifact, index) => (
+          <Column key={index}>
+            {artifact.found && (
+              <Image source={{ uri: artifact.img }} style={imageStyle} />
+            )}
+          </Column>
+        ))}
             
-            {/* <Column>
-              {artefacto[0].found &&(
-                <Image source={{ uri: artefacto[0].img }} style={imageStyle} />
-              )}
-            </Column>
-            <Column>
-              {artefacto[1].found &&(
-                  <Image source={{ uri: artefacto[1].img }} style={imageStyle} />
-                )}
-            </Column>
-            <Column>
-              {artefacto[2].found &&(
-                <Image source={{ uri: artefacto[2].img }} style={imageStyle} />
-              )}
-            </Column>
-            <Column>
-              {artefacto[3].found &&(
-                <Image source={{ uri: artefacto[3].img }} style={imageStyle} />
-              )}                    
-            </Column> */}
+          
 
           </RowContainer>
           <RowContainer>
