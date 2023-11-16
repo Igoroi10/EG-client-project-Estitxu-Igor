@@ -151,8 +151,7 @@ const styles = StyleSheet.create({
    const Maps = () =>{
     const [userLocation, setLocation] = useState([]);
     const [artifactNear, setArtifactNear] = useState(null); 
-    const [isPending, setIsPending] = useState(false); 
-    const [endFindding, setEndFindding] = useState(false); 
+    const [isEndFindding, setIsEndFindding] = useState(false); 
     const [artifacts, setArtifacts] = useState([]);
     const [status, setStatus] = useState();
     
@@ -199,15 +198,7 @@ const styles = StyleSheet.create({
       },
     ];
 
-    useEffect(() => {
-      let kont=0;
-      artefacto.forEach((element) => {
-        if(element.found)
-          kont++;
-      })
-      if(kont===artefacto.length)
-      setEndFindding(true)
-    }, [artefacto])
+
 
     useEffect(()=>{
       console.log('*************CARGA INICIAL DE POSICIÓN****************')
@@ -274,11 +265,24 @@ const styles = StyleSheet.create({
 
     },[])
 
+
     useEffect(()=> {
       console.log('************* CAMBIO EN LOCATION STATE****************')
       console.log(userLocation.latitude)
       console.log(userLocation.longitude)
     },[userLocation])
+
+    useEffect(() => {
+      let kont=0;
+      artifacts.forEach((artifact) => {
+        if(artifact.found === true)
+          kont++;
+        
+      })
+      if(kont===artefacto.length && kont!==0)
+        setIsEndFindding(true)
+    }, [artifacts])
+
 
     async function fetchArtifacts() {
       try {
@@ -304,16 +308,16 @@ const styles = StyleSheet.create({
     async function updateArtifact() {
       try {
           const response = await axios.patch('http://192.168.0.26:3000/api/artifacts/', {
-            name: artifactNear.name
+            name: artifactNear.name,
+            found: "true"
           });
           const responseData = response.data.data;
 
           fetchArtifacts();
-          setArtifactNear(null)
+          setArtifactNear(null) //esto está comentado para que el boton de reinicio funcione mientras no este puesta la lógica de cercanía al artefacto
       } catch (error) {
           console.error('Error al obtener el search:', error);
       }
-      // console.log(artifactNear)
     }
 
     //para checkear si estamos cerca de un artefacto (habrá q cambiar el contenido, pero + o - se entiende la idea)
@@ -327,58 +331,102 @@ const styles = StyleSheet.create({
 
 
 
+    async function endFindding() {
+      try {
+          const response = await axios.patch('http://192.168.0.26:3000/api/search/', {
+            validation: "pendding"
+          });
+          const responseData = response.data.data;
+
+          fetchStatus();
+          setIsEndFindding(false)
+      } catch (error) {
+          console.error('Error al obtener el search:', error);
+      }
+    }
+
+    async function reinicio() {
+      try {
+
+          const response = await axios.patch('http://192.168.0.26:3000/api/search/', {
+            validation: "searching"
+          });
+          const response2 = await axios.patch('http://192.168.0.26:3000/api/artifacts/', {
+            name: artifacts[3].name,
+            found: false
+          });
+          const responseData = response.data.data;
+
+          fetchStatus();
+          fetchArtifacts();
+
+      } catch (error) {
+          console.error('Error al obtener el search:', error);
+      }
+      // console.log(artifactNear)
+    }
+
 
     return(
       <View >
-        <MapContainer>
-          <MapView
-            provider={PROVIDER_GOOGLE} // remove if not using Google Maps
-            style={styles.map}
-            region={{
-              latitude: userLocation.latitude?userLocation.latitude:100,
-              longitude: userLocation.longitude?userLocation.longitude:100,
-              latitudeDelta: 0.015,
-              longitudeDelta: 0.0121,
-            }}
-          >
-          </MapView>
-        </MapContainer>
-        <ContainerInfo>
-          <RowContainer>
-            {/* if distancia entre artefacto y usuario es < 1m */}
-            {artifactNear!==null &&(
-              <Button onPress={updateArtifact}>
-                <ButtonText>Recoger Artefacto</ButtonText>
-              </Button>
-            )}
-            {isPending &&(
-              <PendingText>Pending...</PendingText>
-            )}
-            {/* if (from db) search.sattus */}
-          </RowContainer>
-          <RowContainer >
-            
-          {artifacts.map((artifact, index) => (
-          <Column key={index}>
-            {artifact.found && (
-              <Image source={{ uri: artifact.img }} style={imageStyle} />
-            )}
-          </Column>
-        ))}
-            
-          
+         {status==="searching" &&(
+            <MapContainer>
+                <MapView
+                  provider={PROVIDER_GOOGLE} // remove if not using Google Maps
+                  style={styles.map}
+                  region={{
+                    latitude: userLocation.latitude?userLocation.latitude:100,
+                    longitude: userLocation.longitude?userLocation.longitude:100,
+                    latitudeDelta: 0.015,
+                    longitudeDelta: 0.0121,
+                  }}
+                >
+                </MapView>
+            </MapContainer>
+          )}
 
-          </RowContainer>
-          <RowContainer>
-              {/* cuando los 4 artefactos sean true */}
-              {endFindding &&(
-              <Button>
-                <ButtonText>Fin de búsqueda</ButtonText>
-              </Button>
-            )}                      
+          <ContainerInfo>
+
+            <RowContainer>
+              {/* if distancia entre artefacto y usuario es < 1m */}
+              {artifactNear!==null && status==="searching" &&(
+                <Button onPress={updateArtifact}>
+                  <ButtonText >Recoger Artefacto</ButtonText>
+                </Button>
+              )}
+              {status==="pendding" &&(
+                <PendingText>Pending...</PendingText>
+              )}
+              {/* if (from db) search.sattus */}
+            </RowContainer>
+            <RowContainer >
             
-          </RowContainer>
-        </ContainerInfo>
+              {artifacts.map((artifact, index) => (
+              <Column key={index}>
+                {artifact.found && (
+                  <Image source={{ uri: artifact.img }} style={imageStyle} />
+                )}
+              </Column>
+              ))}
+            </RowContainer>
+
+            <RowContainer>
+                {/* cuando los 4 artefactos sean true */}
+
+                {isEndFindding && status==="searching" &&(
+                  <Button onPress={endFindding}>
+                    <ButtonText>Fin de búsqueda</ButtonText>
+                  </Button>
+                )} 
+                <Button onPress={reinicio}>
+                  <ButtonText>Reinicio</ButtonText>
+                </Button>                     
+              
+            </RowContainer>
+            
+          </ContainerInfo>
+            
+        
       </View>
    );
    }
