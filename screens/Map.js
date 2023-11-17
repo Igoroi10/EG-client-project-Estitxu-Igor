@@ -6,7 +6,7 @@ import { Text, StyleSheet, View, Image } from 'react-native';
 
 import MapView, { PROVIDER_GOOGLE } from 'react-native-maps';
 
-import Geolocation from 'react-native-geolocation-service'
+import Geolocation from '@react-native-community/geolocation';
 
 import GetLocation from 'react-native-get-location';
 import axios from 'axios';
@@ -202,27 +202,21 @@ const styles = StyleSheet.create({
 
     useEffect(()=>{
       console.log('*************CARGA INICIAL DE POSICIÓN****************')
-      // const _watchId = Geolocation.watchPosition(
-      //   position => {
-      //     const {latitude, longitude} = position.coords;
-      //     setLocation({latitude, longitude});
-      //   },
-      //   error => {
-      //     console.log(error);
-      //   },
-      //   {
-      //     enableHighAccuracy: true,
-      //     distanceFilter: 0,
-      //     interval: 5000,
-      //     fastestInterval: 2000,
-      //   },
-      // );
-  
-      // return () => {
-      //   if (_watchId) {
-      //     Geolocation.clearWatch(_watchId);
-      //   }
-      // };
+      Geolocation.watchPosition(
+        position => {
+          const {latitude, longitude} = position.coords;
+          setLocation({latitude, longitude});
+        },
+        error => {
+          console.log(error);
+        },
+        {
+          enableHighAccuracy: true,
+          distanceFilter: 0,
+          interval: 5000,
+          fastestInterval: 2000,
+        },
+      );
 
       // Geolocation.getCurrentPosition(
       //   (position) => {
@@ -240,26 +234,26 @@ const styles = StyleSheet.create({
       // );
 
 
-      GetLocation.getCurrentPosition({
-        enableHighAccuracy: true,
-        timeout: 60000,
-      })
-      .then(location => {
-        console.log(location);
-        let lat = location.latitude;
-        let lon = location.longitude;
-        console.log('******COORDS*********')
-        console.log(lat)
-        console.log(lon)
-        // console.log(location.latitude)
-        setLocation({"latitude":lat, "longitude":lon})
-        console.log('LOCATION ON STATE')
-        console.log(userLocation)
-      })
-      .catch(error => {
-        const { code, message } = error;
-        console.warn(code, message);
-      })
+      // GetLocation.getCurrentPosition({
+      //   enableHighAccuracy: true,
+      //   timeout: 60000,
+      // })
+      // .then(location => {
+      //   console.log(location);
+      //   let lat = location.latitude;
+      //   let lon = location.longitude;
+      //   console.log('******COORDS*********')
+      //   console.log(lat)
+      //   console.log(lon)
+      //   // console.log(location.latitude)
+      //   setLocation({"latitude":lat, "longitude":lon})
+      //   console.log('LOCATION ON STATE')
+      //   console.log(userLocation)
+      // })
+      // .catch(error => {
+      //   const { code, message } = error;
+      //   console.warn(code, message);
+      // })
       fetchArtifacts();
       fetchStatus();
 
