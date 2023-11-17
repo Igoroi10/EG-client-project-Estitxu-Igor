@@ -277,7 +277,6 @@ const styles = StyleSheet.create({
       artifacts.forEach((artifact) => {
         if(artifact.found === true)
           kont++;
-        
       })
       if(kont===artefacto.length && kont!==0)
         setIsEndFindding(true)
@@ -286,7 +285,7 @@ const styles = StyleSheet.create({
 
     async function fetchArtifacts() {
       try {
-          const response = await axios.get('http://192.168.0.26:3000/api/artifacts/');
+          const response = await axios.get('https://fly-eg-staging.fly.dev/api/artifacts/');
           const responseData = response.data.data;
           setArtifacts(responseData);
       } catch (error) {
@@ -296,7 +295,7 @@ const styles = StyleSheet.create({
 
     async function fetchStatus() {
       try {
-          const response = await axios.get('http://192.168.0.26:3000/api/search/');
+          const response = await axios.get('https://fly-eg-staging.fly.dev/api/search/');
           const responseData = response.data.data[0].validation;
           setStatus(responseData);
       } catch (error) {
@@ -307,8 +306,8 @@ const styles = StyleSheet.create({
 
     async function updateArtifact() {
       try {
-          const response = await axios.patch('http://192.168.0.26:3000/api/artifacts/', {
-            name: artifactNear.name,
+          const response = await axios.patch('https://fly-eg-staging.fly.dev/api/artifacts/', {
+            name: artifacts[3].name,//artifactNear.name,
             found: "true"
           });
           const responseData = response.data.data;
@@ -333,7 +332,7 @@ const styles = StyleSheet.create({
 
     async function endFindding() {
       try {
-          const response = await axios.patch('http://192.168.0.26:3000/api/search/', {
+          const response = await axios.patch('https://fly-eg-staging.fly.dev/api/search/', {
             validation: "pendding"
           });
           const responseData = response.data.data;
@@ -348,10 +347,10 @@ const styles = StyleSheet.create({
     async function reinicio() {
       try {
 
-          const response = await axios.patch('http://192.168.0.26:3000/api/search/', {
+          const response = await axios.patch('https://fly-eg-staging.fly.dev/api/search/', {
             validation: "searching"
           });
-          const response2 = await axios.patch('http://192.168.0.26:3000/api/artifacts/', {
+          const response2 = await axios.patch('https://fly-eg-staging.fly.dev/api/artifacts/', {
             name: artifacts[3].name,
             found: false
           });
@@ -359,6 +358,8 @@ const styles = StyleSheet.create({
 
           fetchStatus();
           fetchArtifacts();
+          setArtifactNear(artifacts[3].name);
+          setIsEndFindding(true)
 
       } catch (error) {
           console.error('Error al obtener el search:', error);
