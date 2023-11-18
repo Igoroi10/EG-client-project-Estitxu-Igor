@@ -304,9 +304,15 @@ const styles = StyleSheet.create({
             name: artifacts[3].name,//artifactNear.name,
             found: "true"
           });
-          const responseData = response.data.data;
+          const responseData = response.data.data[0];
 
-          fetchArtifacts();
+          const newArtifacts = artifacts.map((artifact) => {
+              if(artifact.name == responseData.name){
+                artifact = responseData;
+              }
+              return artifact;
+          })
+          setArtifacts(newArtifacts);
           setArtifactNear(null) //esto está comentado para que el boton de reinicio funcione mientras no este puesta la lógica de cercanía al artefacto
       } catch (error) {
           console.error('Error al obtener el search:', error);
@@ -329,9 +335,8 @@ const styles = StyleSheet.create({
           const response = await axios.patch('https://fly-eg-staging.fly.dev/api/search/', {
             validation: "pendding"
           });
-          const responseData = response.data.data;
-
-          fetchStatus();
+          const responseData = response.data.data[0].validation;
+          setStatus(responseData);
           setIsEndFindding(false)
       } catch (error) {
           console.error('Error al obtener el search:', error);
@@ -348,12 +353,21 @@ const styles = StyleSheet.create({
             name: artifacts[3].name,
             found: false
           });
-          const responseData = response.data.data;
+          const responseDataStatus = response.data.data[0].validation;
 
-          fetchStatus();
-          fetchArtifacts();
+          const responseDataArtifact = response2.data.data[0];
+
+          const newArtifacts = artifacts.map((artifact) => {
+              if(artifact.name == responseDataArtifact.name){
+                artifact = responseDataArtifact;
+              }
+              return artifact;
+          })
+          setArtifacts(newArtifacts);
+          setStatus(responseDataStatus);
+
           setArtifactNear(artifacts[3].name);
-          setIsEndFindding(true)
+          setIsEndFindding(false)
 
       } catch (error) {
           console.error('Error al obtener el search:', error);
