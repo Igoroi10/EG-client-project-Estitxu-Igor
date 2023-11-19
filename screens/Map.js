@@ -4,7 +4,7 @@ import { storeData, getData } from '../helpers/localStorage';
 import { useNavigation } from '@react-navigation/native';
 import { Text, StyleSheet, View, Image } from 'react-native';
 
-import MapView, { PROVIDER_GOOGLE } from 'react-native-maps';
+import MapView, { PROVIDER_GOOGLE, Marker} from 'react-native-maps';
 
 import Geolocation from '@react-native-community/geolocation';
 
@@ -384,12 +384,41 @@ const styles = StyleSheet.create({
                   provider={PROVIDER_GOOGLE} // remove if not using Google Maps
                   style={styles.map}
                   region={{
-                    latitude: userLocation.latitude?userLocation.latitude:100,
-                    longitude: userLocation.longitude?userLocation.longitude:100,
+                    latitude: userLocation.latitude?userLocation.latitude:0,
+                    longitude: userLocation.longitude?userLocation.longitude:0,
                     latitudeDelta: 0.015,
                     longitudeDelta: 0.0121,
                   }}
                 >
+                  {/* Markers */}
+                  {userLocation.latitude && (
+                    <Marker
+                    coordinate={{latitude: userLocation.latitude, longitude: userLocation.longitude}}
+                    title="this is ur actual location"
+                    description="this is a marker example"
+                    pinColor="blue"
+                  >
+                    <Image
+                      source={{ uri: artifacts[0].img }} // Asumiendo que artifact.img contiene la URL de la imagen
+                      style={{ width: 20, height: 20 }} // Ajusta el tamaño según tus necesidades
+                    />
+                  </Marker>
+                  
+                  )}
+                  {artifacts.map((artifact) => 
+                      artifact.found ? ( //esto hay que cambiarlo a artifact.found == false (TODO)
+                        <Marker
+                          key={artifact.slot} // Asegúrate de tener una clave única para cada Marker
+                          coordinate={{
+                            latitude: artifact.latitude,
+                            longitude: artifact.longitude,
+                          }}
+                          title={artifact.name}
+                          description={artifact.description_es}
+                        />
+                      ) : null                     
+                  )}
+                  
                 </MapView>
             </MapContainer>
           )}
