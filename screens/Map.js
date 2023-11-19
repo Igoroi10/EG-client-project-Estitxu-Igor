@@ -409,8 +409,9 @@ const styles = StyleSheet.create({
         {
           enableHighAccuracy: true,
           distanceFilter: 0,
-          interval: 5000,
+          interval: 10000,
           fastestInterval: 2000,
+          
         },
       );
 
@@ -460,6 +461,16 @@ const styles = StyleSheet.create({
       console.log('************* CAMBIO EN LOCATION STATE****************')
       console.log(userLocation.latitude)
       console.log(userLocation.longitude)
+      
+      artifacts.forEach((artifact) => {
+        const distanceBetween= haversine_distance(userLocation, artifact);
+        // console.log(distanceBetween);
+
+        if(distanceBetween <= 0.001){ //en km
+          setArtifactNear(artifact)
+        }
+      })
+      // console.log(artifactNear)
     },[userLocation])
 
     useEffect(() => {
@@ -497,7 +508,7 @@ const styles = StyleSheet.create({
     async function updateArtifact() {
       try {
           const response = await axios.patch('https://fly-eg-staging.fly.dev/api/artifacts/', {
-            name: artifacts[3].name,//artifactNear.name,
+            name: artifactNear.name,
             found: "true"
           });
           const responseData = response.data.data[0];
@@ -514,17 +525,6 @@ const styles = StyleSheet.create({
           console.error('Error al obtener el search:', error);
       }
     }
-
-    //para checkear si estamos cerca de un artefacto (habrá q cambiar el contenido, pero + o - se entiende la idea)
-    useEffect(() => {
-      artifacts.forEach((artifact) => {
-        if(userLocation.latitude>artifact.latitude){
-          setArtifactNear(artifact)
-        }
-      })
-    }, [userLocation.latitude]); //este useEffect tiene que estar checkeando todo el tiempo
-
-
 
     async function endFindding() {
       try {
@@ -545,24 +545,27 @@ const styles = StyleSheet.create({
           const response = await axios.patch('https://fly-eg-staging.fly.dev/api/search/', {
             validation: "searching"
           });
-          const response2 = await axios.patch('https://fly-eg-staging.fly.dev/api/artifacts/', {
-            name: artifacts[3].name,
-            found: false
-          });
           const responseDataStatus = response.data.data[0].validation;
 
-          const responseDataArtifact = response2.data.data[0];
-
-          const newArtifacts = artifacts.map((artifact) => {
-              if(artifact.name == responseDataArtifact.name){
-                artifact = responseDataArtifact;
-              }
-              return artifact;
-          })
+          const newArtifacts=[];
+          for (const artifact of artifacts) {
+            try {
+              const response2 = await axios.patch('https://fly-eg-staging.fly.dev/api/artifacts/', {
+                name: artifact.name,
+                found: false
+              });
+        
+              const responseDataArtifact = response2.data.data[0];
+              newArtifacts.push(responseDataArtifact);
+            } catch (error) {
+              // Handle errors here
+              console.error(`Error updating artifact: ${artifact.name}`, error);
+            }
+          }
+          // console.log(newArtifacts)
+                    
           setArtifacts(newArtifacts);
           setStatus(responseDataStatus);
-
-          setArtifactNear(artifacts[3].name);
           setIsEndFindding(false)
 
       } catch (error) {
@@ -571,6 +574,35 @@ const styles = StyleSheet.create({
       // console.log(artifactNear)
     }
 
+
+    // Para calcular la distancia entre dos puntos
+    function toRadians(degrees) {
+      var pi = Math.PI;
+      return degrees * (pi / 180);
+    }
+    function haversine_distance(origin, destination) {
+      const lat1 = origin.latitude;
+      const lon1 = origin.longitude;
+      const lat2 = destination.latitude;
+      const lon2 = destination.longitude;
+
+      radius = 6371; // earth radius in km
+    
+      dlat = toRadians(lat2 - lat1);
+      dlon = toRadians(lon2 - lon1);
+      a =
+
+        Math.sin(dlat / 2) * Math.sin(dlat / 2) +
+        Math.cos(toRadians(lat1)) *
+          Math.cos(toRadians(lat2)) *
+          Math.sin(dlon / 2) *
+          Math.sin(dlon / 2);
+      c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+      d = radius * c;
+    
+      return d; //ditancia en km
+    }
+    
   
 
     return(
@@ -585,19 +617,19 @@ const styles = StyleSheet.create({
                     longitude: userLocation.longitude?userLocation.longitude:0,
                     latitudeDelta: 0.015,
                     longitudeDelta: 0.0121,
-                                     }}
-                  showsUserLocation={true}
-                  customMapStyle={customedMapStyle}
-
+                  }}
+                  showsUserLocation={true}  //marcador del userLocation
+                  customMapStyle={customedMapStyle} //stylo del mapa
+                  loadingEnabled={true} //spinner de carga del mapa
+                  // followsUserLocation={true}
                 >
-                  {/* Markers */}
+
+                  {/* Markers of artifats */}
                  
-                  
-                  
                   {artifacts.map((artifact) => 
-                      artifact.found ? ( //esto hay que cambiarlo a artifact.found == false (TODO)
+                      artifact.found==false ? ( 
                         <Marker
-                          key={artifact.slot} // Asegúrate de tener una clave única para cada Marker
+                          key={artifact.slot} 
                           coordinate={{
                             latitude: artifact.latitude,
                             longitude: artifact.longitude,
@@ -606,8 +638,8 @@ const styles = StyleSheet.create({
                           description={artifact.description_es}
                         >
                           <Image
-                            source={{ uri: artifacts[0].img }} // Asumiendo que artifact.img contiene la URL de la imagen
-                            style={{ width: 20, height: 20 }} // Ajusta el tamaño según tus necesidades
+                            source={{ uri: artifact.img }}  //aqui va la img del atributo TODO
+                            style={{ width: 20, height: 20 }} 
                           />
                         </Marker>
                       ) : null                     
@@ -629,14 +661,13 @@ const styles = StyleSheet.create({
               {status==="pendding" &&(
                 <PendingText>Pending...</PendingText>
               )}
-              {/* if (from db) search.sattus */}
             </RowContainer>
             <RowContainer >
             
               {artifacts.map((artifact, index) => (
               <Column key={index}>
                 {artifact.found && (
-                  <Image source={{ uri: artifact.img }} style={imageStyle} />
+                  <Image source={{ uri: artifact.img }} style={imageStyle} /> //aqui va la img del atributo TODO
                 )}
               </Column>
               ))}
