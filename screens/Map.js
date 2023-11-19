@@ -463,12 +463,15 @@ const styles = StyleSheet.create({
       console.log(userLocation.longitude)
       
       artifacts.forEach((artifact) => {
-        const distanceBetween= haversine_distance(userLocation, artifact);
-        // console.log(distanceBetween);
-
-        if(distanceBetween <= 0.001){ //en km
-          setArtifactNear(artifact)
+        if(artifact.found === false){
+          const distanceBetween= haversine_distance(userLocation, artifact);
+          // console.log(distanceBetween);
+  
+          if(distanceBetween <= 0.001){ //en km
+            setArtifactNear(artifact)
+          }
         }
+
       })
       // console.log(artifactNear)
     },[userLocation])
