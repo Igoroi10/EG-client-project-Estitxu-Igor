@@ -146,8 +146,6 @@ const styles = StyleSheet.create({
     },
 });
    
-
-
    const Maps = () =>{
     const [userLocation, setLocation] = useState([]);
     const [artifactNear, setArtifactNear] = useState(null); 
@@ -415,22 +413,6 @@ const styles = StyleSheet.create({
         },
       );
 
-      // Geolocation.getCurrentPosition(
-      //   (position) => {
-      //     const {latitude, longitude} = position.coords;
-      //     setLocation({
-      //       latitude,
-      //       longitude,
-      //     });
-      //   },
-      //   (error) => {
-      //     console.log('Error a la hora de conseguir coordenadas')
-      //     console.log(error.code, error.message);
-      //   },
-      //   {enableHighAccuracy: true, timeout: 15000, maximumAge: 10000},
-      // );
-
-
       // GetLocation.getCurrentPosition({
       //   enableHighAccuracy: true,
       //   timeout: 60000,
@@ -458,9 +440,9 @@ const styles = StyleSheet.create({
 
 
     useEffect(()=> {
-      console.log('************* CAMBIO EN LOCATION STATE****************')
-      console.log(userLocation.latitude)
-      console.log(userLocation.longitude)
+      // console.log('************* CAMBIO EN LOCATION STATE****************')
+      // console.log(userLocation.latitude)
+      // console.log(userLocation.longitude)
       
       artifacts.forEach((artifact) => {
         if(artifact.found === false){
@@ -695,7 +677,7 @@ const styles = StyleSheet.create({
         
       </View>
    );
-   }
+  }
 
 
 export default Maps

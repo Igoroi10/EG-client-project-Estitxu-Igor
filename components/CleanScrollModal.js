@@ -20,15 +20,15 @@ const ContentContainer = styled.View`
 const ContentText = styled.Text`
   color: black;
   align-items: center;
-  top: 60px;
+  top: 80px;
   z-index: 1;
-  width: 200px;
+  width: 300px;
 `;
 
 const ModalImage = styled.Image`
   position: absolute;
-  width: 300px;
-  height: 400px;
+  width: 350px;
+  height: 600px;
 `;
 
 const CloseButton = styled.TouchableOpacity`
@@ -61,8 +61,8 @@ const CleanScrollModal = ({ potionStatus, setPotionCreated, towerStatus, setTowe
   };
   
   useEffect(() => {
-    console.log("towerstatus: " + towerStatus);
-    console.log("ingredients: ", selectedIngredients);
+    // console.log("towerstatus: " + towerStatus);
+    // console.log("ingredients: ", selectedIngredients);
   }, [towerStatus, selectedIngredients]);
   
   return (
@@ -73,7 +73,9 @@ const CleanScrollModal = ({ potionStatus, setPotionCreated, towerStatus, setTowe
             <CloseButtonText>X</CloseButtonText>
           </CloseButton>
           <ContentText>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+            Este pergamino recoge la historia de la leyenda de la armadura épica: un artefacto de brillo dorado ne cesario para acceder a la tumba Espectral, lugar donde residen los 4 jinetes.
+            La armadura se perdió en la 2ª Era, pero se conservan aún manuales de cómo se llegó a forjar. Cada una de las piezas necesarias para su construcción descansa en una tumba del Obituario. El problema es que la entrada permanece sellada por el rosetón de los 4 artefactos arcanos necesarios para desbloquearla.
+            Los artefactos se perdieron a lo largo de la ciénaga, pero poco más se sabe. El único material disponible es un viejo manuscrito con un mapa de la zona. Sin embargo, a excepción de unos números extraños, no incluye detalles relevantes. Nadie ha logrado comprender su significado, pero podrían indicar el paradero de los artefactos.
           </ContentText>
           <ModalImage source={require('../assets/scroll.png')} />
         </ContentContainer>

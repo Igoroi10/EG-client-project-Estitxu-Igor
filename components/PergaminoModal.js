@@ -66,8 +66,8 @@ const PergaminoModal = ({ towerStatus, setTowerStatus, potionStatus}) => {
 
   const close = () => {
     setTowerStatus('start');
-    console.log(towerStatus)
-    console.log(selectedIngredients)
+    // console.log(towerStatus)
+    // console.log(selectedIngredients)
   };
 
   return (
