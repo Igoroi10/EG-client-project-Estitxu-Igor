@@ -417,8 +417,8 @@ const styles = StyleSheet.create({
                   region={{
                     latitude: userLocation.latitude?userLocation.latitude:0,
                     longitude: userLocation.longitude?userLocation.longitude:0,
-                    latitudeDelta: 0.0025,
-                    longitudeDelta: 0.0025,
+                    latitudeDelta: 0.0055,
+                    longitudeDelta: 0.0055,
                   }}
                   showsUserLocation={true}  //marcador del userLocation
                   customMapStyle={customedMapStyle} //stylo del mapa
