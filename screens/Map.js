@@ -618,12 +618,12 @@ const styles = StyleSheet.create({
                   region={{
                     latitude: userLocation.latitude?userLocation.latitude:0,
                     longitude: userLocation.longitude?userLocation.longitude:0,
-                    latitudeDelta: 0.015,
-                    longitudeDelta: 0.0121,
+                    latitudeDelta: 0.0025,
+                    longitudeDelta: 0.0025,
                   }}
                   showsUserLocation={true}  //marcador del userLocation
                   customMapStyle={customedMapStyle} //stylo del mapa
-                  loadingEnabled={true} //spinner de carga del mapa
+                  // loadingEnabled={true} //spinner de carga del mapa
                   // followsUserLocation={true}
                 >
 
