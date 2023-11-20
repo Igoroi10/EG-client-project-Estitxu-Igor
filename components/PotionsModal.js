@@ -3,6 +3,7 @@ import { FlatList, Image, View } from 'react-native';
 import styled from 'styled-components/native';
 import axios from 'axios';
 import Toast from 'react-native-toast-message';
+import potionHandler from '../helpers/potionHandler';
 
 const PotionsModal = ({ towerStatus, setTowerStatus, potionStatus, setPotionCreated }) => {
   const [selectedIngredients, setSelectedIngredients] = useState([]);

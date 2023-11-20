@@ -140,8 +140,6 @@ const styles = StyleSheet.create({
     },
 });
 
-
-
    const Maps = () =>{
     const [userLocation, setLocation] = useState([]);
     const [artifactNear, setArtifactNear] = useState(null);
@@ -214,7 +212,26 @@ const styles = StyleSheet.create({
           
         }
       );
-     
+      // GetLocation.getCurrentPosition({
+      //   enableHighAccuracy: true,
+      //   timeout: 60000,
+      // })
+      // .then(location => {
+      //   console.log(location);
+      //   let lat = location.latitude;
+      //   let lon = location.longitude;
+      //   console.log('******COORDS*********')
+      //   console.log(lat)
+      //   console.log(lon)
+      //   // console.log(location.latitude)
+      //   setLocation({"latitude":lat, "longitude":lon})
+      //   console.log('LOCATION ON STATE')
+      //   console.log(userLocation)
+      // })
+      // .catch(error => {
+      //   const { code, message } = error;
+      //   console.warn(code, message);
+      // })
       fetchArtifacts();
       fetchStatus();
 
@@ -225,6 +242,7 @@ const styles = StyleSheet.create({
       console.log('************* CAMBIO EN LOCATION STATE****************')
       console.log(userLocation.latitude)
       console.log(userLocation.longitude)
+
 
       artifacts.forEach((artifact) => {
         if(artifact.found === false){
@@ -476,7 +494,7 @@ const styles = StyleSheet.create({
 
       </View>
    );
-   }
+  }
 
 
 export default Maps

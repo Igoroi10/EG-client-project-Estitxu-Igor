@@ -21,11 +21,11 @@ const ScanScreen = ({ onClose }) => {
     const checkedEmail = e.data;
 
     const validEmail = await sendEmail(checkedEmail);
-    console.log(validEmail);
+    // console.log(validEmail);
 
     if (validEmail) {
       const towerState= validEmail.data[0].towerAccess;
-      console.log(towerState)
+      // console.log(towerState)
         // alert("Valid user!")
         let userText;
         if(towerState === true)

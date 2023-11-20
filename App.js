@@ -1,5 +1,6 @@
 import 'react-native-gesture-handler';
 import React, { useState, useEffect } from 'react';
+import { Context } from './AppContext';
 import { NavigationContainer } from '@react-navigation/native';
 import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs';
 import { GoogleSignin } from '@react-native-google-signin/google-signin';
@@ -9,9 +10,12 @@ import { storeData, getData } from './helpers/localStorage';
 import GoogleModal from './components/GoogleModal.js';
 import StandardModal from './components/Modal.js';
 
+import globalStateModel from './helpers/globalStateModel';
+
 import {asignRol} from './helpers/asingRol';
 
 import Toast from 'react-native-toast-message'
+import axios from 'axios';
 
 const Tab = createMaterialTopTabNavigator();
 
@@ -20,6 +24,16 @@ GoogleSignin.configure({
 });
 
 const App = () => {
+  const [globalState, setGlobalState] = useState(globalStateModel);
+
+  const handleGlobalState = (data) => {
+    setGlobalState(globalState =>({
+      ...globalState,
+      ...data
+    }))
+  }
+
+  //REST OF STATES
   const [logState, setLogged] = useState([]);
   const [userRole, setUserRole] = useState(null);
   const [user, setUser] = useState([]);
@@ -29,18 +43,27 @@ const App = () => {
     const init = async () => {
       // …do multiple sync or async tasks
 
-      const user = await getData();
+      const userData = await getData();
 
 
-      if (user !== null) {
+      if (userData !== null) {
         setLogged(true);
-        setUserRole(user.rol);
-        setUser(user);
+        setUserRole(userData.rol);
+        setUser(userData);
+        console.log('*********** USER DATA ****************')
+        console.log(userData)
+        handleGlobalState({user: userData});
 
       } else {
         setLogged(false);
+        
       }
       
+      const response = await axios.get('https://fly-eg-staging.fly.dev/api/artifacts/');
+      const responseData = response.data.data;
+      handleGlobalState(responseData);
+
+    
     };
 
     init().finally(async () => {
@@ -54,25 +77,30 @@ const App = () => {
     const screenCharge = async() => {
       asignRol(userRole, tabScreens, user)
     }
-
     screenCharge();
   },[userRole, user])
+
+  useEffect(()=> {
+    console.log('**************** GLOBAL STATE HAS CHANGED *****************')
+    console.log(globalState)
+    console.log('***********************************************************')
+  },[globalState])
 
   asignRol(userRole, tabScreens, user)
 
 
   return (
-    
-    <NavigationContainer>
-      <GoogleModal logStatus={logState} setMethod={setUserRole} setUser={setUser}/>
-      <StandardModal />
-      <Tab.Navigator>
-        {tabScreens}
+    <Context.Provider value={{globalState, handleGlobalState}}>
+      <NavigationContainer>
+        <GoogleModal logStatus={logState} setMethod={setUserRole} setUser={setUser}/>
+        <StandardModal />
+        <Tab.Navigator>
+          {tabScreens}
 
-      </Tab.Navigator>
-      <Toast/>
-    </NavigationContainer>
-     
+        </Tab.Navigator>
+        <Toast/>
+      </NavigationContainer>
+    </Context.Provider>
   );
   
 };
