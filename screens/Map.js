@@ -12,12 +12,6 @@ import GetLocation from 'react-native-get-location';
 import axios from 'axios';
 
 
-
-const Divider = styled.View`
-  width: 100%;
-  height: 2px;
-  background-color: #DDDDDD;
-`;
 const MapContainer = styled.View`
   width: 100%;
   height: 400px;
@@ -145,16 +139,14 @@ const styles = StyleSheet.create({
       ...StyleSheet.absoluteFillObject,
     },
 });
-   
-
 
    const Maps = () =>{
     const [userLocation, setLocation] = useState([]);
-    const [artifactNear, setArtifactNear] = useState(null); 
-    const [isEndFindding, setIsEndFindding] = useState(false); 
+    const [artifactNear, setArtifactNear] = useState(null);
+    const [isEndFindding, setIsEndFindding] = useState(false);
     const [artifacts, setArtifacts] = useState([]);
     const [status, setStatus] = useState();
-    
+
     const artefacto = [
       {
         "name": "artifact1",
@@ -198,201 +190,7 @@ const styles = StyleSheet.create({
       },
     ];
 
-    const customedMapStyle= [
-      {
-        "elementType": "geometry",
-        "stylers": [
-          {
-            "color": "#242f3e"
-          }
-        ]
-      },
-      {
-        "elementType": "labels.text.fill",
-        "stylers": [
-          {
-            "color": "#746855"
-          }
-        ]
-      },
-      {
-        "elementType": "labels.text.stroke",
-        "stylers": [
-          {
-            "color": "#242f3e"
-          }
-        ]
-      },
-      {
-        "featureType": "administrative",
-        "elementType": "geometry",
-        "stylers": [
-          {
-            "visibility": "off"
-          }
-        ]
-      },
-      {
-        "featureType": "administrative.locality",
-        "elementType": "labels.text.fill",
-        "stylers": [
-          {
-            "color": "#d59563"
-          }
-        ]
-      },
-      {
-        "featureType": "poi",
-        "stylers": [
-          {
-            "visibility": "off"
-          }
-        ]
-      },
-      {
-        "featureType": "poi",
-        "elementType": "labels.text.fill",
-        "stylers": [
-          {
-            "color": "#d59563"
-          }
-        ]
-      },
-      {
-        "featureType": "poi.park",
-        "elementType": "geometry",
-        "stylers": [
-          {
-            "color": "#263c3f"
-          }
-        ]
-      },
-      {
-        "featureType": "poi.park",
-        "elementType": "labels.text.fill",
-        "stylers": [
-          {
-            "color": "#6b9a76"
-          }
-        ]
-      },
-      {
-        "featureType": "road",
-        "elementType": "geometry",
-        "stylers": [
-          {
-            "color": "#38414e"
-          }
-        ]
-      },
-      {
-        "featureType": "road",
-        "elementType": "geometry.stroke",
-        "stylers": [
-          {
-            "color": "#212a37"
-          }
-        ]
-      },
-      {
-        "featureType": "road",
-        "elementType": "labels.icon",
-        "stylers": [
-          {
-            "visibility": "off"
-          }
-        ]
-      },
-      {
-        "featureType": "road",
-        "elementType": "labels.text.fill",
-        "stylers": [
-          {
-            "color": "#9ca5b3"
-          }
-        ]
-      },
-      {
-        "featureType": "road.highway",
-        "elementType": "geometry",
-        "stylers": [
-          {
-            "color": "#746855"
-          }
-        ]
-      },
-      {
-        "featureType": "road.highway",
-        "elementType": "geometry.stroke",
-        "stylers": [
-          {
-            "color": "#1f2835"
-          }
-        ]
-      },
-      {
-        "featureType": "road.highway",
-        "elementType": "labels.text.fill",
-        "stylers": [
-          {
-            "color": "#f3d19c"
-          }
-        ]
-      },
-      {
-        "featureType": "transit",
-        "stylers": [
-          {
-            "visibility": "off"
-          }
-        ]
-      },
-      {
-        "featureType": "transit",
-        "elementType": "geometry",
-        "stylers": [
-          {
-            "color": "#2f3948"
-          }
-        ]
-      },
-      {
-        "featureType": "transit.station",
-        "elementType": "labels.text.fill",
-        "stylers": [
-          {
-            "color": "#d59563"
-          }
-        ]
-      },
-      {
-        "featureType": "water",
-        "elementType": "geometry",
-        "stylers": [
-          {
-            "color": "#17263c"
-          }
-        ]
-      },
-      {
-        "featureType": "water",
-        "elementType": "labels.text.fill",
-        "stylers": [
-          {
-            "color": "#515c6d"
-          }
-        ]
-      },
-      {
-        "featureType": "water",
-        "elementType": "labels.text.stroke",
-        "stylers": [
-          {
-            "color": "#17263c"
-          }
-        ]
-      }
-    ]
+    
 
 
 
@@ -412,25 +210,8 @@ const styles = StyleSheet.create({
           interval: 10000,
           fastestInterval: 2000,
           
-        },
+        }
       );
-
-      // Geolocation.getCurrentPosition(
-      //   (position) => {
-      //     const {latitude, longitude} = position.coords;
-      //     setLocation({
-      //       latitude,
-      //       longitude,
-      //     });
-      //   },
-      //   (error) => {
-      //     console.log('Error a la hora de conseguir coordenadas')
-      //     console.log(error.code, error.message);
-      //   },
-      //   {enableHighAccuracy: true, timeout: 15000, maximumAge: 10000},
-      // );
-
-
       // GetLocation.getCurrentPosition({
       //   enableHighAccuracy: true,
       //   timeout: 60000,
@@ -461,19 +242,24 @@ const styles = StyleSheet.create({
       console.log('************* CAMBIO EN LOCATION STATE****************')
       console.log(userLocation.latitude)
       console.log(userLocation.longitude)
-      
+
+
       artifacts.forEach((artifact) => {
         if(artifact.found === false){
           const distanceBetween= haversine_distance(userLocation, artifact);
-          // console.log(distanceBetween);
-  
-          if(distanceBetween <= 0.001){ //en km
+
+          if(distanceBetween <= 0.01){ //en km
             setArtifactNear(artifact)
           }
         }
-
       })
-      // console.log(artifactNear)
+
+      if(artifactNear){
+        const distanceBetween= haversine_distance(userLocation, artifactNear);
+        if(distanceBetween > 0.01){
+          setArtifactNear(null)
+        }
+      }
     },[userLocation])
 
     useEffect(() => {
@@ -550,23 +336,32 @@ const styles = StyleSheet.create({
           });
           const responseDataStatus = response.data.data[0].validation;
 
+
+
           const newArtifacts=[];
           for (const artifact of artifacts) {
-            try {
-              const response2 = await axios.patch('https://fly-eg-staging.fly.dev/api/artifacts/', {
-                name: artifact.name,
-                found: false
-              });
-        
-              const responseDataArtifact = response2.data.data[0];
-              newArtifacts.push(responseDataArtifact);
-            } catch (error) {
-              // Handle errors here
-              console.error(`Error updating artifact: ${artifact.name}`, error);
-            }
+            // if(artifact.slot === 1){
+              try {
+                const response2 = await axios.patch('https://fly-eg-staging.fly.dev/api/artifacts/', {
+                  name: artifact.name,
+                  found: false
+                });
+  
+                const responseDataArtifact = response2.data.data[0];
+                newArtifacts.push(responseDataArtifact);
+              } catch (error) {
+                // Handle errors here
+                console.error(`Error updating artifact: ${artifact.name}`, error);
+              }
+            // }
+            // else{
+            //   newArtifacts.push(artifact);
+
+            // }
+            
           }
           // console.log(newArtifacts)
-                    
+
           setArtifacts(newArtifacts);
           setStatus(responseDataStatus);
           setIsEndFindding(false)
@@ -590,7 +385,7 @@ const styles = StyleSheet.create({
       const lon2 = destination.longitude;
 
       radius = 6371; // earth radius in km
-    
+
       dlat = toRadians(lat2 - lat1);
       dlon = toRadians(lon2 - lon1);
       a =
@@ -602,11 +397,11 @@ const styles = StyleSheet.create({
           Math.sin(dlon / 2);
       c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
       d = radius * c;
-    
+
       return d; //ditancia en km
     }
-    
-  
+
+
 
     return(
       <View >
@@ -615,6 +410,10 @@ const styles = StyleSheet.create({
                 <MapView
                   provider={PROVIDER_GOOGLE} // remove if not using Google Maps
                   style={styles.map}
+                  options={{enableHighAccuracy: true,
+                    distanceFilter: 0,
+                    interval: 1000000,
+                    fastestInterval: 200000,}}
                   region={{
                     latitude: userLocation.latitude?userLocation.latitude:0,
                     longitude: userLocation.longitude?userLocation.longitude:0,
@@ -628,11 +427,11 @@ const styles = StyleSheet.create({
                 >
 
                   {/* Markers of artifats */}
-                 
-                  {artifacts.map((artifact) => 
-                      artifact.found==false ? ( 
+
+                  {artifacts.map((artifact) =>
+                      artifact.found==false ? (
                         <Marker
-                          key={artifact.slot} 
+                          key={artifact.slot}
                           coordinate={{
                             latitude: artifact.latitude,
                             longitude: artifact.longitude,
@@ -642,12 +441,12 @@ const styles = StyleSheet.create({
                         >
                           <Image
                             source={{ uri: artifact.img }}  //aqui va la img del atributo TODO
-                            style={{ width: 20, height: 20 }} 
+                            style={{ width: 20, height: 20 }}
                           />
                         </Marker>
-                      ) : null                     
+                      ) : null
                   )}
-                  
+
                 </MapView>
             </MapContainer>
           )}
@@ -658,7 +457,7 @@ const styles = StyleSheet.create({
               {/* if distancia entre artefacto y usuario es < 1m */}
               {artifactNear!==null && status==="searching" &&(
                 <Button onPress={updateArtifact}>
-                  <ButtonText >Recoger Artefacto</ButtonText>
+                  <ButtonText >Collect artifact</ButtonText>
                 </Button>
               )}
               {status==="pendding" &&(
@@ -666,7 +465,7 @@ const styles = StyleSheet.create({
               )}
             </RowContainer>
             <RowContainer >
-            
+
               {artifacts.map((artifact, index) => (
               <Column key={index}>
                 {artifact.found && (
@@ -681,21 +480,224 @@ const styles = StyleSheet.create({
 
                 {isEndFindding && status==="searching" &&(
                   <Button onPress={endFindding}>
-                    <ButtonText>Fin de búsqueda</ButtonText>
+                    <ButtonText>End findding</ButtonText>
                   </Button>
-                )} 
+                )}
                 <Button onPress={reinicio}>
-                  <ButtonText>Reinicio</ButtonText>
-                </Button>                     
-              
+                  <ButtonText>Reboot</ButtonText>
+                </Button>
+
             </RowContainer>
-            
+
           </ContainerInfo>
-            
-        
+
+
       </View>
    );
-   }
+  }
 
 
 export default Maps
+
+
+
+
+
+
+
+
+const customedMapStyle= [
+  {
+    "elementType": "geometry",
+    "stylers": [
+      {
+        "color": "#242f3e"
+      }
+    ]
+  },
+  {
+    "elementType": "labels.text.fill",
+    "stylers": [
+      {
+        "color": "#746855"
+      }
+    ]
+  },
+  {
+    "elementType": "labels.text.stroke",
+    "stylers": [
+      {
+        "color": "#242f3e"
+      }
+    ]
+  },
+  {
+    "featureType": "administrative",
+    "elementType": "geometry",
+    "stylers": [
+      {
+        "visibility": "off"
+      }
+    ]
+  },
+  {
+    "featureType": "administrative.locality",
+    "elementType": "labels.text.fill",
+    "stylers": [
+      {
+        "color": "#d59563"
+      }
+    ]
+  },
+  {
+    "featureType": "poi",
+    "stylers": [
+      {
+        "visibility": "off"
+      }
+    ]
+  },
+  {
+    "featureType": "poi",
+    "elementType": "labels.text.fill",
+    "stylers": [
+      {
+        "color": "#d59563"
+      }
+    ]
+  },
+  {
+    "featureType": "poi.park",
+    "elementType": "geometry",
+    "stylers": [
+      {
+        "color": "#263c3f"
+      }
+    ]
+  },
+  {
+    "featureType": "poi.park",
+    "elementType": "labels.text.fill",
+    "stylers": [
+      {
+        "color": "#6b9a76"
+      }
+    ]
+  },
+  {
+    "featureType": "road",
+    "elementType": "geometry",
+    "stylers": [
+      {
+        "color": "#38414e"
+      }
+    ]
+  },
+  {
+    "featureType": "road",
+    "elementType": "geometry.stroke",
+    "stylers": [
+      {
+        "color": "#212a37"
+      }
+    ]
+  },
+  {
+    "featureType": "road",
+    "elementType": "labels.icon",
+    "stylers": [
+      {
+        "visibility": "off"
+      }
+    ]
+  },
+  {
+    "featureType": "road",
+    "elementType": "labels.text.fill",
+    "stylers": [
+      {
+        "color": "#9ca5b3"
+      }
+    ]
+  },
+  {
+    "featureType": "road.highway",
+    "elementType": "geometry",
+    "stylers": [
+      {
+        "color": "#746855"
+      }
+    ]
+  },
+  {
+    "featureType": "road.highway",
+    "elementType": "geometry.stroke",
+    "stylers": [
+      {
+        "color": "#1f2835"
+      }
+    ]
+  },
+  {
+    "featureType": "road.highway",
+    "elementType": "labels.text.fill",
+    "stylers": [
+      {
+        "color": "#f3d19c"
+      }
+    ]
+  },
+  {
+    "featureType": "transit",
+    "stylers": [
+      {
+        "visibility": "off"
+      }
+    ]
+  },
+  {
+    "featureType": "transit",
+    "elementType": "geometry",
+    "stylers": [
+      {
+        "color": "#2f3948"
+      }
+    ]
+  },
+  {
+    "featureType": "transit.station",
+    "elementType": "labels.text.fill",
+    "stylers": [
+      {
+        "color": "#d59563"
+      }
+    ]
+  },
+  {
+    "featureType": "water",
+    "elementType": "geometry",
+    "stylers": [
+      {
+        "color": "#17263c"
+      }
+    ]
+  },
+  {
+    "featureType": "water",
+    "elementType": "labels.text.fill",
+    "stylers": [
+      {
+        "color": "#515c6d"
+      }
+    ]
+  },
+  {
+    "featureType": "water",
+    "elementType": "labels.text.stroke",
+    "stylers": [
+      {
+        "color": "#17263c"
+      }
+    ]
+  }
+]

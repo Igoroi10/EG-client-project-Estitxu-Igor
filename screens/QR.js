@@ -17,8 +17,6 @@ const QRCodeGeneratorScreen = () => {
   const generateQRCode = async () => {
     const data = await getData();
     const user = data
-    console.log("GENERATED QR DATA:")
-    console.log(user)
 
     RNQRGenerator.generate({
       value: user.email,
@@ -48,8 +46,8 @@ const QRCodeGeneratorScreen = () => {
     async function fetchData() {
       const data = await getData();
       const user = data
-      console.log('****************ROLE******************');
-      console.log(user.rol);
+      // console.log('****************ROLE******************');
+      // console.log(user.rol);
       setUserRole(user.rol);
     }
     fetchData();

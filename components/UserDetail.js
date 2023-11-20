@@ -94,8 +94,8 @@ const UserDetail = ({ isVisible, user, closeModal }) => {
       async function fetchData() {
         const data = await getData();
         const actualUser = data;
-        console.log('****************ROLE******************');
-        console.log(actualUser.rol);
+        // console.log('****************ROLE******************');
+        // console.log(actualUser.rol);
         setActualUserRole(actualUser.rol);
       }
 
@@ -106,8 +106,8 @@ const UserDetail = ({ isVisible, user, closeModal }) => {
   
   if(user !== null) {
     
-    console.log("****************SELECTED USER******************")
-    console.log(user)
+    // console.log("****************SELECTED USER******************")
+    // console.log(user)
     const hasTrueDisease = Object.values(user.diseases).some(disease => disease === true);
     
     return (
