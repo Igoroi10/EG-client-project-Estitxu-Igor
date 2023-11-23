@@ -141,57 +141,12 @@ const styles = StyleSheet.create({
 });
 
    const Maps = () =>{
-    const [userLocation, setLocation] = useState([]);
+    const [userLocation, setLocation] = useState(null);
     const [artifactNear, setArtifactNear] = useState(null);
     const [isEndFindding, setIsEndFindding] = useState(false);
     const [artifacts, setArtifacts] = useState([]);
     const [status, setStatus] = useState();
-
-    const artefacto = [
-      {
-        "name": "artifact1",
-        "slot": 1,
-        "description_es": "",
-        "description_en": "",
-        "img": "https://i.imgur.com/KAhutBQ.jpeg",
-        "found": true,
-        "latitude": 43.310625,
-        "longitude": -2.003209
-      },
-      {
-        "name": "artifact2",
-        "slot": 2,
-        "description_es": "",
-        "description_en": "",
-        "img": "https://i.imgur.com/KAhutBQ.jpeg",
-        "found": false,
-        "latitude": 43.310673,
-        "longitude": -2.002441
-      },
-      {
-        "name": "artifact3",
-        "slot": 3,
-        "description_es": "",
-        "description_en": "",
-        "img": "https://i.imgur.com/KAhutBQ.jpeg",
-        "found": false,
-        "latitude": 43.309534,
-        "longitude": -2.002030
-      },
-      {
-        "name": "artifact4",
-        "slot": 4,
-        "description_es": "",
-        "description_en": "",
-        "img": "https://i.imgur.com/KAhutBQ.jpeg",
-        "found": false,
-        "latitude": 43.309801,
-        "longitude": -2.003381
-      },
-    ];
-
-    
-
+    const [initLocation, setInitLocation] = useState({latitude: 10, longitude: 10})
 
 
     useEffect(()=>{
@@ -212,26 +167,6 @@ const styles = StyleSheet.create({
           
         }
       );
-      // GetLocation.getCurrentPosition({
-      //   enableHighAccuracy: true,
-      //   timeout: 60000,
-      // })
-      // .then(location => {
-      //   console.log(location);
-      //   let lat = location.latitude;
-      //   let lon = location.longitude;
-      //   console.log('******COORDS*********')
-      //   console.log(lat)
-      //   console.log(lon)
-      //   // console.log(location.latitude)
-      //   setLocation({"latitude":lat, "longitude":lon})
-      //   console.log('LOCATION ON STATE')
-      //   console.log(userLocation)
-      // })
-      // .catch(error => {
-      //   const { code, message } = error;
-      //   console.warn(code, message);
-      // })
       fetchArtifacts();
       fetchStatus();
 
@@ -239,11 +174,18 @@ const styles = StyleSheet.create({
 
 
     useEffect(()=> {
-      console.log('************* CAMBIO EN LOCATION STATE****************')
-      console.log(userLocation.latitude)
-      console.log(userLocation.longitude)
-
-
+      // console.log('************* CAMBIO EN LOCATION STATE****************')
+      // console.log(userLocation.latitude)
+      // console.log(userLocation.longitude)
+      if(initLocation.latitude === 10 && userLocation !== null) {
+        console.log('********************** COORDS INICIALES CON WATCH *****************')
+        console.log(userLocation)
+        const initLat = userLocation.latitude
+        const initLong = userLocation.longitude
+        console.log(userLocation.latitude)
+        console.log(userLocation.longitude)
+        setInitLocation({latitude: initLat, longitude: initLong})
+      }
       artifacts.forEach((artifact) => {
         if(artifact.found === false){
           const distanceBetween= haversine_distance(userLocation, artifact);
@@ -268,7 +210,7 @@ const styles = StyleSheet.create({
         if(artifact.found === true)
           kont++;
       })
-      if(kont===artefacto.length && kont!==0)
+      if(kont===artifacts.length && kont!==0)
         setIsEndFindding(true)
     }, [artifacts])
 
@@ -415,9 +357,9 @@ const styles = StyleSheet.create({
                     interval: 1000000,
                     fastestInterval: 200000,}}
                   region={{
-                    latitude: userLocation.latitude?userLocation.latitude:0,
-                    longitude: userLocation.longitude?userLocation.longitude:0,
-                    latitudeDelta: 0.0055,
+                    latitude: initLocation.latitude,
+                    longitude: initLocation.longitude,
+                    latitudeDelta: 0.0055, //Esto es pa'l zoom
                     longitudeDelta: 0.0055,
                   }}
                   showsUserLocation={true}  //marcador del userLocation
