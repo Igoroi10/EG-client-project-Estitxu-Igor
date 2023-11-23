@@ -248,7 +248,7 @@ const styles = StyleSheet.create({
         if(artifact.found === false){
           const distanceBetween= haversine_distance(userLocation, artifact);
 
-          if(distanceBetween <= 0.01){ //en km
+          if(distanceBetween <= 0.01 && distanceBetween >=-0.01){ //en km
             setArtifactNear(artifact)
           }
         }
@@ -256,7 +256,7 @@ const styles = StyleSheet.create({
 
       if(artifactNear){
         const distanceBetween= haversine_distance(userLocation, artifactNear);
-        if(distanceBetween > 0.01){
+        if(distanceBetween > 0.01 || distanceBetween <-0.01){
           setArtifactNear(null)
         }
       }
