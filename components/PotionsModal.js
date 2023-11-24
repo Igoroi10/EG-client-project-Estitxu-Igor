@@ -72,7 +72,10 @@ const PotionsModal = ({ towerStatus, setTowerStatus, potionStatus, setPotionCrea
               onPress={() => handleIngredientPress(item)}
               selected={selectedIngredients.includes(item)}
             >
+              {item.image && (
               <Image source={{ uri: item.image }} style={styles.image} />
+
+              )}
               <IngredientName>{item.name}</IngredientName>
             </IngredientItem>
           )}

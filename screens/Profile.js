@@ -155,7 +155,7 @@ const Profile = ({user}) => {
       });
     };
 
-    let linkForBackground;
+    let linkForBackground = require('../assets/white.jpeg');
     if(user.rol){
       switch(user.rol){
         case "Villano":

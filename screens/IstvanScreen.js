@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import styled from 'styled-components/native';
 import axios from 'axios';
-import { TouchableOpacity, View, Text } from 'react-native';
+import { TouchableOpacity, View, Text, Image } from 'react-native';
 import Modal from 'react-native-modal';
 import { useNavigation } from '@react-navigation/native';
 import UserDetail from '../components/UserDetail'; 
