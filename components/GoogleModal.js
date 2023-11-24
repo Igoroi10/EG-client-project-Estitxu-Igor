@@ -44,8 +44,8 @@ const GoogleModal = ({logStatus, setMethod, setUser}) =>{
     })
 
     const storageUser = decodedUser.data.data
-    console.log("////////////////////////////////")
-    console.log(decodedUser.data.data[0])
+    // console.log("////////////////////////////////")
+    // console.log(decodedUser.data.data[0])
     await storeData(decodedUser.data.data[0])
     setUserLoad(true)
     setMethod(decodedUser.data.data[0].rol)

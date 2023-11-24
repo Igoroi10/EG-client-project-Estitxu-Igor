@@ -1,4 +1,4 @@
-import React from 'react'
+import React,{useContext} from 'react'
 import styled from 'styled-components/native'
 import { storeData, getData } from '../helpers/localStorage';
 import { useNavigation } from '@react-navigation/native';
@@ -7,7 +7,7 @@ import { ImageBackground } from 'react-native';
 
 import Toast from 'react-native-toast-message';
 
-
+import { Context } from '../AppContext';
 
 const View = styled.View`
     flex: 1;
@@ -144,6 +144,8 @@ const BackgroundImage = styled.ImageBackground`
 
 
 const Profile = ({user}) => {
+  const{globalState, handleGlobalState} = useContext(Context)
+
   const navigation = useNavigation();
   const reestoreData = async () => {
       await storeData(null)
@@ -189,57 +191,58 @@ const Profile = ({user}) => {
     return (
         <>
           <BackgroundImage source={linkForBackground}>
-              {user.characterMainData &&(
-              <View>
-                  <Container>
-                      <UserCard>
-                          <ProfilePicture source={{ uri: user.imgURL }} />
-                      </UserCard>
-                      <UserCardFooter>
-                          <Text>{user?.name}</Text>
-                      </UserCardFooter>
-                  </Container>
+             
+            {globalState.user.characterMainData.LvL &&(
+            <View>
+                <Container>
+                    <UserCard>
+                        <ProfilePicture source={{ uri: globalState.user.imgURL }} />
+                    </UserCard>
+                    <UserCardFooter>
+                        <Text>{user?.name}</Text>
+                    </UserCardFooter>
+                </Container>
 
                   <Divider />
 
-                  <Container2>
-                      <NameColumn>
-                      <Text2>HP</Text2>
-                      <Text2>{user.characterMainData.HP}</Text2>
-                      </NameColumn>
-                      <NameColumn>
-                      <Text2>LvL</Text2>
-                      <Text2>{user.characterMainData.LvL}</Text2>
-                      </NameColumn>
-                      <NameColumn>
-                      <Text2>Money</Text2>
-                      <Text2>{user.characterMainData.Money}</Text2>
-                      </NameColumn>
-                  </Container2>
-
-                  <Divider />
-
-                      <Container3>
-                      <FirstColumn>
-                          <Text3>Resistance  {user.characterStats.resistance}</Text3>
-                      </FirstColumn>
-                      </Container3>
-                      <Container3>
-                      <Column>
-                          <Text3>Strength  {user.characterStats.strength}</Text3>
-                      </Column>
-                      <Column>
-                          <Text3>Stamina  {user.characterStats.stamina}</Text3>
-                      </Column>
-                      </Container3>
-                      <Container3>
-                      <Column>
-                          <Text3>Agility  {user.characterStats.agility}</Text3>
-                      </Column>
-                      <Column>
-                          <Text3>Intelligence  {user.characterStats.intelligence}</Text3>
-                      </Column>
-                  </Container3>
+                 
+                <Container2>
+                    <NameColumn>
+                    <Text2>HP</Text2>
+                    <Text2>{globalState.user.characterMainData.HP}</Text2>
+                    </NameColumn>
+                    <NameColumn>
+                    <Text2>LvL</Text2>
+                    <Text2>{globalState.user.characterMainData.LvL}</Text2>
+                    </NameColumn>
+                    <NameColumn>
+                    <Text2>Money</Text2>
+                    <Text2>{globalState.user.characterMainData.Money}</Text2>
+                    </NameColumn>
+                </Container2>
+                
+                <Divider />
+                    <Container3>
+                    <FirstColumn> 
+                        <Text3>Resistance  {globalState.user.characterStats.resistance}</Text3>
+                    </FirstColumn>
+                    </Container3>
+                    <Container3>
+                    <Column>
+                        <Text3>Strength  {globalState.user.characterStats.strength}</Text3>
+                    </Column>
+                    <Column>
+                        <Text3>Stamina  {globalState.user.characterStats.stamina}</Text3>
+                    </Column>
+                    </Container3>
+                    <Container3>
+                    <Column>
+                        <Text3>Agility  {globalState.user.characterStats.agility}</Text3>
+                    </Column>
+                    <Column>
+                        <Text3>Intelligence  {globalState.user.characterStats.intelligence}</Text3>
+                    </Column>
+                </Container3>
 
                   <Container>
                   <Button    label="Delete storage"  onPress={() => reestoreData()}>
