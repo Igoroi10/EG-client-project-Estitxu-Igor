@@ -17,6 +17,8 @@ import {asignRol} from './helpers/asingRol';
 import Toast from 'react-native-toast-message'
 import axios from 'axios';
 
+
+
 const Tab = createMaterialTopTabNavigator();
 
 GoogleSignin.configure({
@@ -50,13 +52,10 @@ const App = () => {
         setLogged(true);
         setUserRole(userData.rol);
         setUser(userData);
-        console.log('*********** USER DATA ****************')
-        console.log(userData)
         handleGlobalState({user: userData});
 
       } else {
         setLogged(false);
-        
       }
       
       const response = await axios.get('https://fly-eg-staging.fly.dev/api/artifacts/');
@@ -80,14 +79,9 @@ const App = () => {
     screenCharge();
   },[userRole, user])
 
-  useEffect(()=> {
-    // console.log('**************** GLOBAL STATE HAS CHANGED *****************')
-    // console.log(globalState)
-    // console.log('***********************************************************')
-  },[globalState])
-
-  asignRol(userRole, tabScreens, user)
-
+  socket.onAny(() => {
+    // not triggered when the acknowledgement is received
+  });
 
   return (
     <Context.Provider value={{globalState, handleGlobalState}}>
@@ -96,7 +90,6 @@ const App = () => {
         <StandardModal />
         <Tab.Navigator>
           {tabScreens}
-
         </Tab.Navigator>
         <Toast/>
       </NavigationContainer>
