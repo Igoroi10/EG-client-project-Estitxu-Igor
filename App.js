@@ -13,6 +13,8 @@ import StandardModal from './components/Modal.js';
 import globalStateModel from './helpers/globalStateModel';
 
 import {asignRol} from './helpers/asingRol';
+import socket from './helpers/socket'
+import SocketListener from './components/SocketListener';
 
 import Toast from 'react-native-toast-message'
 import axios from 'axios';
@@ -79,8 +81,11 @@ const App = () => {
     screenCharge();
   },[userRole, user])
 
-  socket.onAny(() => {
-    // not triggered when the acknowledgement is received
+  asignRol(userRole, tabScreens, user)
+
+  socket.onAny((data, ...args) => {
+    console.log('************ SOCKET INCOMING **************')
+    console.log(data)
   });
 
   return (
