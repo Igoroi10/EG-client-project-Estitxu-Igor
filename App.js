@@ -64,7 +64,11 @@ const App = () => {
       const responseData = response.data.data;
       handleGlobalState(responseData);
 
-    
+      socket.onAny((data, ...args) => {
+        console.log('************ SOCKET INCOMING **************')
+        console.log(data)
+      }); 
+      
     };
 
     init().finally(async () => {
@@ -83,10 +87,7 @@ const App = () => {
 
   asignRol(userRole, tabScreens, user)
 
-  socket.onAny((data, ...args) => {
-    console.log('************ SOCKET INCOMING **************')
-    console.log(data)
-  });
+
 
   return (
     <Context.Provider value={{globalState, handleGlobalState}}>
