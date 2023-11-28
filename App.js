@@ -13,7 +13,7 @@ import StandardModal from './components/Modal.js';
 import globalStateModel from './helpers/globalStateModel';
 
 import {asignRol} from './helpers/asingRol';
-import socket from './helpers/socket'
+import socket from './helpers/socket.js'
 import SocketListener from './components/SocketListener';
 
 import Toast from 'react-native-toast-message'
