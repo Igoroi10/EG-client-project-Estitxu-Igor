@@ -187,13 +187,16 @@ const styles = StyleSheet.create({
         setInitLocation({latitude: initLat, longitude: initLong})
       }
       artifacts.forEach((artifact) => {
-        if(artifact.found === false){
-          const distanceBetween= haversine_distance(userLocation, artifact);
-
-          if(distanceBetween <= 0.1 && distanceBetween >=-0.1){ //en km
-            setArtifactNear(artifact)
+        if(artifact){
+          if(artifact.found === false){
+            const distanceBetween= haversine_distance(userLocation, artifact);
+  
+            if(distanceBetween <= 0.1 && distanceBetween >=-0.1){ //en km
+              setArtifactNear(artifact)
+            }
           }
         }
+
       })
 
       if(artifactNear){
@@ -207,8 +210,11 @@ const styles = StyleSheet.create({
     useEffect(() => {
       let kont=0;
       artifacts.forEach((artifact) => {
-        if(artifact.found === true)
+        if(artifact){
+          if(artifact.found === true)
           kont++;
+        }
+        
       })
       if(kont===artifacts.length && kont!==0)
         setIsEndFindding(true)
@@ -283,7 +289,8 @@ const styles = StyleSheet.create({
               try {
                 const response2 = await axios.patch('https://fly-eg-staging.fly.dev/api/artifacts/', {
                   name: artifact.name,
-                  found: false
+                  found: false,
+                  email: "null"
                 });
   
                 const responseDataArtifact = response2.data.data[0];
@@ -304,6 +311,11 @@ const styles = StyleSheet.create({
           setArtifacts(newArtifacts);
           setStatus(responseDataStatus);
           setIsEndFindding(false)
+
+          console.log("+++++++++++++++++++++++++++++++++++++++++++++++")
+          artifacts.map((artifact) => {
+            console.log(artifact)
+          })
 
       } catch (error) {
           console.error('Error al obtener el search:', error);
@@ -368,7 +380,9 @@ const styles = StyleSheet.create({
                   {/* Markers of artifats */}
 
                   {artifacts.map((artifact) =>
-                      artifact.found==false ? (
+                      artifact? (
+                        artifact.found==false ? (
+
                         <Marker
                           key={artifact.slot}
                           coordinate={{
@@ -383,6 +397,7 @@ const styles = StyleSheet.create({
                             style={{ width: 40, height: 40 }}
                           />
                         </Marker>
+                        ):null
                       ) : null
                   )}
 
@@ -407,9 +422,10 @@ const styles = StyleSheet.create({
 
               {artifacts.map((artifact, index) => (
               <Column key={index}>
-                {artifact.found && (
+                {artifact &&(
+                 artifact.found && (
                   <Image source={{ uri: artifact.img }} style={imageStyle} /> //aqui va la img del atributo TODO
-                )}
+                ))}
               </Column>
               ))}
             </RowContainer>
