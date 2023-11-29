@@ -9,17 +9,9 @@ function SocketListener(props) {
 
 		useEffect(() => { 
 			setEvent(currentSocketEvent);  
-			console.log("********************* currentSocketEvent ********************")
-			console.log(currentSocketEvent)
 		}, [currentSocketEvent]);
 		
-		useEffect(() => { 
-			console.log('************** PROPS ***********************')
-			console.log(props);
-			console.log('************ CURRENT SOCKET EVENT ****************')
-			console.log(currentSocketEvent)
-			console.log('*********** CURRENT EVENT AT LISTENER *************')
-			console.log(currentEvent)
+		useEffect(() => {
 			const handler = handlers[currentEvent.event];
 			handler(currentEvent.value);          
 		}, [currentEvent]);
