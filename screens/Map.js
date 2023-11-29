@@ -8,7 +8,7 @@ import Geolocation from '@react-native-community/geolocation';
 
 import axios from 'axios';
 
-import socket from '../helpers/socket'
+import socket from '../helpers/socket';
 // import SocketListener from './components/SocketListener';
 
 
@@ -104,8 +104,6 @@ const styles = StyleSheet.create({
     const [userLocation, setLocation] = useState(null);
     const [artifactNear, setArtifactNear] = useState(null);
     const [isEndFindding, setIsEndFindding] = useState(false);
-    const [artifacts, setArtifacts] = useState([]);
-    const [status, setStatus] = useState();
     const [initLocation, setInitLocation] = useState({latitude: 10, longitude: 10});
     const [socketEvent, setSocketEvent] = useState(null);
 
@@ -128,8 +126,8 @@ const styles = StyleSheet.create({
           fastestInterval: 2000,
         }
       );
-      fetchArtifacts();
-      fetchStatus();
+      // fetchArtifacts();
+      // fetchStatus();
     },[])
 
     useEffect(()=> {
@@ -143,12 +141,12 @@ const styles = StyleSheet.create({
       // console.log(userLocation.longitude)
 
 
-      artifacts.forEach((artifact) => {
+      globalState.artifacts.forEach((artifact) => {
         if(artifact){
           if(artifact.found === false){
             const distanceBetween= haversine_distance(userLocation, artifact);
-  
-            if(distanceBetween <= 20 && distanceBetween >=-20){ //en km (0.1)
+
+            if(distanceBetween <= 0.1 && distanceBetween >=-0.1){ //en km (0.1)
               setArtifactNear(artifact)
             }
           }
@@ -166,75 +164,57 @@ const styles = StyleSheet.create({
 
     useEffect(() => {
       let kont=0;
-      artifacts.forEach((artifact) => {
+      globalState.artifacts.forEach((artifact) => {
         if(artifact){
           if(artifact.found === true)
           kont++;
         }
-        
+
       })
-      if(kont===artifacts.length && kont!==0)
+      if(kont===globalState.artifacts.length && kont!==0)
         setIsEndFindding(true)
-    }, [artifacts])
+    }, [globalState.artifacts])
 
 
-    async function fetchArtifacts() {
-      try {
-          const response = await axios.get('https://fly-eg-staging.fly.dev/api/artifacts/');
-          const responseData = response.data.data;
-          setArtifacts(responseData);
-      } catch (error) {
-          console.error('Error al obtener los artefactos:', error);
-      }
-    }
+    // async function fetchArtifacts() {
+    //   try {
+    //       const response = await axios.get('https://fly-eg-staging.fly.dev/api/artifacts/');
+    //       const responseData = response.data.data;
+    //       setArtifacts(responseData);
+    //   } catch (error) {
+    //       console.error('Error al obtener los artefactos:', error);
+    //   }
+    // }
 
-    async function fetchStatus() {
-      try {
-          const response = await axios.get('https://fly-eg-staging.fly.dev/api/search/');
-          const responseData = response.data.data[0].validation;
-          setStatus(responseData);
-      } catch (error) {
-          console.error('Error al obtener el search:', error);
-      }
-    }
+    // async function fetchStatus() {
+    //   try {
+    //       const response = await axios.get('https://fly-eg-staging.fly.dev/api/search/');
+    //       const responseData = response.data.data[0].validation;
+    //       setStatus(responseData);
+    //   } catch (error) {
+    //       console.error('Error al obtener el search:', error);
+    //   }
+    // }
 
 
     async function updateArtifact() {
       try {
-        // socket.emit('artifacts', true);
-          const artifactsData = artifacts.concat({"artifactName": artifactNear.name, "isFound": true, "foundByEmail": globalState.user.email})
+          const artifactsData = globalState.artifacts.concat({"artifactName": artifactNear.name, "isFound": true, "foundByEmail": globalState.user.email})
           console.log(artifactsData)
 
-        const kont = socket.emit('artifacts', artifactsData);
-        console.log(kont)
+          socket.emit('artifacts', artifactsData);
 
-          // const response = await axios.patch('https://fly-eg-staging.fly.dev/api/artifacts/', {
-          //   name: artifactNear.name,
-          //   found: true,
-          //   email: "esther.fernandez@ikasle.aeg.eus"
-          // });
-          const responseData = response.data.data;
-          const newArtifacts = artifacts.map((artifact) => {
-              if(artifact.name == responseData.name){
-                artifact = responseData;
-            
-              }
-              return artifact;
-          })
-          setArtifacts(newArtifacts);
           setArtifactNear(null) //esto está comentado para que el boton de reinicio funcione mientras no este puesta la lógica de cercanía al artefacto
       } catch (error) {
-          console.error('Error al obtener el search:', error);
+          console.error('Error al updetear los artifacts:', error);
       }
     }
 
     async function endFindding() {
       try {
-          const response = await axios.patch('https://fly-eg-staging.fly.dev/api/search/', {
+        socket.emit('search', {
             validation: "pendding"
           });
-          const responseData = response.data.data[0].validation;
-          setStatus(responseData);
           setIsEndFindding(false)
       } catch (error) {
           console.error('Error al obtener el search:', error);
@@ -242,38 +222,21 @@ const styles = StyleSheet.create({
     }
 
     async function reinicio() {
-      try {
-
-          const response = await axios.patch('https://fly-eg-staging.fly.dev/api/search/', {
+        socket.emit('search', {
             validation: "searching"
           });
-          const responseDataStatus = response.data.data[0].validation;
-          const newArtifacts=[];
-          for (const artifact of artifacts) {
-              try {
-                const response2 = await axios.patch('https://fly-eg-staging.fly.dev/api/artifacts/', {
-                  name: artifact.name,
-                  found: false,
-                  email: "null"
-                });
-  
-                const responseDataArtifact = response2.data.data;
-                newArtifacts.push(responseDataArtifact);
-              } catch (error) {
-                // Handle errors here
-                console.error(`Error updating artifact: ${artifact.name}`, error);
-              }
-            
-          }
-          setArtifacts(newArtifacts);
-          setStatus(responseDataStatus);
+
+        globalState.artifacts.forEach((artifact) => {
+          const artifactsData = globalState.artifacts.concat({"artifactName": artifact.name, "isFound": false, "foundByEmail": null})
+          console.log(artifactsData)
+
+          socket.emit('artifacts', artifactsData);
+
+        })
+
+
           setIsEndFindding(false)
 
-         
-
-      } catch (error) {
-          console.error('Error al obtener el search:', error);
-      }
       // console.log(artifactNear)
     }
 
@@ -308,9 +271,10 @@ const styles = StyleSheet.create({
 
 
 
+
     return(
       <View >
-         {status==="searching" &&(
+         {globalState.search==="searching" &&(
             <MapContainer>
                 <MapView
                   provider={PROVIDER_GOOGLE} // remove if not using Google Maps
@@ -333,7 +297,7 @@ const styles = StyleSheet.create({
 
                   {/* Markers of artifats */}
 
-                  {artifacts.map((artifact) =>
+                  {globalState.artifacts.map((artifact) =>
                       artifact? (
                         artifact.found==false ? (
 
@@ -362,18 +326,18 @@ const styles = StyleSheet.create({
           <ContainerInfo>
             <RowContainer>
               {/* if distancia entre artefacto y usuario es < 1m */}
-              {artifactNear!==null && status==="searching" &&(
+              {artifactNear!==null && globalState.search==="searching" &&(
                 <Button onPress={updateArtifact}>
                   <ButtonText >Collect artifact</ButtonText>
                 </Button>
               )}
-              {status==="pendding" &&(
+              {globalState.search==="pendding" &&(
                 <PendingText>Pending...</PendingText>
               )}
             </RowContainer>
             <RowContainer >
 
-              {artifacts.map((artifact, index) => (
+              {globalState.artifacts.map((artifact, index) => (
               <Column key={index}>
                 {artifact &&(
                  artifact.found && (
@@ -386,7 +350,7 @@ const styles = StyleSheet.create({
             <RowContainer>
                 {/* cuando los 4 artefactos sean true */}
 
-                {isEndFindding && status==="searching" &&(
+                {isEndFindding && globalState.search==="searching" &&(
                   <Button onPress={endFindding}>
                     <ButtonText>End findding</ButtonText>
                   </Button>
