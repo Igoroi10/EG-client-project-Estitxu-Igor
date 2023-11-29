@@ -1,6 +1,7 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState, useContext} from 'react'
 import styled from 'styled-components/native'
 import { Text, StyleSheet, View, Image } from 'react-native';
+import { Context } from '../AppContext';
 
 import MapView, { PROVIDER_GOOGLE, Marker} from 'react-native-maps';
 import Geolocation from '@react-native-community/geolocation';
@@ -95,6 +96,7 @@ const styles = StyleSheet.create({
 });
 
    const Maps = () =>{
+    const{globalState, handleGlobalState} = useContext(Context)
     const [userLocation, setLocation] = useState(null);
     const [artifactNear, setArtifactNear] = useState(null);
     const [isEndFindding, setIsEndFindding] = useState(false);
@@ -123,7 +125,6 @@ const styles = StyleSheet.create({
       fetchArtifacts();
       fetchStatus();
     },[])
-
 
     useEffect(()=> {
       if(initLocation.latitude === 10 && userLocation !== null) {
@@ -191,13 +192,14 @@ const styles = StyleSheet.create({
       try {
           const response = await axios.patch('https://fly-eg-staging.fly.dev/api/artifacts/', {
             name: artifactNear.name,
-            found: "true"
+            found: true,
+            email: "esther.fernandez@ikasle.aeg.eus"
           });
-          const responseData = response.data.data[0];
-
+          const responseData = response.data.data;
           const newArtifacts = artifacts.map((artifact) => {
               if(artifact.name == responseData.name){
                 artifact = responseData;
+            
               }
               return artifact;
           })
@@ -237,7 +239,7 @@ const styles = StyleSheet.create({
                   email: "null"
                 });
   
-                const responseDataArtifact = response2.data.data[0];
+                const responseDataArtifact = response2.data.data;
                 newArtifacts.push(responseDataArtifact);
               } catch (error) {
                 // Handle errors here
@@ -249,10 +251,7 @@ const styles = StyleSheet.create({
           setStatus(responseDataStatus);
           setIsEndFindding(false)
 
-          console.log("+++++++++++++++++++++++++++++++++++++++++++++++")
-          artifacts.map((artifact) => {
-            console.log(artifact)
-          })
+         
 
       } catch (error) {
           console.error('Error al obtener el search:', error);
