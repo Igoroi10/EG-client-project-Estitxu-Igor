@@ -8,6 +8,10 @@ import Geolocation from '@react-native-community/geolocation';
 
 import axios from 'axios';
 
+import socket from '../helpers/socket'
+// import SocketListener from './components/SocketListener';
+
+
 
 const MapContainer = styled.View`
   width: 100%;
@@ -102,7 +106,9 @@ const styles = StyleSheet.create({
     const [isEndFindding, setIsEndFindding] = useState(false);
     const [artifacts, setArtifacts] = useState([]);
     const [status, setStatus] = useState();
-    const [initLocation, setInitLocation] = useState({latitude: 10, longitude: 10})
+    const [initLocation, setInitLocation] = useState({latitude: 10, longitude: 10});
+    const [socketEvent, setSocketEvent] = useState(null);
+
 
 
     useEffect(()=>{
@@ -132,6 +138,11 @@ const styles = StyleSheet.create({
         const initLong = userLocation.longitude
         setInitLocation({latitude: initLat, longitude: initLong})
       }
+      // console.log("position (lat & long):")
+      // console.log(userLocation.latitude)
+      // console.log(userLocation.longitude)
+
+
       artifacts.forEach((artifact) => {
         if(artifact){
           if(artifact.found === false){
@@ -190,11 +201,18 @@ const styles = StyleSheet.create({
 
     async function updateArtifact() {
       try {
-          const response = await axios.patch('https://fly-eg-staging.fly.dev/api/artifacts/', {
-            name: artifactNear.name,
-            found: true,
-            email: "esther.fernandez@ikasle.aeg.eus"
-          });
+        // socket.emit('artifacts', true);
+          const artifactsData = artifacts.concat({"artifactName": artifactNear.name, "isFound": true, "foundByEmail": globalState.user.email})
+          console.log(artifactsData)
+
+        const kont = socket.emit('artifacts', artifactsData);
+        console.log(kont)
+
+          // const response = await axios.patch('https://fly-eg-staging.fly.dev/api/artifacts/', {
+          //   name: artifactNear.name,
+          //   found: true,
+          //   email: "esther.fernandez@ikasle.aeg.eus"
+          // });
           const responseData = response.data.data;
           const newArtifacts = artifacts.map((artifact) => {
               if(artifact.name == responseData.name){
