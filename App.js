@@ -29,6 +29,7 @@ GoogleSignin.configure({
 
 const App = () => {
   const [globalState, setGlobalState] = useState(globalStateModel);
+  const [socketEvent, setSocketEvent] = useState(null)
 
   const handleGlobalState = (data) => {
     setGlobalState(globalState =>({
@@ -64,9 +65,13 @@ const App = () => {
       const responseData = response.data.data;
       handleGlobalState(responseData);
 
-      socket.onAny((data, ...args) => {
+      socket.onAny((eventName, ...data) => {
         console.log('************ SOCKET INCOMING **************')
-        console.log(data)
+        console.log('************ EVENT **************')
+        console.log(eventName)
+        console.log('************ DATA *************')
+        console.log(data[0])
+        setSocketEvent({event: eventName, value: data[0]})
       }); 
       
     };
@@ -85,12 +90,18 @@ const App = () => {
     screenCharge();
   },[userRole, user])
 
+  useEffect(()=>{
+    console.log('******* GLOBAL STATE CHANGE **********')
+    console.log(globalState)
+  })
+
   asignRol(userRole, tabScreens, user)
 
 
 
   return (
     <Context.Provider value={{globalState, handleGlobalState}}>
+      {socketEvent !== null && (<SocketListener props={socketEvent}/>)}
       <NavigationContainer>
         <GoogleModal logStatus={logState} setMethod={setUserRole} setUser={setUser}/>
         <StandardModal />
