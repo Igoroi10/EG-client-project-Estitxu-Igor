@@ -158,8 +158,8 @@ const Profile = ({user}) => {
     };
 
     let linkForBackground = require('../assets/white.jpeg');
-    if(user.rol){
-      switch(user.rol){
+    if(globalState.user.rol){
+      switch(globalState.user.rol){
         case "Villano":
           linkForBackground=require('../assets/villano.png');
           break;
@@ -192,14 +192,16 @@ const Profile = ({user}) => {
         <>
           <BackgroundImage source={linkForBackground}>
              
-            {globalState.user.characterMainData.LvL &&(
+            {globalState.user.characterMainData &&(
             <View>
                 <Container>
                     <UserCard>
+                      {globalState.user.imgURL && (
                         <ProfilePicture source={{ uri: globalState.user.imgURL }} />
+                      )}
                     </UserCard>
                     <UserCardFooter>
-                        <Text>{user?.name}</Text>
+                        <Text>{globalState.user?.name}</Text>
                     </UserCardFooter>
                 </Container>
 
