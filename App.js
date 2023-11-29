@@ -13,9 +13,13 @@ import StandardModal from './components/Modal.js';
 import globalStateModel from './helpers/globalStateModel';
 
 import {asignRol} from './helpers/asingRol';
+import socket from './helpers/socket.js'
+import SocketListener from './components/SocketListener';
 
 import Toast from 'react-native-toast-message'
 import axios from 'axios';
+
+
 
 const Tab = createMaterialTopTabNavigator();
 
@@ -25,6 +29,7 @@ GoogleSignin.configure({
 
 const App = () => {
   const [globalState, setGlobalState] = useState(globalStateModel);
+  const [socketEvent, setSocketEvent] = useState(null)
 
   const handleGlobalState = (data) => {
     setGlobalState(globalState =>({
@@ -50,20 +55,25 @@ const App = () => {
         setLogged(true);
         setUserRole(userData.rol);
         setUser(userData);
-        console.log('*********** USER DATA ****************')
-        console.log(userData)
         handleGlobalState({user: userData});
 
       } else {
         setLogged(false);
-        
       }
       
       const response = await axios.get('https://fly-eg-staging.fly.dev/api/artifacts/');
       const responseData = response.data.data;
       handleGlobalState(responseData);
 
-    
+      socket.onAny((eventName, ...data) => {
+        console.log('************ SOCKET INCOMING **************')
+        console.log('************ EVENT **************')
+        console.log(eventName)
+        console.log('************ DATA *************')
+        console.log(data[0])
+        setSocketEvent({event: eventName, value: data[0]})
+      }); 
+      
     };
 
     init().finally(async () => {
@@ -80,23 +90,23 @@ const App = () => {
     screenCharge();
   },[userRole, user])
 
-  useEffect(()=> {
-    // console.log('**************** GLOBAL STATE HAS CHANGED *****************')
-    // console.log(globalState)
-    // console.log('***********************************************************')
-  },[globalState])
+  useEffect(()=>{
+    console.log('******* GLOBAL STATE CHANGE **********')
+    console.log(globalState)
+  })
 
   asignRol(userRole, tabScreens, user)
 
 
+
   return (
     <Context.Provider value={{globalState, handleGlobalState}}>
+      {socketEvent !== null && (<SocketListener props={socketEvent}/>)}
       <NavigationContainer>
         <GoogleModal logStatus={logState} setMethod={setUserRole} setUser={setUser}/>
         <StandardModal />
         <Tab.Navigator>
           {tabScreens}
-
         </Tab.Navigator>
         <Toast/>
       </NavigationContainer>

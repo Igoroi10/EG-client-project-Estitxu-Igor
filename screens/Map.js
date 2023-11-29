@@ -1,14 +1,10 @@
 import React, { useEffect, useState } from 'react'
 import styled from 'styled-components/native'
-import { storeData, getData } from '../helpers/localStorage';
-import { useNavigation } from '@react-navigation/native';
 import { Text, StyleSheet, View, Image } from 'react-native';
 
 import MapView, { PROVIDER_GOOGLE, Marker} from 'react-native-maps';
-
 import Geolocation from '@react-native-community/geolocation';
 
-import GetLocation from 'react-native-get-location';
 import axios from 'axios';
 
 
@@ -85,48 +81,6 @@ const imageStyle = {
       marginLeft: -3
 };
 
-
-
-
-// import { StyleSheet } from 'style-sheet';
-
-// const MapContainer = styled.View`
-//     height: 80%;
-//     justifyContent: center;
-//     alignItems: center;
-// `
-
-// const MapRender = styled.View`
-//     justifyContent: center;
-//     height:300px;
-//     width: 300px;
-//     background-color: red;
-// `
-
-// const Maps = () =>{
-//     useEffect(() =>{
-//         console.log("Carga inicial mapa")
-//     },[])
-//     return(
-//         <MapContainer>
-//             <MapRender>
-//                 <MapView
-//                 provider={PROVIDER_GOOGLE} // remove if not using Google Maps
-//                 region={{
-//                     latitude: 37.78825,
-//                     longitude: -122.4324,
-//                     latitudeDelta: 0.015,
-//                     longitudeDelta: 0.0121,
-//                 }}
-//                 ></MapView>
-//             </MapRender>
-//             <Text>Test phrase</Text>
-//       </MapContainer>
-//     )
-// }
-
-
-
 const styles = StyleSheet.create({
     container4Map: {
       ...StyleSheet.absoluteFillObject,
@@ -164,26 +118,17 @@ const styles = StyleSheet.create({
           distanceFilter: 0,
           interval: 10000,
           fastestInterval: 2000,
-          
         }
       );
       fetchArtifacts();
       fetchStatus();
-
     },[])
 
 
     useEffect(()=> {
-      // console.log('************* CAMBIO EN LOCATION STATE****************')
-      // console.log(userLocation.latitude)
-      // console.log(userLocation.longitude)
       if(initLocation.latitude === 10 && userLocation !== null) {
-        console.log('********************** COORDS INICIALES CON WATCH *****************')
-        console.log(userLocation)
         const initLat = userLocation.latitude
         const initLong = userLocation.longitude
-        console.log(userLocation.latitude)
-        console.log(userLocation.longitude)
         setInitLocation({latitude: initLat, longitude: initLong})
       }
       artifacts.forEach((artifact) => {
@@ -285,7 +230,6 @@ const styles = StyleSheet.create({
           const responseDataStatus = response.data.data[0].validation;
           const newArtifacts=[];
           for (const artifact of artifacts) {
-            // if(artifact.slot === 1){
               try {
                 const response2 = await axios.patch('https://fly-eg-staging.fly.dev/api/artifacts/', {
                   name: artifact.name,
@@ -299,15 +243,8 @@ const styles = StyleSheet.create({
                 // Handle errors here
                 console.error(`Error updating artifact: ${artifact.name}`, error);
               }
-            // }
-            // else{
-            //   newArtifacts.push(artifact);
-
-            // }
             
           }
-          // console.log(newArtifacts)
-
           setArtifacts(newArtifacts);
           setStatus(responseDataStatus);
           setIsEndFindding(false)
@@ -406,7 +343,6 @@ const styles = StyleSheet.create({
           )}
 
           <ContainerInfo>
-
             <RowContainer>
               {/* if distancia entre artefacto y usuario es < 1m */}
               {artifactNear!==null && status==="searching" &&(
@@ -441,12 +377,8 @@ const styles = StyleSheet.create({
                 <Button onPress={reinicio}>
                   <ButtonText>Reboot</ButtonText>
                 </Button>
-
             </RowContainer>
-
           </ContainerInfo>
-
-
       </View>
    );
   }
