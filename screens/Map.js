@@ -1,6 +1,6 @@
 import React, { useEffect, useState, useContext} from 'react'
 import styled from 'styled-components/native'
-import { Text, StyleSheet, View, Image } from 'react-native';
+import { Text, StyleSheet, View, Image, ImageBackground } from 'react-native';
 import { Context } from '../AppContext';
 
 import MapView, { PROVIDER_GOOGLE, Marker} from 'react-native-maps';
@@ -105,7 +105,6 @@ const styles = StyleSheet.create({
     const [artifactNear, setArtifactNear] = useState(null);
     const [isEndFinding, setIsEndFinding] = useState(false);
     const [initLocation, setInitLocation] = useState({latitude: 10, longitude: 10});
-    const [socketEvent, setSocketEvent] = useState(null);
 
 
 
@@ -213,9 +212,9 @@ const styles = StyleSheet.create({
 
     async function endFinding() {
       try {
-        socket.emit('search', {
-            validation: "pending"
-          });
+        socket.emit('search', 
+            "pending"
+          );
           setIsEndFinding(false)
       } catch (error) {
           console.error('Error al obtener el search:', error);
@@ -272,96 +271,130 @@ const styles = StyleSheet.create({
 
 
     return(
-      <View >
-         {globalState.search==="searching" &&(
+      <>
+        {globalState.search !== "validated" && (
+
+          <View>
+          {globalState.search === "searching" && (
             <MapContainer>
-                <MapView
-                  provider={PROVIDER_GOOGLE} // remove if not using Google Maps
-                  style={styles.map}
-                  options={{enableHighAccuracy: true,
-                    distanceFilter: 0,
-                    interval: 1000000,
-                    fastestInterval: 200000,}}
-                  region={{
-                    latitude: initLocation.latitude,
-                    longitude: initLocation.longitude,
-                    latitudeDelta: 0.0020, //Esto es pa'l zoom
-                    longitudeDelta: 0.0020,
-                  }}
-                  showsUserLocation={true}  //marcador del userLocation
-                  customMapStyle={customedMapStyle} //stylo del mapa
-                  // loadingEnabled={true} //spinner de carga del mapa
-                  // followsUserLocation={true}
-                >
+              <MapView
+                provider={PROVIDER_GOOGLE} // remove if not using Google Maps
+                style={styles.map}
+                options={{
+                  enableHighAccuracy: true,
+                  distanceFilter: 0,
+                  interval: 1000000,
+                  fastestInterval: 200000,
+                }}
+                region={{
+                  latitude: initLocation.latitude,
+                  longitude: initLocation.longitude,
+                  latitudeDelta: 0.0020,
+                  longitudeDelta: 0.0020,
+                }}
+                showsUserLocation={true} //marcador del userLocation
+                customMapStyle={customedMapStyle} //stylo del mapa
+              >
 
-                  {/* Markers of artifats */}
 
-                  {globalState.artifacts.map((artifact) =>
-                      artifact? (
-                        artifact.found==false ? (
+                {globalState.artifacts.map((artifact) => artifact ? (
+                  artifact.found == false ? (
 
-                        <Marker
-                          key={artifact.slot}
-                          coordinate={{
-                            latitude: artifact.latitude,
-                            longitude: artifact.longitude,
-                          }}
-                          title={artifact.name}
-                          description={artifact.description_es}
-                        >
-                          <Image
-                            source={{ uri: artifact.img }}  //aqui va la img del atributo TODO
-                            style={{ width: 40, height: 40 }}
-                          />
-                        </Marker>
-                        ):null
-                      ) : null
-                  )}
+                    <Marker
+                      key={artifact.slot}
+                      coordinate={{
+                        latitude: artifact.latitude,
+                        longitude: artifact.longitude,
+                      }}
+                      title={artifact.name}
+                      description={artifact.description_es}
+                    >
+                      <Image
+                        source={{ uri: artifact.img }} //aqui va la img del atributo TODO
+                        style={{ width: 40, height: 40 }} />
+                    </Marker>
+                  ) : null
+                ) : null
+                )}
 
-                </MapView>
+              </MapView>
             </MapContainer>
           )}
+          {globalState.search !== "validated" && (
 
-          <ContainerInfo>
-            <RowContainer>
-              {/* if distancia entre artefacto y usuario es < 1m */}
-              {artifactNear!==null && globalState.search==="searching" &&(
-                <Button onPress={updateArtifact}>
-                  <ButtonText >Collect artifact</ButtonText>
-                </Button>
-              )}
-              {globalState.search==="pending" &&(
-                <PendingText>Pending...</PendingText>
-              )}
-            </RowContainer>
-            <RowContainer >
+            <ContainerInfo>
+              <RowContainer>
+                {/* if distancia entre artefacto y usuario es < 1m */}
+                {artifactNear !== null && globalState.search === "searching" && globalState.user.rol == "Acolito" && (
+                  <Button onPress={updateArtifact}>
+                    <ButtonText>Collect artifact</ButtonText>
+                  </Button>
+                )}
+                {globalState.search === "pending" && (
+                  <PendingText>Pending...</PendingText>
+                )}
+              </RowContainer>
+              <RowContainer>
 
-              {globalState.artifacts.map((artifact, index) => (
-              <Column key={index}>
-                {artifact &&(
-                 artifact.found && (
-                  <Image source={{ uri: artifact.img }} style={imageStyle} /> //aqui va la img del atributo TODO
+                {globalState.artifacts.map((artifact, index) => (
+                  <Column key={index}>
+                    {artifact && (
+                      artifact.found && (
+                        <Image source={{ uri: artifact.img }} style={imageStyle} /> //aqui va la img del atributo TODO
+                      ))}
+                  </Column>
                 ))}
-              </Column>
-              ))}
-            </RowContainer>
+              </RowContainer>
 
-            <RowContainer>
+              <RowContainer>
                 {/* cuando los 4 artefactos sean true */}
 
-                {isEndFinding && globalState.search==="searching" &&(
+                {isEndFinding && globalState.search === "searching" && globalState.user.rol == "Acolito" && (
                   <Button onPress={endFinding}>
                     <ButtonText>End finding</ButtonText>
                   </Button>
                 )}
-                <Button onPress={reinicio}>
-                  <ButtonText>Reboot</ButtonText>
-                </Button>
-            </RowContainer>
-          </ContainerInfo>
-      </View>
+                {globalState.user.rol == "Mortimer" &&(
+                <><Button onPress={validate}>
+                      <ButtonText>Validate</ButtonText>
+                    </Button><Button onPress={reinicio}>
+                        <ButtonText>Reboot</ButtonText>
+                      </Button></>
+                )}
+              </RowContainer>
+            </ContainerInfo>
+          )}
+          <RowContainer>
+            {globalState.user.rol == "Mortimer" && (
+              <Button onPress={reinicio}>
+                <ButtonText>Reboot</ButtonText>
+              </Button>
+            )}
+          </RowContainer>
+        </View>
+        )}
+
+      {globalState.search === "validated" && (
+
+        <Background source={require('../assets/tombEntrance.png')}>  
+        {globalState.user.rol == "Mortimer" && (
+          <Button onPress={reinicio}>
+            <ButtonText>Reboot</ButtonText>
+          </Button>
+          
+        )}
+        </Background> 
+      )}
+    </> 
    );
   }
+
+
+  async function validate() {
+    socket.emit('search', 
+        "validated"
+      );
+}
 
 
 export default Maps
@@ -370,7 +403,13 @@ export default Maps
 
 
 
-
+const Background = styled.ImageBackground`
+  flex: 1;
+  width: 100%;
+  height: 100%;
+  justify-content: center;
+  align-items: center;
+`;
 
 
 const customedMapStyle= [
