@@ -75,6 +75,10 @@ const App = () => {
         console.log('************ DATA *************')
         console.log(data[0])
         setSocketEvent({event: eventName, value: data[0]})
+
+        return () => {
+          socket.removeAllListeners();  
+          };
       }); 
       
     };
