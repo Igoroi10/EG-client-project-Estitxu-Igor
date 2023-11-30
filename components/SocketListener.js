@@ -23,6 +23,7 @@ function SocketListener(props) {
 		const handleNewAcolite = (data) => {handleGlobalState({id: data})};
 		const handleSearchState = (data) => {handleGlobalState({search: data})}
 		const handleArtifacts = (data) => {handleGlobalState({artifacts: data})}
+		const handleConsoleError = (data) => {console.error(data)}
 		const handleHello = (data) => {}
 		
 		const handlers = {
@@ -34,6 +35,7 @@ function SocketListener(props) {
 			search: handleSearchState,
 			artifacts: handleArtifacts,
 			hello: handleHello,
+			error: handleConsoleError,
 		}
 	}
 	return null;
