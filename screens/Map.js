@@ -227,13 +227,13 @@ const styles = StyleSheet.create({
             validation: "searching"
           });
 
-        globalState.artifacts.forEach((artifact) => {
-          const artifactsData = globalState.artifacts.concat({"artifactName": artifact.name, "isFound": false, "foundByEmail": "reboot"})
+        // globalState.artifacts.forEach((artifact) => {
+          const artifactsData = globalState.artifacts.concat({"artifactName": " ", "isFound": false, "foundByEmail": "reboot"})
           console.log(artifactsData)
 
           socket.emit('artifacts', artifactsData);
 
-        })
+        // })
 
 
           setIsEndFinding(false)
