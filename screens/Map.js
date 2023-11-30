@@ -223,17 +223,15 @@ const styles = StyleSheet.create({
     }
 
     async function reinicio() {
-        socket.emit('search', {
-            validation: "searching"
-          });
+        socket.emit('search', "searching");
 
-        // globalState.artifacts.forEach((artifact) => {
+        globalState.artifacts.forEach((artifact) => {
           const artifactsData = globalState.artifacts.concat({"artifactName": " ", "isFound": false, "foundByEmail": "reboot"})
           console.log(artifactsData)
 
           socket.emit('artifacts', artifactsData);
 
-        // })
+        })
 
 
           setIsEndFinding(false)
