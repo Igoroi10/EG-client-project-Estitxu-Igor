@@ -18,6 +18,7 @@ import SocketListener from './components/SocketListener';
 
 import Toast from 'react-native-toast-message'
 import axios from 'axios';
+import { fetchArtifacts, fetchSearchStatus } from './helpers/fetchs';
 
 
 
@@ -61,9 +62,11 @@ const App = () => {
         setLogged(false);
       }
       
-      const response = await axios.get('https://fly-eg-staging.fly.dev/api/artifacts/');
-      const responseData = response.data.data;
-      handleGlobalState(responseData);
+      const artifactsData = await fetchArtifacts();
+      const searchState = await fetchSearchStatus();
+
+      handleGlobalState({artifacts: artifactsData});
+      handleGlobalState({search: searchState})
 
       socket.onAny((eventName, ...data) => {
         console.log('************ SOCKET INCOMING **************')

@@ -1,18 +1,20 @@
+import axios from "axios";
+
 async function fetchArtifacts() {
     try {
         const response = await axios.get('https://fly-eg-staging.fly.dev/api/artifacts/');
         const responseData = response.data.data;
-        setArtifacts(responseData);
+        return responseData
     } catch (error) {
         console.error('Error al obtener los artefactos:', error);
     }
   }
 
-  async function fetchStatus() {
+  async function fetchSearchStatus() {
     try {
         const response = await axios.get('https://fly-eg-staging.fly.dev/api/search/');
         const responseData = response.data.data[0].validation;
-        setStatus(responseData);
+        return responseData;
     } catch (error) {
         console.error('Error al obtener el search:', error);
     }
@@ -20,5 +22,5 @@ async function fetchArtifacts() {
 
   export {
     fetchArtifacts,
-    fetchStatus
+    fetchSearchStatus
   }
