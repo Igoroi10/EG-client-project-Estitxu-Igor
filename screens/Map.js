@@ -320,7 +320,7 @@ const styles = StyleSheet.create({
               </MapView>
             </MapContainer>
           )}
-          {globalState.search !== "validated" && (
+          {globalState.search !== "searching" && (
 
             <ContainerInfo>
               <RowContainer>
