@@ -228,7 +228,7 @@ const styles = StyleSheet.create({
           });
 
         globalState.artifacts.forEach((artifact) => {
-          const artifactsData = globalState.artifacts.concat({"artifactName": artifact.name, "isFound": false, "foundByEmail": null})
+          const artifactsData = globalState.artifacts.concat({"artifactName": artifact.name, "isFound": false, "foundByEmail": "reboot"})
           console.log(artifactsData)
 
           socket.emit('artifacts', artifactsData);
