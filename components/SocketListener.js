@@ -20,7 +20,7 @@ function SocketListener(props) {
 		const handleAcoliteLife = (data) => {handleGlobalState({life: data})};
 		const handleAcoliteGold = (data) => {handleGlobalState({gold: data})};
 		const handleAcoliteXperience = (data) => {handleGlobalState({xp: data})};
-		const handleNewAcolite = (data) => {handleGlobalState({user: data})};
+		const handleNewAcolite = (data) => {handleGlobalState({id: data})};
 		const handleSearchState = (data) => {handleGlobalState({search: data})}
 		const handleArtifacts = (data) => {handleGlobalState({artifacts: data})}
 		const handleHello = (data) => {}
