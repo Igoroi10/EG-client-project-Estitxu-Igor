@@ -103,7 +103,7 @@ const styles = StyleSheet.create({
     const{globalState, handleGlobalState} = useContext(Context)
     const [userLocation, setLocation] = useState(null);
     const [artifactNear, setArtifactNear] = useState(null);
-    const [isEndFindding, setIsEndFindding] = useState(false);
+    const [isEndFinding, setIsEndFinding] = useState(false);
     const [initLocation, setInitLocation] = useState({latitude: 10, longitude: 10});
     const [socketEvent, setSocketEvent] = useState(null);
 
@@ -172,7 +172,7 @@ const styles = StyleSheet.create({
 
       })
       if(kont===globalState.artifacts.length && kont!==0)
-        setIsEndFindding(true)
+        setIsEndFinding(true)
     }, [globalState.artifacts])
 
 
@@ -210,12 +210,12 @@ const styles = StyleSheet.create({
       }
     }
 
-    async function endFindding() {
+    async function endFinding() {
       try {
         socket.emit('search', {
-            validation: "pendding"
+            validation: "pending"
           });
-          setIsEndFindding(false)
+          setIsEndFinding(false)
       } catch (error) {
           console.error('Error al obtener el search:', error);
       }
@@ -235,7 +235,7 @@ const styles = StyleSheet.create({
         })
 
 
-          setIsEndFindding(false)
+          setIsEndFinding(false)
 
       // console.log(artifactNear)
     }
@@ -331,7 +331,7 @@ const styles = StyleSheet.create({
                   <ButtonText >Collect artifact</ButtonText>
                 </Button>
               )}
-              {globalState.search==="pendding" &&(
+              {globalState.search==="pending" &&(
                 <PendingText>Pending...</PendingText>
               )}
             </RowContainer>
@@ -350,9 +350,9 @@ const styles = StyleSheet.create({
             <RowContainer>
                 {/* cuando los 4 artefactos sean true */}
 
-                {isEndFindding && globalState.search==="searching" &&(
-                  <Button onPress={endFindding}>
-                    <ButtonText>End findding</ButtonText>
+                {isEndFinding && globalState.search==="searching" &&(
+                  <Button onPress={endFinding}>
+                    <ButtonText>End finding</ButtonText>
                   </Button>
                 )}
                 <Button onPress={reinicio}>
