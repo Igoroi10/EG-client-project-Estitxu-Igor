@@ -307,7 +307,6 @@ const styles = StyleSheet.create({
                         longitude: artifact.longitude,
                       }}
                       title={artifact.name}
-                      description={artifact.description_es}
                     >
                       <Image
                         source={{ uri: artifact.img }} //aqui va la img del atributo TODO
