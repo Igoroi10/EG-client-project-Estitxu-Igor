@@ -121,7 +121,7 @@ const styles = StyleSheet.create({
         {
           enableHighAccuracy: true,
           distanceFilter: 0,
-          interval: 10000,
+          interval: 6000,
           fastestInterval: 2000,
         }
       );
@@ -320,7 +320,7 @@ const styles = StyleSheet.create({
               </MapView>
             </MapContainer>
           )}
-          {globalState.search !== "searching" && (
+          {globalState.search !== "validated" && (
 
             <ContainerInfo>
               <RowContainer>
@@ -365,7 +365,7 @@ const styles = StyleSheet.create({
             </ContainerInfo>
           )}
           <RowContainer>
-            {globalState.user.rol == "Mortimer" && (
+            {globalState.user.rol !== "Mortimer" && (
               <Button onPress={reinicio}>
                 <ButtonText>Reboot</ButtonText>
               </Button>
