@@ -25,6 +25,7 @@ function SocketListener(props) {
 		const handleArtifacts = (data) => {handleGlobalState({artifacts: data})}
 		const handleConsoleError = (data) => {console.error(data)}
 		const handleHello = (data) => {}
+		const handleUserList = (data) => {handleGlobalState({userList: data})}
 		
 		const handlers = {
 			stamina: handleAcoliteStamina,
@@ -36,6 +37,7 @@ function SocketListener(props) {
 			artifacts: handleArtifacts,
 			hello: handleHello,
 			error: handleConsoleError,
+			userList: handleUserList,
 		}
 	}
 	return null;
