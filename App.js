@@ -18,7 +18,7 @@ import SocketListener from './components/SocketListener';
 
 import Toast from 'react-native-toast-message'
 import axios from 'axios';
-import { fetchArtifacts, fetchSearchStatus } from './helpers/fetchs';
+import { fetchArtifacts, fetchSearchStatus, fetchAllUsers } from './helpers/fetchs';
 
 
 
@@ -64,9 +64,11 @@ const App = () => {
       
       const artifactsData = await fetchArtifacts();
       const searchState = await fetchSearchStatus();
+      const allUsers = await fetchAllUsers();
 
       handleGlobalState({artifacts: artifactsData});
       handleGlobalState({search: searchState})
+      handleGlobalState({userList: allUsers})
 
       socket.onAny((eventName, ...data) => {
         console.log('************ SOCKET INCOMING **************')
