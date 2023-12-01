@@ -331,26 +331,26 @@ const styles = StyleSheet.create({
                   ) : null
                 ) : null
                 )}
+                
+                    {globalState.userList.map((user, index) => user ? (
+                      (user.latitude !== 0 || user.longitude !== 0) ? (
 
-                {globalState.userList.map((user) => user ? (
-                  // user.found == false ? (
-
-                    <Marker
-                      key={user._id}
-                      coordinate={{
-                        latitude: user.latitude,
-                        longitude: user.longitude,
-                      }}
-                      title={user.name}
-                    >
-                      <Image
-                        source={{ uri: user.imgURL }} 
-                        style={{ width: 40, height: 40 }} />
-                    </Marker>
-                  // ) : null
-                ) : null
-                )}
-
+                        <Marker
+                          key={index}
+                          coordinate={{
+                            latitude: user.latitude,
+                            longitude: user.longitude,
+                          }}
+                          title={user.name}
+                        >
+                          <Image
+                            source={{ uri: user.imgURL }} 
+                            style={{ width: 40, height: 40 }} />
+                        </Marker>
+                      ) : null
+                    ) : null
+                    )}
+                  
               </MapView>
             </MapContainer>
           )}
