@@ -185,8 +185,14 @@ const styles = StyleSheet.create({
         }
 
       })
-      if(kont===globalState.artifacts.length && kont!==0)
+      if(kont===globalState.artifacts.length && kont!==0){
         setIsEndFinding(true)
+
+      }
+      else{
+        setIsEndFinding(false)
+
+      }
 
     }, [Object.values(globalState)])
 
@@ -218,9 +224,6 @@ const styles = StyleSheet.create({
           console.log(artifactsData)
 
           socket.emit('artifacts', artifactsData);
-          console.log("ççççççççççççççççççççççççççççççç")
-          console.log(globalState.artifacts[3].foundBy)
-
           setArtifactNear(null) //esto está comentado para que el boton de reinicio funcione mientras no este puesta la lógica de cercanía al artefacto
       } catch (error) {
           console.error('Error al updetear los artifacts:', error);
@@ -333,7 +336,7 @@ const styles = StyleSheet.create({
                 )}
                 
                     {globalState.userList.map((user, index) => user ? (
-                      (user.latitude !== 0 || user.longitude !== 0) ? (
+                      // (user.latitude !== 0 || user.longitude !== 0) ? (
 
                         <Marker
                           key={index}
@@ -348,7 +351,7 @@ const styles = StyleSheet.create({
                             style={{ width: 40, height: 40 }} />
                         </Marker>
                       ) : null
-                    ) : null
+                    // ) : null
                     )}
                   
               </MapView>
@@ -393,29 +396,30 @@ const styles = StyleSheet.create({
                   </Button>
                 )}
                 {globalState.user.rol === "Mortimer" &&(
-                <><Button onPress={validate}>
+                  <>
+                    {globalState.search === "pending"&&(
+                      <><Button onPress={validate}>
                       <ButtonText>Validate</ButtonText>
-                    </Button><Button onPress={reinicio}>
-                        <ButtonText>Reboot</ButtonText>
                       </Button></>
+                    )}
+                    <Button onPress={reinicio}>
+                        <ButtonText>Reboot</ButtonText>
+                      </Button>
+                  </>
+
+               
                 )}
               </RowContainer>
             </ContainerInfo>
           )}
-          <RowContainer>
-            {globalState.user.rol === "Mortimer" && (
-              <Button onPress={reinicio}>
-                <ButtonText>Reboot</ButtonText>
-              </Button>
-            )}
-          </RowContainer>
+      
         </View>
         )}
 
       {globalState.search === "validated" && (
 
         <Background source={require('../assets/tombEntrance.png')}>  
-        {globalState.user.rol == "Mortimer" && (
+        {globalState.user.rol == "Mortimer" && globalState.search == "validated"&& (
           <Button onPress={reinicio}>
             <ButtonText>Reboot</ButtonText>
           </Button>
