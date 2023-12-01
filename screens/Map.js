@@ -114,6 +114,7 @@ const styles = StyleSheet.create({
         position => {
           const {latitude, longitude} = position.coords;
           setLocation({latitude, longitude});
+
         },
         error => {
           console.log(error);
@@ -142,7 +143,7 @@ const styles = StyleSheet.create({
 
       globalState.artifacts.forEach((artifact) => {
         if(artifact){
-          if(artifact.found === false){
+          if(artifact.found === false && userLocation){
             const distanceBetween= haversine_distance(userLocation, artifact);
 
             if(distanceBetween <= 0.1 && distanceBetween >=-0.1){ //en km (0.1)
@@ -154,7 +155,7 @@ const styles = StyleSheet.create({
 
       })
 
-      if(artifactNear){
+      if(artifactNear && userLocation){
         const distanceBetween= haversine_distance(userLocation, artifactNear);
         if(distanceBetween > 20 || distanceBetween <-20){
           setArtifactNear(null)
@@ -173,7 +174,8 @@ const styles = StyleSheet.create({
       })
       if(kont===globalState.artifacts.length && kont!==0)
         setIsEndFinding(true)
-    }, [globalState.artifacts])
+
+    }, [Object.values(globalState)])
 
 
     // async function fetchArtifacts() {
@@ -353,7 +355,7 @@ const styles = StyleSheet.create({
                     <ButtonText>End finding</ButtonText>
                   </Button>
                 )}
-                {globalState.user.rol == "Mortimer" &&(
+                {globalState.user.rol !== "Mortimer" &&(
                 <><Button onPress={validate}>
                       <ButtonText>Validate</ButtonText>
                     </Button><Button onPress={reinicio}>
@@ -364,7 +366,7 @@ const styles = StyleSheet.create({
             </ContainerInfo>
           )}
           <RowContainer>
-            {globalState.user.rol !== "Mortimer" && (
+            {globalState.user.rol === "Mortimer" && (
               <Button onPress={reinicio}>
                 <ButtonText>Reboot</ButtonText>
               </Button>
