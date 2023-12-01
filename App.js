@@ -64,9 +64,11 @@ const App = () => {
       
       const artifactsData = await fetchArtifacts();
       const searchState = await fetchSearchStatus();
+      const allUsers = await fetchAllUsers();
 
       handleGlobalState({artifacts: artifactsData});
       handleGlobalState({search: searchState})
+      handleGlobalState({userList: allUsers})
 
       socket.onAny((eventName, ...data) => {
         console.log('************ SOCKET INCOMING **************')
