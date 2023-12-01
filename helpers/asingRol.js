@@ -63,7 +63,9 @@ const asignRol = async (userRole, tabScreens, user) => {
             </Tab.Screen>,
             <Tab.Screen key="Profile" name="Profile">
                 {() => <Profile user={user} />}
-            </Tab.Screen>     
+            </Tab.Screen>,
+                        <Tab.Screen key="MAPS" name="MAPS" component={Maps} />,
+    
         )
     }
     else if(userRole === "Villano") {
