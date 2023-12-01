@@ -86,6 +86,19 @@ const imageStyle = {
       marginLeft: -3
 };
 
+const foundByImgStyle = {
+  top: 50,
+  left: 50,
+  width: 40,
+  height: 40,
+  borderRadius: 30,
+  zIndex: 1,
+  position: 'absolute',
+};
+
+
+
+
 const styles = StyleSheet.create({
     container4Map: {
       ...StyleSheet.absoluteFillObject,
@@ -146,7 +159,7 @@ const styles = StyleSheet.create({
           if(artifact.found === false && userLocation){
             const distanceBetween= haversine_distance(userLocation, artifact);
 
-            if(distanceBetween <= 0.1 && distanceBetween >=-0.1){ //en km (0.1)
+            if(distanceBetween <= 20 && distanceBetween >=-20){ //en km (0.1)
 
               setArtifactNear(artifact)
             }
@@ -205,6 +218,8 @@ const styles = StyleSheet.create({
           console.log(artifactsData)
 
           socket.emit('artifacts', artifactsData);
+          console.log("ççççççççççççççççççççççççççççççç")
+          console.log(globalState.artifacts[3].foundBy)
 
           setArtifactNear(null) //esto está comentado para que el boton de reinicio funcione mientras no este puesta la lógica de cercanía al artefacto
       } catch (error) {
@@ -226,13 +241,12 @@ const styles = StyleSheet.create({
     async function reinicio() {
         socket.emit('search', "searching");
 
-        globalState.artifacts.forEach((artifact) => {
           const artifactsData = globalState.artifacts.concat({"artifactName": " ", "isFound": false, "foundByEmail": "reboot"})
           console.log(artifactsData)
 
           socket.emit('artifacts', artifactsData);
 
-        })
+        
 
 
           setIsEndFinding(false)
@@ -343,6 +357,10 @@ const styles = StyleSheet.create({
                       artifact.found && (
                         <Image source={{ uri: artifact.img }} style={imageStyle} /> //aqui va la img del atributo TODO
                       ))}
+                    {artifact.foundBy[0].imgURL && (
+                        <Image source={{ uri: artifact.foundBy[0].imgURL }} style={foundByImgStyle} /> 
+
+                    )}
                   </Column>
                 ))}
               </RowContainer>
@@ -355,7 +373,7 @@ const styles = StyleSheet.create({
                     <ButtonText>End finding</ButtonText>
                   </Button>
                 )}
-                {globalState.user.rol !== "Mortimer" &&(
+                {globalState.user.rol === "Mortimer" &&(
                 <><Button onPress={validate}>
                       <ButtonText>Validate</ButtonText>
                     </Button><Button onPress={reinicio}>
