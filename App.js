@@ -18,7 +18,7 @@ import SocketListener from './components/SocketListener';
 
 import Toast from 'react-native-toast-message'
 import axios from 'axios';
-import { fetchArtifacts, fetchSearchStatus } from './helpers/fetchs';
+import { fetchArtifacts, fetchSearchStatus, fetchAllUsers } from './helpers/fetchs';
 
 
 
