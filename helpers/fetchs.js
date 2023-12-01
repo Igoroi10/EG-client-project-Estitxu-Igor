@@ -22,8 +22,8 @@ async function fetchArtifacts() {
 
   async function fetchAllUsers() {
     try {
-        const response = await axios.get('https://fly-eg-staging.fly.dev/api/users/');
-        const responseData = response.data.data[0].validation;
+      const response = await axios.get('https://fly-eg-staging.fly.dev/api/users/');
+      const responseData = response.data.data;
         return responseData;
     } catch (error) {
         console.error('Error al obtener el search:', error);
