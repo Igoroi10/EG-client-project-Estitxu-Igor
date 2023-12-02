@@ -114,7 +114,7 @@ const styles = StyleSheet.create({
 
    const Maps = () =>{
     const{globalState, handleGlobalState} = useContext(Context)
-    const [userLocation, setLocation] = useState(null);
+    const [userLocation, setLocation] = useState({latitude: 0, longitude: 0});
     const [artifactNear, setArtifactNear] = useState(null);
     const [isEndFinding, setIsEndFinding] = useState(false);
     const [initLocation, setInitLocation] = useState({latitude: 10, longitude: 10});
@@ -144,7 +144,7 @@ const styles = StyleSheet.create({
     },[])
 
     useEffect(()=> {
-      if(initLocation.latitude === 10 && userLocation !== null) {
+      if(initLocation.latitude === 10 && userLocation.latitude !== 0) {
         const initLat = userLocation.latitude
         const initLong = userLocation.longitude
         setInitLocation({latitude: initLat, longitude: initLong})
