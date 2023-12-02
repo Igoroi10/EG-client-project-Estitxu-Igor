@@ -1,8 +1,12 @@
-import React,{useContext} from 'react'
+import React,{useContext, useState, useEffect} from 'react'
 import styled from 'styled-components/native'
 import { storeData, getData } from '../helpers/localStorage';
 import { useNavigation } from '@react-navigation/native';
 import { ImageBackground } from 'react-native';
+import ProfileInfo from '../components/ProfileInfo';
+import Stats from '../components/Stats';
+import * as Progress from 'react-native-progress';
+
 
 
 import Toast from 'react-native-toast-message';
@@ -83,6 +87,7 @@ const Text2 = styled.Text`
   font-weight: bold;
   color: white;
   text-shadow: 2px 2px 2px black;
+  top: -10px;
 
 `;
 
@@ -146,6 +151,7 @@ const BackgroundImage = styled.ImageBackground`
 const Profile = ({user}) => {
   const{globalState, handleGlobalState} = useContext(Context)
 
+
   const navigation = useNavigation();
   const reestoreData = async () => {
       await storeData(null)
@@ -188,11 +194,15 @@ const Profile = ({user}) => {
 
     }
 
+
+
+
+
     return (
         <>
           <BackgroundImage source={linkForBackground}>
              
-            {globalState.user.characterMainData &&(
+            {(globalState.user.characterMainData.HP || globalState.user.characterMainData.HP==0)&&(
             <View>
                 <Container>
                     <UserCard>
@@ -209,42 +219,119 @@ const Profile = ({user}) => {
 
                  
                 <Container2>
+                  
                     <NameColumn>
+                    
                     <Text2>HP</Text2>
-                    <Text2>{globalState.user.characterMainData.HP}</Text2>
+                    <Progress.Bar
+                      progress={globalState.user.characterMainData.HP/100}
+                      width={100}
+                      color={'white'} 
+                      borderColor={'grey'}
+                      backgroundColor={'black'}
+
+                    />
+                    {/* <Text2>{globalState.user.characterMainData.HP}</Text2> */}
                     </NameColumn>
                     <NameColumn>
+               
                     <Text2>LvL</Text2>
-                    <Text2>{globalState.user.characterMainData.LvL}</Text2>
+                    <Progress.Bar
+                      progress={globalState.user.characterMainData.LvL/100}
+                      width={100}
+                      color={'white'} 
+                      borderColor={'grey'}
+                      backgroundColor={'black'}
+                    />
+                    {/* <Text2>{globalState.user.characterMainData.LvL}</Text2> */}
                     </NameColumn>
                     <NameColumn>
                     <Text2>Money</Text2>
-                    <Text2>{globalState.user.characterMainData.Money}</Text2>
+                    <Progress.Bar
+                      progress={globalState.user.characterMainData.Money/100}
+                      width={100}
+                      color={'white'} 
+                      borderColor={'grey'}
+                      backgroundColor={'black'}
+                    />
+                    {/* <Text2>{globalState.user.characterMainData.Money}</Text2> */}
                     </NameColumn>
                 </Container2>
                 
                 <Divider />
-                    <Container3>
+                    <Container3 left={20}>
                     <FirstColumn> 
-                        <Text3>Resistance  {globalState.user.characterStats.resistance}</Text3>
+                        <Text3 left={0}>Resistance</Text3>
+                        <Progress.Bar
+                          progress={globalState.user.characterStats.resistance/100}
+                          width={100}
+                          color={'white'} 
+                          borderColor={'grey'}
+                          backgroundColor={'black'}
+                        />
                     </FirstColumn>
                     </Container3>
-                    <Container3>
-                    <Column>
-                        <Text3>Strength  {globalState.user.characterStats.strength}</Text3>
+                    <Container3 left={10}>
+                    <Column left={20}>
+                        <Text3 >Strength</Text3>
+                        <Progress.Bar
+                          progress={globalState.user.characterStats.strength/100}
+                          width={100}
+                          color={'white'} 
+                          borderColor={'grey'}
+                          backgroundColor={'black'}
+                        />
                     </Column>
-                    <Column>
-                        <Text3>Stamina  {globalState.user.characterStats.stamina}</Text3>
+                    <Column left={40}>
+                        <Text3>Stamina</Text3>
+                        <Progress.Bar
+                          progress={globalState.user.characterStats.stamina/100}
+                          width={100}
+                          color={'white'} 
+                          borderColor={'grey'}
+                          backgroundColor={'black'}
+                        />
                     </Column>
                     </Container3>
-                    <Container3>
-                    <Column>
-                        <Text3>Agility  {globalState.user.characterStats.agility}</Text3>
+                    <Container3 left={10}>
+                    <Column left={20}>
+                        <Text3>Agility</Text3>
+                        <Progress.Bar
+                          progress={globalState.user.characterStats.agility/100}
+                          width={100}
+                          color={'white'} 
+                          borderColor={'grey'}
+                          backgroundColor={'black'}
+                        />
                     </Column>
-                    <Column>
-                        <Text3>Intelligence  {globalState.user.characterStats.intelligence}</Text3>
+                    <Column left={40}>
+                        <Text3 left={2}>Intelligence</Text3>
+                        <Progress.Bar
+                          progress={globalState.user.characterStats.intelligence/100}
+                          width={100}
+                          color={'white'} 
+                          borderColor={'grey'}
+                          backgroundColor={'black'}
+                        />
                     </Column>
                 </Container3>
+
+
+                {/* <ProfileInfo user={user}/>
+                <Divider /> 
+                <Stats user={user}/> */}
+
+
+
+
+
+
+
+
+
+
+
+
 
                   <Container>
                   <Button    label="Delete storage"  onPress={() => reestoreData()}>
