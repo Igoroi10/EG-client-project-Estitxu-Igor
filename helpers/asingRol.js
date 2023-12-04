@@ -59,7 +59,7 @@ const asignRol = async (userRole, tabScreens, user) => {
     else if(userRole === "Mortimer") {
         tabScreens.push(
             <Tab.Screen key="Mortimer" name="Mortimer">
-                {() => <Admin user={user} />}
+                {() => <Admin />}
             </Tab.Screen>,
             <Tab.Screen key="Profile" name="Profile">
                 {() => <Profile user={user} />}

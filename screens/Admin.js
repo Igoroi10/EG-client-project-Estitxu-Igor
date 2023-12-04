@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import styled from 'styled-components/native';
 import axios from 'axios';
 import { TouchableOpacity, View, Text } from 'react-native';
@@ -6,6 +6,9 @@ import Modal from 'react-native-modal';
 import { useNavigation } from '@react-navigation/native';
 import UserDetail from '../components/UserDetail'; // Importa el nuevo componente
 import Toast from 'react-native-toast-message';
+
+import { Context } from '../AppContext';
+
 
 const ModalContainer = styled.View`
   flex: 1;
@@ -107,38 +110,15 @@ const UserInTower = styled.View`
 
 
 
-const Admin = ({user}) => {
-  const [userList, setUserList] = useState([]);
-  const [showList, setShowList] = useState(false);
+const Admin = () => {
   const [selectedUser, setSelectedUser] = useState(null);
   const [isModalVisible, setIsModalVisible] = useState(false);
   const navigation = useNavigation();
+  const{globalState, handleGlobalState} = useContext(Context);
 
  
   
 
-  const fetchUserList = async () => {
-    try {
-      const response = await axios.get('https://fly-eg-staging.fly.dev/api/users/');
-      const responseData = response.data.data;
-      setUserList(responseData);
-      setShowList(true);
-    //   Toast.show({
-    //     type: 'success', // Toast type
-    //     position: 'bottom', // Toast position
-    //     text1: 'SHOW USERS', // Title
-    //     text2: "Lista de usuarios mostrada correctamente", // Message
-    // });
-    } catch (error) {
-      console.error('Error al obtener la lista de usuarios', error);
-      Toast.show({
-        type: 'error', // Toast type
-        position: 'bottom', // Toast position
-        text1: 'SHOW USERS', // Title
-        text2: "Error al obtener la lista de usuarios", // Message
-    });
-    }
-  };
 
   const showAlertWithUsername = (user) => {
     setSelectedUser(user);
@@ -149,15 +129,12 @@ const Admin = ({user}) => {
     setIsModalVisible(false);
   };
 
-  useEffect(() => {
-    fetchUserList();
-  }, [user]);
 
   return (
     <Container>
  
         <UserList>
-          {userList
+          {globalState.userList
             .filter((user) => user.rol === 'Acolito')
             .map((user) => (
               <UserItem key={user._id}>
@@ -177,7 +154,7 @@ const Admin = ({user}) => {
       
       <UserDetail
         isVisible={isModalVisible}
-        user={selectedUser}
+        choosedUser={selectedUser}
         closeModal={closeModal}
       />
     </Container>

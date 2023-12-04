@@ -1,4 +1,4 @@
-import React, { useState, useEffect }  from 'react';
+import React, { useState, useEffect, useContext }  from 'react';
 import Modal from 'react-native-modal';
 import styled from 'styled-components/native';
 import { Text, View, TouchableOpacity , ScrollView} from 'react-native';
@@ -10,6 +10,9 @@ import Slider from '@react-native-community/slider';
 import { storeData, getData } from '../helpers/localStorage';
 
 import socket from '../helpers/socket';
+
+import { Context } from '../AppContext';
+
 
 
 
@@ -94,108 +97,92 @@ const BackgroundImage = styled.ImageBackground`
   height: 100%;
 `;
 
-const UserDetail = ({ isVisible, user, closeModal }) => {
-  const [sliderValue, setSliderValue] = useState(0); 
-  const [sliderValueMoney, setSliderValueMoney] = useState(0); 
-  const [actualUserRole, setActualUserRole] = useState(null);
+const UserDetail = ({ isVisible, choosedUser, closeModal }) => {
+  const{globalState, handleGlobalState} = useContext(Context);
 
-  useEffect(() => {
-    if (user !== null) {
-      async function fetchData() {
-        const data = await getData();
-        const actualUser = data;
-        // console.log('****************ROLE******************');
-        // console.log(actualUser.rol);
-        setActualUserRole(actualUser.rol);
-      }
 
-      fetchData();
-    }
-  }, [user]);
+  if(choosedUser != undefined){
+  
 
   
-  if(user !== null) {
-    
-    // console.log("****************SELECTED USER******************")
-    // console.log(user)
-    const hasTrueDisease = Object.values(user.diseases).some(disease => disease === true);
-    
-    let linkForBackground;
-    
-      switch(actualUserRole){
-        case "Villano":
-          linkForBackground=require('../assets/villano.png');
-          break;
+    const hasTrueDisease = Object.values(choosedUser.diseases).some(disease => disease === true);
 
-        case "Istvan":
-          linkForBackground=require('../assets/villano.png');
-          break;
+      // console.log("****************SELECTED USER******************")
+      // console.log(user)
+      
+      let linkForBackground;
+      
+        switch(globalState.user.rol){
+          case "Villano":
+            linkForBackground=require('../assets/villano.png');
+            break;
 
-        case "Mortimer":
-          linkForBackground=require('../assets/sorcerer.webp');
-          break;
+          case "Istvan":
+            linkForBackground=require('../assets/villano.png');
+            break;
 
-        default:
-          linkForBackground=require('../assets/white.jpeg'); 
+          case "Mortimer":
+            linkForBackground=require('../assets/sorcerer.webp');
+            break;
 
-
-      }
-
-      const restore = () => {
-        socket.emit('restoreStamina', user.email);
-      };
-
-    
-
-    return (
-      <Modal isVisible={isVisible}>
-        <ModalContainer>
-        <BackgroundImage source={linkForBackground}>
-
-        <ScrollView>
-
-          <View>
-
-            <TouchableOpacity onPress={closeModal}>
-                <ModalText>X </ModalText>
-              </TouchableOpacity>
+          default:
+            linkForBackground=require('../assets/white.jpeg'); 
 
 
-            <FirstFace user={user}/>
-            <Divider /> 
-            <ProfileInfo user={user}/>
-            <Divider /> 
-            <Stats user={user}/>
+        }
+
+        const restore = () => {
+          socket.emit('restoreStamina', choosedUser.email);
+        };
+
+      
+
+      return (
+        <Modal isVisible={isVisible}>
+          <ModalContainer>
+          <BackgroundImage source={linkForBackground}>
+
+          <ScrollView>
+
+            <View>
+
+              <TouchableOpacity onPress={closeModal}>
+                  <ModalText>X </ModalText>
+                </TouchableOpacity>
+
+              <FirstFace user={choosedUser}/> 
+              <Divider /> 
+              <ProfileInfo user={choosedUser}/>
+              <Divider /> 
+              <Stats user={choosedUser}/>
 
 
 
 
-            {actualUserRole === "Mortimer" && hasTrueDisease===true && (
-                <View style={{ top: 0 }}>
-                  <CureDisButton >
-                      <CureDisButtonText>Cure disease</CureDisButtonText>
-                  </CureDisButton>
-                  {user.characterStats.stamina <=20 && (
-                    <CureButton onPress={restore}>
-                        <CureButtonText >Recuperar</CureButtonText>
-                    </CureButton>
+              {globalState.user.rol === "Mortimer" && hasTrueDisease===true && choosedUser &&(
+                  <View style={{ top: 0 }}>
+                    <CureDisButton onPress={false}>
+                        <CureDisButtonText>Cure disease</CureDisButtonText>
+                    </CureDisButton>
+                    {choosedUser.characterStats.stamina <=20 && (
+                      <CureButton onPress={restore}>
+                          <CureButtonText >Recuperar</CureButtonText>
+                      </CureButton>
 
-                  )}
-                </View>
-              )}
+                    )}
+                  </View>
+                )}
 
-                
+                  
 
-          </View>
-          </ScrollView>
-          </BackgroundImage>
+            </View>
+            </ScrollView>
+            </BackgroundImage>
 
 
-        </ModalContainer>
-      </Modal>
-    );
-  } else {
-    return null;
+          </ModalContainer>
+        </Modal>
+      );
   }
 };
 
