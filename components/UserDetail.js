@@ -9,6 +9,9 @@ import Stats from '../components/Stats';
 import Slider from '@react-native-community/slider';
 import { storeData, getData } from '../helpers/localStorage';
 
+import socket from '../helpers/socket';
+
+
 
 
 
@@ -36,7 +39,7 @@ const Divider = styled.View`
 `;
 
 
-const CureButton = styled.TouchableOpacity`
+const CureDisButton = styled.TouchableOpacity`
   background-color: purple;
   padding: 10px 20px;
   border-radius: 10px;
@@ -46,6 +49,27 @@ const CureButton = styled.TouchableOpacity`
   display: flex;
   justify-content: center;
   left: 65px;
+  top: -5px;
+
+`;
+const CureDisButtonText = styled.Text`
+    color: white;
+    font-size: 20px;
+    text-align: center;
+
+`;
+
+const CureButton = styled.TouchableOpacity`
+  background-color: blue;
+  padding: 10px 20px;
+  border-radius: 10px;
+  border-color: black;
+  width: 200px;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  left: 65px;
+  top: 5px;
 `;
 const CureButtonText = styled.Text`
     color: white;
@@ -117,6 +141,10 @@ const UserDetail = ({ isVisible, user, closeModal }) => {
 
       }
 
+      const restore = () => {
+        socket.emit('restoreStamina', user.email);
+      };
+
     
 
     return (
@@ -144,9 +172,15 @@ const UserDetail = ({ isVisible, user, closeModal }) => {
 
             {actualUserRole === "Mortimer" && hasTrueDisease===true && (
                 <View style={{ top: 0 }}>
-                  <CureButton >
-                      <CureButtonText>Cure disease</CureButtonText>
-                  </CureButton>
+                  <CureDisButton >
+                      <CureDisButtonText>Cure disease</CureDisButtonText>
+                  </CureDisButton>
+                  {user.characterStats.stamina <=20 && (
+                    <CureButton onPress={restore}>
+                        <CureButtonText >Recuperar</CureButtonText>
+                    </CureButton>
+
+                  )}
                 </View>
               )}
 
