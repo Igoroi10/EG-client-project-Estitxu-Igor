@@ -259,18 +259,7 @@ const Profile = ({user}) => {
                 </Container2>
                 
                 <Divider />
-                    <Container3 left={20}>
-                    <FirstColumn> 
-                        <Text3 left={0}>Resistance</Text3>
-                        <Progress.Bar
-                          progress={globalState.user.characterStats.resistance/100}
-                          width={100}
-                          color={'white'} 
-                          borderColor={'grey'}
-                          backgroundColor={'black'}
-                        />
-                    </FirstColumn>
-                    </Container3>
+                   
                     <Container3 left={10}>
                     <Column left={20}>
                         <Text3 >Strength</Text3>

@@ -45,11 +45,7 @@ const Stats = ({user}) => {
     <>
 {user &&(
   <View>
-    <Container>
-      <FirstColumn> 
-        <Text>Resistance  {user.characterStats.resistance}</Text>
-      </FirstColumn>
-    </Container>
+  
     <Container>
       <Column>
         <Text>Strength  {user.characterStats.strength}</Text>
