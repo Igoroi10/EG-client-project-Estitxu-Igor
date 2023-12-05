@@ -97,25 +97,23 @@ const BackgroundImage = styled.ImageBackground`
   height: 100%;
 `;
 
-const UserDetail = ({ isVisible, choosedUser, closeModal }) => {
+const UserDetail = ({ isVisible, choosedUser, closeModal, num }) => {
   const{globalState, handleGlobalState} = useContext(Context);
+  let hasTrueDisease=false;
+
+    useEffect(() => {
+     console.log("çççççççççççççççççççççççççççççççççççççççççççççççççççççççççççççççççç")
+     if(globalState.userList[num]){
+      console.log(globalState.userList[num].characterStats.stamina)
+      hasTrueDisease = Object.values(globalState.userList[num].diseases).some((disease) => disease === true);
+     }
+    }, [Object.values(globalState)])
 
 
-  if(choosedUser != undefined ){
-    if(choosedUser.email){
 
-      useEffect(()=>{
-        globalState.userList.forEach((user) => {
-          if(user.email === choosedUser.email){
-            choosedUser = user;
-          }
-        })
-
-      }, [Object.values(globalState)])
-
+  //TODO: por alguna razón, hay que darle dos veces al boton restore para que funcione
   
-    const hasTrueDisease = Object.values(choosedUser.diseases).some(disease => disease === true);
-
+    
       // console.log("****************SELECTED USER******************")
       // console.log(user)
       
@@ -159,25 +157,32 @@ const UserDetail = ({ isVisible, choosedUser, closeModal }) => {
                   <ModalText>X </ModalText>
                 </TouchableOpacity>
 
-              <FirstFace user={choosedUser}/> 
+              {/* <FirstFace user={selectedUser}/> 
               <Divider /> 
-              <ProfileInfo user={choosedUser}/>
+              <ProfileInfo user={selectedUser}/>
               <Divider /> 
-              <Stats user={choosedUser}/>
+              <Stats user={selectedUser}/> */}
 
 
+{/* <Text>{selectedUser.characterStats.stamina}</Text> */}
 
+              {globalState.user.rol === "Mortimer" &&(
+                  <View style={{ top: 0, padding: 10}}>
 
-              {globalState.user.rol === "Mortimer" && hasTrueDisease===true && choosedUser &&(
-                  <View style={{ top: 0 }}>
+                    {hasTrueDisease&& (
                     <CureDisButton onPress={false}>
                         <CureDisButtonText>Cure disease</CureDisButtonText>
                     </CureDisButton>
-                    {choosedUser.characterStats.stamina <=20 && (
-                      <CureButton onPress={restore}>
-                          <CureButtonText >Recuperar</CureButtonText>
-                      </CureButton>
+                    )}
+                    {globalState.userList[num] && (
+                      <>
+                      {globalState.userList[num].characterStats.stamina <= 20 && (
+                        <CureButton onPress={restore}>
+                            <CureButtonText >Recuperar</CureButtonText>
+                        </CureButton>
 
+                      )}
+                    </>
                     )}
                   </View>
                 )}
@@ -192,8 +197,7 @@ const UserDetail = ({ isVisible, choosedUser, closeModal }) => {
           </ModalContainer>
         </Modal>
       );
-    }
-  }
+   
 };
 
 

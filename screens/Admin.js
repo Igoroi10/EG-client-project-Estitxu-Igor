@@ -115,14 +115,16 @@ const Admin = () => {
   const [isModalVisible, setIsModalVisible] = useState(false);
   const navigation = useNavigation();
   const{globalState, handleGlobalState} = useContext(Context);
-
+  const [userNum, setUserNum] = useState(0);
  
   
 
 
-  const showAlertWithUsername = (user) => {
+  const showAlertWithUsername = (user, index) => {
     setSelectedUser(user);
     setIsModalVisible(true);
+    setUserNum(index);
+
   };
 
   const closeModal = () => {
@@ -136,14 +138,14 @@ const Admin = () => {
         <UserList>
           {globalState.userList
             .filter((user) => user.rol === 'Acolito')
-            .map((user) => (
+            .map((user, index) => (
               <UserItem key={user._id}>
                 <UserInTower style={{ backgroundColor: user.towerAccess ? "#10D24B" : "red" }}/>
                 <UserImage source={{ uri: user.imgURL }} />
                 <UserInfo>
                   
                   <UserEmail>{user.email}</UserEmail>
-                  <UserButton onPress={() => showAlertWithUsername(user)}>
+                  <UserButton onPress={() => showAlertWithUsername(user, index)}>
                     <ButtonText>MOSTRAR PERFIL DEL ACÓLITO</ButtonText>
                   </UserButton>
                 </UserInfo>
@@ -156,6 +158,7 @@ const Admin = () => {
         isVisible={isModalVisible}
         choosedUser={selectedUser}
         closeModal={closeModal}
+        num={userNum}
       />
     </Container>
   );
