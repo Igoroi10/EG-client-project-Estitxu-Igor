@@ -99,19 +99,33 @@ const BackgroundImage = styled.ImageBackground`
 
 const UserDetail = ({ isVisible, choosedUser, closeModal, num }) => {
   const{globalState, handleGlobalState} = useContext(Context);
+  const [selectedUser, setSelectedUser] = useState(choosedUser);
   let hasTrueDisease=false;
 
     useEffect(() => {
-     console.log("çççççççççççççççççççççççççççççççççççççççççççççççççççççççççççççççççç")
-     if(globalState.userList[num]){
-      console.log(globalState.userList[num].characterStats.stamina)
-      hasTrueDisease = Object.values(globalState.userList[num].diseases).some((disease) => disease === true);
-     }
-    }, [Object.values(globalState)])
+      console.log("*****************Enters in USEEFFECT**********************")
+      if(globalState.userList[num]){
+
+        console.log("***********************STAMINA***********************")
+        console.log(globalState.userList[num].characterStats.stamina)
+        setSelectedUser(globalState.userList[num])
+      }
+      console.log("·····················CHANGED USER·······················")
+      console.log(globalState.stamina)
+      if(globalState.stamina)
+          setSelectedUser(globalState.stamina)
+
+    }, [Object.values(globalState.userList)])
+
+    useEffect(() => {
+      if(selectedUser){
+        hasTrueDisease = Object.values(selectedUser.diseases).some((disease) => disease === true);
+      }
+     }, [selectedUser])
+ 
 
 
-
-  //TODO: por alguna razón, hay que darle dos veces al boton restore para que funcione
+  //TODO: por alguna razón, hay que darle dos veces al boton restore para que funcione, pero se actualiza como si le hubieras dado una (y en base de datos va bien)
   
     
       // console.log("****************SELECTED USER******************")
@@ -157,14 +171,16 @@ const UserDetail = ({ isVisible, choosedUser, closeModal, num }) => {
                   <ModalText>X </ModalText>
                 </TouchableOpacity>
 
-              {/* <FirstFace user={selectedUser}/> 
+              <FirstFace user={selectedUser}/> 
               <Divider /> 
               <ProfileInfo user={selectedUser}/>
               <Divider /> 
-              <Stats user={selectedUser}/> */}
+              <Stats user={selectedUser}/>
 
+{selectedUser &&(
+   <Text>stamina: {selectedUser.characterStats.stamina}</Text> 
 
-{/* <Text>{selectedUser.characterStats.stamina}</Text> */}
+)}
 
               {globalState.user.rol === "Mortimer" &&(
                   <View style={{ top: 0, padding: 10}}>
@@ -174,9 +190,9 @@ const UserDetail = ({ isVisible, choosedUser, closeModal, num }) => {
                         <CureDisButtonText>Cure disease</CureDisButtonText>
                     </CureDisButton>
                     )}
-                    {globalState.userList[num] && (
+                    {selectedUser && (
                       <>
-                      {globalState.userList[num].characterStats.stamina <= 20 && (
+                      {selectedUser.characterStats.stamina <= 20 && (
                         <CureButton onPress={restore}>
                             <CureButtonText >Recuperar</CureButtonText>
                         </CureButton>

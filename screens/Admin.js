@@ -136,10 +136,10 @@ const Admin = () => {
     <Container>
  
         <UserList>
-          {globalState.userList
-            .filter((user) => user.rol === 'Acolito')
-            .map((user, index) => (
-              <UserItem key={user._id}>
+        {globalState.userList.map((user, index) => {
+          if (user.rol === "Acolito") {
+            return (
+              <UserItem key={`${user._id}_${index}`}>
                 <UserInTower style={{ backgroundColor: user.towerAccess ? "#10D24B" : "red" }}/>
                 <UserImage source={{ uri: user.imgURL }} />
                 <UserInfo>
@@ -149,9 +149,11 @@ const Admin = () => {
                     <ButtonText>MOSTRAR PERFIL DEL ACÓLITO</ButtonText>
                   </UserButton>
                 </UserInfo>
-              </UserItem>
-            ))
-          }
+                </UserItem>
+              );
+            }
+            return null; 
+          })}
         </UserList>
       
       <UserDetail
