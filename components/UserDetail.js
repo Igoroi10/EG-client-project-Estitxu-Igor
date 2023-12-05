@@ -101,8 +101,17 @@ const UserDetail = ({ isVisible, choosedUser, closeModal }) => {
   const{globalState, handleGlobalState} = useContext(Context);
 
 
-  if(choosedUser != undefined){
-  
+  if(choosedUser != undefined ){
+    if(choosedUser.email){
+
+      useEffect(()=>{
+        globalState.userList.forEach((user) => {
+          if(user.email === choosedUser.email){
+            choosedUser = user;
+          }
+        })
+
+      }, [Object.values(globalState)])
 
   
     const hasTrueDisease = Object.values(choosedUser.diseases).some(disease => disease === true);
@@ -183,6 +192,7 @@ const UserDetail = ({ isVisible, choosedUser, closeModal }) => {
           </ModalContainer>
         </Modal>
       );
+    }
   }
 };
 
