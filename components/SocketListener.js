@@ -26,14 +26,34 @@ function SocketListener(props) {
 		const handleArtifacts = (data) => {handleGlobalState({artifacts: data})}
 		const handleConsoleError = (data) => {console.error(data)}
 		const handleHello = (data) => {}
-		const handleUserList = (data) => {handleGlobalState({userList: data}); UpdateUser; }
+		const handleUserList = (data) => {
+			handleGlobalState({userList: data});   
+			data.forEach((userFromList) => {
+				if(userFromList.email === globalState.user.email){
+					handleGlobalState({user: userFromList});
+				}
+			}); 
+		}
 		const handleUserUpdate = (data) => {    
 			console.log("***************imported user*****************")
 			console.log(data)
 			if(globalState.user.name === data.name)
 				handleGlobalState({user: data})
 
-			UpdateUserList;
+			//updatae userList
+			const newUserList = [];
+			globalState.userList.forEach((userFromList) => {
+				if(userFromList.email === data.email){
+					newUserList.push(data);
+				}
+				else{
+					newUserList.push(userFromList);
+				}
+			})
+
+			handleGlobalState({userList: newUserList});
+
+
 		}
 		
 		const handlers = {
