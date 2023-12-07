@@ -137,22 +137,25 @@ const Admin = () => {
  
         <UserList>
         {globalState.userList.map((user, index) => {
-          if (user.rol === "Acolito") {
-            return (
-              <UserItem key={`${user._id}_${index}`}>
-                <UserInTower style={{ backgroundColor: user.towerAccess ? "#10D24B" : "red" }}/>
-                <UserImage source={{ uri: user.imgURL }} />
-                <UserInfo>
-                  
-                  <UserEmail>{user.email}</UserEmail>
-                  <UserButton onPress={() => showAlertWithUsername(user, index)}>
-                    <ButtonText>MOSTRAR PERFIL DEL ACÓLITO</ButtonText>
-                  </UserButton>
-                </UserInfo>
-                </UserItem>
-              );
-            }
-            return null; 
+          if(user){
+            if (user.rol === "Acolito" && (user.towerAccess || user.towerAccess==false)) {
+              return (
+                <UserItem key={`${user._id}_${index}`}>
+                  <UserInTower style={{ backgroundColor: user.towerAccess ? "#10D24B" : "red" }}/>
+                  <UserImage source={{ uri: user.imgURL }} />
+                  <UserInfo>
+                    
+                    <UserEmail>{user.email}</UserEmail>
+                    <UserButton onPress={() => showAlertWithUsername(user, index)}>
+                      <ButtonText>MOSTRAR PERFIL DEL ACÓLITO</ButtonText>
+                    </UserButton>
+                  </UserInfo>
+                  </UserItem>
+                );
+              }
+          }
+          return null; 
+
           })}
         </UserList>
       

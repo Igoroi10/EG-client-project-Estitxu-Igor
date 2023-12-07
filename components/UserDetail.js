@@ -103,17 +103,16 @@ const UserDetail = ({ isVisible, choosedUser, closeModal, num }) => {
   let hasTrueDisease=false;
 
     useEffect(() => {
-      console.log("*****************Enters in USEEFFECT**********************")
+      // console.log("*****************Enters in USEEFFECT**********************")
       if(globalState.userList[num]){
 
-        console.log("***********************STAMINA***********************")
-        console.log(globalState.userList[num].characterStats.stamina)
+        // console.log("***********************STAMINA***********************")
+        // console.log(globalState.userList[num].characterStats.stamina)
         setSelectedUser(globalState.userList[num])
       }
-      console.log("·····················CHANGED USER·······················")
-      console.log(globalState.stamina)
-      if(globalState.stamina)
-          setSelectedUser(globalState.stamina)
+      // console.log("·····················CHANGED USER·······················")
+      // console.log(globalState.stamina)
+
 
     }, [Object.values(globalState.userList)])
 
@@ -125,11 +124,6 @@ const UserDetail = ({ isVisible, choosedUser, closeModal, num }) => {
  
 
 
-  //TODO: por alguna razón, hay que darle dos veces al boton restore para que funcione, pero se actualiza como si le hubieras dado una (y en base de datos va bien)
-  
-    
-      // console.log("****************SELECTED USER******************")
-      // console.log(user)
       
       let linkForBackground;
       
@@ -176,11 +170,6 @@ const UserDetail = ({ isVisible, choosedUser, closeModal, num }) => {
               <ProfileInfo user={selectedUser}/>
               <Divider /> 
               <Stats user={selectedUser}/>
-
-{selectedUser &&(
-   <Text>stamina: {selectedUser.characterStats.stamina}</Text> 
-
-)}
 
               {globalState.user.rol === "Mortimer" &&(
                   <View style={{ top: 0, padding: 10}}>
