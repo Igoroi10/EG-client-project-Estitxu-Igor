@@ -101,6 +101,8 @@ const UserDetail = ({ isVisible, choosedUser, closeModal, num }) => {
   const{globalState, handleGlobalState} = useContext(Context);
   const [selectedUser, setSelectedUser] = useState(choosedUser);
   let hasTrueDisease=false;
+  const [isActiveButton, setIsActiveButton] = useState(false);
+
 
     useEffect(() => {
       // console.log("*****************Enters in USEEFFECT**********************")
@@ -113,7 +115,7 @@ const UserDetail = ({ isVisible, choosedUser, closeModal, num }) => {
       // console.log("·····················CHANGED USER·······················")
       // console.log(globalState.stamina)
 
-
+      setIsActiveButton(true)
     }, [Object.values(globalState.userList)])
 
     useEffect(() => {
@@ -147,6 +149,7 @@ const UserDetail = ({ isVisible, choosedUser, closeModal, num }) => {
         }
 
         const restore = () => {
+          setIsActiveButton(false)
           socket.emit('restoreStamina', choosedUser.email);
         };
 
@@ -181,7 +184,7 @@ const UserDetail = ({ isVisible, choosedUser, closeModal, num }) => {
                     )}
                     {selectedUser && (
                       <>
-                      {selectedUser.characterStats.stamina <= 20 && (
+                      {selectedUser.characterStats.stamina <= 20 && isActiveButton &&(
                         <CureButton onPress={restore}>
                             <CureButtonText >Recuperar</CureButtonText>
                         </CureButton>
