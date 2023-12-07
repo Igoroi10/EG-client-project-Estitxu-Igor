@@ -1,7 +1,7 @@
 import { useContext, useEffect, useState } from 'react';
 import { Context } from '../AppContext';
 
-const UpdateUser = ({ isVisible, choosedUser, closeModal }) => {
+const UpdateUser = () => {
     const{globalState, handleGlobalState} = useContext(Context);
   
     globalState.userList.forEach((userFromList) => {
@@ -9,6 +9,23 @@ const UpdateUser = ({ isVisible, choosedUser, closeModal }) => {
             handleGlobalState({user: userFromList});
         }
     })
-};  
+}; 
 
-export default UpdateUser;
+const UpdateUserList = () => {
+    const{globalState, handleGlobalState} = useContext(Context);
+  
+    globalState.userList.forEach((userFromList) => {
+        if(userFromList.email === globalState.user.email){
+            handleGlobalState({userList: globalState.user});
+        }
+    })
+}; 
+
+
+
+
+export {UpdateUser, UpdateUserList};
+
+
+
+

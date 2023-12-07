@@ -1,5 +1,6 @@
 import { useContext, useEffect, useState } from 'react';
 import { Context } from '../AppContext';
+import {UpdateUser, UpdateUserList} from '../helpers/updateUser'
 
 function SocketListener(props) {
 	if(props !== null){
@@ -25,12 +26,14 @@ function SocketListener(props) {
 		const handleArtifacts = (data) => {handleGlobalState({artifacts: data})}
 		const handleConsoleError = (data) => {console.error(data)}
 		const handleHello = (data) => {}
-		const handleUserList = (data) => {handleGlobalState({userList: data}); }
+		const handleUserList = (data) => {handleGlobalState({userList: data}); UpdateUser; }
 		const handleUserUpdate = (data) => {    
 			console.log("***************imported user*****************")
 			console.log(data)
 			if(globalState.user.name === data.name)
 				handleGlobalState({user: data})
+
+			UpdateUserList;
 		}
 		
 		const handlers = {
