@@ -7,7 +7,7 @@ import ProfileInfo from '../components/ProfileInfo';
 import Stats from '../components/Stats';
 import * as Progress from 'react-native-progress';
 
-
+import socket from '../helpers/socket';
 
 import Toast from 'react-native-toast-message';
 
@@ -194,7 +194,11 @@ const Profile = ({user}) => {
 
     }
 
-
+    const restAcolyte = (email) =>{
+      socket.emit("fullyRestore", email)
+      console.log('************** REST SENT *******************')
+      console.log(email)
+    }
 
 
 
@@ -305,24 +309,10 @@ const Profile = ({user}) => {
                     </Column>
                 </Container3>
 
-
-                {/* <ProfileInfo user={user}/>
-                <Divider /> 
-                <Stats user={user}/> */}
-
-
-
-
-
-
-
-
-
-
-
-
-
-                  <Container>
+                  <Container>                  
+                  <Button    label="rest"  onPress={() => restAcolyte(globalState.user.email)}>
+                      <ButtonText>Start resting</ButtonText>
+                  </Button>
                   <Button    label="Delete storage"  onPress={() => reestoreData()}>
                       <ButtonText>Delete storage</ButtonText>
                   </Button>

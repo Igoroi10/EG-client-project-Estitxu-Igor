@@ -1,11 +1,12 @@
 import { useContext, useEffect, useState } from 'react';
 import { Context } from '../AppContext';
+import userUpdater from '../helpers/userUpdater';
 
 function SocketListener(props) {
 	if(props !== null){
 		const currentSocketEvent = props.props;
 		const [currentEvent, setEvent] = useState(currentSocketEvent);
-		const {handleGlobalState} = useContext(Context);
+		const {globalState, handleGlobalState} = useContext(Context);
 
 		useEffect(() => { 
 			setEvent(currentSocketEvent);  
@@ -26,6 +27,12 @@ function SocketListener(props) {
 		const handleConsoleError = (data) => {console.error(data)}
 		const handleHello = (data) => {}
 		const handleUserList = (data) => {handleGlobalState({userList: data}); }
+		const handleUserUpdate = (data) => {    
+			console.log("***************imported user*****************")
+			console.log(data)
+			if(globalState.user.name === data.name)
+				handleGlobalState(data)
+		}
 		
 		const handlers = {
 			stamina: handleAcoliteStamina,
@@ -38,6 +45,7 @@ function SocketListener(props) {
 			hello: handleHello,
 			error: handleConsoleError,
 			userList: handleUserList,
+			userRecovery: handleUserUpdate
 		}
 	}
 	return null;
