@@ -30,7 +30,7 @@ function SocketListener(props) {
 			console.log("***************imported user*****************")
 			console.log(data)
 			if(globalState.user.name === data.name)
-				handleGlobalState(data)
+				handleGlobalState({user: data})
 		}
 		
 		const handlers = {
