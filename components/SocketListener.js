@@ -26,9 +26,7 @@ function SocketListener(props) {
 		const handleConsoleError = (data) => {console.error(data)}
 		const handleHello = (data) => {}
 		const handleUserList = (data) => {handleGlobalState({userList: data}); }
-		const handleUserUpdate = (data) => {    
-			console.log("***************imported user*****************")
-			console.log(data)
+		const handleUserUpdate = (data) => {
 			if(globalState.user.name === data.name)
 				handleGlobalState({user: data})
 		}

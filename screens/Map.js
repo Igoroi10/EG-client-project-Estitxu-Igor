@@ -139,8 +139,8 @@ const styles = StyleSheet.create({
           fastestInterval: 2000,
         }
       );
-      // fetchArtifacts();
-      // fetchStatus();
+
+      coordEmit();
     },[])
 
     useEffect(()=> {
@@ -196,27 +196,18 @@ const styles = StyleSheet.create({
 
     }, [Object.values(globalState)])
 
+    const coordEmit = () => {
+      const data = {
+        name: globalState.user.name,
+        lat: userLocation.latitude,
+        lon: userLocation.longitude,
+        userArray: globalState.userList
+      }
 
-    // async function fetchArtifacts() {
-    //   try {
-    //       const response = await axios.get('https://fly-eg-staging.fly.dev/api/artifacts/');
-    //       const responseData = response.data.data;
-    //       setArtifacts(responseData);
-    //   } catch (error) {
-    //       console.error('Error al obtener los artefactos:', error);
-    //   }
-    // }
+      socket.emit('coords', data)
 
-    // async function fetchStatus() {
-    //   try {
-    //       const response = await axios.get('https://fly-eg-staging.fly.dev/api/search/');
-    //       const responseData = response.data.data[0].validation;
-    //       setStatus(responseData);
-    //   } catch (error) {
-    //       console.error('Error al obtener el search:', error);
-    //   }
-    // }
-
+      setTimeout(coordEmit, 3000)
+    }
 
     async function updateArtifact() {
       try {
