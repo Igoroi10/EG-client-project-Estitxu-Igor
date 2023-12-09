@@ -9,6 +9,7 @@ import Toast from 'react-native-toast-message';
 
 import { Context } from '../AppContext';
 
+import * as Progress from 'react-native-progress';
 
 const ModalContainer = styled.View`
   flex: 1;
@@ -95,6 +96,8 @@ const UserButton = styled.TouchableOpacity`
   padding: 10px 20px;
   border-radius: 10px;
   margin: 10px;
+  flex-direction: row;
+  align-items: center;
 `;
 
 const UserInTower = styled.View`
@@ -107,6 +110,8 @@ const UserInTower = styled.View`
   z-index: 1;
   position: absolute;
 `;
+
+
 
 
 
@@ -131,24 +136,50 @@ const Admin = () => {
     setIsModalVisible(false);
   };
 
+ 
+
+          
 
   return (
     <Container>
- 
         <UserList>
         {globalState.userList.map((user, index) => {
           if(user){
             if (user.rol === "Acolito" && (user.towerAccess || user.towerAccess==false)) {
+              let pieColor = "red";
+
+              if(user.characterStats.stamina <= 20)
+                pieColor = "red";
+              else if(user.characterStats.stamina <= ( (user.characterMaxStats.maxStamina-20)/2+20 ))
+                pieColor = "yellow";
+              else if(user.characterStats.stamina <= user.characterMaxStats.maxStamina)
+                pieColor = "green";
+
+              let pieProgress = 0.01;
+              if( user.characterStats.stamina > 0){
+                pieProgress = ( user.characterStats.stamina * (0.1/user.characterMaxStats.maxStamina) );
+              }
+              
               return (
                 <UserItem key={`${user._id}_${index}`}>
                   <UserInTower style={{ backgroundColor: user.towerAccess ? "#10D24B" : "red" }}/>
                   <UserImage source={{ uri: user.imgURL }} />
+                  
                   <UserInfo>
                     
                     <UserEmail>{user.email}</UserEmail>
                     <UserButton onPress={() => showAlertWithUsername(user, index)}>
-                      <ButtonText>MOSTRAR PERFIL DEL ACÓLITO</ButtonText>
-                    </UserButton>
+                      <ButtonText>VER PERFIL</ButtonText>
+                    <Progress.Pie
+                      progress={pieProgress}
+                      size={50}
+                      color={pieColor}
+                      unfilledColor="transparent"
+                      borderColor="black"
+                    />
+               
+                  </UserButton>
+
                   </UserInfo>
                   </UserItem>
                 );
@@ -170,3 +201,15 @@ const Admin = () => {
 };
 
 export default Admin;
+
+
+function calculateUserPieColor(user){
+  let pieColor = "red";
+
+    if(user.characterStats.stamina <= 20)
+      pieColor = "red";
+    else if(user.characterStats.stamina <= ( (user.characterMaxStats.maxStamina-20)/2+20 ))
+      pieColor = "yellow";
+    else if(user.characterStats.stamina <= user.characterMaxStats.maxStamina)
+      pieColor = "green"
+}
