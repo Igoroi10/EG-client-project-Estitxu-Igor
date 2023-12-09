@@ -172,6 +172,30 @@ const FirstFace = ({user}) => {
                 />
               </View>
           )}
+
+          {(actualUserRole === "Villano" || actualUserRole === "Istvan") &&(
+            <View style={{ flex: 1, justifyContent: 'center', alignItems: 'left', marginTop: 10, left: -20}}>
+              <SliderText style={{ color: 'white', textShadowColor: 'black', textShadowOffset: { width: 2, height: 2 }, textShadowRadius: 2 , left: 10 }}> Money: {Math.floor(sliderValueMoney)} </SliderText>
+
+              <Slider
+                style={{width: 100, height: 40, left: 0, top: 0}}
+                minimumValue={0}
+                maximumValue={user.characterMainData.Money}
+                minimumTrackTintColor="white"
+                maximumTrackTintColor="white"
+                onValueChange={(value) => {
+                  setSliderValueMoney(value); 
+                  const data = {
+                    email: user.email,
+                    dataName: "characterMainData.Money",
+                    dataValue: value
+                  }          
+                  socket.emit('updateValue', data); //todo en server
+                }}
+                  
+              />
+            </View>
+          )}
         </NameColumn>
 
 
