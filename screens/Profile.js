@@ -309,10 +309,12 @@ const Profile = ({user}) => {
                     </Column>
                 </Container3>
 
-                  <Container>                  
+                  <Container>    
+                  {globalState.user.rol === "Acolito" && (                  
                   <Button    label="rest"  onPress={() => restAcolyte(globalState.user.email)}>
                       <ButtonText>Start resting</ButtonText>
-                  </Button>
+                  </Button>)}                
+
                   <Button    label="Delete storage"  onPress={() => reestoreData()}>
                       <ButtonText>Delete storage</ButtonText>
                   </Button>
