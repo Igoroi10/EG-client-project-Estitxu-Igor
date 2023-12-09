@@ -203,13 +203,3 @@ const Admin = () => {
 export default Admin;
 
 
-function calculateUserPieColor(user){
-  let pieColor = "red";
-
-    if(user.characterStats.stamina <= 20)
-      pieColor = "red";
-    else if(user.characterStats.stamina <= ( (user.characterMaxStats.maxStamina-20)/2+20 ))
-      pieColor = "yellow";
-    else if(user.characterStats.stamina <= user.characterMaxStats.maxStamina)
-      pieColor = "green"
-}

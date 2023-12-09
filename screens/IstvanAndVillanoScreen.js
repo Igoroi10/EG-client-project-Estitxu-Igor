@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import styled from 'styled-components/native';
 import axios from 'axios';
 import { TouchableOpacity, View, Text, Image } from 'react-native';
@@ -6,6 +6,10 @@ import Modal from 'react-native-modal';
 import { useNavigation } from '@react-navigation/native';
 import UserDetail from '../components/UserDetail'; 
 import Toast from 'react-native-toast-message';
+
+import { Context } from '../AppContext';
+
+import * as Progress from 'react-native-progress';
 
 
 const Container = styled.View`
@@ -85,77 +89,89 @@ const UserInTower = styled.View`
 
 
 const Istvan = ({user}) => {
-    const [userList, setUserList] = useState([]);
-    const [showList, setShowList] = useState(false);
-    const [selectedUser, setSelectedUser] = useState(null);
-    const [isModalVisible, setIsModalVisible] = useState(false);
-    const navigation = useNavigation();
     
-    const fetchUserList = async () => {
-      try {
-        const response = await axios.get('https://fly-eg-staging.fly.dev/api/users/');
-        const responseData = response.data.data;
-        setUserList(responseData);
-        setShowList(true);
-      //   Toast.show({
-      //     type: 'success', // Toast type
-      //     position: 'bottom', // Toast position
-      //     text1: 'SHOW USERS', // Title
-      //     text2: "Lista de usuarios mostrada correctamente", // Message
-      // });
-      } catch (error) {
-        console.error('Error al obtener la lista de usuarios', error);
-        Toast.show({
-          type: 'error', // Toast type
-          position: 'bottom', // Toast position
-          text1: 'SHOW USERS', // Title
-          text2: "Error al obtener la lista de usuarios", // Message
-      });
-      }
-    };
+  const [selectedUser, setSelectedUser] = useState(null);
+  const [isModalVisible, setIsModalVisible] = useState(false);
+  const navigation = useNavigation();
+  const{globalState, handleGlobalState} = useContext(Context);
+  const [userNum, setUserNum] = useState(0);
+ 
   
-    const showAlertWithUsername = (user) => {
-      setSelectedUser(user);
-      setIsModalVisible(true);
-    };
-  
-    const closeModal = () => {
-      setIsModalVisible(false);
-    };
-  
-    useEffect(() => {
-      fetchUserList();
-    }, [user]);
-  
-    return (
-      <Container>
-   
-          <UserList>
-            {userList
-              .filter((user) => user.rol === 'Acolito')
-              .map((user) => (
-                <UserItem key={user._id}>
+
+
+  const showAlertWithUsername = (user, index) => {
+    setSelectedUser(user);
+    setIsModalVisible(true);
+    setUserNum(index);
+
+  };
+
+  const closeModal = () => {
+    setIsModalVisible(false);
+  };
+
+ 
+
+          
+
+  return (
+    <Container>
+        <UserList>
+        {globalState.userList.map((user, index) => {
+          if(user){
+            if (user.rol === "Acolito" && (user.towerAccess || user.towerAccess==false)) {
+              let pieColor = "red";
+
+              if(user.characterStats.stamina <= 20)
+                pieColor = "red";
+              else if(user.characterStats.stamina <= ( (user.characterMaxStats.maxStamina-20)/2+20 ))
+                pieColor = "yellow";
+              else if(user.characterStats.stamina <= user.characterMaxStats.maxStamina)
+                pieColor = "green";
+
+              let pieProgress = 0.01;
+              if( user.characterStats.stamina > 0){
+                pieProgress = ( user.characterStats.stamina * (0.1/user.characterMaxStats.maxStamina) );
+              }
+              
+              return (
+                <UserItem key={`${user._id}_${index}`}>
                   <UserInTower style={{ backgroundColor: user.towerAccess ? "#10D24B" : "red" }}/>
                   <UserImage source={{ uri: user.imgURL }} />
+                  
                   <UserInfo>
                     
                     <UserEmail>{user.email}</UserEmail>
-                    <UserButton onPress={() => showAlertWithUsername(user)}>
-                      <ButtonText>MOSTRAR PERFIL DEL ACÓLITO</ButtonText>
-                    </UserButton>
+                    <UserButton onPress={() => showAlertWithUsername(user, index)}>
+                      <ButtonText>VER PERFIL</ButtonText>
+                    <Progress.Pie
+                      progress={pieProgress}
+                      size={50}
+                      color={pieColor}
+                      unfilledColor="transparent"
+                      borderColor="black"
+                    />
+               
+                  </UserButton>
+
                   </UserInfo>
-                </UserItem>
-              ))
-            }
-          </UserList>
-        
-        <UserDetail
-          isVisible={isModalVisible}
-          user={selectedUser}
-          closeModal={closeModal}
-        />
-      </Container>
-      );
+                  </UserItem>
+                );
+              }
+          }
+          return null; 
+
+          })}
+        </UserList>
+      
+      <UserDetail
+        isVisible={isModalVisible}
+        choosedUser={selectedUser}
+        closeModal={closeModal}
+        num={userNum}
+      />
+    </Container>
+  );
     };
 
 
