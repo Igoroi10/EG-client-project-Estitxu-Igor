@@ -241,15 +241,8 @@ const Profile = ({user}) => {
                     </NameColumn>
                     <NameColumn>
                
-                    <Text2>LvL</Text2>
-                    <Progress.Bar
-                      progress={globalState.user.characterMainData.LvL/100}
-                      width={100}
-                      color={'white'} 
-                      borderColor={'grey'}
-                      backgroundColor={'black'}
-                    />
-                    {/* <Text2>{globalState.user.characterMainData.LvL}</Text2> */}
+                    <Text2 top={2}>LvL</Text2>
+                    <Text2 top={1}>{globalState.user.characterMainData.LvL}</Text2>
                     </NameColumn>
                     <NameColumn>
                     <Text2>Money</Text2>
