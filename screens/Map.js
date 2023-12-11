@@ -197,18 +197,25 @@ const styles = StyleSheet.create({
     }, [Object.values(globalState)])
 
     const coordEmit = () => {
-      const data = {
-        name: globalState.user.name,
-        lat: 0,
-        lon: 0,
-        userArray: globalState.userList
-      }
+
 
       Geolocation.getCurrentPosition(
         (position) => {
+          console.log("******** Position gathered ********")
+          console.log(position.coords)
           const {latitude, longitude} = position.coords;
-            data.lat = latitude;
-            data.lon = longitude;
+          const data = {
+            name: globalState.user.name,
+            lat: latitude,
+            lon: longitude,
+            userArray: globalState.userList
+          }
+          if(data.userArray.length !== 0 && data.lat !== 0 && data.lon !== 0){
+            console.log('*********COORDS SENT ***********')
+            console.log(data.lat)
+            console.log(data.lon)
+            socket.emit('coords', data)
+          }
         },
         (error) => {
             // See error code charts below.
@@ -218,8 +225,7 @@ const styles = StyleSheet.create({
     );
     
 
-      if(data.userArray.length !== 0)
-        socket.emit('coords', data)
+
 
       setTimeout(coordEmit, 3000)
     }

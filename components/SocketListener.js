@@ -37,10 +37,16 @@ function SocketListener(props) {
 			}); 
 		}
 		const handleUserUpdate = (data) => {    
-			console.log("***************imported user*****************")
-			console.log(data)
 			if(globalState.user.name === data.name)
 				handleGlobalState({user: data})
+		};
+		const handleUserCoord = (data) => {
+			globalState.userList.forEach(element => {
+				if(element.name === data.name && data.lat !== 0 && data.lon !== 0){
+					element.latitude = data.lat;
+					element.longitude = data.lon;
+				}
+			})
 		}
 		
 		const handlers = {
@@ -54,7 +60,8 @@ function SocketListener(props) {
 			hello: handleHello,
 			error: handleConsoleError,
 			userList: handleUserList,
-			userRecovery: handleUserUpdate
+			userRecovery: handleUserUpdate,
+			coordUser: handleUserCoord,
 		}
 	}
 	return null;

@@ -100,8 +100,8 @@ const App = () => {
   },[userRole, user])
 
   useEffect(()=>{
-    console.log('******* GLOBAL STATE CHANGE **********')
-    console.log(globalState)
+    // console.log('******* GLOBAL STATE CHANGE **********')
+    // console.log(globalState)
   })
 
   asignRol(userRole, tabScreens, user)
