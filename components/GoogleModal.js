@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from "react";
+import React, { useEffect, useState, useContext} from 'react'
 import Modal from 'react-modal';
 import { View, Text, Image, ActivityIndicator, StyleSheet } from 'react-native';
 import styled from "styled-components/native";
@@ -7,13 +7,15 @@ import auth from '@react-native-firebase/auth';
 import { GoogleSignin } from '@react-native-google-signin/google-signin';
 import axios from 'axios'
 import{storeData} from '../helpers/localStorage'
+import { Context } from '../AppContext';
+
 
 Modal.setAppElement('#yourAppElement');
 
 const GoogleModal = ({logStatus, setMethod, setUser}) =>{
   const [userLoaded, setUserLoad] = useState(logStatus?false:true)
   const [loading, setLoading] = useState(false)
-
+  const{globalState, handleGlobalState} = useContext(Context)
   
   async function onGoogleButtonPress() {
     setLoading(true)
@@ -50,7 +52,7 @@ const GoogleModal = ({logStatus, setMethod, setUser}) =>{
     setUserLoad(true)
     setMethod(decodedUser.data.data[0].rol)
     setUser(decodedUser.data.data[0])
-
+    handleGlobalState({user: decodedUser.data.data[0]})
   }
 
 
