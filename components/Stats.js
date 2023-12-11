@@ -1,6 +1,8 @@
 import React from 'react';
 import styled from 'styled-components/native';
 import {View } from 'react-native'
+import * as Progress from 'react-native-progress';
+
 
 const Container = styled.View`
   width: 100%;
@@ -44,22 +46,54 @@ const Stats = ({user}) => {
   return (
     <>
 {user &&(
-  <View>
+  <View left={12}>
   
     <Container>
       <Column>
-        <Text>Strength  {user.characterStats.strength}</Text>
+        <Text>Strength</Text>
+        <Progress.Bar
+          progress={user.characterStats.strength/100}
+          width={100}
+          color={'white'} 
+          borderColor={'grey'}
+          backgroundColor={'black'}
+          left={10}
+        />
       </Column>
       <Column>
-        <Text>Stamina  {user.characterStats.stamina}</Text>
+        <Text>Stamina</Text>
+        <Progress.Bar
+          progress={user.characterStats.stamina/100}
+          width={100}
+          color={'white'} 
+          borderColor={'grey'}
+          backgroundColor={'black'}
+          left={10}
+        />
       </Column>
     </Container>
     <Container>
       <Column>
-        <Text>Agility  {user.characterStats.agility}</Text>
+        <Text>Agility</Text>
+        <Progress.Bar
+          progress={user.characterStats.agility/100}
+          width={100}
+          color={'white'} 
+          borderColor={'grey'}
+          backgroundColor={'black'}
+          left={10}
+        />
       </Column>
       <Column>
-        <Text>Intelligence  {user.characterStats.intelligence}</Text>
+        <Text>Intelligence</Text>
+        <Progress.Bar
+          progress={user.characterStats.intelligence/100}
+          width={100}
+          color={'white'} 
+          borderColor={'grey'}
+          backgroundColor={'black'}
+          left={10}
+        />
       </Column>
     </Container>
   </View>
