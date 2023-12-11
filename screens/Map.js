@@ -207,10 +207,9 @@ const styles = StyleSheet.create({
           const data = {
             name: globalState.user.name,
             lat: latitude,
-            lon: longitude,
-            userArray: globalState.userList
+            lon: longitude
           }
-          if(data.userArray.length !== 0 && data.lat !== 0 && data.lon !== 0){
+          if(data.lat !== 0 && data.lon !== 0){
             console.log('*********COORDS SENT ***********')
             console.log(data.lat)
             console.log(data.lon)
