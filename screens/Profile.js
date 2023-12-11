@@ -198,6 +198,8 @@ const Profile = ({user}) => {
       socket.emit("fullyRestore", email)
       console.log('************** REST SENT *******************')
       console.log(email)
+      handleGlobalState({rest: true})
+
     }
 
 
@@ -309,10 +311,12 @@ const Profile = ({user}) => {
                     </Column>
                 </Container3>
 
-                  <Container>                  
-                  <Button    label="rest"  onPress={() => restAcolyte(globalState.user.email)}>
-                      <ButtonText>Start resting</ButtonText>
-                  </Button>
+                  <Container>  
+                  {globalState.user.rol === "Acolito" && globalState.user.characterStats.stamina < 100 && (                   
+                    <Button    label="rest"  onPress={() => restAcolyte(globalState.user.email)}>
+                        <ButtonText>Start resting</ButtonText>
+                    </Button>
+                  )}
                   <Button    label="Delete storage"  onPress={() => reestoreData()}>
                       <ButtonText>Delete storage</ButtonText>
                   </Button>

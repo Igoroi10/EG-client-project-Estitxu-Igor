@@ -11,19 +11,11 @@ Modal.setAppElement('#yourAppElement');
 const TiredModal = () =>{
   const{globalState, handleGlobalState} = useContext(Context);
 
-  useEffect(() => {
-    if(globalState.rest){
-      setInterval(function(){
-        handleGlobalState({rest: false})
-  
-      }, 10000)
-    }
-}, [globalState.user]) 
 
   return(
     <ModalPage>
-      {globalState.user.rol == "Mortimer" && (
-        <ModalTemplate visible = {globalState.user.characterStats.stamina<=20?true:false}>
+      {globalState.user.rol == "Acolito" && (
+        <ModalTemplate visible = {globalState.user.characterStats.stamina<=20?true:true}>
           <ModalImage source={require('../assets/tiredImage.png')} />
         </ModalTemplate>
       )}
