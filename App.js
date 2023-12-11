@@ -9,6 +9,7 @@ import { storeData, getData } from './helpers/localStorage';
 
 import GoogleModal from './components/GoogleModal.js';
 import StandardModal from './components/Modal.js';
+import RestModal from './components/RestModal.js'
 
 import globalStateModel from './helpers/globalStateModel';
 
@@ -113,6 +114,7 @@ const App = () => {
       {socketEvent !== null && (<SocketListener props={socketEvent}/>)}
       <NavigationContainer>
         <GoogleModal logStatus={logState} setMethod={setUserRole} setUser={setUser}/>
+        <RestModal />
         <StandardModal />
         <Tab.Navigator>
           {tabScreens}
