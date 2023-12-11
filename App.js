@@ -9,6 +9,8 @@ import { storeData, getData } from './helpers/localStorage';
 
 import GoogleModal from './components/GoogleModal.js';
 import StandardModal from './components/Modal.js';
+import RestModal from './components/RestModal.js'
+import TiredModal from './components/TiredModal.js';
 
 import globalStateModel from './helpers/globalStateModel';
 
@@ -19,6 +21,7 @@ import SocketListener from './components/SocketListener';
 import Toast from 'react-native-toast-message'
 import axios from 'axios';
 import { fetchArtifacts, fetchSearchStatus, fetchAllUsers } from './helpers/fetchs';
+import { forEachChild } from 'typescript';
 
 
 
@@ -50,18 +53,6 @@ const App = () => {
       // …do multiple sync or async tasks
 
       const userData = await getData();
-
-
-      if (userData !== null) {
-        setLogged(true);
-        setUserRole(userData.rol);
-        setUser(userData);
-        handleGlobalState({user: userData});
-
-      } else {
-        setLogged(false);
-      }
-      
       const artifactsData = await fetchArtifacts();
       const searchState = await fetchSearchStatus();
       const allUsers = await fetchAllUsers();
@@ -69,6 +60,23 @@ const App = () => {
       handleGlobalState({artifacts: artifactsData});
       handleGlobalState({search: searchState})
       handleGlobalState({userList: allUsers})
+
+
+      if (userData !== null) {
+        setLogged(true);
+        setUserRole(userData.rol);
+        setUser(userData);
+        allUsers.forEach(el => {
+          if(el.name === userData.name)
+            handleGlobalState({user: el})
+        })
+
+      } else {
+        setLogged(false);
+      }
+      
+
+      
 
       socket.onAny((eventName, ...data) => {
         console.log('************ SOCKET INCOMING **************')
@@ -113,6 +121,8 @@ const App = () => {
       {socketEvent !== null && (<SocketListener props={socketEvent}/>)}
       <NavigationContainer>
         <GoogleModal logStatus={logState} setMethod={setUserRole} setUser={setUser}/>
+        <RestModal />
+        <TiredModal />
         <StandardModal />
         <Tab.Navigator>
           {tabScreens}

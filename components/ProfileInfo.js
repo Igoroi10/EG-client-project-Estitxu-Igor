@@ -123,24 +123,7 @@ const FirstFace = ({user}) => {
         <NameColumn>
         <View style={{ flex: 1, justifyContent: 'center', alignItems: 'left',}}>
             <Text>LvL: {fixedValueLvL}</Text>
-            <View
-              style={{
-                width: 70,
-                height: 20,
-                backgroundColor: 'white',
-                borderRadius: 3,
-                marginTop: 10,
-              }} 
-            />
-            <View
-              style={{
-                width: (fixedValueLvL/20) * 70,
-                height: 20,
-                backgroundColor: 'grey',
-                borderRadius: 3,
-                marginTop: -20,
-              }} 
-            />
+           
           </View>
         </NameColumn>
 

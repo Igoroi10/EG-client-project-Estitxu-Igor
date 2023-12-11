@@ -198,6 +198,8 @@ const Profile = ({user}) => {
       socket.emit("fullyRestore", email)
       console.log('************** REST SENT *******************')
       console.log(email)
+      handleGlobalState({rest: true})
+
     }
 
 
@@ -239,15 +241,8 @@ const Profile = ({user}) => {
                     </NameColumn>
                     <NameColumn>
                
-                    <Text2>LvL</Text2>
-                    <Progress.Bar
-                      progress={globalState.user.characterMainData.LvL/100}
-                      width={100}
-                      color={'white'} 
-                      borderColor={'grey'}
-                      backgroundColor={'black'}
-                    />
-                    {/* <Text2>{globalState.user.characterMainData.LvL}</Text2> */}
+                    <Text2 top={2}>LvL</Text2>
+                    <Text2 top={1}>{globalState.user.characterMainData.LvL}</Text2>
                     </NameColumn>
                     <NameColumn>
                     <Text2>Money</Text2>
@@ -309,12 +304,13 @@ const Profile = ({user}) => {
                     </Column>
                 </Container3>
 
-                  <Container>    
-                  {globalState.user.rol === "Acolito" && (                  
-                  <Button    label="rest"  onPress={() => restAcolyte(globalState.user.email)}>
-                      <ButtonText>Start resting</ButtonText>
-                  </Button>)}                
 
+                  <Container>  
+                  {globalState.user.rol === "Acolito" && globalState.user.characterStats.stamina < 100 && (                   
+                    <Button    label="rest"  onPress={() => restAcolyte(globalState.user.email)}>
+                        <ButtonText>Start resting</ButtonText>
+                    </Button>
+                  )}
                   <Button    label="Delete storage"  onPress={() => reestoreData()}>
                       <ButtonText>Delete storage</ButtonText>
                   </Button>

@@ -96,9 +96,14 @@ const UserButton = styled.TouchableOpacity`
   padding: 10px 20px;
   border-radius: 10px;
   margin: 10px;
-  flex-direction: row;
-  align-items: center;
+  align-items: left;
+  width: 50%;
 `;
+
+const UserThings = styled.View`
+flex-direction: row;
+
+`
 
 const UserInTower = styled.View`
   top: 80px;
@@ -111,7 +116,13 @@ const UserInTower = styled.View`
   position: absolute;
 `;
 
+const PieStyle = styled.View`
+align-items: right;
+right: -40px;
+top: 5px;
 
+
+`
 
 
 
@@ -150,14 +161,14 @@ const Admin = () => {
 
               if(user.characterStats.stamina <= 20)
                 pieColor = "red";
-              else if(user.characterStats.stamina <= ( (user.characterMaxStats.maxStamina-20)/2+20 ))
+              else if(user.characterStats.stamina <= ( (user.characterMaxStats.maxStamina/2)))
                 pieColor = "yellow";
               else if(user.characterStats.stamina <= user.characterMaxStats.maxStamina)
-                pieColor = "green";
+                pieColor = "#9ACD32";
 
               let pieProgress = 0.01;
               if( user.characterStats.stamina > 0){
-                pieProgress = ( user.characterStats.stamina * (0.1/user.characterMaxStats.maxStamina) );
+                pieProgress = ( user.characterStats.stamina * (1/user.characterMaxStats.maxStamina) );
               }
               
               return (
@@ -168,17 +179,24 @@ const Admin = () => {
                   <UserInfo>
                     
                     <UserEmail>{user.email}</UserEmail>
-                    <UserButton onPress={() => showAlertWithUsername(user, index)}>
-                      <ButtonText>VER PERFIL</ButtonText>
-                    <Progress.Pie
-                      progress={pieProgress}
-                      size={50}
-                      color={pieColor}
-                      unfilledColor="transparent"
-                      borderColor="black"
-                    />
-               
-                  </UserButton>
+                    <UserThings>
+                      <UserButton onPress={() => showAlertWithUsername(user, index)}>
+                        <ButtonText>VER PERFIL</ButtonText>
+                  
+                
+                    </UserButton>
+                    <PieStyle>
+                      <Progress.Pie
+                          progress={pieProgress}
+                          size={50}
+                          color={pieColor}
+                          unfilledColor="#D3D3D3"
+                          borderColor="black"
+
+                        />
+                    </PieStyle>
+                    </UserThings>
+                    
 
                   </UserInfo>
                   </UserItem>
