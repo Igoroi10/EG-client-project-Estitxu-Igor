@@ -197,8 +197,6 @@ const styles = StyleSheet.create({
     }, [Object.values(globalState)])
 
     const coordEmit = () => {
-
-
       Geolocation.getCurrentPosition(
         (position) => {
           console.log("******** Position gathered ********")
