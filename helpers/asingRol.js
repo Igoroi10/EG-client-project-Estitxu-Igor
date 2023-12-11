@@ -6,8 +6,7 @@ import Potions from '../screens/Potions';
 import QRCodeGeneratorScreen from '../screens/QR.js';
 import Tower from '../screens/Tower.js';
 import Admin from '../screens/Admin.js';
-import IstvanScreen from '../screens/IstvanScreen.js';
-import Villano from '../screens/VillanoScreen.js'
+import IstvanAndVillanoScreen from '../screens/IstvanAndVillanoScreen.js';
 import Maps from '../screens/Map.js';
 
 const Tab = createMaterialTopTabNavigator();
@@ -49,7 +48,7 @@ const asignRol = async (userRole, tabScreens, user) => {
     else if(userRole === "Istvan") {
         tabScreens.push(
             <Tab.Screen key="Istvan" name="Istvan">
-                {() => <IstvanScreen user={user} />}
+                {() => <IstvanAndVillanoScreen user={user} />}
             </Tab.Screen>,
             <Tab.Screen key="Profile" name="Profile">
                 {() => <Profile user={user} />}
@@ -71,7 +70,7 @@ const asignRol = async (userRole, tabScreens, user) => {
     else if(userRole === "Villano") {
         tabScreens.push(
             <Tab.Screen key="Villano" name="Villano">
-                {() => <Villano user={user} />}
+                {() => <IstvanAndVillanoScreen user={user} />}
             </Tab.Screen>,
             <Tab.Screen key="Profile" name="Profile">
                 {() => <Profile user={user} />}
