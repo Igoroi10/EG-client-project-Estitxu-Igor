@@ -199,12 +199,27 @@ const styles = StyleSheet.create({
     const coordEmit = () => {
       const data = {
         name: globalState.user.name,
-        lat: userLocation.latitude,
-        lon: userLocation.longitude,
+        lat: 0,
+        lon: 0,
         userArray: globalState.userList
       }
 
-      socket.emit('coords', data)
+      Geolocation.getCurrentPosition(
+        (position) => {
+          const {latitude, longitude} = position.coords;
+            data.lat = latitude;
+            data.lon = longitude;
+        },
+        (error) => {
+            // See error code charts below.
+            console.log(error.code, error.message);
+        },
+        { enableHighAccuracy: true, timeout: 15000, maximumAge: 10000 }
+    );
+    
+
+      if(data.userArray.length !== 0)
+        socket.emit('coords', data)
 
       setTimeout(coordEmit, 3000)
     }
@@ -277,6 +292,7 @@ const styles = StyleSheet.create({
       return d; //ditancia en km
     }
 
+    
 
 
 
