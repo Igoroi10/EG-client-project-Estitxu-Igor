@@ -28,15 +28,10 @@ function SocketListener(props) {
 		const handleHello = (data) => {}
 		const handleUserList = (data) => {
 			handleGlobalState({userList: data});   
-			console.log("--------------------------------el userList se updatea-----------------------------------")
 
 			data.forEach((userFromList) => {
-				console.log("--------------------------------entra en el forEach-----------------------------------")
 				if(userFromList.email === globalState.user.email){
-					console.log("--------------------------------se supone que actualiza-----------------------------------")
-					console.log("new stamina: " + userFromList.characterStats.stamina)
 					handleGlobalState({user: userFromList});
-					console.log("actualiced¿ stamina: " + globalState.user.characterStats.stamina)
 
 				}
 			}); 
