@@ -11,6 +11,7 @@ import axios from 'axios';
 import socket from '../helpers/socket';
 // import SocketListener from './components/SocketListener';
 
+import descriptions from '../descriptions/descriptions'
 
 
 const MapContainer = styled.View`
@@ -288,7 +289,6 @@ const styles = StyleSheet.create({
 
 
 
-
     return(
       <>
         {globalState.search !== "validated" && (
@@ -316,7 +316,7 @@ const styles = StyleSheet.create({
               >
 
 
-                {globalState.artifacts.map((artifact) => artifact ? (
+                {globalState.artifacts.map((artifact, index) => artifact ? (
                   artifact.found == false ? (
 
                     <Marker
@@ -326,6 +326,7 @@ const styles = StyleSheet.create({
                         longitude: artifact.longitude,
                       }}
                       title={artifact.name}
+                      description={descriptions[index].esp}
                     >
                       <Image
                         source={{ uri: artifact.img }} //aqui va la img del atributo TODO

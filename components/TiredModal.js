@@ -19,7 +19,7 @@ const TiredModal = () =>{
 
   return(
     <ModalPage>
-      {globalState.user.rol == "Acolito" && (
+      {globalState.user.rol == "Mo" && (
         <ModalTemplate visible = {globalState.user.characterStats.stamina<=20?true:false}>
           <ModalImage source={require('../assets/tiredImage.png')} />
         </ModalTemplate>
