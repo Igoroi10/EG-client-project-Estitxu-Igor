@@ -10,6 +10,7 @@ import { storeData, getData } from './helpers/localStorage';
 import GoogleModal from './components/GoogleModal.js';
 import StandardModal from './components/Modal.js';
 import RestModal from './components/RestModal.js'
+import TiredModal from './components/TiredModal.js';
 
 import globalStateModel from './helpers/globalStateModel';
 
@@ -115,6 +116,7 @@ const App = () => {
       <NavigationContainer>
         <GoogleModal logStatus={logState} setMethod={setUserRole} setUser={setUser}/>
         <RestModal />
+        <TiredModal />
         <StandardModal />
         <Tab.Navigator>
           {tabScreens}

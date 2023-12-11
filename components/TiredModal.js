@@ -8,7 +8,7 @@ import { Context } from '../AppContext';
 
 Modal.setAppElement('#yourAppElement');
 
-const RestModal = () =>{
+const TiredModal = () =>{
   const{globalState, handleGlobalState} = useContext(Context);
 
   useEffect(() => {
@@ -18,17 +18,27 @@ const RestModal = () =>{
   
       }, 10000)
     }
-}, [globalState.rest]) 
+}, [globalState.user]) 
 
   return(
-      <ModalTemplate visible = {globalState.rest}>
-        <ModalImage source={require('../assets/restImage.png')} />
-      </ModalTemplate>
+    <ModalPage>
+      {globalState.user.rol == "Mortimer" && (
+        <ModalTemplate visible = {globalState.user.characterStats.stamina<=20?true:false}>
+          <ModalImage source={require('../assets/tiredImage.png')} />
+        </ModalTemplate>
+      )}
+    </ModalPage>
+  
+      
   )
 }
 
 
-
+const ModalPage = styled.View`
+  position: absolute;
+  width: 100%;
+  height: 100%;
+`
 
 
 const ModalTemplate = styled.Modal`
@@ -43,4 +53,4 @@ const ModalImage = styled.Image`
 `;
 
 
-export default RestModal
+export default TiredModal

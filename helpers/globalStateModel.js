@@ -14,7 +14,7 @@ const globalStateModel = {
     search: "searching",
     artifacts: [],
     userList:[],
-    rest: true
+    rest: false
 }
 
 export default globalStateModel;
