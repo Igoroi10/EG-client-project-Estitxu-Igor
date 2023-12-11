@@ -11,11 +11,16 @@ Modal.setAppElement('#yourAppElement');
 const TiredModal = () =>{
   const{globalState, handleGlobalState} = useContext(Context);
 
+  // useEffect(() => {
+  //   console.log("ÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇ" + globalState.user.characterStats.stamina)
+  //   console.log(globalState.user.characterStats.stamina<=20?true:false)
+
+  // }, [Object.values(globalState.userList)])
 
   return(
     <ModalPage>
       {globalState.user.rol == "Acolito" && (
-        <ModalTemplate visible = {globalState.user.characterStats.stamina<=20?true:true}>
+        <ModalTemplate visible = {globalState.user.characterStats.stamina<=20?true:false}>
           <ModalImage source={require('../assets/tiredImage.png')} />
         </ModalTemplate>
       )}
