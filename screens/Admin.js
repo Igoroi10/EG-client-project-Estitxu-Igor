@@ -161,7 +161,7 @@ const Admin = () => {
 
               if(user.characterStats.stamina <= 20)
                 pieColor = "red";
-              else if(user.characterStats.stamina <= ( (user.characterMaxStats.maxStamina-20)/2+20 ))
+              else if(user.characterStats.stamina <= ( (user.characterMaxStats.maxStamina/2)))
                 pieColor = "yellow";
               else if(user.characterStats.stamina <= user.characterMaxStats.maxStamina)
                 pieColor = "#9ACD32";
