@@ -431,10 +431,10 @@ const styles = StyleSheet.create({
         </View>
         )}
 
-      {globalState.search === "validated" && (
+      {globalState.search == "validated" && (
 
         <Background source={require('../assets/tombEntrance.png')}>  
-        {globalState.user.rol == "Mortimer" && globalState.search == "validated"&& (
+        {globalState.user.rol == "Mortimer" &&  (
           <Button onPress={reinicio}>
             <ButtonText>Reboot</ButtonText>
           </Button>
