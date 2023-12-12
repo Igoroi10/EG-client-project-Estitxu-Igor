@@ -349,7 +349,7 @@ const styles = StyleSheet.create({
                   {globalState.user.rol == "Mortimer" && (
                       globalState.userList.map((user, index) => user ? (
                         // (user.latitude !== 0 || user.longitude !== 0) ? (
-                          user.rol === "Acolito" && (
+                          user.rol === "Acolito" && user.characterStats.stamina>20&& (
                             <Marker
                             key={index}
                             coordinate={{
