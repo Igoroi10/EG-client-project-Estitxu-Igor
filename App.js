@@ -22,6 +22,7 @@ import Toast from 'react-native-toast-message'
 import axios from 'axios';
 import { fetchArtifacts, fetchSearchStatus, fetchAllUsers } from './helpers/fetchs';
 import { forEachChild } from 'typescript';
+import FoundByArtifact from './helpers/FoundByArtifact.js';
 
 
 
@@ -57,6 +58,8 @@ const App = () => {
       const searchState = await fetchSearchStatus();
       const allUsers = await fetchAllUsers();
 
+      FoundByArtifact(allUsers, artifactsData);
+
       handleGlobalState({artifacts: artifactsData});
       handleGlobalState({search: searchState})
       handleGlobalState({userList: allUsers})
@@ -74,9 +77,9 @@ const App = () => {
       } else {
         setLogged(false);
       }
-      
 
-      
+
+
 
       socket.onAny((eventName, ...data) => {
         console.log('************ SOCKET INCOMING **************')
@@ -87,10 +90,10 @@ const App = () => {
         setSocketEvent({event: eventName, value: data[0]})
 
         return () => {
-          socket.removeAllListeners();  
+          socket.removeAllListeners();
           };
-      }); 
-      
+      });
+
     };
 
     init().finally(async () => {
@@ -99,7 +102,7 @@ const App = () => {
   }, []);
 
   const tabScreens = [];
-  
+
   useEffect(() => {
     const screenCharge = async() => {
       asignRol(userRole, tabScreens, user)
@@ -131,7 +134,7 @@ const App = () => {
       </NavigationContainer>
     </Context.Provider>
   );
-  
+
 };
 
 export default App;

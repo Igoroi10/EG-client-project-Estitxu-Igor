@@ -298,7 +298,6 @@ const styles = StyleSheet.create({
 
     
 
-
     return(
       <>
         {globalState.search !== "validated" && (
@@ -395,7 +394,7 @@ const styles = StyleSheet.create({
                       artifact.found && (
                         <Image source={{ uri: artifact.img }} style={imageStyle} /> //aqui va la img del atributo TODO
                       ))}
-                    {artifact.foundBy[0].imgURL && (
+                    {artifact.foundBy[0].imgURL && artifact.found &&(
                         <Image source={{ uri: artifact.foundBy[0].imgURL }} style={foundByImgStyle} /> 
 
                     )}
