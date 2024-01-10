@@ -20,7 +20,7 @@
       android:theme="@style/BootTheme">
         <meta-data
           android:name="com.google.android.geo.API_KEY"
-          android:value='MAPS API HERE'/>
+          android:value='GOOGLE API HERE'/>
       <activity
         android:name=".MainActivity"
         android:label="@string/app_name"
