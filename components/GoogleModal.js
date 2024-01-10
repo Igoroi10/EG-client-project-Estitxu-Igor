@@ -38,12 +38,14 @@ const GoogleModal = ({logStatus, setMethod, setUser}) =>{
 
   
     //validate user token
-
+  console.log("************************Request *************************")
     //const decodedUser = await axios.post('http://192.168.1.168:3000/api/users/', {
     const decodedUser = await axios.post('https://fly-eg-staging.fly.dev/api/users/', {
 
       token: idTokenResult.token
     })
+
+    console.log("************************decoded token recived *************************")
 
     const userMail = decodedUser.data.data[0].email
 
