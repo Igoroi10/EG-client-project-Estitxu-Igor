@@ -45,9 +45,16 @@ const GoogleModal = ({logStatus, setMethod, setUser}) =>{
       token: idTokenResult.token
     })
 
+    const userMail = decodedUser.data.data[0].email
+
+    const jwToken = await axios.post('https://fly-eg-staging.fly.dev/', {
+      email: userMail
+    })
+
+    console.log('**************** JWT generated at login *******************************')
+    console.log(jwToken)
+
     const storageUser = decodedUser.data.data
-    // console.log("////////////////////////////////")
-    // console.log(decodedUser.data.data[0])
     await storeData(decodedUser.data.data[0])
     setUserLoad(true)
     setMethod(decodedUser.data.data[0].rol)
