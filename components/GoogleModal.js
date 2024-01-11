@@ -8,6 +8,7 @@ import { GoogleSignin } from '@react-native-google-signin/google-signin';
 import axios from 'axios'
 import{storeData} from '../helpers/localStorage'
 import { Context } from '../AppContext';
+import {setSecureValue, getSecureAccess, getSecureRefresh} from './../helpers/keychain'
 
 
 Modal.setAppElement('#yourAppElement');
@@ -51,8 +52,21 @@ const GoogleModal = ({logStatus, setMethod, setUser}) =>{
       email: userMail
     })
 
+
     console.log('**************** JWT generated at login *******************************')
-    console.log(jwToken)
+    console.log(jwToken.data.data)
+    console.log("**************************************************");
+    console.log();
+
+    await setSecureValue(jwToken.data.data.access, jwToken.data.data.refresh);
+
+    console.log("****************************** access en keychain ************************************")
+    const access = await getSecureAccess();
+    console.log(access)
+
+    console.log("****************************** refresh en keychain ************************************")
+    const refresh = await getSecureRefresh();
+    console.log(refresh)
 
     const storageUser = decodedUser.data.data
     await storeData(decodedUser.data.data[0])

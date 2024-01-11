@@ -1,9 +1,9 @@
 import * as Keychain from 'react-native-keychain';
 const key = process.env.KEYCHAIN_KEY
 
-const setSecureValue = async (acces, refresh) => {
+const setSecureValue = async (access, refresh) => {
     try {
-        Keychain.setGenericPassword(acces, refresh, { service: key })
+        Keychain.setGenericPassword(access, refresh, { service: key })
 
     } catch (e) {
       console.log("error setSecureValue")
@@ -11,7 +11,7 @@ const setSecureValue = async (acces, refresh) => {
   };
 
 
-const getSecureAcces = async () => {
+const getSecureAccess = async () => {
     try {
         const result = await Keychain.getGenericPassword({ service: key })
         if (result) {
@@ -19,7 +19,7 @@ const getSecureAcces = async () => {
         }
         return false
     } catch (e) {
-        console.log("error getSecureAcces")
+        console.log("error getSecureAccess")
     }
 };
 
@@ -31,7 +31,7 @@ const getSecureRefresh = async () => {
         }
         return false
     } catch (e) {
-        console.log("error getSecureAcces")
+        console.log("error getSecureRefresh")
     }
 };
 
@@ -41,7 +41,7 @@ const removeSecureValue = async () => {
 
 export {
     setSecureValue,
-    getSecureAcces,
+    getSecureAccess,
     getSecureRefresh,
     removeSecureValue
 }
