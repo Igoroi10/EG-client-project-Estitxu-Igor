@@ -37,6 +37,7 @@
     "react-native-geolocation-service": "^5.3.1",
     "react-native-gesture-handler": "^2.13.1",
     "react-native-get-location": "^4.0.0",
+    "react-native-keychain": "^8.1.2",
     "react-native-maps": "^1.8.0",
     "react-native-modal": "^13.0.1",
     "react-native-pager-view": "^6.2.2",
