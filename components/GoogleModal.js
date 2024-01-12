@@ -8,7 +8,10 @@ import { GoogleSignin } from '@react-native-google-signin/google-signin';
 import axios from 'axios'
 import{storeData} from '../helpers/localStorage'
 import { Context } from '../AppContext';
-import {setSecureValue, getSecureAccess, getSecureRefresh} from './../helpers/keychain'
+import {setSecureValue, getSecureAccess, getSecureRefresh} from './../helpers/keychain';
+import { fetchArtifacts, fetchSearchStatus, fetchAllUsers } from '../helpers/fetchs';
+import FoundByArtifact from '../helpers/FoundByArtifact.js';
+
 
 
 Modal.setAppElement('#yourAppElement');
@@ -67,6 +70,17 @@ const GoogleModal = ({logStatus, setMethod, setUser}) =>{
     console.log("****************************** refresh en keychain ************************************")
     const refresh = await getSecureRefresh();
     console.log(refresh)
+
+    const artifactsData = await fetchArtifacts();
+    const searchState = await fetchSearchStatus();
+    const allUsers = await fetchAllUsers();
+
+    FoundByArtifact(allUsers, artifactsData);
+        
+    handleGlobalState({artifacts: artifactsData});
+    handleGlobalState({search: searchState})
+    handleGlobalState({userList: allUsers})
+
 
     const storageUser = decodedUser.data.data
     await storeData(decodedUser.data.data[0])

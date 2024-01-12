@@ -54,21 +54,24 @@ const App = () => {
       // …do multiple sync or async tasks
 
       const userData = await getData();
-      const artifactsData = await fetchArtifacts();
-      const searchState = await fetchSearchStatus();
-      const allUsers = await fetchAllUsers();
+      
 
-      FoundByArtifact(allUsers, artifactsData);
-
-      handleGlobalState({artifacts: artifactsData});
-      handleGlobalState({search: searchState})
-      handleGlobalState({userList: allUsers})
 
 
       if (userData !== null) {
+        const artifactsData = await fetchArtifacts();
+        const searchState = await fetchSearchStatus();
+        const allUsers = await fetchAllUsers();
         setLogged(true);
         setUserRole(userData.rol);
         setUser(userData);
+
+        FoundByArtifact(allUsers, artifactsData);
+        
+        handleGlobalState({artifacts: artifactsData});
+        handleGlobalState({search: searchState})
+        handleGlobalState({userList: allUsers})
+
         allUsers.forEach(el => {
           if(el.name === userData.name)
             handleGlobalState({user: el})

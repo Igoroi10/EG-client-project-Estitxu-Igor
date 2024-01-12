@@ -1,4 +1,6 @@
 import axios from "axios";
+import {getSecureAccess} from './../helpers/keychain'
+
 
 async function fetchArtifacts() {
     try {
@@ -22,13 +24,22 @@ async function fetchArtifacts() {
 
   async function fetchAllUsers() {
     try {
-      const response = await axios.get('https://fly-eg-staging.fly.dev/api/users/');
+      const access = await getSecureAccess();
+      const response = await axios.get('https://fly-eg-staging.fly.dev/api/users/', {headers: {
+       'Authorization': `Bearer ${access}`
+      }
+    });
+
       const responseData = response.data.data;
+      
         return responseData;
     } catch (error) {
         console.error('Error al obtener el search:', error);
     }
   }
+  
+
+
 
   export {
     fetchArtifacts,
