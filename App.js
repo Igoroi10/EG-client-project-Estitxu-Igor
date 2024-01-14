@@ -61,19 +61,20 @@ const App = () => {
       // console.log(resp)
 
       if (userData !== null) {
-        console.log("------------------------------------------------")
-        console.log(userData.email)
 
         const artifactsData = await authFetch.get('/artifacts', {
           email: userData.email
         });
-            // const searchState = await authFetch('/search')
-        // const allUsers = await authFetch('/users')
-
+        const searchState = await authFetch('/search', {
+          email: userData.email
+        });
+        const allUsers = await authFetch('/users', {
+          email: userData.email
+        });    
 
         // const artifactsData = await fetchArtifacts();
-        const searchState = await fetchSearchStatus();
-        const allUsers = await fetchAllUsers();
+        // const searchState = await fetchSearchStatus();
+        // const allUsers = await fetchAllUsers();
         setLogged(true);
         setUserRole(userData.rol);
         setUser(userData);
@@ -82,7 +83,8 @@ const App = () => {
         
         ({artifacts: artifactsData});
         handleGlobalState({search: searchState})
-        handleGlobalState({handleGlobalStateuserList: allUsers})
+        handleGlobalState({userList: allUsers})
+
 
         allUsers.forEach(el => {
           if(el.name === userData.name)

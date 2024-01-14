@@ -75,12 +75,15 @@ const GoogleModal = ({logStatus, setMethod, setUser}) =>{
     const artifactsData = await authFetch.get('/artifacts', {
       email: globalState.user.email
     });
-    // const searchState = await authFetch('/search')
-    // const allUsers = await authFetch('/users')
-
+    const searchState = await authFetch('/search', {
+      email: globalState.user.email
+    });
+    const allUsers = await authFetch('/users', {
+      email: globalState.user.email
+    });
     // const artifactsData = await fetchArtifacts();
-    const searchState = await fetchSearchStatus();
-    const allUsers = await fetchAllUsers();
+    // const searchState = await fetchSearchStatus();
+    // const allUsers = await fetchAllUsers();
 
     FoundByArtifact(allUsers, artifactsData);
         
