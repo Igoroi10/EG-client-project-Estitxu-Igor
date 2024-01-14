@@ -4,7 +4,12 @@ import {getSecureAccess} from './../helpers/keychain'
 
 async function fetchArtifacts() {
     try {
-        const response = await axios.get('https://fly-eg-staging.fly.dev/api/artifacts/');
+      const access = await getSecureAccess();
+      const response = await axios.get('https://fly-eg-staging.fly.dev/api/artifacts/', {headers: {
+       'Authorization': `Bearer ${access}`
+      }
+    })
+        // const response = await axios.get('https://fly-eg-staging.fly.dev/api/artifacts/', );
         const responseData = response.data.data;
         return responseData
     } catch (error) {

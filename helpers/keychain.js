@@ -27,6 +27,9 @@ const getSecureRefresh = async () => {
     try {
         const result = await Keychain.getGenericPassword({ service: key })
         if (result) {
+            // console.log("************************PASSWORD DEL GENERIC PASSWORD**************");
+            // console.log(result.password)
+  
           return result.password
         }
         return false

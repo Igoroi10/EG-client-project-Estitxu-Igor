@@ -12,6 +12,7 @@ import {setSecureValue, getSecureAccess, getSecureRefresh} from './../helpers/ke
 import { fetchArtifacts, fetchSearchStatus, fetchAllUsers } from '../helpers/fetchs';
 import FoundByArtifact from '../helpers/FoundByArtifact.js';
 
+import authFetch from '../helpers/interceptor.js';
 
 
 Modal.setAppElement('#yourAppElement');
@@ -71,7 +72,11 @@ const GoogleModal = ({logStatus, setMethod, setUser}) =>{
     const refresh = await getSecureRefresh();
     console.log(refresh)
 
-    const artifactsData = await fetchArtifacts();
+    const artifactsData = await authFetch('/artifacts')
+    // const searchState = await authFetch('/search')
+    // const allUsers = await authFetch('/users')
+
+    // const artifactsData = await fetchArtifacts();
     const searchState = await fetchSearchStatus();
     const allUsers = await fetchAllUsers();
 

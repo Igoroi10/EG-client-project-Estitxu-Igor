@@ -24,6 +24,7 @@ import { fetchArtifacts, fetchSearchStatus, fetchAllUsers } from './helpers/fetc
 import { forEachChild } from 'typescript';
 import FoundByArtifact from './helpers/FoundByArtifact.js';
 
+import authFetch from './helpers/interceptor.js';
 
 
 const Tab = createMaterialTopTabNavigator();
@@ -55,11 +56,19 @@ const App = () => {
 
       const userData = await getData();
       
+      console.log("**********************DATA de pruea ***********************")
+      // const resp = await authFetch('/artifacts')
+      // console.log(resp)
 
 
 
       if (userData !== null) {
-        const artifactsData = await fetchArtifacts();
+        const artifactsData = await authFetch('/artifacts')
+        // const searchState = await authFetch('/search')
+        // const allUsers = await authFetch('/users')
+
+
+        // const artifactsData = await fetchArtifacts();
         const searchState = await fetchSearchStatus();
         const allUsers = await fetchAllUsers();
         setLogged(true);
@@ -68,9 +77,9 @@ const App = () => {
 
         FoundByArtifact(allUsers, artifactsData);
         
-        handleGlobalState({artifacts: artifactsData});
+        ({artifacts: artifactsData});
         handleGlobalState({search: searchState})
-        handleGlobalState({userList: allUsers})
+        handleGlobalState({handleGlobalStateuserList: allUsers})
 
         allUsers.forEach(el => {
           if(el.name === userData.name)
