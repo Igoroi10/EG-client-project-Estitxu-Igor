@@ -60,11 +60,14 @@ const App = () => {
       // const resp = await authFetch('/artifacts')
       // console.log(resp)
 
-
-
       if (userData !== null) {
-        const artifactsData = await authFetch('/artifacts')
-        // const searchState = await authFetch('/search')
+        console.log("------------------------------------------------")
+        console.log(userData.email)
+
+        const artifactsData = await authFetch.get('/artifacts', {
+          email: userData.email
+        });
+            // const searchState = await authFetch('/search')
         // const allUsers = await authFetch('/users')
 
 

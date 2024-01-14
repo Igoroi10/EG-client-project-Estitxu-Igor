@@ -72,7 +72,9 @@ const GoogleModal = ({logStatus, setMethod, setUser}) =>{
     const refresh = await getSecureRefresh();
     console.log(refresh)
 
-    const artifactsData = await authFetch('/artifacts')
+    const artifactsData = await authFetch.get('/artifacts', {
+      email: globalState.user.email
+    });
     // const searchState = await authFetch('/search')
     // const allUsers = await authFetch('/users')
 

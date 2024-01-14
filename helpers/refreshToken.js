@@ -6,7 +6,7 @@ import { Context } from "../AppContext";
 
 
 
-const refreshToken = async () => {
+const refreshToken = async (mail) => {
     console.log("*************inside refresh token************")
 
     // const{globalState, handleGlobalState} = useContext(Context)
@@ -18,8 +18,8 @@ const refreshToken = async () => {
 
 
     const newTokens = await axios.post('https://fly-eg-staging.fly.dev/api/users/refresh', 
-        // {email: globalState.user.email},
-        {email: 'esther.fernandez@ikasle.aeg.eus'},
+        {email: mail},
+        // {email: 'esther.fernandez@ikasle.eg.eus'},
         {headers: {
                     'Authorization': `Bearer ${refresh}`
                    }

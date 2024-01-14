@@ -39,15 +39,14 @@ authFetch.interceptors.response.use(
     (response) => {
         console.log("*************RESPONSE********")
         console.log('got response');
-        console.log(response.data.data)
+        console.log(response.data.data);
         return response.data.data;
     },
     async (error) => {
         
-        console.log("*****************ERROR CONFIG**************")
-        
-        const originalRequest = error.config;
-
+        console.log("****************ERROR CONFIG**************")
+        console.log(error.config.email)
+        const mail = error.config.email;
         
         console.log("*****************ERROR el response**************")
         console.log(error.response.data.data.error.message)
@@ -55,7 +54,7 @@ authFetch.interceptors.response.use(
         if(error.response.data.data.error.message === EXPIRED_MESSAGE){
             console.log("*****************Petición caducada*******************")
 
-            const newAccessToken = await refreshToken();
+            const newAccessToken = await refreshToken(mail);
 
             error.config.headers['Authorization'] = `Bearer ${newAccessToken}`;
 
