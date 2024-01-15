@@ -79,14 +79,21 @@ const App = () => {
         setUserRole(userData.rol);
         setUser(userData);
 
-        FoundByArtifact(allUsers, artifactsData);
+        console.log("*********************artifactsData**********************++")
+        console.log(artifactsData.data)
+        console.log("*********************searchState**********************++")
+        console.log(searchState.data.data[0])
+        console.log("*********************allUsers**********************++")
+        console.log(allUsers.data)
         
-        ({artifacts: artifactsData});
-        handleGlobalState({search: searchState})
-        handleGlobalState({userList: allUsers})
+        FoundByArtifact(allUsers.data.data, artifactsData.data.data);
+        
+        handleGlobalState({artifacts: artifactsData.data.data});
+        handleGlobalState({search: searchState.data.data[0]})
+        handleGlobalState({userList: allUsers.data.data})
+    
 
-
-        allUsers.forEach(el => {
+        allUsers.data.data.forEach(el => {
           if(el.name === userData.name)
             handleGlobalState({user: el})
         })

@@ -39,8 +39,8 @@ authFetch.interceptors.response.use(
     (response) => {
         console.log("*************RESPONSE********")
         console.log('got response');
-        console.log(response.data.data);
-        return response.data.data;
+        console.log(response);
+        return response;
     },
     async (error) => {
         
@@ -58,10 +58,14 @@ authFetch.interceptors.response.use(
 
             error.config.headers['Authorization'] = `Bearer ${newAccessToken}`;
 
-            axiosInstance
-            .request(config)
-            .then((response) => resolve(response))
-            .catch((err) => reject(err));
+            const returnData = await axios
+            .request(error.config)
+            // .then((response) => resolve(response))
+            // .catch((err) => reject(err));
+            
+            console.log("¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬returnData¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬")
+            console.log(returnData)
+            return returnData
         }
     }
 );

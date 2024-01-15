@@ -85,11 +85,11 @@ const GoogleModal = ({logStatus, setMethod, setUser}) =>{
     // const searchState = await fetchSearchStatus();
     // const allUsers = await fetchAllUsers();
 
-    FoundByArtifact(allUsers, artifactsData);
+    FoundByArtifact(allUsers.data.data, artifactsData.data.data);
         
-    handleGlobalState({artifacts: artifactsData});
-    handleGlobalState({search: searchState})
-    handleGlobalState({userList: allUsers})
+    handleGlobalState({artifacts: artifactsData.data.data});
+    handleGlobalState({search: searchState.data.data})
+    handleGlobalState({userList: allUsers.data.data})
 
 
     const storageUser = decodedUser.data.data
