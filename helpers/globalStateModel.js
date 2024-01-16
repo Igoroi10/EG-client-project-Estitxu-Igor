@@ -14,7 +14,9 @@ const globalStateModel = {
     search: "searching",
     artifacts: [],
     userList:[],
-    rest: false
+    rest: false,
+    crypt: ["closed","closed","closed","closed"],
+    insideCrypt: true
 }
 
 export default globalStateModel;
