@@ -12,6 +12,7 @@ import socket from '../helpers/socket';
 import Toast from 'react-native-toast-message';
 
 import { Context } from '../AppContext';
+import InventoryModal from './../components/InventoryModal'
 
 const View = styled.View`
     flex: 1;
@@ -150,6 +151,7 @@ const BackgroundImage = styled.ImageBackground`
 
 const Profile = ({user}) => {
   const{globalState, handleGlobalState} = useContext(Context)
+  const [isModalVisible, setIsModalVisible] = useState(false);
 
 
   const navigation = useNavigation();
@@ -201,6 +203,14 @@ const Profile = ({user}) => {
       handleGlobalState({rest: true})
 
     }
+
+    const openModal = () => {
+      setIsModalVisible(true);  
+    };
+  
+    const closeModal = () => {
+      setIsModalVisible(false);
+    };
 
 
 
@@ -311,9 +321,21 @@ const Profile = ({user}) => {
                         <ButtonText>Start resting</ButtonText>
                     </Button>
                   )}
+                  {globalState.user.rol === "Acolito" && (
+                    <Button  onPress={() => openModal()}>
+                      <ButtonText>inventory</ButtonText>
+                    </Button>
+                  )}
+
+
                   <Button    label="Delete storage"  onPress={() => reestoreData()}>
                       <ButtonText>Delete storage</ButtonText>
                   </Button>
+
+                  <InventoryModal
+                    isVisible={isModalVisible}
+                    closeModal={closeModal}
+                  />
               </Container>
 
               </View>
