@@ -148,6 +148,16 @@ const BackgroundImage = styled.ImageBackground`
   height: 100%;
 `;
 
+const ContainerButtons = styled.View`
+    width: 100%;
+    height: 70px;
+    flex-direction: row;
+    align-items: top;
+    top: 10%;
+    left: 0%;
+    margin-left: 20%;
+`
+
 
 const Profile = ({user}) => {
   const{globalState, handleGlobalState} = useContext(Context)
@@ -313,19 +323,21 @@ const Profile = ({user}) => {
                         />
                     </Column>
                 </Container3>
+                <ContainerButtons>
+                {globalState.user.rol !== "Acolito" && (
+                                    <Button  onPress={() => openModal()}>
+                                      <ButtonText>inventory</ButtonText>
+                                    </Button>
+                                  )}
+                </ContainerButtons>
 
-
-                  <Container>  
+                  <ContainerButtons>  
                   {globalState.user.rol === "Acolito" && globalState.user.characterStats.stamina < 100 && (                   
                     <Button    label="rest"  onPress={() => restAcolyte(globalState.user.email)}>
                         <ButtonText>Start resting</ButtonText>
                     </Button>
                   )}
-                  {globalState.user.rol === "Acolito" && (
-                    <Button  onPress={() => openModal()}>
-                      <ButtonText>inventory</ButtonText>
-                    </Button>
-                  )}
+ 
 
 
                   <Button    label="Delete storage"  onPress={() => reestoreData()}>
@@ -336,7 +348,7 @@ const Profile = ({user}) => {
                     isVisible={isModalVisible}
                     closeModal={closeModal}
                   />
-              </Container>
+              </ContainerButtons>
 
               </View>
               )}
