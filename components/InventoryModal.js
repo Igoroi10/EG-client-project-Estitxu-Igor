@@ -62,10 +62,7 @@ const InventoryModal = ({ isVisible, closeModal }) => {
               <TouchableOpacity onPress={closeModal}>
                 <ModalText>X </ModalText>
               </TouchableOpacity>
-
-              {/* Render transparent squares for inventory */}
-           
-
+          
 
             {/* armadura(?) */}
               <View style={{ flexDirection: 'column', alignItems: 'center', marginTop: 20 }}>
