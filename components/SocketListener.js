@@ -48,6 +48,7 @@ function SocketListener(props) {
 				}
 			})
 		}
+		const handleObjectList = (data) => {handleGlobalState({objects: data})}
 		
 		const handlers = {
 			stamina: handleAcoliteStamina,
@@ -62,6 +63,7 @@ function SocketListener(props) {
 			userList: handleUserList,
 			userRecovery: handleUserUpdate,
 			coordUser: handleUserCoord,
+			objectList: handleObjectList,
 		}
 	}
 	return null;
