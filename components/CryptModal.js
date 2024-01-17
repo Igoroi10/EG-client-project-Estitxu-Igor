@@ -17,22 +17,22 @@ const CryptModal = () =>{
     <ModalPage visible = {globalState.insideCrypt?true:false}>
       <Slot0 onPress={() => cryptButton(0, globalState.user.email)} >
         <View>
-          <ModalImage source={globalState.crypt[0]==="closed"?require('../assets/tomb_open.png'):require('../assets/villano.png')} />
+          <ModalImage source={globalState.crypt[0]==="closed"?require('../assets/tomb_open.png'):require('../assets/tomb_closed.png')} />
         </View>
       </Slot0>
       <Slot1 onPress={() => cryptButton(1, globalState.user.email)} >
         <View>
-          <ModalImage source={globalState.crypt[1]==="closed"?require('../assets/tomb_open.png'):require('../assets/villano.png')}/> 
+          <ModalImage source={globalState.crypt[1]==="closed"?require('../assets/tomb_open.png'):require('../assets/tomb_closed.png')}/> 
         </View>
       </Slot1>
       <Slot2 onPress={() => cryptButton(2, globalState.user.email)} >
         <View>
-          <ModalImage source={globalState.crypt[2]==="closed"?require('../assets/tomb_open.png'):require('../assets/villano.png')}/>
+          <ModalImage source={globalState.crypt[2]==="closed"?require('../assets/tomb_open.png'):require('../assets/tomb_closed.png')}/>
         </View>
       </Slot2>
       <Slot3 onPress={() => cryptButton(3, globalState.user.email)}>
         <View>
-          <ModalImage source={globalState.crypt[3]==="closed"?require('../assets/tomb_open.png'):require('../assets/villano.png')}/>
+          <ModalImage source={globalState.crypt[3]==="closed"?require('../assets/tomb_open.png'):require('../assets/tomb_closed.png')}/>
         </View>
       </Slot3>
         
