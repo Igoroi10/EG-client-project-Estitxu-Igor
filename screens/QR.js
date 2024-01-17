@@ -5,6 +5,7 @@ import RNQRGenerator from 'rn-qr-generator';
 import { getData } from '../helpers/localStorage';
 
 import QRscanner from '../components/QRscanner';
+import CryptModal from '../components/CryptModal';
 
 const QRCodeGeneratorScreen = () => {
   const [imageUri, setImageUri] = useState(null);
@@ -67,22 +68,24 @@ const QRCodeGeneratorScreen = () => {
   // }
   
   return (
-    <Container visible= {false}>
-      {showScanner ? (
-        <QRscanner onClose={hideQRScanner} />
-      ) : (
-        <View >
-          {imageUri && <QRCodeImage source={{ uri: imageUri }} />}
+  //   <Container visible= {false}>
+  //     {showScanner ? (
+  //       <QRscanner onClose={hideQRScanner} />
+  //     ) : (
+  //       <View >
+  //         {imageUri && <QRCodeImage source={{ uri: imageUri }} />}
 
-          {userRole==="Jacob" && (
-            <GenerateButton onPress={showQRScanner }>
-              <ButtonText>Mostrar Escáner</ButtonText>
-            </GenerateButton>
-          )}
+  //         {userRole==="Jacob" && (
+  //           <GenerateButton onPress={showQRScanner }>
+  //             <ButtonText>Mostrar Escáner</ButtonText>
+  //           </GenerateButton>
+  //         )}
           
-        </View>
-      )}
-    </Container>
+  //       </View>
+  //     )}
+  //   </Container>
+
+  <CryptModal/>
   );
 }
 

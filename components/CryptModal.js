@@ -8,17 +8,18 @@ import { Context } from '../AppContext';
 
 Modal.setAppElement('#yourAppElement');
 
-const TiredModal = () =>{
+const CryptModal = () =>{
   const{globalState, handleGlobalState} = useContext(Context);
 
   return(
-    <ModalPage>
-        <ModalTemplate visible = {globalState.insideCrypt?true:false}>
+    <ModalPage visible = {globalState.insideCrypt?true:false}>
           <ModalImage0 source={globalState.crypt[0]==="closed"?require('../assets/tower.png'):require('../assets/villano.png')} />
+          {/* Botón invisible */}
           <ModalImage1 source={globalState.crypt[1]==="closed"?require('../assets/tower.png'):require('../assets/villano.png')} />
+          {/* Botón invisible */}
           <ModalImage2 source={globalState.crypt[2]==="closed"?require('../assets/tower.png'):require('../assets/villano.png')} />
+          {/* Botón invisible */}
           <ModalImage3 source={globalState.crypt[3]==="closed"?require('../assets/tower.png'):require('../assets/villano.png')} />
-        </ModalTemplate>
     </ModalPage>
 
   )
@@ -45,23 +46,24 @@ const ModalImage0 = styled.Image`
 `;
 
 const ModalImage1 = styled.Image`
+  position: absolute;
   width: 50%;
   height: 50%;
-  margin-left: 50%
+  margin-left: 50%;
 `;
 
 const ModalImage2 = styled.Image`
   width: 50%;
   height: 50%;
-  margin-top: 50%
 `;
 
 const ModalImage3 = styled.Image`
+  position: absolute;
   width: 50%;
-  height: 50%;
-  margin-left: 50%
-  margin-top: 50%
+  height: 51%;
+  margin-left: 50%;
+  margin-top: 94.5%;
 `;
 
 
-export default TiredModal
+export default CryptModal
