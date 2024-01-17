@@ -324,11 +324,11 @@ const Profile = ({user}) => {
                     </Column>
                 </Container3>
                 <ContainerButtons>
-                {globalState.user.rol === "Acolito" && (
+                {/* {globalState.user.rol === "Acolito" && ( */}
                                     <Button  onPress={() => openModal()}>
                                       <ButtonText>inventory</ButtonText>
                                     </Button>
-                                  )}
+                                  {/* )} */}
                 </ContainerButtons>
 
                   <ContainerButtons>  

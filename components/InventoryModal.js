@@ -49,6 +49,22 @@ const Laukizuzenak = styled.View`
   top: -3%;
 `;
 
+const Button = styled.TouchableOpacity`
+ width: 50%;
+ height: 42px;
+ border-radius: 10px;
+ margin-left: 25%;
+ background: blue;
+ align-items: center;
+ justify-content: center;
+`
+
+const ButtonText = styled.Text`
+  color: #fff;
+  font-size: 16px;
+  text-align: center;
+`;
+
 
 const InventoryModal = ({ isVisible, closeModal }) => {
   const { globalState, handleGlobalState } = useContext(Context);
@@ -88,6 +104,9 @@ const InventoryModal = ({ isVisible, closeModal }) => {
                 ))}
               </View>
             </View>
+            <Button    label="Crafting travel"  onPress={() => console.log("button crafting travel pressed")}>
+                <ButtonText>Crafting travel</ButtonText>
+            </Button>
             </View>
           </ScrollView>
         </BackgroundImage>
