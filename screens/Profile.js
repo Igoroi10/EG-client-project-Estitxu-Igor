@@ -222,6 +222,10 @@ const Profile = ({user}) => {
       setIsModalVisible(false);
     };
 
+    const rebootRip = () => {
+      socket.emit('closeRip', "");
+    }
+
 
 
     return (
@@ -324,11 +328,16 @@ const Profile = ({user}) => {
                     </Column>
                 </Container3>
                 <ContainerButtons>
-                {/* {globalState.user.rol === "Acolito" && ( */}
+                {globalState.user.rol === "Acolito" && (
                                     <Button  onPress={() => openModal()}>
                                       <ButtonText>inventory</ButtonText>
                                     </Button>
-                                  {/* )} */}
+                                  )}
+                {globalState.user.rol === "Mortimer" && (
+                  <Button  onPress={() => rebootRip()}>
+                      <ButtonText>reset RIP's</ButtonText>
+                    </Button>
+                )}
                 </ContainerButtons>
 
                   <ContainerButtons>  
