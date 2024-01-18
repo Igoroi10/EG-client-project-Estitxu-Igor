@@ -12,34 +12,31 @@ Modal.setAppElement('#yourAppElement');
 
 const CryptModal = () =>{
   const{globalState, handleGlobalState} = useContext(Context);
+  
 
   return(
     <ModalPage visible = {globalState.insideCrypt?true:false}>
-      <Slot0 onPress={() => cryptButton(0, globalState.user.email)} >
-        <View>
-          <ModalImage source={globalState.crypt[0]==="closed"?require('../assets/tomb_open.png'):require('../assets/tomb_closed.png')} />
-        </View>
-      </Slot0>
-      <Slot1 onPress={() => cryptButton(1, globalState.user.email)} >
-        <View>
-          <ModalImage source={globalState.crypt[1]==="closed"?require('../assets/tomb_open.png'):require('../assets/tomb_closed.png')}/> 
-        </View>
-      </Slot1>
-      <Slot2 onPress={() => cryptButton(2, globalState.user.email)} >
-        <View>
-          <ModalImage source={globalState.crypt[2]==="closed"?require('../assets/tomb_open.png'):require('../assets/tomb_closed.png')}/>
-        </View>
-      </Slot2>
-      <Slot3 onPress={() => cryptButton(3, globalState.user.email)}>
-        <View>
-          <ModalImage source={globalState.crypt[3]==="closed"?require('../assets/tomb_open.png'):require('../assets/tomb_closed.png')}/>
-        </View>
-      </Slot3>
-        
-        
-       
+          <Slot0 onPress={() => cryptButton(0, globalState.user.email)} >
+            <View>
+              <ModalImage source={globalState.items[0] && globalState.items[0].retrieved===true?require('../assets/tomb_open.png'):require('../assets/tomb_closed.png')} />
+            </View>
+          </Slot0>
+          <Slot1 onPress={() => cryptButton(1, globalState.user.email)} >
+            <View>
+              <ModalImage source={globalState.items[1] && globalState.items[1].retrieved===true?require('../assets/tomb_open.png'):require('../assets/tomb_closed.png')}/> 
+            </View>
+          </Slot1>
+          <Slot2 onPress={() => cryptButton(2, globalState.user.email)} >
+            <View>
+              <ModalImage source={globalState.items[2] && globalState.items[2].retrieved===true?require('../assets/tomb_open.png'):require('../assets/tomb_closed.png')}/>
+            </View>
+          </Slot2>
+          <Slot3 onPress={() => cryptButton(3, globalState.user.email)}>
+            <View>
+              <ModalImage source={globalState.items[3] && globalState.items[3].retrieved===true?require('../assets/tomb_open.png'):require('../assets/tomb_closed.png')}/>
+            </View>
+          </Slot3>
     </ModalPage>
-
   )
 }
 

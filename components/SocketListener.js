@@ -48,7 +48,7 @@ function SocketListener(props) {
 				}
 			})
 		}
-		const handleObjectList = (data) => {handleGlobalState({objects: data})}
+		const handleObjectList = (data) => {handleGlobalState({items: data})}
 		
 		const handlers = {
 			stamina: handleAcoliteStamina,
