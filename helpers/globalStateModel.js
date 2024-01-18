@@ -9,12 +9,16 @@ const globalStateModel = {
         "characterMainData": {},
         "characterStats": {},
         "diseases": {},
-        "imgURL": ""
+        "imgURL": "",
+        "inventory": []
     },
     search: "searching",
     artifacts: [],
     userList:[],
-    rest: false
+    rest: false,
+    crypt: ["opened","closed","closed","opened"],
+    insideCrypt: true,
+    items: []
 }
 
 export default globalStateModel;
