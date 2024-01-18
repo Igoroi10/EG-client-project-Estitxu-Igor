@@ -95,18 +95,24 @@ const InventoryModal = ({ isVisible, closeModal }) => {
               <View style={{ flexDirection: 'column', alignItems: 'center' }}>
                 <TransparentSquare />
               </View>
+            <View style={{height: 100}}>
+
+            </View>
 
             {/* resto de inventario / objects */}
             <View style={{ flex: 1, justifyContent: 'flex-end', alignItems: 'center', paddingBottom: 20 }}>
                             <View style={{ flexDirection: 'row', flexWrap: 'wrap' , marginLeft: 25}}>
-                {[...Array(10)].map((_, index) => (
+                {[...Array(20)].map((_, index) => (
                   <TransparentSquare key={index} />
                 ))}
               </View>
             </View>
-            <Button    label="Crafting travel"  onPress={() => console.log("button crafting travel pressed")}>
+            {true && (
+              <Button    label="Crafting travel"  onPress={() => console.log("button crafting travel pressed")}>
                 <ButtonText>Crafting travel</ButtonText>
-            </Button>
+              </Button>
+            )}
+            
             </View>
           </ScrollView>
         </BackgroundImage>
