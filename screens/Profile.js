@@ -333,11 +333,11 @@ const Profile = ({user}) => {
                                       <ButtonText>inventory</ButtonText>
                                     </Button>
                                   )}
-                {globalState.user.rol === "Mortimer" && (
+                {/* {globalState.user.rol === "Mortimer" && (
                   <Button  onPress={() => rebootRip()}>
                       <ButtonText>reset RIP's</ButtonText>
                     </Button>
-                )}
+                )} */}
                 </ContainerButtons>
 
                   <ContainerButtons>  
