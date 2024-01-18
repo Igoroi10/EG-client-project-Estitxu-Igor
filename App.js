@@ -70,6 +70,9 @@ const App = () => {
         });
         const allUsers = await authFetch('/users', {
           email: userData.email
+        });   
+        const allObjects = await authFetch('/object', {
+          email: userData.email
         });    
 
         // const artifactsData = await fetchArtifacts();
@@ -85,12 +88,15 @@ const App = () => {
         console.log(searchState.data.data[0])
         console.log("*********************allUsers**********************++")
         console.log(allUsers.data)
+        console.log("*******************all objects*********************");
+        console.log(allObjects.data.data);
         
         FoundByArtifact(allUsers.data.data, artifactsData.data.data);
         
         handleGlobalState({artifacts: artifactsData.data.data});
-        handleGlobalState({search: searchState.data.data[0]})
-        handleGlobalState({userList: allUsers.data.data})
+        handleGlobalState({search: searchState.data.data[0]});
+        handleGlobalState({userList: allUsers.data.data});
+        handleGlobalState({items: allObjects.data.data});
     
 
         allUsers.data.data.forEach(el => {

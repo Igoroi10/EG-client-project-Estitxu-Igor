@@ -81,6 +81,9 @@ const GoogleModal = ({logStatus, setMethod, setUser}) =>{
     const allUsers = await authFetch('/users', {
       email: globalState.user.email
     });
+    const allObjects = await authFetch('/object', {
+      email: userData.email
+    });  
     // const artifactsData = await fetchArtifacts();
     // const searchState = await fetchSearchStatus();
     // const allUsers = await fetchAllUsers();
@@ -88,8 +91,10 @@ const GoogleModal = ({logStatus, setMethod, setUser}) =>{
     FoundByArtifact(allUsers.data.data, artifactsData.data.data);
         
     handleGlobalState({artifacts: artifactsData.data.data});
-    handleGlobalState({search: searchState.data.data})
-    handleGlobalState({userList: allUsers.data.data})
+    handleGlobalState({search: searchState.data.data});
+    handleGlobalState({userList: allUsers.data.data});
+    handleGlobalState({items: allObjects.data.data});
+
 
 
     const storageUser = decodedUser.data.data
