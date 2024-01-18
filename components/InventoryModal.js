@@ -33,6 +33,13 @@ const TransparentSquare = styled.View`
   background-color: rgba(128, 128, 128, 0.3); 
 `;
 
+const Image = styled.Image`
+  width: 50px;
+  height: 50px;
+  margin: 5px;
+  background-color: rgba(128, 128, 128, 0.3); 
+`;
+
 const SamllTransparentSquare = styled.View`
   top: 2.5%;
   width: 35px;
@@ -66,11 +73,9 @@ const ButtonText = styled.Text`
 `;
 
 
-const InventoryModal = ({ isVisible, closeModal }) => {
+const InventoryModal = ({ isVisible, closeModal, itemLinks }) => {
   const { globalState, handleGlobalState } = useContext(Context);
   const [isCollected, setIsCollected] = useState(false);
-
-
 
   useEffect(() => {
     let itemsFound = 0;
@@ -85,7 +90,26 @@ const InventoryModal = ({ isVisible, closeModal }) => {
     else{
       setIsCollected(false)
     }
-  }, [Object.values(globalState)])
+
+  }, [Object.values(globalState.items)])
+
+      console.log("*********************user inventory *************************")
+      console.log(globalState.user.inventory)
+      if(globalState.user.inventory !== null){
+        itemLinks = []
+        globalState.user.inventory.forEach(item => {
+          if(globalState.items[item].imgURL !== "") //1 is empty
+            itemLinks.push(globalState.items[item].imgURL);
+
+          console.log("***************item links***************************")
+          console.log(itemLinks)
+
+          console.log(globalState.items[1].imgURL)
+
+
+        })
+      };
+
 
   return (
     <Modal isVisible={isVisible}>
@@ -121,10 +145,16 @@ const InventoryModal = ({ isVisible, closeModal }) => {
             <View style={{ flex: 1, justifyContent: 'flex-end', alignItems: 'center', paddingBottom: 20 }}>
                             <View style={{ flexDirection: 'row', flexWrap: 'wrap' , marginLeft: 25}}>
                 {[...Array(20)].map((_, index) => (
-                  <TransparentSquare key={index} />
+                  
+                  (itemLinks !== undefined && itemLinks.length > 0 && itemLinks.length >= index+1) ? (
+                    <Image source={{ uri: itemLinks[index] }} style={{ width: 50, height: 50 }} key={index} />
+                  ) : (
+                    <TransparentSquare key={index} />
+                  )
                 ))}
               </View>
             </View>
+            
             {isCollected && (
               <Button    label="Crafting travel"  onPress={() => console.log("button crafting travel pressed")}>
                 <ButtonText>Crafting travel</ButtonText>

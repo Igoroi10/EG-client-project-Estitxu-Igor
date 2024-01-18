@@ -88,6 +88,9 @@ const App = () => {
         console.log(searchState.data.data[0])
         console.log("*********************allUsers**********************++")
         console.log(allUsers.data)
+        console.log(allUsers.data.data[3])
+
+
         console.log("*******************all objects*********************");
         console.log(allObjects.data.data);
         

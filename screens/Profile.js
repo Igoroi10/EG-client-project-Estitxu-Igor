@@ -162,6 +162,7 @@ const ContainerButtons = styled.View`
 const Profile = ({user}) => {
   const{globalState, handleGlobalState} = useContext(Context)
   const [isModalVisible, setIsModalVisible] = useState(false);
+  const [itemLinks, setItemLinks] = useState([]);
 
 
   const navigation = useNavigation();
@@ -224,6 +225,7 @@ const Profile = ({user}) => {
 
     const rebootRip = () => {
       socket.emit('closeRip', "");
+      setItemLinks([])
     }
 
 
@@ -333,7 +335,7 @@ const Profile = ({user}) => {
                                       <ButtonText>inventory</ButtonText>
                                     </Button>
                                   )}
-                {globalState.user.rol === "Mortimer" && (
+                {globalState.user.rol === "Acolito" && (
                   <Button  onPress={() => rebootRip()}>
                       <ButtonText>reset RIP's</ButtonText>
                     </Button>
@@ -356,6 +358,7 @@ const Profile = ({user}) => {
                   <InventoryModal
                     isVisible={isModalVisible}
                     closeModal={closeModal}
+                    itemLinks = {itemLinks}
                   />
               </ContainerButtons>
 
