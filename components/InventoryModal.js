@@ -68,6 +68,24 @@ const ButtonText = styled.Text`
 
 const InventoryModal = ({ isVisible, closeModal }) => {
   const { globalState, handleGlobalState } = useContext(Context);
+  const [isCollected, setIsCollected] = useState(false);
+
+
+
+  useEffect(() => {
+    let itemsFound = 0;
+    globalState.items.forEach(item => {
+      if(item.retrieved === true){
+        itemsFound++;
+      }
+    });
+    if((itemsFound === globalState.items.length)){
+      setIsCollected(true)
+    }
+    else{
+      setIsCollected(false)
+    }
+  }, [Object.values(globalState)])
 
   return (
     <Modal isVisible={isVisible}>
@@ -107,7 +125,7 @@ const InventoryModal = ({ isVisible, closeModal }) => {
                 ))}
               </View>
             </View>
-            {true && (
+            {isCollected && (
               <Button    label="Crafting travel"  onPress={() => console.log("button crafting travel pressed")}>
                 <ButtonText>Crafting travel</ButtonText>
               </Button>
