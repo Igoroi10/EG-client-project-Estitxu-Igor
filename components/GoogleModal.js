@@ -82,7 +82,7 @@ const GoogleModal = ({logStatus, setMethod, setUser}) =>{
       email: globalState.user.email
     });
     const allObjects = await authFetch('/object', {
-      email: userData.email
+      email: globalState.user.email
     });  
     // const artifactsData = await fetchArtifacts();
     // const searchState = await fetchSearchStatus();
