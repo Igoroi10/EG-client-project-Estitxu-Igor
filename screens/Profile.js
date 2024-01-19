@@ -216,7 +216,18 @@ const Profile = ({user}) => {
     }
 
     const openModal = () => {
+
       setIsModalVisible(true);  
+
+      let correctedUser = globalState.user;
+
+      const newInventory = globalState.user.inventory.filter((item,index)=>{
+        return globalState.user.inventory.indexOf(item) === index;
+      })
+
+      correctedUser.inventory = newInventory;
+
+      handleGlobalState({user: correctedUser})
     };
   
     const closeModal = () => {

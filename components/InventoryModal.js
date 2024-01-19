@@ -102,6 +102,11 @@ const InventoryModal = ({ isVisible, closeModal, itemLinks }) => {
             itemLinks.push(globalState.items[item].imgURL);
 
           console.log("***************item links***************************")
+
+          itemLinks = itemLinks.filter((item,index)=>{
+            return itemLinks.indexOf(item) === index;
+          })
+            
           console.log(itemLinks)
 
           console.log(globalState.items[1].imgURL)
