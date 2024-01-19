@@ -30,14 +30,14 @@ const TransparentSquare = styled.View`
   width: 50px;
   height: 50px;
   margin: 5px;
-  background-color: rgba(128, 128, 128, 0.3); 
+  background-color: rgba(256, 256, 256, 0.3); 
 `;
 
 const Image = styled.Image`
   width: 50px;
   height: 50px;
   margin: 5px;
-  background-color: rgba(128, 128, 128, 0.3); 
+  background-color: rgba(256, 256, 256, 0.3); 
 `;
 
 const SmallTransparentSquare = styled.View`
@@ -45,14 +45,14 @@ const SmallTransparentSquare = styled.View`
   width: 35px;
   height: 40px;
   margin: 3px;
-  background-color: rgba(128, 128, 128, 0.3); 
+  background-color: rgba(256, 256, 256, 0.3); 
 `;
 
 const Rectangles = styled.View`
   width: 30px;
   height: 70px;
   margin: 5px;
-  background-color: rgba(128, 128, 128, 0.3);
+  background-color: rgba(256, 256, 256, 0.3); 
   top: -3%;
 `;
 
@@ -70,6 +70,13 @@ const ButtonText = styled.Text`
   color: #fff;
   font-size: 16px;
   text-align: center;
+`;
+
+const TransparentSquareInventory = styled.View`
+  width: 50px;
+  height: 50px;
+  margin: 5px;
+  background-color: rgba(256, 256, 256, 0.2); 
 `;
 
 
@@ -151,7 +158,7 @@ const InventoryModal = ({ isVisible, closeModal, itemLinks }) => {
                     (itemLinks !== undefined && itemLinks.length > 0 && itemLinks.length >= index+1) ? (
                       <Image source={{ uri: itemLinks[index] }} style={{ width: 50, height: 50 }} key={index} />
                     ) : (
-                      <TransparentSquare key={index} />
+                      <TransparentSquareInventory key={index} />
                     )
                   ))}
                 </View>
