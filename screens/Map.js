@@ -13,6 +13,8 @@ import socket from '../helpers/socket';
 
 import descriptions from '../descriptions/descriptions'
 
+import CryptModal from '../components/CryptModal';
+
 
 const MapContainer = styled.View`
   width: 100%;
@@ -296,153 +298,175 @@ const styles = StyleSheet.create({
       return d; //ditancia en km
     }
 
-    
+    // handleGlobalState({search: "validated"})
+    async  function enterCrypt() {
+      handleGlobalState({insideCrypt: true})
+
+    }
 
     return(
       <>
-        {globalState.search !== "validated" && (
+        {globalState.insideCrypt === false && (
+            <>
+              {globalState.search === "validated" && (
 
-          <View>
-          {globalState.search === "searching" && (
-            <MapContainer>
-              <MapView
-                provider={PROVIDER_GOOGLE} // remove if not using Google Maps
-                style={styles.map}
-                options={{
-                  enableHighAccuracy: true,
-                  distanceFilter: 0,
-                  interval: 1000000,
-                  fastestInterval: 200000,
-                }}
-                region={{
-                  latitude: initLocation.latitude,
-                  longitude: initLocation.longitude,
-                  latitudeDelta: 0.0020,
-                  longitudeDelta: 0.0020,
-                }}
-                showsUserLocation={true} //marcador del userLocation
-                customMapStyle={customedMapStyle} //stylo del mapa
-              >
-
-
-                {globalState.artifacts.map((artifact, index) => artifact ? (
-                  artifact.found == false ? (
-
-                    <Marker
-                      key={artifact.slot}
-                      coordinate={{
-                        latitude: artifact.latitude,
-                        longitude: artifact.longitude,
+                <View>
+                {globalState.search === "searching" && (
+                  <MapContainer>
+                    <MapView
+                      provider={PROVIDER_GOOGLE} // remove if not using Google Maps
+                      style={styles.map}
+                      options={{
+                        enableHighAccuracy: true,
+                        distanceFilter: 0,
+                        interval: 1000000,
+                        fastestInterval: 200000,
                       }}
-                      title={artifact.name}
-                      description={descriptions[index].esp}
+                      region={{
+                        latitude: initLocation.latitude,
+                        longitude: initLocation.longitude,
+                        latitudeDelta: 0.0020,
+                        longitudeDelta: 0.0020,
+                      }}
+                      showsUserLocation={true} //marcador del userLocation
+                      customMapStyle={customedMapStyle} //stylo del mapa
                     >
-                      <Image
-                        source={{ uri: artifact.img }} //aqui va la img del atributo TODO
-                        style={{ width: 40, height: 40 }} />
-                    </Marker>
-                  ) : null
-                ) : null
-                )}
 
-                  {globalState.user.rol == "Mortimer" && (
-                      globalState.userList.map((user, index) => user ? (
-                        // (user.latitude !== 0 || user.longitude !== 0) ? (
-                          user.rol === "Acolito" && user.characterStats.stamina>20&& (
-                            <Marker
-                            key={index}
+
+                      {globalState.artifacts.map((artifact, index) => artifact ? (
+                        artifact.found == false ? (
+
+                          <Marker
+                            key={artifact.slot}
                             coordinate={{
-                              latitude: user.latitude,
-                              longitude: user.longitude,
+                              latitude: artifact.latitude,
+                              longitude: artifact.longitude,
                             }}
-                            title={user.name}
+                            title={artifact.name}
+                            description={descriptions[index].esp}
                           >
                             <Image
-                              source={{ uri: user.imgURL }} 
+                              source={{ uri: artifact.img }} //aqui va la img del atributo TODO
                               style={{ width: 40, height: 40 }} />
                           </Marker>
-  
-                          )
                         ) : null
-                      // ) : null
-                      )
-                  )}
+                      ) : null
+                      )}
+
+                        {globalState.user.rol == "Mortimer" && (
+                            globalState.userList.map((user, index) => user ? (
+                              // (user.latitude !== 0 || user.longitude !== 0) ? (
+                                user.rol === "Acolito" && user.characterStats.stamina>20&& (
+                                  <Marker
+                                  key={index}
+                                  coordinate={{
+                                    latitude: user.latitude,
+                                    longitude: user.longitude,
+                                  }}
+                                  title={user.name}
+                                >
+                                  <Image
+                                    source={{ uri: user.imgURL }} 
+                                    style={{ width: 40, height: 40 }} />
+                                </Marker>
+        
+                                )
+                              ) : null
+                            // ) : null
+                            )
+                        )}
+                          
+                        
+                    </MapView>
+                  </MapContainer>
+                )}
+                {globalState.search !== "validated" && (
+
+                  <ContainerInfo>
+                    <RowContainer>
+                      {/* if distancia entre artefacto y usuario es < 1m */}
+                      {artifactNear !== null && globalState.search === "searching" && globalState.user.rol == "Acolito" && (
+                        <Button onPress={updateArtifact}>
+                          <ButtonText>Collect artifact</ButtonText>
+                        </Button>
+                      )}
+                      {globalState.search === "pending" && (
+                        <PendingText>Pending...</PendingText>
+                      )}
+                    </RowContainer>
+                    <RowContainer>
+
+                      {globalState.artifacts.map((artifact, index) => (
+                        <Column key={index}>
+                          {artifact && (
+                            artifact.found && (
+                              <Image source={{ uri: artifact.img }} style={imageStyle} /> //aqui va la img del atributo TODO
+                            ))}
+                          {artifact.foundBy[0].imgURL && artifact.found &&(
+                              <Image source={{ uri: artifact.foundBy[0].imgURL }} style={foundByImgStyle} /> 
+
+                          )}
+                        </Column>
+                      ))}
+                    </RowContainer>
+
+                    <RowContainer>
+                      {/* cuando los 4 artefactos sean true */}
+
+                      {isEndFinding && globalState.search === "searching" && globalState.user.rol == "Acolito" && (
+                        <Button onPress={endFinding}>
+                          <ButtonText>End finding</ButtonText>
+                        </Button>
+                      )}
+                      {globalState.user.rol === "Mortimer" &&(
+                        <>
+                          {globalState.search === "pending"&&(
+                            <><Button onPress={validate}>
+                            <ButtonText>Validate</ButtonText>
+                            </Button></>
+                          )}
+                          <Button onPress={reinicio}>
+                              <ButtonText>Reboot</ButtonText>
+                            </Button>
+                        </>
+
                     
-                  
-              </MapView>
-            </MapContainer>
-          )}
+                      )}
+                    </RowContainer>
+                  </ContainerInfo>
+                )}
+            
+              </View>
+              )}
+
+
           {globalState.search !== "validated" && (
 
-            <ContainerInfo>
-              <RowContainer>
-                {/* if distancia entre artefacto y usuario es < 1m */}
-                {artifactNear !== null && globalState.search === "searching" && globalState.user.rol == "Acolito" && (
-                  <Button onPress={updateArtifact}>
-                    <ButtonText>Collect artifact</ButtonText>
-                  </Button>
-                )}
-                {globalState.search === "pending" && (
-                  <PendingText>Pending...</PendingText>
-                )}
-              </RowContainer>
-              <RowContainer>
-
-                {globalState.artifacts.map((artifact, index) => (
-                  <Column key={index}>
-                    {artifact && (
-                      artifact.found && (
-                        <Image source={{ uri: artifact.img }} style={imageStyle} /> //aqui va la img del atributo TODO
-                      ))}
-                    {artifact.foundBy[0].imgURL && artifact.found &&(
-                        <Image source={{ uri: artifact.foundBy[0].imgURL }} style={foundByImgStyle} /> 
-
-                    )}
-                  </Column>
-                ))}
-              </RowContainer>
-
-              <RowContainer>
-                {/* cuando los 4 artefactos sean true */}
-
-                {isEndFinding && globalState.search === "searching" && globalState.user.rol == "Acolito" && (
-                  <Button onPress={endFinding}>
-                    <ButtonText>End finding</ButtonText>
-                  </Button>
-                )}
-                {globalState.user.rol === "Mortimer" &&(
-                  <>
-                    {globalState.search === "pending"&&(
-                      <><Button onPress={validate}>
-                      <ButtonText>Validate</ButtonText>
-                      </Button></>
-                    )}
-                    <Button onPress={reinicio}>
-                        <ButtonText>Reboot</ButtonText>
-                      </Button>
-                  </>
-
-               
-                )}
-              </RowContainer>
-            </ContainerInfo>
+            <Background source={require('../assets/tombEntrance.png')}>  
+            {globalState.user.rol == "Mortimer" &&  (
+              <Button onPress={reinicio}>
+                <ButtonText>Reboot</ButtonText>
+              </Button>
+              
+            )}
+            {globalState.user.rol == "Acolito" &&  (
+              <Button onPress={enterCrypt}>
+                <ButtonText>Enter</ButtonText>
+              </Button>
+              
+            )}
+            </Background> 
           )}
-      
-        </View>
-        )}
-
-      {globalState.search == "validated" && (
-
-        <Background source={require('../assets/tombEntrance.png')}>  
-        {globalState.user.rol == "Mortimer" &&  (
-          <Button onPress={reinicio}>
-            <ButtonText>Reboot</ButtonText>
-          </Button>
-          
-        )}
-        </Background> 
+        </>
       )}
+      {globalState.insideCrypt === true && (
+        <CryptModal />
+      )}
+
+
     </> 
+
+
    );
   }
 
