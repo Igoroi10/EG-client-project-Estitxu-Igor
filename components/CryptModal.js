@@ -17,7 +17,7 @@ const CryptModal = () =>{
   return(
     <ModalPage visible = {globalState.insideCrypt?true:false}>
       <TopView>
-        <Slot0 onPress={() => (globalState.items[0] && globalState.items[0].retrieved?null:cryptButton(1, globalState.user.email))} >
+        <Slot0 onPress={() => (globalState.items[0] && globalState.items[0].retrieved?null:cryptButton(0, globalState.user.email))} >
           <ModalImage source={globalState.items[0] && globalState.items[0].retrieved===true?require('../assets/tomb_open.png'):require('../assets/tomb_closed.png')} />
         </Slot0>
         <Slot1 onPress={() => (globalState.items[1] && globalState.items[1].retrieved?null:cryptButton(1, globalState.user.email))} >
