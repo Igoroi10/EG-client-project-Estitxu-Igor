@@ -76,7 +76,7 @@ const TransparentSquareInventory = styled.View`
   width: 50px;
   height: 50px;
   margin: 5px;
-  background-color: rgba(256, 256, 256, 0.2); 
+  background-color: rgba(128, 128, 128, 0.2); 
 `;
 
 
@@ -126,7 +126,7 @@ const InventoryModal = ({ isVisible, closeModal, itemLinks }) => {
   return (
     <Modal isVisible={isVisible}>
       <ModalContainer>
-        <BackgroundImage source={{ uri: 'https://firebasestorage.googleapis.com/v0/b/equipo-ganador.appspot.com/o/avatar-inventory.png?alt=media&token=35891938-ff26-4607-9aa8-106743377054'}}>
+        <BackgroundImage source={{ uri: 'https://firebasestorage.googleapis.com/v0/b/equipo-ganador.appspot.com/o/avatarBackground2.png?alt=media&token=2982e7f6-f1bb-4367-975a-7cbcb00e3d17'}}>
           <ScrollView>
             <View>
                 <TouchableOpacity onPress={closeModal}>
@@ -151,7 +151,7 @@ const InventoryModal = ({ isVisible, closeModal, itemLinks }) => {
                 </View>
 
               {/* resto de inventario / objects */}
-                <View style={{ flex: 1, justifyContent: 'flex-end', alignItems: 'center', paddingBottom: 20, marginTop: '55%' }}>
+                <View style={{ flex: 1, justifyContent: 'flex-end', alignItems: 'center', paddingBottom: 20, marginTop: '60%' }}>
                               <View style={{ flexDirection: 'row', flexWrap: 'wrap' , marginLeft: 25}}>
                   {[...Array(15)].map((_, index) => (
                     
