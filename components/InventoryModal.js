@@ -103,9 +103,9 @@ const InventoryModal = ({ isVisible, closeModal, itemLinks }) => {
 
           console.log("***************item links***************************")
 
-          itemLinks = itemLinks.filter((item,index)=>{
-            return itemLinks.indexOf(item) === index;
-          })
+          // itemLinks = itemLinks.filter((item,index)=>{
+          //   return itemLinks.indexOf(item) === index;
+          // })
             
           console.log(itemLinks)
 
