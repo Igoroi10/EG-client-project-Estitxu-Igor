@@ -197,6 +197,8 @@ const styles = StyleSheet.create({
 
       }
 
+  
+
     }, [Object.values(globalState)])
 
     const coordEmit = () => {
@@ -270,6 +272,7 @@ const styles = StyleSheet.create({
     }
 
 
+
     // Para calcular la distancia entre dos puntos
     function toRadians(degrees) {
       var pi = Math.PI;
@@ -308,7 +311,7 @@ const styles = StyleSheet.create({
       <>
         {globalState.insideCrypt === false && (
             <>
-              {globalState.search === "validated" && (
+              {globalState.search !== "validated" && (
 
                 <View>
                 {globalState.search === "searching" && (
@@ -440,7 +443,7 @@ const styles = StyleSheet.create({
               )}
 
 
-          {globalState.search !== "validated" && (
+          {globalState.search === "validated" && (
 
             <Background source={require('../assets/tombEntrance.png')}>  
             {globalState.user.rol == "Mortimer" &&  (

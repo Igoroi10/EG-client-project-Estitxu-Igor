@@ -226,6 +226,7 @@ const Profile = ({user}) => {
     const rebootRip = () => {
       socket.emit('closeRip', "");
       setItemLinks([])
+      handleGlobalState({insideCrypt: false})
     }
 
 
