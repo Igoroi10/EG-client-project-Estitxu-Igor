@@ -16,8 +16,7 @@ const globalStateModel = {
     artifacts: [],
     userList:[],
     rest: false,
-    crypt: ["opened","closed","closed","opened"],
-    insideCrypt: true,
+    insideCrypt: false,
     items: []
 }
 
