@@ -40,7 +40,7 @@ const Image = styled.Image`
   background-color: rgba(128, 128, 128, 0.3); 
 `;
 
-const SamllTransparentSquare = styled.View`
+const SmallTransparentSquare = styled.View`
   top: 2.5%;
   width: 35px;
   height: 40px;
@@ -48,7 +48,7 @@ const SamllTransparentSquare = styled.View`
   background-color: rgba(128, 128, 128, 0.3); 
 `;
 
-const Laukizuzenak = styled.View`
+const Rectangles = styled.View`
   width: 30px;
   height: 70px;
   margin: 5px;
@@ -114,54 +114,52 @@ const InventoryModal = ({ isVisible, closeModal, itemLinks }) => {
   return (
     <Modal isVisible={isVisible}>
       <ModalContainer>
-        <BackgroundImage source={require('../assets/white.jpeg')}>
+        <BackgroundImage source={{ uri: 'https://firebasestorage.googleapis.com/v0/b/equipo-ganador.appspot.com/o/avatar-inventory.png?alt=media&token=35891938-ff26-4607-9aa8-106743377054'}}>
           <ScrollView>
             <View>
-              <TouchableOpacity onPress={closeModal}>
-                <ModalText>X </ModalText>
-              </TouchableOpacity>
-          
+                <TouchableOpacity onPress={closeModal}>
+                  <ModalText>X </ModalText>
+                </TouchableOpacity>
+            
 
-            {/* armadura(?) */}
-              <View style={{ flexDirection: 'column', alignItems: 'center', marginTop: 20 }}>
-                <TransparentSquare />
-              </View>
-              <View style={{ flexDirection: 'row', justifyContent: 'center', marginTop: 3, marginBottom: -18 }}>
-                <Laukizuzenak style={{left: -10}}/>
-                <SamllTransparentSquare />
-                <TransparentSquare />
-                <SamllTransparentSquare />
-                <Laukizuzenak style={{left: 10}}/>
+              {/* armadura(?) */}
+                <View style={{ flexDirection: 'column', alignItems: 'center', marginTop: '10%' }}>
+                  <TransparentSquare />
+                </View>
+                <View style={{ flexDirection: 'row', justifyContent: 'center', marginTop: 3, marginBottom: -18 }}>
+                  <Rectangles style={{left: -10}}/>
+                  <SmallTransparentSquare />
+                  <TransparentSquare />
+                  <SmallTransparentSquare />
+                  <Rectangles style={{left: 10}}/>
 
-              </View>
-              <View style={{ flexDirection: 'column', alignItems: 'center' }}>
-                <TransparentSquare />
-              </View>
-            <View style={{height: 100}}>
+                </View>
+                <View style={{ flexDirection: 'column', alignItems: 'center' }}>
+                  <TransparentSquare />
+                </View>
 
-            </View>
-
-            {/* resto de inventario / objects */}
-            <View style={{ flex: 1, justifyContent: 'flex-end', alignItems: 'center', paddingBottom: 20 }}>
-                            <View style={{ flexDirection: 'row', flexWrap: 'wrap' , marginLeft: 25}}>
-                {[...Array(20)].map((_, index) => (
-                  
-                  (itemLinks !== undefined && itemLinks.length > 0 && itemLinks.length >= index+1) ? (
-                    <Image source={{ uri: itemLinks[index] }} style={{ width: 50, height: 50 }} key={index} />
-                  ) : (
-                    <TransparentSquare key={index} />
-                  )
-                ))}
+              {/* resto de inventario / objects */}
+                <View style={{ flex: 1, justifyContent: 'flex-end', alignItems: 'center', paddingBottom: 20, marginTop: '55%' }}>
+                              <View style={{ flexDirection: 'row', flexWrap: 'wrap' , marginLeft: 25}}>
+                  {[...Array(15)].map((_, index) => (
+                    
+                    (itemLinks !== undefined && itemLinks.length > 0 && itemLinks.length >= index+1) ? (
+                      <Image source={{ uri: itemLinks[index] }} style={{ width: 50, height: 50 }} key={index} />
+                    ) : (
+                      <TransparentSquare key={index} />
+                    )
+                  ))}
+                </View>
               </View>
+              
+              {isCollected && (
+                <Button    label="Crafting travel"  onPress={() => console.log("button crafting travel pressed")}>
+                  <ButtonText>Crafting travel</ButtonText>
+                </Button>
+              )}
+
             </View>
             
-            {isCollected && (
-              <Button    label="Crafting travel"  onPress={() => console.log("button crafting travel pressed")}>
-                <ButtonText>Crafting travel</ButtonText>
-              </Button>
-            )}
-            
-            </View>
           </ScrollView>
         </BackgroundImage>
       </ModalContainer>
