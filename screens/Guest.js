@@ -101,8 +101,6 @@ const Profile = () => {
   const [isModalVisible, setIsModalVisible] = useState(false);
   const [itemLinks, setItemLinks] = useState([]);
 
-
-
  
 
 
