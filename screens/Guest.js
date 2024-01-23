@@ -2,7 +2,8 @@ import React,{useContext, useState, useEffect} from 'react'
 import styled from 'styled-components/native'
 import { storeData, getData } from '../helpers/localStorage';
 import { useNavigation } from '@react-navigation/native';
-import { ImageBackground } from 'react-native';
+import { ImageBackground,TouchableOpacity, View, Text, Image } from 'react-native';
+
 import ProfileInfo from '../components/ProfileInfo';
 import Stats from '../components/Stats';
 import * as Progress from 'react-native-progress';
@@ -14,149 +15,85 @@ import Toast from 'react-native-toast-message';
 import { Context } from '../AppContext';
 import InventoryModal from '../components/InventoryModal'
 
-const View = styled.View`
-    flex: 1;
-    align-items: center;
-`
 
-
-const Divider = styled.View`
-  width: 100%;
-  height: 2px;
-  background-color: #DDDDDD;
-`;
-
-const Container = styled.View`
-    width: 100%;
-    height: 300px;
-    flex-direction: row;
-    align-items: center;
-`
-
-const UserCard = styled.View`
-    width: 110px;
-    height: 200px;
-    margin-right: 10px;
-    position: relative;
-`
-
-
-const ProfilePicture = styled.Image`
-    width: 170px;
-    height: 170px;
-    border-radius: 85px;
-    position: absolute;
-    top: 5%;
-    left: 110%;
-    border-width: 5px;
-`;
 
 
 
-const UserCardFooter = styled.View`
-    position: absolute;
-    width: 100%;
-    height: 25%;
-    top: 230px;
-    left: 0px;
-`
-const Text = styled.Text`
-    font-size: 20px;
-    font-weight: bold;
-    margin: 0 10px;
-    padding-top: 25px;
-    text-align: center;
-    color: white;
-    text-shadow: 2px 2px 2px black;
-`
-
-const Container2 = styled.View`
-  width: 100%;
-  height: 65px;
-  flex-direction: row;
-  align-items: center;
-`;
-
-const NameColumn = styled.View`
+const Container = styled.View`
   flex: 1;
   justify-content: center;
   align-items: center;
+  background-color: #f0f0f0;
 `;
 
-const Text2 = styled.Text`
-  font-size: 16px;
-  font-weight: bold;
-  color: white;
-  text-shadow: 2px 2px 2px black;
-  top: -10px;
-
-`;
-
-const Container3= styled.View`
+const UserList = styled.View`
+  margin-top: 20px;
+  align-items: center;
   width: 100%;
-  height: 60px;
+`;
+
+const UserItem = styled.View`
+  background-color: #ffffff;
+  padding: 10px;
+  margin: 5px 0;
+  border-radius: 10px;
+  width: 90%;
+  shadow-color: #000;
+  shadow-opacity: 0.2;
+  shadow-radius: 2px;
+  elevation: 3;
   flex-direction: row;
+  justify-content: space-between;
   align-items: center;
 `;
 
+const UserInfo = styled.View`
+  flex-direction: column;
+  width: 280px;
+`;
 
-const Column = styled.View`
-  flex: 1;
-  justify-content: center;
+const UserEmail = styled.Text`
+  font-size: 18px;
+  color: #333;
+  margin-left: 10px;
+`;
+
+const UserImage = styled.Image`
+  border-radius: 40px;
+  width: 50px;
+  height: 80px;
+`;
+
+
+const UserInTower = styled.View`
+  top: 80px;
+  left: 40px;
+  width: 20px;
+  height: 20px;
+  border-radius: 30px;
+  border: 1px solid black;
+  z-index: 1;
+  position: absolute;
+`;
+
+const UserThings = styled.View`
+  flex-direction: row;
+`
+
+const UserButton = styled.TouchableOpacity`
+  background-color: #0073e6;
+  padding: 10px 20px;
+  border-radius: 10px;
+  margin: 10px;
   align-items: left;
-  left: 20px;
+  width: 50%;
 `;
-
-
-const FirstColumn = styled.View`
-  flex: 1;
-  justify-content: center;
-  align-items: center;
-  left: -20px;
-`;
-
-const Text3 = styled.Text`
-  font-size: 16px;
-  font-weight: bold;
-  color: white;
-  left: 20px;
-  top: -10px;
-  text-shadow: 2px 2px 2px black;
-
-`;
-
-const Button = styled.TouchableOpacity`
- width: 70%;
- height: 42px;
- border-radius: 10px;
- margin-left: 16px;
- background: grey;
- align-items: center;
- justify-content: center;
- left: 15%;
-`
 
 const ButtonText = styled.Text`
-  color: #fff;
+  color: white;
   font-size: 16px;
-  text-align: center;
+  font-weight: bold;
 `;
-
-const BackgroundImage = styled.ImageBackground`
-  flex: 1;
-  width: 100%;
-  height: 100%;
-`;
-
-const ContainerButtons = styled.View`
-    width: 100%;
-    height: 70px;
-    flex-direction: row;
-    align-items: top;
-    top: 10%;
-    left: 0%;
-    margin-left: 20%;
-`
 
 
 const Profile = () => {
@@ -165,18 +102,48 @@ const Profile = () => {
   const [itemLinks, setItemLinks] = useState([]);
 
 
+
  
 
 
 
     return (
-        <>
-          <BackgroundImage source={require('../assets/acolito.png')}>
+      <>
+      <Container>
+        <UserList>
+        {globalState.userList.map((user, index) => {
+          if(user){
+            if (user.rol === "Acolito" && (user.towerAccess || user.towerAccess==false)) {
 
-          </BackgroundImage>
+              return (
+                <UserItem key={`${user._id}_${index}`}>
+                  <UserInTower style={{ backgroundColor: user.towerAccess ? "#10D24B" : "red" }}/>
+                  <UserImage source={{ uri: user.imgURL }} />
+                  
+                  <UserInfo>
+                    
+                    <UserEmail>{user.name}</UserEmail>
+                    <UserThings>
+                      <UserButton onPress={() => console.log("aply disease")}>
+                        <ButtonText>apply disease</ButtonText>
+                  
+                    </UserButton>
+                    </UserThings>   
 
-        </>
-    )
+                  </UserInfo>
+                  </UserItem>
+              );
+              }
+          }
+
+          })}
+        </UserList>
+      
+
+    </Container>
+
+    </>
+  )
 }
 
 export default Profile
