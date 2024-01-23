@@ -122,8 +122,8 @@ const Profile = () => {
                     
                     <UserEmail>{user.name}</UserEmail>
                     <UserThings>
-                      <UserButton onPress={() => console.log("aply disease")}>
-                        <ButtonText>apply disease</ButtonText>
+                      <UserButton onPress={() => console.log("aply ethazium")}>
+                        <ButtonText>apply ethazium</ButtonText>
                   
                     </UserButton>
                     </UserThings>   
