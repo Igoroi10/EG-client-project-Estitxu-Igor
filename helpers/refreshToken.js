@@ -16,6 +16,7 @@ const refreshToken = async (mail) => {
     console.log("*****************REFRESH TOKEN**************")
     console.log(refresh)
 
+    
 
     const newTokens = await axios.post('https://fly-eg-staging.fly.dev/api/users/refresh', 
         {email: mail},

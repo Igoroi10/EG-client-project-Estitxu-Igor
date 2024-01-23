@@ -3,6 +3,9 @@ import { AxiosRequestConfig } from "axios";
 import { getSecureAccess, getSecureRefresh } from "./keychain";
 import { EXPIRED_MESSAGE, SOCKET_URL } from "../constants/constants";
 import refreshToken from "./refreshToken";
+import { useContext } from "react";
+import { Context } from "../AppContext";
+
 
 
 
@@ -43,7 +46,8 @@ authFetch.interceptors.response.use(
         return response;
     },
     async (error) => {
-        
+        const{globalState, handleGlobalState} = useContext(Context);
+
         console.log("****************ERROR CONFIG**************")
         console.log(error.config.email)
         const mail = error.config.email;
@@ -53,18 +57,23 @@ authFetch.interceptors.response.use(
 
         if(error.response.data.data.error.message === EXPIRED_MESSAGE){
             console.log("*****************Petición caducada*******************")
+            if(globalState.user.email){
+                const newAccessToken = await refreshToken(mail);
 
-            const newAccessToken = await refreshToken(mail);
-
-            error.config.headers['Authorization'] = `Bearer ${newAccessToken}`;
-
-            const returnData = await axios
-            .request(error.config)
-            // .then((response) => resolve(response))
-            // .catch((err) => reject(err));
-            
-            console.log("¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬returnData¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬")
-            console.log(returnData)
+                error.config.headers['Authorization'] = `Bearer ${newAccessToken}`;
+    
+                const returnData = await axios
+                .request(error.config)
+                // .then((response) => resolve(response))
+                // .catch((err) => reject(err));
+                
+                console.log("¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬returnData¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬¬")
+                console.log(returnData)
+    
+            }
+            else{
+                const returnData = "";
+            }
             return returnData
         }
     }

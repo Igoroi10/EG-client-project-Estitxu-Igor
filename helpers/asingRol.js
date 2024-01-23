@@ -8,6 +8,7 @@ import Tower from '../screens/Tower.js';
 import Admin from '../screens/Admin.js';
 import IstvanAndVillanoScreen from '../screens/IstvanAndVillanoScreen.js';
 import Maps from '../screens/Map.js';
+import Guest from '../screens/Guest.js'
 
 const Tab = createMaterialTopTabNavigator();
 
@@ -80,8 +81,8 @@ const asignRol = async (userRole, tabScreens, user) => {
 
     else{
         tabScreens.push(
-            <Tab.Screen key="Profile" name="Profile">
-                {() => <Profile user={user} />}
+            <Tab.Screen key="Guest" name="Guest">
+                {() => <Guest  />}
             </Tab.Screen>          )
     }
 

@@ -106,10 +106,24 @@ const GoogleModal = ({logStatus, setMethod, setUser}) =>{
   }
 
 
+  async function onGuestButtonPress() {
+    setLoading(true)
+    const allUsers = await authFetch('/users', {
+      email: "guest"
+    });
+    handleGlobalState({userList: allUsers.data.data});
+
+    setUserLoad(true)
+
+
+  }
+
 
   return(
       <ModalTemplate visible = {userLoaded||logStatus?false:true }>
         <GoogleButton title="Google Sign-In"  onPress={onGoogleButtonPress} disabled={loading} />
+        <GoogleButton title="Guest"  onPress={onGuestButtonPress} disabled={loading} />
+
         {loading?<ActivityIndicator size="10" style={[spinnerStyle]}/> : <Text>Sign - In</Text>}
 
       </ModalTemplate>
