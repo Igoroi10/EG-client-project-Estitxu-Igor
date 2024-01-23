@@ -163,8 +163,8 @@ const Profile = () => {
   const{globalState, handleGlobalState} = useContext(Context)
   const [isModalVisible, setIsModalVisible] = useState(false);
   const [itemLinks, setItemLinks] = useState([]);
-
-
+console.log("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@")
+console.log(globalState.userList[0])
  
 
 
