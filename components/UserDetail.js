@@ -120,7 +120,10 @@ const UserDetail = ({ isVisible, choosedUser, closeModal, num }) => {
 
     useEffect(() => {
       if(selectedUser){
-        hasTrueDisease = Object.values(selectedUser.diseases).some((disease) => disease === true);
+        if(selectedUser.diseases.marrow_apocalypse || selectedUser.diseases.epic_weakness || selectedUser.diseases.ethazium || selectedUser.diseases.rotting_plague){
+          hasTrueDisease = true;
+        }
+        // hasTrueDisease = Object.values(selectedUser.diseases).some((disease) => disease === true);
       }
      }, [selectedUser])
  
