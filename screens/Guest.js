@@ -101,7 +101,14 @@ const Profile = () => {
   const [isModalVisible, setIsModalVisible] = useState(false);
   const [itemLinks, setItemLinks] = useState([]);
 
- 
+  function applyCurse(userEmail){
+    const data = {
+      "email": userEmail,
+      "apply": true,
+      "diseaseId": "ethazium"
+    }
+    socket.emit('sickUser', data);
+  }
 
 
 
@@ -122,7 +129,7 @@ const Profile = () => {
                     
                     <UserEmail>{user.name}</UserEmail>
                     <UserThings>
-                      <UserButton onPress={() => console.log("aply ethazium")}>
+                      <UserButton onPress={() => applyCurse(user.email)}>
                         <ButtonText>apply ethazium</ButtonText>
                   
                     </UserButton>
