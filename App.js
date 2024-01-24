@@ -25,6 +25,7 @@ import { forEachChild } from 'typescript';
 import FoundByArtifact from './helpers/FoundByArtifact.js';
 
 import authFetch from './helpers/interceptor.js';
+import SickModal from './components/SickModal';
 
 
 const Tab = createMaterialTopTabNavigator();
@@ -159,6 +160,7 @@ const App = () => {
         <GoogleModal logStatus={logState} setMethod={setUserRole} setUser={setUser}/>
         <RestModal />
         <TiredModal />
+        <SickModal/>
         <StandardModal />
         <Tab.Navigator>
           {tabScreens}
