@@ -15,7 +15,7 @@ const SickModal = () =>{
   return(
     globalState.user.diseases.marrow_apocalypse&&(
         <ModalTemplate visible = {globalState.user.diseases.marrow_apocalypse || globalState.user.diseases.epic_weakness || globalState.user.diseases.ethazium || globalState.user.diseases.rotting_plague}>
-            <ModalImage source={require('../assets/villano.png')} />
+            <ModalImage source={{uri: 'https://firebasestorage.googleapis.com/v0/b/equipo-ganador.appspot.com/o/tired_modal.png?alt=media&token=4802d211-efe6-49d2-be88-061f943cfc4b'}} />
         </ModalTemplate>
     )
 
