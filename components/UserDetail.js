@@ -13,6 +13,8 @@ import socket from '../helpers/socket';
 
 import { Context } from '../AppContext';
 
+import PotionsModal from './PotionsModal';
+
 
 
 
@@ -100,8 +102,13 @@ const BackgroundImage = styled.ImageBackground`
 const UserDetail = ({ isVisible, choosedUser, closeModal, num }) => {
   const{globalState, handleGlobalState} = useContext(Context);
   const [selectedUser, setSelectedUser] = useState(choosedUser);
-  let hasTrueDisease=false;
+  const [hasTrueDisease, isHasTrueDisease] = useState(false);
+
   const [isActiveButton, setIsActiveButton] = useState(false);
+  const [createPotionModal, setCreatePotionModal] = useState(false);
+  const [potionState, setPotion] = useState("start");
+
+
 
 
     useEffect(() => {
@@ -120,7 +127,13 @@ const UserDetail = ({ isVisible, choosedUser, closeModal, num }) => {
 
     useEffect(() => {
       if(selectedUser){
-        hasTrueDisease = Object.values(selectedUser.diseases).some((disease) => disease === true);
+        if(selectedUser.diseases.marrow_apocalypse || selectedUser.diseases.epic_weakness || selectedUser.diseases.ethazium || selectedUser.diseases.rotting_plague){
+          isHasTrueDisease(true);
+        }
+        else{
+          isHasTrueDisease(false);
+
+        }
       }
      }, [selectedUser])
  
@@ -153,11 +166,27 @@ const UserDetail = ({ isVisible, choosedUser, closeModal, num }) => {
           socket.emit('restoreStamina', choosedUser.email);
         };
 
+        const openPotionModal = () => {
+          setCreatePotionModal("potionCreation")
+        }
+
+        const closePotionModal = () => {
+          setCreatePotionModal(false)
+
+        }
+
       
 
       return (
         <Modal isVisible={isVisible}>
           <ModalContainer>
+          <PotionsModal 
+              towerStatus={createPotionModal}
+              setTowerStatus ={setCreatePotionModal}
+              potionState={potionState}
+              setPotionCreated ={setPotion}
+            />
+            
           <BackgroundImage source={linkForBackground}>
 
           <ScrollView>
@@ -177,8 +206,8 @@ const UserDetail = ({ isVisible, choosedUser, closeModal, num }) => {
               {globalState.user.rol === "Mortimer" &&(
                   <View style={{ top: 0, padding: 10}}>
 
-                    {hasTrueDisease&& (
-                    <CureDisButton onPress={false}>
+                    {hasTrueDisease === true&& (
+                    <CureDisButton onPress={openPotionModal}>
                         <CureDisButtonText>Cure disease</CureDisButtonText>
                     </CureDisButton>
                     )}
@@ -200,10 +229,11 @@ const UserDetail = ({ isVisible, choosedUser, closeModal, num }) => {
             </View>
             </ScrollView>
             </BackgroundImage>
-
+           
 
           </ModalContainer>
         </Modal>
+
       );
    
 };
