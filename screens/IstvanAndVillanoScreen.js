@@ -185,7 +185,7 @@ const Istvan = ({user}) => {
                   
                 
                     </UserButton>
-                    <PieStyle>
+                    {/* <PieStyle>
                       <Progress.Pie
                           progress={pieProgress}
                           size={50}
@@ -194,7 +194,7 @@ const Istvan = ({user}) => {
                           borderColor="black"
 
                         />
-                    </PieStyle>
+                    </PieStyle> */}
                     </UserThings>
                     
 
