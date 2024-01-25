@@ -185,6 +185,7 @@ const UserDetail = ({ isVisible, choosedUser, closeModal, num }) => {
               setTowerStatus ={setCreatePotionModal}
               potionState={potionState}
               setPotionCreated ={setPotion}
+              user={selectedUser}
             />
             
           <BackgroundImage source={linkForBackground}>

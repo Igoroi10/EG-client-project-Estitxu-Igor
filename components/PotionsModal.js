@@ -5,7 +5,9 @@ import axios from 'axios';
 import Toast from 'react-native-toast-message';
 import potionHandler from '../helpers/potionHandler';
 
-const PotionsModal = ({ towerStatus, setTowerStatus, potionStatus, setPotionCreated }) => {
+
+
+const PotionsModal = ({ towerStatus, setTowerStatus, potionStatus, setPotionCreated, user }) => {
   const [selectedIngredients, setSelectedIngredients] = useState([]);
   const [ingredientsData, setIngredientsData] = useState([]);
 
@@ -33,7 +35,7 @@ const PotionsModal = ({ towerStatus, setTowerStatus, potionStatus, setPotionCrea
 
   const createPotion = () => {
     if (selectedIngredients.length === 2) {
-      const createdPotion = potionHandler(selectedIngredients[0], selectedIngredients[1]);
+      const createdPotion = potionHandler(selectedIngredients[0], selectedIngredients[1], user);
       setPotionCreated(createdPotion);
       setTowerStatus('corruptScroll');
       deleteIngredients();
