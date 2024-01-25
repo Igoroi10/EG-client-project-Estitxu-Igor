@@ -123,7 +123,6 @@ const GoogleModal = ({logStatus, setMethod, setUser}) =>{
   return(
       <ModalTemplate visible = {userLoaded||logStatus?false:true }>
         <GoogleButton title="Google Sign-In"  onPress={onGoogleButtonPress} disabled={loading} />
-        {console.log()}
         <GoogleButton title="Guest"  onPress={onGuestButtonPress} disabled={loading} />
 
         {loading?<ActivityIndicator size="10" style={[spinnerStyle]}/> : <Text>Sign - In</Text>}
