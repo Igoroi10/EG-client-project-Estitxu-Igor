@@ -54,6 +54,8 @@ const ButtonText = styled.Text`
   font-weight: bold;
 `;
 
+
+
 const UserList = styled.View`
   margin-top: 20px;
   align-items: center;
@@ -147,7 +149,7 @@ const Istvan = ({user}) => {
     setIsModalVisible(false);
   };
 
- 
+
 
           
 
@@ -208,12 +210,12 @@ const Istvan = ({user}) => {
           })}
         </UserList>
       
-      {/* <UserDetail
+      <UserDetail
         isVisible={isModalVisible}
         choosedUser={selectedUser}
         closeModal={closeModal}
         num={userNum}
-      /> */}
+      />
     </Container>
   );
     };

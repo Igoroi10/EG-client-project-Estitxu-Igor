@@ -74,6 +74,29 @@ const CureButton = styled.TouchableOpacity`
   left: 65px;
   top: 5px;
 `;
+
+const DiseasedButtonText = styled.Text`
+  color: white;
+  font-size: 16px;
+  font-weight: bold;
+`;
+
+const DiseaseButton = styled.TouchableOpacity`
+  background-color: blue;
+  padding: 10px 20px;
+  border-radius: 10px;
+  border-color: black;
+  width: 200px;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  left: 65px;
+  top: -10px;
+  margin-top: 5px;
+
+`;
+
+
 const CureButtonText = styled.Text`
     color: white;
     font-size: 20px;
@@ -156,7 +179,21 @@ const UserDetail = ({ isVisible, choosedUser, closeModal, num }) => {
           socket.emit('restoreStamina', choosedUser.email);
         };
 
-      
+
+        const applyDisease = (diseaseId) => {
+            console.log(selectedUser.diseases[diseaseId])
+            selectedUser.diseases.marrow_apocalypse = true;
+            console.log("FGHJHYGTFFGTHJ")
+            // const data = {
+            //   "email": selectedUser.email,
+            //   "apply": true,
+            //   "diseaseId": diseaseId
+            // }
+            // socket.emit('sickUser', data);
+  
+          
+        }
+      console.log(globalState.user.rol)
 
       return (
         <Modal isVisible={isVisible}>
@@ -196,7 +233,42 @@ const UserDetail = ({ isVisible, choosedUser, closeModal, num }) => {
                     </>
                     )}
                   </View>
+              )}
+                {(globalState.user.rol === "Mortimer" || globalState.user.rol === "Villano" )&&(
+                  <>
+                    {!selectedUser.diseases.marrow_apocalypse && (
+                      <CureButton onPress={console.log("marrow_apocalypse")}>
+                        <CureDisButtonText>marrow_apocalypse</CureDisButtonText>
+                      </CureButton>
+                    )}
+                    {!selectedUser.diseases.epic_weakness && (
+                      <DiseaseButton onPress={console.log("epic_weakness")}>
+                        <CureDisButtonText>epic_weakness</CureDisButtonText>
+                      </DiseaseButton>
+                    )}
+
+                    {!selectedUser.diseases.rotting_plague && (
+                      <DiseaseButton onPress={applyDisease("rotting_plague")}>
+                        <CureDisButtonText>rotting_plague</CureDisButtonText>
+                      </DiseaseButton>
+                    )}
+
+                  </>
+                  
                 )}
+                
+                {/* <DiseaseButton onPress={applyDisease("marrow_apocalypse")}>
+                    <CureDisButtonText>Cure disease</CureDisButtonText>
+                </DiseaseButton>
+                <DiseaseButton onPress={applyDisease("marrow_apocalypse")}>
+                    <CureDisButtonText>Cure disease</CureDisButtonText>
+                </DiseaseButton> */}
+                                        <CureButton onPress={console.log("hola")}>
+                            <CureButtonText >Recuperar</CureButtonText>
+                        </CureButton>
+
+
+                    
 
                   
 
