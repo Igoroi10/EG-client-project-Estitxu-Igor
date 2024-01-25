@@ -9,7 +9,7 @@ import Toast from 'react-native-toast-message';
 
 import { Context } from '../AppContext';
 
-import * as Progress from 'react-native-progress';
+// import * as Progress from 'react-native-progress';
 
 
 const ModalContainer = styled.View`

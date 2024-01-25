@@ -185,7 +185,7 @@ const Admin = () => {
                   
                 
                     </UserButton>
-                    <PieStyle>
+                    {/* <PieStyle>
                       <Progress.Pie
                           progress={pieProgress}
                           size={50}
@@ -194,7 +194,7 @@ const Admin = () => {
                           borderColor="black"
 
                         />
-                    </PieStyle>
+                    </PieStyle> */}
                     </UserThings>
                     
 
