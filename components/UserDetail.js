@@ -148,7 +148,7 @@ const UserDetail = ({ isVisible, choosedUser, closeModal, num }) => {
   diseases.forEach(name => {
     if(selectedUser){
       if(selectedUser.diseases[name] === true){
-        textOfDiseases += name + ", ";
+        textOfDiseases += name + "   ";
       }
     }
   })
@@ -157,7 +157,7 @@ const UserDetail = ({ isVisible, choosedUser, closeModal, num }) => {
     diseases.forEach(name => {
       if(selectedUser){
         if(selectedUser.diseases[name] === true){
-          textOfDiseases += name + ", ";
+          textOfDiseases += name + "   ";
         }
       }
   
@@ -323,19 +323,7 @@ const UserDetail = ({ isVisible, choosedUser, closeModal, num }) => {
                   </Buttons>
                   
                 )}
-                
-                {/* <DiseaseButton onPress={applyDisease("marrow_apocalypse")}>
-                    <CureDisButtonText>Cure disease</CureDisButtonText>
-                </DiseaseButton>
-                <DiseaseButton onPress={applyDisease("marrow_apocalypse")}>
-                    <CureDisButtonText>Cure disease</CureDisButtonText>
-                </DiseaseButton> */}
-
-
-                    
-
-                  
-
+              
             </View>
             </ScrollView>
             </BackgroundImage>
