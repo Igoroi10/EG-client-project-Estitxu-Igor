@@ -49,17 +49,17 @@ const CureDisButton = styled.TouchableOpacity`
   padding: 10px 20px;
   border-radius: 10px;
   border-color: black;
-  width: 200px;
-  height: 50px;
+  width: 150px;
+  height: 40px;
   display: flex;
   justify-content: center;
-  left: 65px;
-  top: -5px;
+  left: 25%;
+  top: 0px;
 
 `;
 const CureDisButtonText = styled.Text`
     color: white;
-    font-size: 20px;
+    font-size: 15px;
     text-align: center;
 
 `;
@@ -69,18 +69,25 @@ const CureButton = styled.TouchableOpacity`
   padding: 10px 20px;
   border-radius: 10px;
   border-color: black;
-  width: 200px;
-  height: 50px;
+  width: 150px;
+  height: 40px;
   display: flex;
   justify-content: center;
-  left: 65px;
+  left: 25%;
   top: 5px;
 `;
 const CureButtonText = styled.Text`
     color: white;
-    font-size: 20px;
+    font-size: 15px;
     text-align: center;
 
+`;
+const DiseasesText = styled.Text`
+    color: white;
+    font-size: 15px;
+    text-align: center;
+    text-shadow: 2px 2px 2px black;
+    top: -10px;
 `;
 
 const SliderText = styled.Text`
@@ -108,8 +115,14 @@ const UserDetail = ({ isVisible, choosedUser, closeModal, num }) => {
   const [createPotionModal, setCreatePotionModal] = useState(false);
   const [potionState, setPotion] = useState("start");
 
+  const diseases = ["marrow_apocalypse", "epic_weakness", "rotting_plague", "ethazium"];
 
-
+  let textOfDiseases = "Diseases: ";
+    diseases.forEach(name => {
+      if(selectedUser.diseases[name] === true){
+        textOfDiseases += name + ", ";
+      }
+    })
 
     useEffect(() => {
       // console.log("*****************Enters in USEEFFECT**********************")
@@ -205,8 +218,13 @@ const UserDetail = ({ isVisible, choosedUser, closeModal, num }) => {
               <Stats user={selectedUser}/>
 
               {globalState.user.rol === "Mortimer" &&(
-                  <View style={{ top: 0, padding: 10}}>
+                  <View style={{ top: 0, padding: 20}}>
 
+                  {hasTrueDisease &&(
+                    <DiseasesText>
+                      {textOfDiseases} 
+                    </DiseasesText>
+                  )}
                     {hasTrueDisease === true&& (
                     <CureDisButton onPress={openPotionModal}>
                         <CureDisButtonText>Cure disease</CureDisButtonText>
