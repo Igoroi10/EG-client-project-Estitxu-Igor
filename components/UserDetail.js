@@ -88,11 +88,11 @@ const DiseaseButton = styled.TouchableOpacity`
   padding: 10px 20px;
   border-radius: 10px;
   border-color: black;
-  width: 200px;
-  height: 50px;
+  width: 100px;
+  height: 40px;
   display: flex;
   justify-content: center;
-  left: 65px;
+  left: 26%;
   top: -10px;
   margin-top: 5px;
 
@@ -129,6 +129,10 @@ const BackgroundImage = styled.ImageBackground`
   height: 100%;
 `;
 
+const Buttons = styled.View`
+  flex-direction: row;
+`
+
 const UserDetail = ({ isVisible, choosedUser, closeModal, num }) => {
   const{globalState, handleGlobalState} = useContext(Context);
   const [selectedUser, setSelectedUser] = useState(choosedUser);
@@ -142,9 +146,12 @@ const UserDetail = ({ isVisible, choosedUser, closeModal, num }) => {
 
   let textOfDiseases = "Diseases: ";
     diseases.forEach(name => {
-      if(selectedUser.diseases[name] === true){
-        textOfDiseases += name + ", ";
+      if(selectedUser){
+        if(selectedUser.diseases[name] === true){
+          textOfDiseases += name + ", ";
+        }
       }
+
     })
 
     useEffect(() => {
@@ -207,19 +214,19 @@ const UserDetail = ({ isVisible, choosedUser, closeModal, num }) => {
         const applyDisease = (diseaseId) => {
             console.log(selectedUser.diseases[diseaseId])
             selectedUser.diseases.marrow_apocalypse = true;
-            console.log("FGHJHYGTFFGTHJ")
-            // const data = {
-            //   "email": selectedUser.email,
-            //   "apply": true,
-            //   "diseaseId": diseaseId
-            // }
-            // socket.emit('sickUser', data);
+            const data = {
+              "email": selectedUser.email,
+              "apply": true,
+              "diseaseId": diseaseId
+            }
+            socket.emit('sickUser', data);
   
           
         }
 
         const openPotionModal = () => {
           setCreatePotionModal("potionCreation")
+          console.log("ERFGHJ")
         }
 
         const closePotionModal = () => {
@@ -265,14 +272,14 @@ const UserDetail = ({ isVisible, choosedUser, closeModal, num }) => {
                     </DiseasesText>
                   )}
                     {hasTrueDisease === true&& (
-                    <CureDisButton onPress={openPotionModal}>
+                    <CureDisButton onPress={() => openPotionModal()}>
                         <CureDisButtonText>Cure disease</CureDisButtonText>
                     </CureDisButton>
                     )}
                     {selectedUser && (
                       <>
                       {selectedUser.characterStats.stamina <= 20 && isActiveButton &&(
-                        <CureButton onPress={restore}>
+                        <CureButton onPress={() => restore()}>
                             <CureButtonText >Recuperar</CureButtonText>
                         </CureButton>
 
@@ -282,25 +289,25 @@ const UserDetail = ({ isVisible, choosedUser, closeModal, num }) => {
                   </View>
               )}
                 {(globalState.user.rol === "Mortimer" || globalState.user.rol === "Villano" )&&(
-                  <>
+                  <Buttons style={{ top: 0, height: 100}}>
                     {!selectedUser.diseases.marrow_apocalypse && (
-                      <CureButton onPress={console.log("marrow_apocalypse")}>
-                        <CureDisButtonText>marrow_apocalypse</CureDisButtonText>
-                      </CureButton>
+                      <DiseaseButton onPress={() => applyDisease("marrow_apocalypse")}>
+                        <CureDisButtonText>apocalypse</CureDisButtonText>
+                      </DiseaseButton>
                     )}
                     {!selectedUser.diseases.epic_weakness && (
-                      <DiseaseButton onPress={console.log("epic_weakness")}>
-                        <CureDisButtonText>epic_weakness</CureDisButtonText>
+                      <DiseaseButton onPress={() => applyDisease("epic_weakness")}>
+                        <CureDisButtonText>weakness</CureDisButtonText>
                       </DiseaseButton>
                     )}
 
                     {!selectedUser.diseases.rotting_plague && (
-                      <DiseaseButton onPress={applyDisease("rotting_plague")}>
-                        <CureDisButtonText>rotting_plague</CureDisButtonText>
+                      <DiseaseButton onPress={() => applyDisease("rotting_plague")}>
+                        <CureDisButtonText>plague</CureDisButtonText>
                       </DiseaseButton>
                     )}
 
-                  </>
+                  </Buttons>
                   
                 )}
                 
@@ -310,9 +317,6 @@ const UserDetail = ({ isVisible, choosedUser, closeModal, num }) => {
                 <DiseaseButton onPress={applyDisease("marrow_apocalypse")}>
                     <CureDisButtonText>Cure disease</CureDisButtonText>
                 </DiseaseButton> */}
-                                        <CureButton onPress={console.log("hola")}>
-                            <CureButtonText >Recuperar</CureButtonText>
-                        </CureButton>
 
 
                     
