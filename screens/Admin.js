@@ -80,9 +80,9 @@ const UserInfo = styled.View`
 `;
 
 const UserEmail = styled.Text`
-  font-size: 18px;
+  font-size: 12px;
   color: #333;
-  margin-left: 10px;
+  margin-left: 15px;
 `;
 
 const UserImage = styled.Image`
@@ -124,6 +124,22 @@ top: 5px;
 
 `
 
+const IconDisplay = styled.View`
+  display: flex;
+  flex-direction: row;
+  align-content: center;
+`
+const Icon = styled.Image`
+  display: flex;
+  width: 40px;
+  height: 40px;
+  border-radius: 50px;
+`
+const DamnIcon = styled.Image`
+  width: 40px;
+  height: 40px;
+  border-radius: 50px;
+`
 
 
 const Admin = () => {
@@ -178,7 +194,7 @@ const Admin = () => {
                   
                   <UserInfo>
                     
-                    <UserEmail>{user.email}</UserEmail>
+                    <UserEmail>{user.name}</UserEmail>
                     <UserThings>
                       <UserButton onPress={() => showAlertWithUsername(user, index)}>
                         <ButtonText>VER PERFIL</ButtonText>
@@ -192,11 +208,17 @@ const Admin = () => {
                           color={pieColor}
                           unfilledColor="#D3D3D3"
                           borderColor="black"
-
                         />
                     </PieStyle> */}
                     </UserThings>
-                    
+                    <IconDisplay>
+                      {user.diseases.marrow_apocalypse || user.diseases.rotting_plague || user.diseases.epic_weakness && (
+                        <Icon source={{uri: 'https://firebasestorage.googleapis.com/v0/b/equipo-ganador.appspot.com/o/poisoned_icon.jpeg?alt=media&token=8c6d2d52-c36b-4b88-bad5-7e203740ef2b'}}/>
+                      )}
+                      {user.diseases.ethazium && (
+                        <Icon source={{uri: 'https://firebasestorage.googleapis.com/v0/b/equipo-ganador.appspot.com/o/damned_icon.jpeg?alt=media&token=1e9c296b-28f2-400d-9594-d0536733900a'}}/>
+                      )}
+                    </IconDisplay>
 
                   </UserInfo>
                   </UserItem>
