@@ -86,9 +86,9 @@ const UserEmail = styled.Text`
 `;
 
 const UserImage = styled.Image`
-  border-radius: 40px;
-  width: 50px;
-  height: 80px;
+  border-radius: 60px;
+  width: 100px;
+  height: 100px;
 `;
 
 const UserButton = styled.TouchableOpacity`
@@ -106,14 +106,13 @@ flex-direction: row;
 `
 
 const UserInTower = styled.View`
-  top: 80px;
-  left: 40px;
+  bottom: 10%;
+  left: -8%;
   width: 20px;
   height: 20px;
   border-radius: 30px;
-  border: 1px solid black;
-  z-index: 1;
   position: absolute;
+  z-index: 2;
 `;
 
 const PieStyle = styled.View`
@@ -189,11 +188,10 @@ const Admin = () => {
               
               return (
                 <UserItem key={`${user._id}_${index}`}>
-                  <UserInTower style={{ backgroundColor: user.towerAccess ? "#10D24B" : "red" }}/>
                   <UserImage source={{ uri: user.imgURL }} />
                   
                   <UserInfo>
-                    
+                    <UserInTower style={{ backgroundColor: user.towerAccess ? "#10D24B" : "red" }}/>
                     <UserEmail>{user.name}</UserEmail>
                     <UserThings>
                       <UserButton onPress={() => showAlertWithUsername(user, index)}>
