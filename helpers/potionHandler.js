@@ -1,33 +1,64 @@
 
+import axios from 'axios';
+import socket from '../helpers/socket';
 
-export default function potionHandler(ingredient1, ingredient2){
 
-    const commonEffects = [];
-    ingredient1.effects.forEach(el=> {
-        commonEffects.push(el);
-    });
+export default async function potionHandler(ingredient1, ingredient2, user){
+    const affections = await fetchAffections(user);
+    // console.log(affections);
 
-    ingredient2.effects.forEach(el2=> {
-        let check = 0;
-        ingredient1.effects.forEach(el1 => {
-            if(el2 === el1)
-                check++;
+
+    let potion = [];
+
+    if(ingredient1.effects){
+        ingredient1.effects.forEach((ingEffect) => {
+            affections.forEach((affection) => {
+                affection.healing_effects.forEach(affectionEffect => {
+                    if(affectionEffect === ingEffect){
+                        potion = affection;
+                    }
+                })
+            })
+        
         })
+        if(potion){
+            ingredient2.effects.forEach(ingEffect => {
+                potion.healing_effects.forEach(affectionEffect => {
+                    if(ingEffect === affectionEffect){
+                        //crear pocion
+                        if(user){
+                            cureCurse(user.email, potion.id);
+                            return potion.name
+        
+                        }
+                    }
+                })
+            })
+    
+        }
+    }
+    
 
-        if(check === 0)
-            commonEffects.push(el2)
-    })
-
-    let ingredientName = "Potion of ";
-
-    commonEffects.forEach(el => {
-        ingredientName += el+", ";
-    })
-
-    ingredientName = ingredientName.substring(0, ingredientName.length-2)
-
-   // alert(ingredientName)
-    return ingredientName;
+    return "failedPotion";
 }
 
+
+async function fetchAffections(user) {
+    try {
+      const response = await axios.get('https://fly-eg-staging.fly.dev/api/affection/');
+      const responseData = response.data.data;
+        return responseData;
+    } catch (error) {
+      console.error('Error al obtener los ingredientes:', error);
+    }
+  }
  
+
+  function cureCurse(userEmail, diseaseId){
+    const data = {
+      "email": userEmail,
+      "apply": false,
+      "diseaseId": diseaseId
+    }
+    socket.emit('sickUser', data);
+  }
