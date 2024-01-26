@@ -111,22 +111,7 @@ const GoogleModal = ({logStatus, setMethod, setUser}) =>{
     const allUsers = await authFetch('/users', {
       email: "guest"
     });
-    handleGlobalState({userList: allUsers.data.data});
-    const guestUser = {
-      "name": "",
-      "email": "",
-      "rol": "",
-      "logState": true,
-      "towerAccess": false,
-      "characterMainData": {},
-      "characterStats": {},
-      "diseases": {},
-      "imgURL": "",
-      "inventory": []
-    }
-    setUser(guestUser)
-    await storeData(guestUser)
-
+    
 
     setUserLoad(true)
 
