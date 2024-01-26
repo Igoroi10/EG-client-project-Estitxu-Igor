@@ -80,15 +80,15 @@ const UserInfo = styled.View`
 `;
 
 const UserEmail = styled.Text`
-  font-size: 18px;
+  font-size: 12px;
   color: #333;
-  margin-left: 10px;
+  margin-left: 15px;
 `;
 
 const UserImage = styled.Image`
-  border-radius: 40px;
-  width: 50px;
-  height: 80px;
+  border-radius: 60px;
+  width: 100px;
+  height: 100px;
 `;
 
 const UserButton = styled.TouchableOpacity`
@@ -106,14 +106,13 @@ flex-direction: row;
 `
 
 const UserInTower = styled.View`
-  top: 80px;
-  left: 40px;
+  bottom: 10%;
+  left: -8%;
   width: 20px;
   height: 20px;
   border-radius: 30px;
-  border: 1px solid black;
-  z-index: 1;
   position: absolute;
+  z-index: 2;
 `;
 
 const PieStyle = styled.View`
@@ -124,6 +123,22 @@ top: 5px;
 
 `
 
+const IconDisplay = styled.View`
+  display: flex;
+  flex-direction: row;
+  align-content: center;
+`
+const Icon = styled.Image`
+  display: flex;
+  width: 40px;
+  height: 40px;
+  border-radius: 50px;
+`
+const DamnIcon = styled.Image`
+  width: 40px;
+  height: 40px;
+  border-radius: 50px;
+`
 
 
 const Admin = () => {
@@ -173,12 +188,11 @@ const Admin = () => {
               
               return (
                 <UserItem key={`${user._id}_${index}`}>
-                  <UserInTower style={{ backgroundColor: user.towerAccess ? "#10D24B" : "red" }}/>
                   <UserImage source={{ uri: user.imgURL }} />
                   
                   <UserInfo>
-                    
-                    <UserEmail>{user.email}</UserEmail>
+                    <UserInTower style={{ backgroundColor: user.towerAccess ? "#10D24B" : "red" }}/>
+                    <UserEmail>{user.name}</UserEmail>
                     <UserThings>
                       <UserButton onPress={() => showAlertWithUsername(user, index)}>
                         <ButtonText>VER PERFIL</ButtonText>
@@ -192,11 +206,17 @@ const Admin = () => {
                           color={pieColor}
                           unfilledColor="#D3D3D3"
                           borderColor="black"
-
                         />
                     </PieStyle> */}
                     </UserThings>
-                    
+                    <IconDisplay>
+                      {user.diseases.marrow_apocalypse || user.diseases.rotting_plague || user.diseases.epic_weakness && (
+                        <Icon source={{uri: 'https://firebasestorage.googleapis.com/v0/b/equipo-ganador.appspot.com/o/poisoned_icon.jpeg?alt=media&token=8c6d2d52-c36b-4b88-bad5-7e203740ef2b'}}/>
+                      )}
+                      {user.diseases.ethazium && (
+                        <Icon source={{uri: 'https://firebasestorage.googleapis.com/v0/b/equipo-ganador.appspot.com/o/damned_icon.jpeg?alt=media&token=1e9c296b-28f2-400d-9594-d0536733900a'}}/>
+                      )}
+                    </IconDisplay>
 
                   </UserInfo>
                   </UserItem>
