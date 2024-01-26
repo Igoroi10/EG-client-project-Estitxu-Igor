@@ -129,10 +129,13 @@ const Profile = () => {
                     
                     <UserEmail>{user.name}</UserEmail>
                     <UserThings>
-                      <UserButton onPress={() => applyCurse(user.email)}>
-                        <ButtonText>apply ethazium</ButtonText>
+                      {!user.diseases.ethazium &&(
+                        <UserButton onPress={() => applyCurse(user.email)}>
+                          <ButtonText>apply ethazium</ButtonText>
+                        </UserButton>
+
+                      )}
                   
-                    </UserButton>
                     </UserThings>   
 
                   </UserInfo>

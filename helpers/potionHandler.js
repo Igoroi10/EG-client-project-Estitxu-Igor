@@ -16,6 +16,7 @@ export default async function potionHandler(ingredient1, ingredient2, user){
                 affection.healing_effects.forEach(affectionEffect => {
                     if(affectionEffect === ingEffect){
                         potion = affection;
+                        console.log(potion)
                     }
                 })
             })
@@ -28,6 +29,7 @@ export default async function potionHandler(ingredient1, ingredient2, user){
                         //crear pocion
                         if(user){
                             cureCurse(user.email, potion.id);
+                            console.log("correct potion")
                             return potion.name
         
                         }
