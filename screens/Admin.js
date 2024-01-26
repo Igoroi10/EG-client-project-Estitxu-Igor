@@ -210,7 +210,7 @@ const Admin = () => {
                     </PieStyle> */}
                     </UserThings>
                     <IconDisplay>
-                      {user.diseases.marrow_apocalypse || user.diseases.rotting_plague || user.diseases.epic_weakness && (
+                      {(user.diseases.marrow_apocalypse || user.diseases.rotting_plague || user.diseases.epic_weakness) && (
                         <Icon source={{uri: 'https://firebasestorage.googleapis.com/v0/b/equipo-ganador.appspot.com/o/poisoned_icon.jpeg?alt=media&token=8c6d2d52-c36b-4b88-bad5-7e203740ef2b'}}/>
                       )}
                       {user.diseases.ethazium && (
