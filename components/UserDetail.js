@@ -145,14 +145,25 @@ const UserDetail = ({ isVisible, choosedUser, closeModal, num }) => {
   const diseases = ["marrow_apocalypse", "epic_weakness", "rotting_plague", "ethazium"];
 
   let textOfDiseases = "Diseases: ";
+  diseases.forEach(name => {
+    if(selectedUser){
+      if(selectedUser.diseases[name] === true){
+        textOfDiseases += name + ", ";
+      }
+    }
+  })
+
+  useEffect(() => {
     diseases.forEach(name => {
       if(selectedUser){
         if(selectedUser.diseases[name] === true){
           textOfDiseases += name + ", ";
         }
       }
-
+  
     })
+
+  }, [globalState.userList])
 
     useEffect(() => {
       // console.log("*****************Enters in USEEFFECT**********************")
@@ -179,6 +190,8 @@ const UserDetail = ({ isVisible, choosedUser, closeModal, num }) => {
 
         }
       }
+
+
      }, [selectedUser])
  
 
@@ -288,7 +301,7 @@ const UserDetail = ({ isVisible, choosedUser, closeModal, num }) => {
                     )}
                   </View>
               )}
-                {(globalState.user.rol === "Mortimer" || globalState.user.rol === "Villano" )&&(
+                {(globalState.user.rol === "Villano" )&&(
                   <Buttons style={{ top: 0, height: 100}}>
                     {!selectedUser.diseases.marrow_apocalypse && (
                       <DiseaseButton onPress={() => applyDisease("marrow_apocalypse")}>
