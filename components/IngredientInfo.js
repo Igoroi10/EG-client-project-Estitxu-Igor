@@ -5,7 +5,7 @@ import { Text, View, TouchableOpacity , ScrollView} from 'react-native';
 
 import { Context } from '../AppContext';
 import FirstFace from './FirstFace';
-
+import IngredientEffects from './IngredientEffects'
  
 const ModalText = styled.Text`
   font-size: 20px;
@@ -18,12 +18,7 @@ const ModalText = styled.Text`
 const CloseButton = styled.TouchableOpacity`
   padding: 0px;
   border-radius: 0px;
-  left: 5%;
 `;
-
-
-
-
 
 const Buttons = styled.View`
   flex-direction: row;
@@ -33,41 +28,29 @@ const ContentContainer = styled.View`
   border-radius: 10px;
   margin-top: 20%;
   background-color: #fff;
-  padding: 20px;
+  padding: 0px;
   width: 90%;
-  
+  height: 58%
+
 `;
 
 const UserDetail = ({ isVisible, closeModal, item }) => {
-  const{globalState, handleGlobalState} = useContext(Context);
-
-
-
-
-    useEffect(() => {
-
-
-
-     }, [])
-   
 
       return (
-        <Modal isVisible={isVisible} alignItems='center'>
+        <Modal isVisible={isVisible} alignItems='center' style={{top: '-5%'}}>
           <ContentContainer>
-            <ScrollView>
               <View style={{top: 0}}>
-              <CloseButton onPress={closeModal}>
+                <CloseButton onPress={closeModal} >
                   <ModalText>X </ModalText>
                 </CloseButton>
 
-                <View style={{top: 0}}>
-                <FirstFace user={item}/>
-
+                <View style={{top: -15}}>
+                  <FirstFace user={item}/>
+                  <IngredientEffects item={item} />
                 </View>
               
 
               </View>
-            </ScrollView>
           </ContentContainer>
         </Modal>
 
