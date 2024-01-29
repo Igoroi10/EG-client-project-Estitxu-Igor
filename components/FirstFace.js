@@ -45,25 +45,52 @@ const Text = styled.Text`
     text-align: center;
     color: white;
     text-shadow: 2px 2px 2px black;
+`;
 
-`
+const Text2 = styled.Text`
+    font-size: 20px;
+    font-weight: bold;
+    margin: 0 10px;
+    padding-top: 25px;
+    text-align: center;
+    color: black;
+`;
+
 
 const FirstFace = ({user}) => {
-    return (
-        <>
-        {user &&(
+
+    if(user){
+        return (
             <Container>
                 <UserCard>
-                    <ProfilePicture source={{ uri: user.imgURL }} />
+                    {user.imgURL && (
+                        <ProfilePicture source={{ uri: user.imgURL }} />
+                    )}
+                    {user.image && (
+                        <ProfilePicture source={{ uri: user.image }} />
+                    )}
+
                 </UserCard>
                 <UserCardFooter>
-                    <Text>{user?.name}</Text>
+                    {user.imgURL && (
+                        <Text>{user.name}</Text>
+                    )}
+
+                    {user.image && (
+                        <Text2>{user.name}</Text2>
+                    )}
                 </UserCardFooter>
             </Container>
-        )}
             
-        </>
     );
+
+    }
+    else{
+        return(
+            <>
+            </>
+        )
+    }
 };
   
 

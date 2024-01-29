@@ -90,7 +90,7 @@ const PotionsModal = ({ towerStatus, setTowerStatus, potionStatus, setPotionCrea
             <IngredientItem
               onPress={() => handleIngredientPress(item)}
               selected={selectedIngredients.includes(item)}
-              onLongPress={() => { console.log("onLongPress"); openModal(item) }}
+              onLongPress={() => { openModal(item) }}
             >
               {item.image && (
               <Image source={{ uri: item.image }} style={styles.image} />
