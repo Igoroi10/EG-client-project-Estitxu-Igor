@@ -4,12 +4,15 @@ import styled from 'styled-components/native';
 import axios from 'axios';
 import Toast from 'react-native-toast-message';
 import potionHandler from '../helpers/potionHandler';
-
+import IngredientInfo from './IngredientInfo'
 
 
 const PotionsModal = ({ towerStatus, setTowerStatus, potionStatus, setPotionCreated, user }) => {
   const [selectedIngredients, setSelectedIngredients] = useState([]);
   const [ingredientsData, setIngredientsData] = useState([]);
+  const [isModalVisible, setIsModalVisible] = useState(false);
+  const [whichitem, setWhichitem] = useState(0);
+
 
   useEffect(() => {
     async function fetchIngredients() {
@@ -62,6 +65,19 @@ const PotionsModal = ({ towerStatus, setTowerStatus, potionStatus, setPotionCrea
     setPotionCreated('start');
     deleteIngredients();
   };
+
+
+  const openModal = (item) => {
+    setIsModalVisible(true);
+    setWhichitem(item);
+
+  };
+
+  const closeModal = () => {
+    setIsModalVisible(false);
+  };
+
+
   return (
     <ModalContainer transparent={true} visible={towerStatus === 'potionCreation' && potionStatus !== 'Potion of cleanse_parchment'}>
       <ContentContainer>
@@ -74,6 +90,7 @@ const PotionsModal = ({ towerStatus, setTowerStatus, potionStatus, setPotionCrea
             <IngredientItem
               onPress={() => handleIngredientPress(item)}
               selected={selectedIngredients.includes(item)}
+              onLongPress={() => { console.log("onLongPress"); openModal(item) }}
             >
               {item.image && (
               <Image source={{ uri: item.image }} style={styles.image} />
@@ -105,7 +122,14 @@ const PotionsModal = ({ towerStatus, setTowerStatus, potionStatus, setPotionCrea
           </DeleteIngredientsButton>
         </ButtonContainer>
       </ContentContainer>
+      <IngredientInfo
+        isVisible={isModalVisible}
+        closeModal={closeModal}
+        item={whichitem}
+      />
     </ModalContainer>
+
+
   );
 };
 
