@@ -19,9 +19,6 @@ import socket from './helpers/socket.js'
 import SocketListener from './components/SocketListener';
 
 import Toast from 'react-native-toast-message'
-import axios from 'axios';
-import { fetchArtifacts, fetchSearchStatus, fetchAllUsers } from './helpers/fetchs';
-import { forEachChild } from 'typescript';
 import FoundByArtifact from './helpers/FoundByArtifact.js';
 
 import authFetch from './helpers/interceptor.js';
@@ -76,9 +73,6 @@ const App = () => {
           email: userData.email
         });    
 
-        // const artifactsData = await fetchArtifacts();
-        // const searchState = await fetchSearchStatus();
-        // const allUsers = await fetchAllUsers();
         setLogged(true);
         setUserRole(userData.rol);
         setUser(userData);

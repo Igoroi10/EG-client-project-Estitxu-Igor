@@ -1,6 +1,5 @@
 import React, {useState, useEffect, useContext} from "react";
 import Modal from 'react-modal';
-import { View, Text, Image, ActivityIndicator, StyleSheet, FlatListComponent } from 'react-native';
 import styled from "styled-components/native";
 
 import { Context } from '../AppContext';

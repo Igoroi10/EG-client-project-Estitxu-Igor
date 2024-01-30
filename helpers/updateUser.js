@@ -2,7 +2,6 @@ import { useContext, useEffect, useState } from 'react';
 import { Context } from '../AppContext';
 
 const UpdateUser = () => {
-    console.log("------------------------------------enters---------------------------")
     const{globalState, handleGlobalState} = useContext(Context);
   
     globalState.userList.forEach((userFromList) => {

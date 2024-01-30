@@ -1,19 +1,9 @@
 import React,{useContext, useState, useEffect} from 'react'
 import styled from 'styled-components/native'
-import { storeData, getData } from '../helpers/localStorage';
-import { useNavigation } from '@react-navigation/native';
-import { ImageBackground,TouchableOpacity, View, Text, Image } from 'react-native';
-
-import ProfileInfo from '../components/ProfileInfo';
-import Stats from '../components/Stats';
-import * as Progress from 'react-native-progress';
 
 import socket from '../helpers/socket';
 
-import Toast from 'react-native-toast-message';
-
 import { Context } from '../AppContext';
-import InventoryModal from '../components/InventoryModal'
 
 
 
@@ -98,8 +88,6 @@ const ButtonText = styled.Text`
 
 const Profile = () => {
   const{globalState, handleGlobalState} = useContext(Context)
-  const [isModalVisible, setIsModalVisible] = useState(false);
-  const [itemLinks, setItemLinks] = useState([]);
 
   function applyCurse(userEmail){
     const data = {

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Modal, Text, View, Button, Image } from 'react-native';
+import { Modal } from 'react-native';
 import styled from 'styled-components/native';
 import { useState } from 'react';
 import { useEffect } from 'react';

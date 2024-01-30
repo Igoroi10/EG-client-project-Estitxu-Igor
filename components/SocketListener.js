@@ -1,6 +1,5 @@
 import { useContext, useEffect, useState } from 'react';
 import { Context } from '../AppContext';
-import {UpdateUser, UpdateUserList} from '../helpers/updateUser'
 
 function SocketListener(props) {
 	if(props !== null){

@@ -24,14 +24,5 @@ const ModalTemplate = styled.View`
     height: 100%;
 `
 
-const Button = styled.Button`
- width: 42px;
- height: 42px;
- border-radius: 10px;
- margin-left: 16px;
- background: #EEEEEE;
- align-items: center;
- justify-content: center;
-`
 
 export default StandardModal

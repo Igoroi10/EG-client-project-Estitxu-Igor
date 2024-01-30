@@ -1,6 +1,4 @@
 import React from 'react';
-import { Text, View, TouchableOpacity, Image, Button } from 'react-native';
-import Toast from 'react-native-toast-message';
 import styled from 'styled-components/native';
 import { useState } from 'react';
 const ModalContainer = styled.Modal`

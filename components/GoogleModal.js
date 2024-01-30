@@ -1,15 +1,13 @@
-import React, { useEffect, useState, useContext} from 'react'
+import React, { useState, useContext} from 'react'
 import Modal from 'react-modal';
-import { View, Text, Image, ActivityIndicator, StyleSheet } from 'react-native';
+import { Text, ActivityIndicator, StyleSheet } from 'react-native';
 import styled from "styled-components/native";
-import { Button } from 'react-native';
 import auth from '@react-native-firebase/auth';
 import { GoogleSignin } from '@react-native-google-signin/google-signin';
 import axios from 'axios'
 import{storeData} from '../helpers/localStorage'
 import { Context } from '../AppContext';
 import {setSecureValue, getSecureAccess, getSecureRefresh} from './../helpers/keychain';
-import { fetchArtifacts, fetchSearchStatus, fetchAllUsers } from '../helpers/fetchs';
 import FoundByArtifact from '../helpers/FoundByArtifact.js';
 
 import authFetch from '../helpers/interceptor.js';
@@ -84,9 +82,6 @@ const GoogleModal = ({logStatus, setMethod, setUser}) =>{
     const allObjects = await authFetch('/object', {
       email: globalState.user.email
     });  
-    // const artifactsData = await fetchArtifacts();
-    // const searchState = await fetchSearchStatus();
-    // const allUsers = await fetchAllUsers();
 
     FoundByArtifact(allUsers.data.data, artifactsData.data.data);
         

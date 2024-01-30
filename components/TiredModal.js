@@ -1,6 +1,5 @@
 import React, {useState, useEffect, useContext} from "react";
 import Modal from 'react-modal';
-import { View, Text, Image, ActivityIndicator, StyleSheet, FlatListComponent } from 'react-native';
 import styled from "styled-components/native";
 
 import { Context } from '../AppContext';
@@ -10,12 +9,6 @@ Modal.setAppElement('#yourAppElement');
 
 const TiredModal = () =>{
   const{globalState, handleGlobalState} = useContext(Context);
-
-  // useEffect(() => {
-  //   console.log("ÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇÇ" + globalState.user.characterStats.stamina)
-  //   console.log(globalState.user.characterStats.stamina<=20?true:false)
-
-  // }, [Object.values(globalState.userList)])
 
   return(
     <ModalPage>

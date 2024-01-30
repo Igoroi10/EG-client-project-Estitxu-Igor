@@ -5,11 +5,7 @@ import { Context } from '../AppContext';
 
 import MapView, { PROVIDER_GOOGLE, Marker} from 'react-native-maps';
 import Geolocation from '@react-native-community/geolocation';
-
-import axios from 'axios';
-
 import socket from '../helpers/socket';
-// import SocketListener from './components/SocketListener';
 
 import descriptions from '../descriptions/descriptions'
 
@@ -152,9 +148,6 @@ const styles = StyleSheet.create({
         const initLong = userLocation.longitude
         setInitLocation({latitude: initLat, longitude: initLong})
       }
-      // console.log("position (lat & long):")
-      // console.log(userLocation.latitude)
-      // console.log(userLocation.longitude)
 
 
       globalState.artifacts.forEach((artifact) => {
@@ -268,7 +261,6 @@ const styles = StyleSheet.create({
 
           setIsEndFinding(false)
 
-      // console.log(artifactNear)
     }
 
 
@@ -301,7 +293,6 @@ const styles = StyleSheet.create({
       return d; //ditancia en km
     }
 
-    // handleGlobalState({search: "validated"})
     async  function enterCrypt() {
       handleGlobalState({insideCrypt: true})
 
@@ -349,7 +340,7 @@ const styles = StyleSheet.create({
                             description={descriptions[index].esp}
                           >
                             <Image
-                              source={{ uri: artifact.img }} //aqui va la img del atributo TODO
+                              source={{ uri: artifact.img }} 
                               style={{ width: 40, height: 40 }} />
                           </Marker>
                         ) : null
@@ -358,7 +349,6 @@ const styles = StyleSheet.create({
 
                         {globalState.user.rol == "Mortimer" && (
                             globalState.userList.map((user, index) => user ? (
-                              // (user.latitude !== 0 || user.longitude !== 0) ? (
                                 user.rol === "Acolito" && user.characterStats.stamina>20&& (
                                   <Marker
                                   key={index}
@@ -375,7 +365,6 @@ const styles = StyleSheet.create({
         
                                 )
                               ) : null
-                            // ) : null
                             )
                         )}
                           
@@ -403,7 +392,7 @@ const styles = StyleSheet.create({
                         <Column key={index}>
                           {artifact && (
                             artifact.found && (
-                              <Image source={{ uri: artifact.img }} style={imageStyle} /> //aqui va la img del atributo TODO
+                              <Image source={{ uri: artifact.img }} style={imageStyle} /> 
                             ))}
                           {artifact.foundBy[0].imgURL && artifact.found &&(
                               <Image source={{ uri: artifact.foundBy[0].imgURL }} style={foundByImgStyle} /> 

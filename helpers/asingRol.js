@@ -1,8 +1,6 @@
 import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs';
 
-import MyStack from '../components/MyStack.js';
 import Profile from '../screens/Profile';
-import Potions from '../screens/Potions';
 import QRCodeGeneratorScreen from '../screens/QR.js';
 import Tower from '../screens/Tower.js';
 import Admin from '../screens/Admin.js';
@@ -15,12 +13,6 @@ const Tab = createMaterialTopTabNavigator();
 
 
 const asignRol = async (userRole, tabScreens, user) => {
-    // let userRole;
-    // if(user !== null){
-    //     // userRole= user[0].rol;
-    // }
-    // else
-    //     userRole = null;
 
     tabScreens.splice(0)
 
@@ -40,7 +32,6 @@ const asignRol = async (userRole, tabScreens, user) => {
             <Tab.Screen key="Profile" name="Profile">
                 {() => <Profile user={user} />}
             </Tab.Screen>,
-            //<Tab.Screen key="Potions" name="Potions" component={Potions} />,
             <Tab.Screen key="QR" name="QR" component={QRCodeGeneratorScreen} />,
             <Tab.Screen key="TOWER" name="TOWER" component={Tower} />,
             <Tab.Screen key="MAPS" name="MAPS" component={Maps} />,

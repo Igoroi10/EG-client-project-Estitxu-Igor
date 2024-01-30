@@ -24,14 +24,6 @@ const Column = styled.View`
 `;
 
 
-const FirstColumn = styled.View`
-  flex: 1;
-  justify-content: center;
-  align-items: center;
-  left: -20px;
-  top: 0px
-`;
-
 const Text = styled.Text`
   font-size: 16px;
   font-weight: bold;

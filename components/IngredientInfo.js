@@ -1,9 +1,8 @@
-import React, { useState, useEffect, useContext }  from 'react';
+import React from 'react';
 import Modal from 'react-native-modal';
 import styled from 'styled-components/native';
-import { Text, View, TouchableOpacity , ScrollView} from 'react-native';
+import { View} from 'react-native';
 
-import { Context } from '../AppContext';
 import FirstFace from './FirstFace';
 import IngredientEffects from './IngredientEffects'
  
@@ -20,9 +19,7 @@ const CloseButton = styled.TouchableOpacity`
   border-radius: 0px;
 `;
 
-const Buttons = styled.View`
-  flex-direction: row;
-`
+
 
 const ContentContainer = styled.View`
   border-radius: 10px;

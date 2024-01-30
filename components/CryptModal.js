@@ -1,6 +1,5 @@
-import React, {useState, useEffect, useContext} from "react";
+import React, {useContext} from "react";
 import Modal from 'react-modal';
-import { View, Text, Image, ActivityIndicator, StyleSheet, TouchableHighlight } from 'react-native';
 import styled from "styled-components/native";
 
 import { Context } from '../AppContext';
@@ -52,27 +51,12 @@ const Slot1 = styled.TouchableHighlight`
   width: 50%;
   height: 100%;
 `
-const Slot2 = styled.TouchableHighlight`
-  width: 50%;
-  height: 50%;
-`
-const Slot3 = styled.TouchableHighlight`
-  width: 50%;
-  height: 51%;
-
-`
 
 const TopView = styled.View`
   display: flex;
   flex-direction: row;
   height: 50%;
 `
-
-const ModalTemplate = styled.Modal`
-  position: absolute;
-  width: 100%;
-  height: 100%;
-`;
 
 const ModalImage = styled.Image`
   width: 100%;

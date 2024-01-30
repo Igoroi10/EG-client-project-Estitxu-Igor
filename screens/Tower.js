@@ -17,11 +17,6 @@ const View = styled.View`
   align-items: center;
 `;
 
-const Text = styled.Text`
-  font-size: 16px;
-  font-weight: bold;
-  color: white;
-`;
 
 const ImageBackground = styled.ImageBackground`
   flex: 1;
@@ -43,11 +38,6 @@ const Button = styled.TouchableOpacity`
   border-radius: 10px;
 `;
 
-const ViewModal = styled.View`
-  position:absolute;
-  margin-top: 20%;
-  height: 60%;
-`
 const Tower = () => {
   const [towerState, setTowerState] = useState("start");
   const [potionState, setPotion] = useState("start");

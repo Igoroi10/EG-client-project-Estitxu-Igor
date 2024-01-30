@@ -5,8 +5,6 @@ import socket from '../helpers/socket';
 
 export default async function potionHandler(ingredient1, ingredient2, user){
     const affections = await fetchAffections(user);
-    // console.log(affections);
-
 
     let potion = [];
 
@@ -26,7 +24,6 @@ export default async function potionHandler(ingredient1, ingredient2, user){
             ingredient2.effects.forEach(ingEffect => {
                 potion.healing_effects.forEach(affectionEffect => {
                     if(ingEffect === affectionEffect){
-                        //crear pocion
                         if(user){
                             cureCurse(user.email, potion.id);
                             console.log("correct potion")

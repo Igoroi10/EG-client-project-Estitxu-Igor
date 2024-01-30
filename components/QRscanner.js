@@ -1,16 +1,7 @@
 import React, { Component, useEffect, useState } from 'react';
-import {
-  StyleSheet,
-  Text,
-  TouchableOpacity,
-  Linking
-} from 'react-native';
 
 import Toast from 'react-native-toast-message';
 import QRCodeScanner from 'react-native-qrcode-scanner';
-import { RNCamera } from 'react-native-camera';
-import { storeData, getData } from '../helpers/localStorage';
-import styled from 'styled-components/native';
 import axios from 'axios';
 
 import RNQRGenerator from 'rn-qr-generator';
@@ -25,8 +16,6 @@ const ScanScreen = ({ onClose }) => {
 
     if (validEmail) {
       const towerState= validEmail.data[0].towerAccess;
-      // console.log(towerState)
-        // alert("Valid user!")
         let userText;
         if(towerState === true)
           userText = 'El acólito tiene acceso al torreón'

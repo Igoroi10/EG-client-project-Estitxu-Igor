@@ -1,38 +1,12 @@
 import React, { useState, useEffect, useContext } from 'react';
 import styled from 'styled-components/native';
-import axios from 'axios';
-import { TouchableOpacity, View, Text } from 'react-native';
-import Modal from 'react-native-modal';
 import { useNavigation } from '@react-navigation/native';
 import UserDetail from '../components/UserDetail'; // Importa el nuevo componente
-import Toast from 'react-native-toast-message';
 
 import { Context } from '../AppContext';
 
 import * as Progress from 'react-native-progress';
 
-const ModalContainer = styled.View`
-  flex: 1;
-  align-items: center;
-  background-color: #FFFFFF;
-  padding: 20px;
-`;
-
-const ModalText = styled.Text`
-  font-size: 16px;
-  font-weight: bold;
-  color: black;
-  margin: 10px;
-  text-align: center;
-`;
-
-const ModalTitle = styled.Text`
-  font-size: 20px;
-  font-weight: bold;
-  color: black;
-  margin: 10px;
-  text-align: center;
-`;
 
 const Container = styled.View`
   flex: 1;
@@ -41,11 +15,6 @@ const Container = styled.View`
   background-color: #f0f0f0;
 `;
 
-const Button = styled.TouchableOpacity`
-  background-color: #0073e6;
-  padding: 10px 20px;
-  border-radius: 10px;
-`;
 
 const ButtonText = styled.Text`
   color: white;
@@ -134,11 +103,7 @@ const Icon = styled.Image`
   height: 40px;
   border-radius: 50px;
 `
-const DamnIcon = styled.Image`
-  width: 40px;
-  height: 40px;
-  border-radius: 50px;
-`
+
 
 
 const Admin = () => {

@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import { FlatList, Text, View, TouchableOpacity , Image} from 'react-native';
+import { FlatList, Text , Image} from 'react-native';
 import styled from 'styled-components/native';
-import fakeIngredients from '../fakeData/fakeIngredients.json';
 import potionHandler from '../helpers/potionHandler';
 import axios from 'axios';
 

@@ -2,12 +2,9 @@ import React, { useState, useEffect, useContext }  from 'react';
 import Modal from 'react-native-modal';
 import styled from 'styled-components/native';
 import { Text, View, TouchableOpacity , ScrollView} from 'react-native';
-import Profile from '../screens/Profile'
 import FirstFace from '../components/FirstFace';
 import ProfileInfo from '../components/ProfileInfo';
 import Stats from '../components/Stats';
-import Slider from '@react-native-community/slider';
-import { storeData, getData } from '../helpers/localStorage';
 
 import socket from '../helpers/socket';
 
@@ -77,11 +74,6 @@ const CureButton = styled.TouchableOpacity`
   top: 5px;
 `;
 
-const DiseasedButtonText = styled.Text`
-  color: white;
-  font-size: 16px;
-  font-weight: bold;
-`;
 
 const DiseaseButton = styled.TouchableOpacity`
   background-color: blue;
@@ -113,15 +105,6 @@ const DiseasesText = styled.Text`
     top: -10px;
 `;
 
-const SliderText = styled.Text`
-  font-size: 16px;
-  font-weight: bold;
-  color: black;
-  margin: 0px;
-  text-align: center;
-  bottom: 0px;
-  top: -10px;
-`;
 
 const BackgroundImage = styled.ImageBackground`
   flex: 1;

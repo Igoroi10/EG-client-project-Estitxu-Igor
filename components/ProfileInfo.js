@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from 'react';
 import styled from 'styled-components/native';
-import {  View, TouchableOpacity , ScrollView} from 'react-native';
+import { View } from 'react-native';
 import Slider from '@react-native-community/slider';
 import { storeData, getData } from '../helpers/localStorage';
 
@@ -157,40 +157,6 @@ const FirstFace = ({user}) => {
           )}
         </NameColumn>
 
-
-
-
-
-
-
-
-{/* 
-<SliderText style={{ color: 'white', textShadowColor: 'black', textShadowOffset: { width: 2, height: 2 }, textShadowRadius: 2 }}> Money: {Math.floor(sliderValueMoney)} </SliderText>
-            <Slider
-              style={{width: 225, height: 40, left: 50, top: -10}}
-              minimumValue={0}
-              maximumValue={100}
-              minimumTrackTintColor="white"
-              maximumTrackTintColor="white"
-              onValueChange={(value) => setSliderValueMoney(value)}
-            /> */}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-            
-     
       </Container>
     )}
      

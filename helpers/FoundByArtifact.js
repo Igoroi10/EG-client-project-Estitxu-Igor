@@ -4,7 +4,6 @@ const FoundByArtifact = (allUsers, artifactsData) => {
         allUsers.forEach((user) => {
             if(artifact.foundBy[0] === user._id){
                 artifact.foundBy[0] = user;
-                // newArtifacts.push(artifact)
             }
         })
     })

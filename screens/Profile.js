@@ -1,10 +1,6 @@
 import React,{useContext, useState, useEffect} from 'react'
 import styled from 'styled-components/native'
 import { storeData, getData } from '../helpers/localStorage';
-import { useNavigation } from '@react-navigation/native';
-import { ImageBackground } from 'react-native';
-import ProfileInfo from '../components/ProfileInfo';
-import Stats from '../components/Stats';
 import * as Progress from 'react-native-progress';
 
 import socket from '../helpers/socket';
@@ -108,13 +104,6 @@ const Column = styled.View`
 `;
 
 
-const FirstColumn = styled.View`
-  flex: 1;
-  justify-content: center;
-  align-items: center;
-  left: -20px;
-`;
-
 const Text3 = styled.Text`
   font-size: 16px;
   font-weight: bold;
@@ -165,7 +154,6 @@ const Profile = ({user}) => {
   const [itemLinks, setItemLinks] = useState([]);
 
 
-  const navigation = useNavigation();
   const reestoreData = async () => {
       await storeData(null)
       Toast.show({
@@ -219,15 +207,6 @@ const Profile = ({user}) => {
 
       setIsModalVisible(true);  
 
-    //   let correctedUser = globalState.user;
-
-    //   const newInventory = globalState.user.inventory.filter((item,index)=>{
-    //     return globalState.user.inventory.indexOf(item) === index;
-    //   })
-
-    //   correctedUser.inventory = newInventory;
-
-    //   handleGlobalState({user: correctedUser})
     };
   
     const closeModal = () => {
@@ -275,7 +254,6 @@ const Profile = ({user}) => {
                       backgroundColor={'black'}
 
                     />
-                    {/* <Text2>{globalState.user.characterMainData.HP}</Text2> */}
                     </NameColumn>
                     <NameColumn>
                
@@ -291,7 +269,6 @@ const Profile = ({user}) => {
                       borderColor={'grey'}
                       backgroundColor={'black'}
                     />
-                    {/* <Text2>{globalState.user.characterMainData.Money}</Text2> */}
                     </NameColumn>
                 </Container2>
                 
