@@ -44,7 +44,8 @@ const IngredientEffects = ({item}) => {
             <Container>
                 <ItemCardFooter>
                     <Text>Effects:</Text>
-                    {item.effects.map(effect => {
+                    {item.effects.map((effect, index) => {
+                        key={index} 
                         return(
                             <EffectsText>- {effect}</EffectsText>
                         );
