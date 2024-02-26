@@ -110,11 +110,11 @@ const App = () => {
 
 
       socket.onAny((eventName, ...data) => {
-        console.log('************ SOCKET INCOMING **************')
-        console.log('************ EVENT **************')
-        console.log(eventName)
-        console.log('************ DATA *************')
-        console.log(data[0])
+        // console.log('************ SOCKET INCOMING **************')
+        // console.log('************ EVENT **************')
+        // console.log(eventName)
+        // console.log('************ DATA *************')
+        // console.log(data[0])
         setSocketEvent({event: eventName, value: data[0]})
 
         return () => {

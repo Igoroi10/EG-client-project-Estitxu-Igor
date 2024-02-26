@@ -197,8 +197,8 @@ const styles = StyleSheet.create({
     const coordEmit = () => {
       Geolocation.getCurrentPosition(
         (position) => {
-          console.log("******** Position gathered ********")
-          console.log(position.coords)
+          // console.log("******** Position gathered ********")
+          // console.log(position.coords)
           const {latitude, longitude} = position.coords;
           const data = {
             name: globalState.user.name,
@@ -206,9 +206,9 @@ const styles = StyleSheet.create({
             lon: longitude
           }
           if(data.lat !== 0 && data.lon !== 0){
-            console.log('*********COORDS SENT ***********')
-            console.log(data.lat)
-            console.log(data.lon)
+            // console.log('*********COORDS SENT ***********')
+            // console.log(data.lat)
+            // console.log(data.lon)
             socket.emit('coords', data)
           }
         },

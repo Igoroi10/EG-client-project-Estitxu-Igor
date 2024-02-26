@@ -3,8 +3,8 @@ import { FlatList, Image, View } from 'react-native';
 import styled from 'styled-components/native';
 import axios from 'axios';
 import Toast from 'react-native-toast-message';
-import potionHandler from '../helpers/potionHandler';
 import IngredientInfo from './IngredientInfo'
+import potionChecker from '../helpers/potionChecker';
 
 
 const PotionsModal = ({ towerStatus, setTowerStatus, potionStatus, setPotionCreated, user }) => {
@@ -38,7 +38,7 @@ const PotionsModal = ({ towerStatus, setTowerStatus, potionStatus, setPotionCrea
 
   const createPotion = () => {
     if (selectedIngredients.length === 2) {
-      const createdPotion = potionHandler(selectedIngredients[0], selectedIngredients[1], user);
+      const createdPotion = potionChecker(selectedIngredients[0], selectedIngredients[1], user);
       setPotionCreated(createdPotion);
       setTowerStatus('corruptScroll');
       deleteIngredients();
