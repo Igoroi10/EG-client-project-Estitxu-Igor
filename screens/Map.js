@@ -434,7 +434,7 @@ const styles = StyleSheet.create({
 
           {globalState.search === "validated" && (
 
-            <Background source={require('../assets/tombEntrance.png')}>  
+            <Background source={{uri: 'https://firebasestorage.googleapis.com/v0/b/equipo-ganador.appspot.com/o/tombEntrance.png?alt=media&token=96efe1ab-f11b-4ff3-9d35-efa5dd3f63c1'}}>  
             {globalState.user.rol == "Mortimer" &&  (
               <Button onPress={reinicio}>
                 <ButtonText>Reboot</ButtonText>

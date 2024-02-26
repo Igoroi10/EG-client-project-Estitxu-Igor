@@ -85,6 +85,8 @@ const InventoryModal = ({ isVisible, closeModal, itemLinks }) => {
   const [isCollected, setIsCollected] = useState(false);
 
   useEffect(() => {
+    console.log("***************** INVENTORY LINKS ******************")
+    console.log(globalState.items)
     let itemsFound = 0;
     globalState.items.forEach(item => {
       if(item.retrieved === true){
